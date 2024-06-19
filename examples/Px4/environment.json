@@ -1,0 +1,286 @@
+[
+    {
+        "environment": {
+            "Wind": {
+                "Direction": "SE",
+                "Velocity": 18
+            },
+            "Origin": {
+                "Latitude": 41.97984810593547,
+                "Longitude": -87.93607016252984,
+                "Height": 100,
+                "Name": "Coastal Area Simulation"
+            },
+            "TimeOfDay": "14:00:00",
+            "UseGeo": true,
+            "UseCFD": true
+        },
+        "monitors": {
+            "circular_deviation_monitor": {
+                "param": [
+                    12
+                ]
+            },
+            "collision_monitor": {
+                "param": []
+            },
+            "point_deviation_monitor": {
+                "param": [
+                    12
+                ]
+            },
+            "min_sep_dist_monitor": {
+                "param": [
+                    8,
+                    1
+                ]
+            },
+            "landspace_monitor": {
+                "param": [
+                    [
+                        [
+                            41.97984810593547,
+                            -87.93607016252984
+                        ]
+                    ]
+                ]
+            },
+            "no_fly_zone_monitor": {
+                "param": [
+                    [
+                        [
+                            41.97984810593547,
+                            -87.93607016252984
+                        ],
+                        [
+                            41.98,
+                            -87.935
+                        ],
+                        [
+                            41.9801,
+                            -87.934
+                        ]
+                    ]
+                ]
+            },
+            "wind_monitor": {
+                "param": [
+                    0.6
+                ]
+            }
+        }
+    },
+    {
+        "environment": {
+            "Wind": {
+                "Direction": "SW",
+                "Velocity": 8
+            },
+            "Origin": {
+                "Latitude": 41.97984810593547,
+                "Longitude": -87.93607016252984,
+                "Height": 1500,
+                "Name": "Mountainous Region"
+            },
+            "TimeOfDay": "08:00:00",
+            "UseGeo": true,
+            "UseCFD": true
+        },
+        "monitors": {
+            "circular_deviation_monitor": {
+                "param": [
+                    12
+                ]
+            },
+            "collision_monitor": {
+                "param": []
+            },
+            "point_deviation_monitor": {
+                "param": [
+                    10
+                ]
+            },
+            "min_sep_dist_monitor": {
+                "param": [
+                    8,
+                    1
+                ]
+            },
+            "landspace_monitor": {
+                "param": [
+                    [
+                        [
+                            41.97984810593547,
+                            -87.93607016252984
+                        ]
+                    ]
+                ]
+            },
+            "no_fly_zone_monitor": {
+                "param": [
+                    [
+                        [
+                            41.97984810593547,
+                            -87.93607016252984
+                        ],
+                        [
+                            41.98,
+                            -87.935
+                        ],
+                        [
+                            41.9801,
+                            -87.934
+                        ]
+                    ]
+                ]
+            },
+            "wind_monitor": {
+                "param": [
+                    0.4
+                ]
+            }
+        }
+    },
+    {
+        "environment": {
+            "Wind": {
+                "Direction": "SW",
+                "Velocity": 12
+            },
+            "Origin": {
+                "Latitude": 25.2048,
+                "Longitude": 55.2962,
+                "Height": 0,
+                "Name": "Desert Region"
+            },
+            "TimeOfDay": "12:00:00",
+            "UseGeo": true,
+            "UseCFD": true
+        },
+        "monitors": {
+            "circular_deviation_monitor": {
+                "param": [
+                    12
+                ]
+            },
+            "collision_monitor": {
+                "param": []
+            },
+            "point_deviation_monitor": {
+                "param": [
+                    12
+                ]
+            },
+            "min_sep_dist_monitor": {
+                "param": [
+                    8,
+                    1
+                ]
+            },
+            "landspace_monitor": {
+                "param": [
+                    [
+                        [
+                            25.2048,
+                            55.2962
+                        ]
+                    ]
+                ]
+            },
+            "no_fly_zone_monitor": {
+                "param": [
+                    [
+                        [
+                            25.2048,
+                            55.2962
+                        ],
+                        [
+                            25.2048,
+                            55.2962
+                        ],
+                        [
+                            25.2048,
+                            55.2962
+                        ]
+                    ]
+                ]
+            },
+            "wind_monitor": {
+                "param": [
+                    0.6
+                ]
+            }
+        }
+    },
+    {
+        "environment": {
+            "Wind": {
+                "Direction": "SW",
+                "Velocity": 3
+            },
+            "Origin": {
+                "Latitude": 41.97984810593547,
+                "Longitude": -87.93607016252984,
+                "Height": 10,
+                "Name": "Cityscape Simulation"
+            },
+            "TimeOfDay": "15:00:00",
+            "UseGeo": true,
+            "UseCFD": true
+        },
+        "monitors": {
+            "circular_deviation_monitor": {
+                "param": [
+                    10
+                ]
+            },
+            "collision_monitor": {
+                "param": []
+            },
+            "point_deviation_monitor": {
+                "param": [
+                    10
+                ]
+            },
+            "min_sep_dist_monitor": {
+                "param": [
+                    8,
+                    1
+                ]
+            },
+            "landspace_monitor": {
+                "param": [
+                    [
+                        [
+                            41.97984810593547,
+                            -87.93607016252984
+                        ]
+                    ]
+                ]
+            },
+            "no_fly_zone_monitor": {
+                "param": [
+                    [
+                        [
+                            41.97984810593547,
+                            -87.93607016252984
+                        ],
+                        [
+                            41.98,
+                            -87.935
+                        ],
+                        [
+                            41.98,
+                            -87.936
+                        ]
+                    ]
+                ]
+            },
+            "wind_monitor": {
+                "param": [
+                    0.3
+                ]
+            }
+        }
+    }
+]
