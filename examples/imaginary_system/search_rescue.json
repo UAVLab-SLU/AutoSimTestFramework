@@ -13,6 +13,7 @@
       "latitude": 37.8044,
       "longitude": -122.2711
     },
+    "object_of_interest": "person",
     "target_tracking": true,
     "target_tracking_altitude": 100
   },

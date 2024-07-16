@@ -1,0 +1,68 @@
+{
+  "mission_id": "environment_monitoring_001",
+  "drone_id": "drone_env_001",
+  "mission_start_time": "2024-07-18T06:00:00Z",
+  "mission_end_time": "2024-07-18T18:00:00Z",
+  "mission_type": "environment_monitoring",
+  "region": {
+    "start_coordinates": {
+      "latitude": 35.6895,
+      "longitude": 139.6917
+    },
+    "end_coordinates": {
+      "latitude": 35.7000,
+      "longitude": 139.7000
+    },
+    "object_of_interest": "river",
+    "object_detection": true,
+    "object_detection_altitude": 50
+  },
+  "monitoring_parameters": {
+    "inspection_pattern": "random",
+    "detection_algorithm": "spectral_analysis_v1",
+    "detection_confidence_threshold": 0.85,
+    "sensor_settings": {
+      "resolution": "1080p",
+      "frame_rate": 30,
+      "infrared": true,
+      "multispectral": true,
+      "water_quality_sensors": {
+        "pH": true,
+        "dissolved_oxygen": true,
+        "turbidity": true,
+        "temperature": true
+      }
+    }
+  },
+  "communication": {
+    "control_station_frequency": "2.4GHz",
+    "control_station_coordinates": {
+      "latitude": 35.6895,
+      "longitude": 139.6917
+    },
+    "signal_strength_threshold": -65
+  },
+  "battery_management": {
+    "low_battery_threshold": 25,
+    "return_to_base_on_low_battery": true
+  },
+  "logging": {
+    "log_frequency_seconds": 5,
+    "log_parameters": [
+      "coordinates",
+      "altitude",
+      "battery_status",
+      "detected_objects",
+      "water_quality_readings",
+      "temperature_readings"
+    ],
+    "log_storage_location": "/var/logs/environment_monitoring_logs"
+  },
+  "emergency_procedures": {
+    "emergency_land_coordinates": {
+      "latitude": 35.6895,
+      "longitude": 139.6917
+    },
+    "emergency_protocol": "return_to_base"
+  }
+}
