@@ -4,7 +4,7 @@
   "mission_start_time": "2024-07-15T08:00:00Z",
   "mission_end_time": "2024-07-15T12:00:00Z",
   "mission_type": "search_and_rescue",
-  "location": {
+  "region": {
     "start_coordinates": {
       "latitude": 37.7749,
       "longitude": -122.4194
@@ -13,8 +13,8 @@
       "latitude": 37.8044,
       "longitude": -122.2711
     },
-    "river_following": true,
-    "altitude": 100
+    "target_tracking": true,
+    "target_tracking_altitude": 100
   },
   "search_parameters": {
     "search_pattern": "zigzag",
@@ -26,22 +26,15 @@
       "infrared": true
     }
   },
-  "rescue_parameters": {
-    "life_vest_drop_accuracy": 5,
-    "life_vest_drop_altitude": 50,
-    "number_of_life_vests": 5
-  },
   "communication": {
     "control_station_frequency": "2.4GHz",
     "control_station_coordinates": {
       "latitude": 37.7749,
       "longitude": -122.4194
     },
-    "communication_protocol": "MQTT",
-    "signal_strength_threshold": -70
+    "radio_signal_strength_threshold": -70
   },
   "battery_management": {
-    "battery_capacity_mAh": 15000,
     "low_battery_threshold": 20,
     "return_to_base_on_low_battery": true
   },
@@ -60,63 +53,6 @@
       "latitude": 37.7750,
       "longitude": -122.4185
     },
-    "emergency_contact": "+1234567890",
     "emergency_protocol": "return_to_base"
-  },
-  "environment": {
-    "wind": {
-      "direction": "SE",
-      "velocity": 18
-    },
-    "use_cfd": true
-  },
-  "monitors": {
-    "deviation_monitor": {
-      "param": [
-        12
-      ]
-    },
-    "collision_monitor": {
-      "param": []
-    },
-    "min_sep_dist_monitor": {
-      "param": [
-        8,
-        1
-      ]
-    },
-    "landing_space_monitor": {
-      "param": [
-        [
-          [
-            41.97984810593547,
-            -87.93607016252984
-          ]
-        ]
-      ]
-    },
-    "no_fly_zone_monitor": {
-      "param": [
-        [
-          [
-            41.97984810593547,
-            -87.93607016252984
-          ],
-          [
-            41.98,
-            -87.935
-          ],
-          [
-            41.9801,
-            -87.934
-          ]
-        ]
-      ]
-    },
-    "wind_monitor": {
-      "param": [
-        0.6
-      ]
-    }
   }
 }
