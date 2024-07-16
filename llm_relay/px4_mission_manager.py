@@ -1,3 +1,5 @@
+from pip._vendor import requests
+
 from llm_relay.px4.px4_points_mission import PX4PointsMission
 
 class PX4MissionManager:
@@ -109,10 +111,19 @@ class PX4MissionManager:
             raise ValueError("Environment is not ready")
         
         self.mission.start()
+        self.notify_done()
         self.reset_state()
         
     def reset_state(self):
         self.mission_ready = False
         self.environment_ready = False
+
+    def notify_done(self):
+        """
+        Notify the client that the mission is done
+        :return:
+        """
+        # get host ip
+        requests.post("http://192.168.1.181:5000/llm_mission_done_notify")
         
 

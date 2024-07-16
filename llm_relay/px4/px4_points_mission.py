@@ -18,9 +18,11 @@ class PX4PointsMission:
     def start(self):
         print("Starting mission with the following parameters:")
         print(self)
-        asyncio.ensure_future(self.run())
-        # wating for the mission to finish
-        asyncio.get_event_loop().run_forever()
+        loop = asyncio.new_event_loop()
+        asyncio.set_event_loop(loop)
+        task = loop.create_task(self.run())
+        # waiting for the mission to finish
+        loop.run_until_complete(task)
 
 
     async def run(self):
@@ -84,25 +86,6 @@ class PX4PointsMission:
         print("-- Landing")
         await drone.action.land()
 
-
-
-        # reset the offboard mode
-        await drone.offboard.set_position_ned(PositionNedYaw(0.0, 0.0, 0.0, 0.0))
-
-        print("-- Disarming")
-        await drone.action.disarm()
-
-        print("-- Mission finished!")
-        print("-- Stopping offboard")
-        try:
-            await drone.offboard.stop()
-        except OffboardError as error:
-            print(f"Stopping offboard mode failed \
-                           with error code: {error._result.result}")
-
-
-        # reset px4
-        await drone.action.reboot()
 
 
 
