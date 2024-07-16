@@ -13,7 +13,7 @@
     }
   },
   "delivery_parameters": {
-    "drop_accuracy": 3,  // in meters
+    "drop_accuracy": 3,  // in meters, radius of the drop zone
     "drop_altitude": 10, // in meters
     "avoidance_algorithm": "person_detection_v1", // avoid dropping on people
     "avoidance_confidence_threshold": 0.90,
