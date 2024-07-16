@@ -1,0 +1,132 @@
+{
+  "mission_id": "forest_fire_surveillance_001",
+  "drone_id": "drone_ff_001",
+  "mission_start_time": "2024-07-16T06:00:00Z",
+  "mission_end_time": "2024-07-16T18:00:00Z",
+  "mission_type": "forest_fire_surveillance",
+  "location": {
+    "start_coordinates": {
+      "latitude": 34.0522,
+      "longitude": -118.2437
+    },
+    "end_coordinates": {
+      "latitude": 34.1500,
+      "longitude": -118.2500
+    },
+    "area_coverage": true,
+    "altitude": 200
+  },
+  "surveillance_parameters": {
+    "inspection_pattern": "grid",
+    "detection_algorithm": "thermal_imaging_v3",
+    "detection_confidence_threshold": 0.90,
+    "camera_settings": {
+      "resolution": "4K",
+      "frame_rate": 60,
+      "infrared": true,
+      "thermal": true
+    }
+  },
+  "communication": {
+    "control_station_frequency": "2.4GHz",
+    "control_station_coordinates": {
+      "latitude": 34.0522,
+      "longitude": -118.2437
+    },
+    "communication_protocol": "MQTT",
+    "signal_strength_threshold": -65
+  },
+  "battery_management": {
+    "battery_capacity_mAh": 20000,
+    "low_battery_threshold": 25,
+    "return_to_base_on_low_battery": true
+  },
+  "logging": {
+    "log_frequency_seconds": 5,
+    "log_parameters": [
+      "coordinates",
+      "altitude",
+      "battery_status",
+      "detected_objects",
+      "temperature_readings",
+      "fire_intensity"
+    ],
+    "log_storage_location": "/var/logs/fire_survey_logs"
+  },
+  "emergency_procedures": {
+    "emergency_land_coordinates": {
+      "latitude": 34.0522,
+      "longitude": -118.2437
+    },
+    "emergency_contact": "+1234567890",
+    "emergency_protocol": "return_to_base"
+  },
+  "environment": {
+    "wind": {
+      "direction": "W",
+      "velocity": 12
+    },
+    "humidity": 30,
+    "temperature": 35,
+    "use_cfd": true
+  },
+  "monitors": {
+    "deviation_monitor": {
+      "param": [
+        15
+      ]
+    },
+    "collision_monitor": {
+      "param": []
+    },
+    "min_sep_dist_monitor": {
+      "param": [
+        10,
+        2
+      ]
+    },
+    "landing_space_monitor": {
+      "param": [
+        [
+          [
+            34.0522,
+            -118.2437
+          ]
+        ]
+      ]
+    },
+    "no_fly_zone_monitor": {
+      "param": [
+        [
+          [
+            34.0522,
+            -118.2437
+          ],
+          [
+            34.1500,
+            -118.2500
+          ],
+          [
+            34.1500,
+            -118.2430
+          ]
+        ]
+      ]
+    },
+    "wind_monitor": {
+      "param": [
+        0.5
+      ]
+    },
+    "temperature_monitor": {
+      "param": [
+        45
+      ]
+    },
+    "fire_intensity_monitor": {
+      "param": [
+        0.8
+      ]
+    }
+  }
+}

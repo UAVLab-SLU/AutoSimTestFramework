@@ -62,5 +62,61 @@
     },
     "emergency_contact": "+1234567890",
     "emergency_protocol": "return_to_base"
+  },
+  "environment": {
+    "wind": {
+      "direction": "SE",
+      "velocity": 18
+    },
+    "use_cfd": true
+  },
+  "monitors": {
+    "deviation_monitor": {
+      "param": [
+        12
+      ]
+    },
+    "collision_monitor": {
+      "param": []
+    },
+    "min_sep_dist_monitor": {
+      "param": [
+        8,
+        1
+      ]
+    },
+    "landing_space_monitor": {
+      "param": [
+        [
+          [
+            41.97984810593547,
+            -87.93607016252984
+          ]
+        ]
+      ]
+    },
+    "no_fly_zone_monitor": {
+      "param": [
+        [
+          [
+            41.97984810593547,
+            -87.93607016252984
+          ],
+          [
+            41.98,
+            -87.935
+          ],
+          [
+            41.9801,
+            -87.934
+          ]
+        ]
+      ]
+    },
+    "wind_monitor": {
+      "param": [
+        0.6
+      ]
+    }
   }
 }
