@@ -13,8 +13,9 @@
       "latitude": 34.1500,
       "longitude": -118.2500
     },
-    "fire_source_detection": true,
-    "fire_source_detection_altitude": 200
+    "object_of_interest": "forest_fire",
+    "object_detection": true,
+    "object_detection_altitude": 200
   },
   "surveillance_parameters": {
     "inspection_pattern": "grid",
