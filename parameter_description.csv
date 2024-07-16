@@ -1,0 +1,25 @@
+Parameter,Description
+actuator_motors, Motor control message 
+ekf2_timestamps, this message contains the (relative) timestamps of the sensor inputs used by EKF2.  It can be used for reproducible replay.  the timestamp field is the ekf2 reference time and matches the timestamp of  the sensor_combined topic. 
+estimator_sensor_bias,  Sensor readings and in-run biases in SI-unit form. Sensor readings are compensated for static offsets   scale errors  in-run bias and thermal drift (if thermal compensation is enabled and available).  
+event, Events interface 
+failsafe_flags, Input flags for the failsafe state machine set by the arming & health checks.   Flags must be named such that false == no failure (e.g. _invalid  _unhealthy  _lost)  The flag comments are used as label for the failsafe state machine simulation 
+home_position, GPS home position in WGS84 coordinates. 
+offboard_control_mode, Off-board control mode 
+parameter_update, This message is used to notify the system about one or more parameter changes 
+position_setpoint_triplet, Global position setpoint triplet in WGS84 coordinates.  This are the three next waypoints (or just the next two or one). 
+sensor_combined, Sensor readings in SI-unit form.  These fields are scaled and offset-compensated where possible and do not  change with board revisions and sensor updates. 
+sensor_gps, GPS position in WGS84 coordinates.  the field 'timestamp' is for the position & velocity (microseconds) 
+sensor_selection,  Sensor ID's for the voted sensors output on the sensor_combined topic.  Will be updated on startup of the sensor module and when sensor selection changes  
+sensors_status_imu,  Sensor check metrics. This will be zero for a sensor that's primary or unpopulated.  
+takeoff_status, Status of the takeoff state machine currently just available for multicopters 
+trajectory_setpoint, Trajectory setpoint in NED frame  Input to PID position controller.  Needs to be kinematically consistent and feasible for smooth flight.  setting a value to NaN means the state should not be controlled 
+vehicle_attitude, This is similar to the mavlink message ATTITUDE_QUATERNION  but for onboard use 
+vehicle_command, Vehicle Command uORB message. Used for commanding a mission / action / etc.  Follows the MAVLink COMMAND_INT / COMMAND_LONG definition 
+vehicle_command_ack, Vehicle Command Ackonwledgement uORB message.  Used for acknowledging the vehicle command being received.  Follows the MAVLink COMMAND_ACK message definition 
+vehicle_constraints, Local setpoint constraints in NED frame  setting something to NaN means that no limit is provided 
+vehicle_global_position, Fused global position in WGS84.  This struct contains global position estimation. It is not the raw GPS  measurement (@see vehicle_gps_position). This topic is usually published by the position  estimator  which will take more sources of information into account than just GPS   e.g. control inputs of the vehicle in a Kalman-filter implementation.  
+vehicle_imu, IMU readings in SI-unit form. 
+vehicle_local_position, Fused local position in NED.  The coordinate system origin is the vehicle position at the time when the EKF2-module was started. 
+vehicle_local_position_setpoint, Local position setpoint in NED frame  Telemetry of PID position controller to monitor tracking.  NaN means the state was not controlled 
+vehicle_status, Encodes the system state of the vehicle published by commander 
