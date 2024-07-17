@@ -1,62 +1,62 @@
 {
-  "mission_id": "forest_fire_surveillance_001",
-  "drone_id": "drone_ff_001",
-  "mission_start_time": "2024-07-16T06:00:00Z",
-  "mission_end_time": "2024-07-16T18:00:00Z",
-  "mission_type": "forest_fire_surveillance",
+  "mission_id": "forest_fire_surveillance_001", // Unique identifier for the forest fire surveillance mission
+  "drone_id": "drone_ff_001", // Unique identifier for the drone
+  "mission_start_time": "2024-07-16T06:00:00Z", // Start time for the mission in ISO 8601 format
+  "mission_end_time": "2024-07-16T18:00:00Z", // End time for the mission in ISO 8601 format
+  "mission_type": "forest_fire_surveillance", // Type of mission, in this case, "forest_fire_surveillance"
   "region": {
     "start_coordinates": {
-      "latitude": 34.0522,
-      "longitude": -118.2437
+      "latitude": 34.0522, // Latitude of the starting location
+      "longitude": -118.2437 // Longitude of the starting location
     },
     "end_coordinates": {
-      "latitude": 34.1500,
-      "longitude": -118.2500
+      "latitude": 34.1500, // Latitude of the ending location
+      "longitude": -118.2500 // Longitude of the ending location
     },
-    "object_of_interest": "forest_fire",
-    "object_detection": true,
-    "object_detection_altitude": 200
+    "object_of_interest": "forest_fire", // Object of interest to be monitored
+    "object_detection": true, // Flag indicating whether object detection is enabled
+    "object_detection_altitude": 200 // Altitude at which object detection is performed, in meters
   },
   "surveillance_parameters": {
-    "inspection_pattern": "grid",
-    "detection_algorithm": "thermal_imaging_v3",
-    "detection_confidence_threshold": 0.90,
+    "inspection_pattern": "grid", // Inspection pattern to be followed
+    "detection_algorithm": "thermal_imaging_v3", // Algorithm used for object detection
+    "detection_confidence_threshold": 0.90, // Confidence threshold for the detection algorithm
     "camera_settings": {
-      "resolution": "4K",
-      "frame_rate": 60,
-      "infrared": true,
-      "thermal": true
+      "resolution": "4K", // Resolution of the camera
+      "frame_rate": 60, // Frame rate of the camera, in frames per second
+      "infrared": true, // Flag indicating whether infrared is enabled
+      "thermal": true // Flag indicating whether thermal imaging is enabled
     }
   },
   "communication": {
-    "control_station_frequency": "2.4GHz",
+    "control_station_frequency": "2.4GHz", // Frequency used for communication with the control station
     "control_station_coordinates": {
-      "latitude": 34.0522,
-      "longitude": -118.2437
+      "latitude": 34.0522, // Latitude of the control station
+      "longitude": -118.2437 // Longitude of the control station
     },
-    "signal_strength_threshold": -65
+    "signal_strength_threshold": -65 // Minimum signal strength threshold for communication
   },
   "battery_management": {
-    "low_battery_threshold": 25,
-    "return_to_base_on_low_battery": true
+    "low_battery_threshold": 25, // Battery level threshold below which the drone should return to base, in percentage
+    "return_to_base_on_low_battery": true // Flag indicating whether the drone should return to base on low battery
   },
   "logging": {
-    "log_frequency_seconds": 5,
+    "log_frequency_seconds": 5, // Frequency at which logs are recorded, in seconds
     "log_parameters": [
-      "coordinates",
-      "altitude",
-      "battery_status",
-      "detected_objects",
-      "temperature_readings",
-      "fire_intensity"
+      "coordinates", // Log the coordinates of the drone
+      "altitude", // Log the altitude of the drone
+      "battery_status", // Log the battery status of the drone
+      "detected_objects", // Log any detected objects
+      "temperature_readings", // Log the temperature readings
+      "fire_intensity" // Log the fire intensity readings
     ],
-    "log_storage_location": "/var/logs/fire_survey_logs"
+    "log_storage_location": "/var/logs/fire_survey_logs" // Location where logs are stored
   },
   "emergency_procedures": {
     "emergency_land_coordinates": {
-      "latitude": 34.0522,
-      "longitude": -118.2437
+      "latitude": 34.0522, // Latitude of the emergency landing location
+      "longitude": -118.2437 // Longitude of the emergency landing location
     },
-    "emergency_protocol": "return_to_base"
+    "emergency_protocol": "return_to_base" // Protocol to follow in case of an emergency
   }
 }

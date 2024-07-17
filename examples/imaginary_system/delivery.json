@@ -1,67 +1,67 @@
 {
-  "mission_id": "package_delivery_001",
-  "drone_id": "drone_pd_001",
-  "mission_start_time": "2024-07-19T08:00:00Z",
-  "mission_end_time": "2024-07-19T12:00:00Z",
-  "mission_type": "package_delivery",
+  "mission_id": "package_delivery_001", // Unique identifier for the package delivery mission
+  "drone_id": "drone_pd_001", // Unique identifier for the drone
+  "mission_start_time": "2024-07-19T08:00:00Z", // Start time for the mission in ISO 8601 format
+  "mission_end_time": "2024-07-19T12:00:00Z", // End time for the mission in ISO 8601 format
+  "mission_type": "package_delivery", // Type of mission, in this case, "package_delivery"
   "recipient": {
-    "name": "First Last",
-    "address": "1234 some Street",
+    "name": "First Last", // Recipient's name
+    "address": "1234 some Street", // Recipient's address
     "coordinates": {
-      "latitude": 40.7128,
-      "longitude": -74.0060
+      "latitude": 40.7128, // Latitude of the recipient's location
+      "longitude": -74.0060 // Longitude of the recipient's location
     }
   },
   "delivery_parameters": {
-    "drop_accuracy": 3,  // in meters, radius of the drop zone
-    "drop_altitude": 10, // in meters
-    "avoidance_algorithm": "person_detection_v1", // avoid dropping on people
-    "avoidance_confidence_threshold": 0.90,
-    "package_weight": 2.5, // in kg
-    "package_type": "small_parcel"
+    "drop_accuracy": 3, // in meters, radius of the drop zone
+    "drop_altitude": 10, // in meters, altitude at which the package will be dropped
+    "avoidance_algorithm": "person_detection_v1", // Algorithm to avoid dropping the package on people
+    "avoidance_confidence_threshold": 0.90, // Confidence threshold for the avoidance algorithm
+    "package_weight": 2.5, // in kg, weight of the package
+    "package_type": "small_parcel" // Type of package being delivered
   },
   "navigation": {
-    "route_planning_algorithm": "shortest_path_v2",
-    "altitude": 50,
+    "route_planning_algorithm": "shortest_path_v2", // Algorithm used for route planning
+    "altitude": 50, // in meters, altitude at which the drone will fly
     "waypoints": [
       {
-        "latitude": 40.7138,
-        "longitude": -74.0050
+        "latitude": 40.7138, // Latitude of the waypoint
+        "longitude": -74.0050 // Longitude of the waypoint
       },
       {
-        "latitude": 40.7129,
-        "longitude": -74.0061
+        "latitude": 40.7129, // Latitude of the waypoint
+        "longitude": -74.0061 // Longitude of the waypoint
       }
     ]
   },
   "communication": {
-    "control_station_frequency": "2.4GHz",
+    "control_station_frequency": "2.4GHz", // Frequency used for communication with the control station
     "control_station_coordinates": {
-      "latitude": 40.7128,
-      "longitude": -74.0060
+      "latitude": 40.7128, // Latitude of the control station
+      "longitude": -74.0060 // Longitude of the control station
     },
-    "signal_strength_threshold": -65
+    "signal_strength_threshold": -65 // Minimum signal strength threshold for communication
   },
   "battery_management": {
-    "low_battery_threshold": 25,
-    "return_to_base_on_low_battery": true
+    "low_battery_threshold": 25, // Battery level threshold below which the drone should return to base
+    "return_to_base_on_low_battery": true // Flag to indicate if the drone should return to base on low battery
   },
   "logging": {
-    "log_frequency_seconds": 10,
+    "log_frequency_seconds": 10, // Frequency at which logs are recorded, in seconds
     "log_parameters": [
-      "coordinates",
-      "altitude",
-      "battery_status",
-      "package_status",
-      "detected_objects"
+      "coordinates", // Log the coordinates of the drone
+      "altitude", // Log the altitude of the drone
+      "battery_status", // Log the battery status of the drone
+      "package_status", // Log the status of the package
+      "detected_objects" // Log any detected objects
     ],
-    "log_storage_location": "/var/logs/package_delivery_logs"
+    "log_storage_location": "/var/logs/package_delivery_logs" // Location where logs are stored
   },
   "emergency_procedures": {
     "emergency_land_coordinates": {
-      "latitude": 40.7128,
-      "longitude": -74.0060
+      "latitude": 40.7128, // Latitude of the emergency landing location
+      "longitude": -74.0060 // Longitude of the emergency landing location
     },
-    "emergency_protocol": "return_to_base"
+    "emergency_protocol": "return_to_base" // Protocol to follow in case of an emergency
   }
 }
