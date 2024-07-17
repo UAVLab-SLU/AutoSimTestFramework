@@ -1,0 +1,63 @@
+{
+  "mission_id": "precision_agriculture_001", // Unique identifier for the precision agriculture mission
+  "drone_id": "drone_agri_001", // Unique identifier for the drone
+  "mission_start_time": "2024-07-17T06:00:00Z", // Start time for the mission in ISO 8601 format
+  "mission_end_time": "2024-07-17T18:00:00Z", // End time for the mission in ISO 8601 format
+  "mission_type": "precision_agriculture", // Type of mission, in this case, "precision_agriculture"
+  "region": {
+    "start_coordinates": {
+      "latitude": 40.7128, // Latitude of the starting location
+      "longitude": -74.0060 // Longitude of the starting location
+    },
+    "end_coordinates": {
+      "latitude": 40.7129, // Latitude of the ending location
+      "longitude": -74.0059 // Longitude of the ending location
+    },
+    "object_of_interest": "crops", // Object of interest to be monitored
+    "object_detection": true, // Flag indicating whether object detection is enabled
+    "object_detection_altitude": 20, // Altitude at which object detection is performed, in meters
+    "crop_type": "corn" // Type of crop being monitored
+  },
+  "surveillance_parameters": {
+    "inspection_pattern": "grid", // Inspection pattern to be followed
+    "detection_algorithm": "multispectral_imaging_v2", // Algorithm used for object detection
+    "detection_confidence_threshold": 0.85, // Confidence threshold for the detection algorithm
+    "camera_settings": {
+      "resolution": "4K", // Resolution of the camera
+      "frame_rate": 60, // Frame rate of the camera, in frames per second
+      "infrared": true, // Flag indicating whether infrared is enabled
+      "multispectral": true // Flag indicating whether multispectral imaging is enabled
+    }
+  },
+  "communication": {
+    "control_station_frequency": "2.4GHz", // Frequency used for communication with the control station
+    "control_station_coordinates": {
+      "latitude": 40.7128, // Latitude of the control station
+      "longitude": -74.0060 // Longitude of the control station
+    },
+    "radio_signal_strength_threshold": -65 // Minimum radio signal strength threshold for communication
+  },
+  "battery_management": {
+    "low_battery_threshold": 25, // Battery level threshold below which the drone should return to base, in percentage
+    "return_to_base_on_low_battery": true // Flag indicating whether the drone should return to base on low battery
+  },
+  "logging": {
+    "log_frequency_seconds": 5, // Frequency at which logs are recorded, in seconds
+    "log_parameters": [
+      "coordinates", // Log the coordinates of the drone
+      "altitude", // Log the altitude of the drone
+      "battery_status", // Log the battery status of the drone
+      "detected_objects", // Log any detected objects
+      "NDVI_readings", // Log the NDVI (Normalized Difference Vegetation Index) readings
+      "crop_health" // Log the health of the crops
+    ],
+    "log_storage_location": "/var/logs/agriculture_survey_logs" // Location where logs are stored
+  },
+  "emergency_procedures": {
+    "emergency_land_coordinates": {
+      "latitude": 40.7128, // Latitude of the emergency landing location
+      "longitude": -74.0060 // Longitude of the emergency landing location
+    },
+    "emergency_protocol": "return_to_base" // Protocol to follow in case of an emergency
+  }
+}

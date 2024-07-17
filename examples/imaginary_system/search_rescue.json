@@ -1,0 +1,59 @@
+{
+  "mission_id": "unique_mission_identifier", // Unique identifier for the search and rescue mission
+  "drone_id": "unique_drone_identifier", // Unique identifier for the drone
+  "mission_start_time": "2024-07-15T08:00:00Z", // Start time for the mission in ISO 8601 format
+  "mission_end_time": "2024-07-15T12:00:00Z", // End time for the mission in ISO 8601 format
+  "mission_type": "search_and_rescue", // Type of mission, in this case, "search_and_rescue"
+  "region": {
+    "start_coordinates": {
+      "latitude": 37.7749, // Latitude of the starting location
+      "longitude": -122.4194 // Longitude of the starting location
+    },
+    "end_coordinates": {
+      "latitude": 37.8044, // Latitude of the ending location
+      "longitude": -122.2711 // Longitude of the ending location
+    },
+    "object_of_interest": "person", // Object of interest to be monitored
+    "target_tracking": true, // Flag indicating whether target tracking is enabled
+    "target_tracking_altitude": 100 // Altitude at which target tracking is performed, in meters
+  },
+  "search_parameters": {
+    "search_pattern": "zigzag", // Search pattern to be followed
+    "detection_algorithm": "image_processing_v2", // Algorithm used for object detection
+    "detection_confidence_threshold": 0.85, // Confidence threshold for the detection algorithm
+    "camera_settings": {
+      "resolution": "1080p", // Resolution of the camera
+      "frame_rate": 30, // Frame rate of the camera, in frames per second
+      "infrared": true // Flag indicating whether infrared is enabled
+    }
+  },
+  "communication": {
+    "control_station_frequency": "2.4GHz", // Frequency used for communication with the control station
+    "control_station_coordinates": {
+      "latitude": 37.7749, // Latitude of the control station
+      "longitude": -122.4194 // Longitude of the control station
+    },
+    "radio_signal_strength_threshold": -70 // Minimum radio signal strength threshold for communication
+  },
+  "battery_management": {
+    "low_battery_threshold": 20, // Battery level threshold below which the drone should return to base, in percentage
+    "return_to_base_on_low_battery": true // Flag indicating whether the drone should return to base on low battery
+  },
+  "logging": {
+    "log_frequency_seconds": 10, // Frequency at which logs are recorded, in seconds
+    "log_parameters": [
+      "coordinates", // Log the coordinates of the drone
+      "altitude", // Log the altitude of the drone
+      "battery_status", // Log the battery status of the drone
+      "detected_objects" // Log any detected objects
+    ],
+    "log_storage_location": "/var/logs/mission_logs" // Location where logs are stored
+  },
+  "emergency_procedures": {
+    "emergency_land_coordinates": {
+      "latitude": 37.7750, // Latitude of the emergency landing location
+      "longitude": -122.4185 // Longitude of the emergency landing location
+    },
+    "emergency_protocol": "return_to_base" // Protocol to follow in case of an emergency
+  }
+}
