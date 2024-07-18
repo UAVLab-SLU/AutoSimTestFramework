@@ -1,0 +1,98 @@
+{
+    "px4":{
+        
+            "Mission": {
+            "name": "fly_to_points", 
+            "param": [8,[[0, 0, 0], [0, 5, -5],[5, 5, -5],[5, 0, -5],[0, 0, -5] ]]
+                     }
+            },
+
+    "drone_response":{
+        "states": [
+            {
+                "name": "Takeoff",
+                "args": {
+                    "altitude": 20,
+                    "speed": 1.5,
+                    "altitude_threshold": 1.0
+                },    
+                "transitions": [
+                    {
+                        "target": "BriarWaypoint",
+                        "condition": "succeeded_takeoff"
+                    },
+                    {
+                        "target": "Land",
+                        "condition": "failed_takeoff"
+                    }
+                ]
+            },
+            {
+                "name": "BriarWaypoint",
+                "class": "BriarWaypoint",
+                "args": {
+                    "waypoint": {
+                        "latitude": 41.60642710451832,
+                        "longitude":  -86.35599354346824,
+                        "altitude": 245.0
+                    },
+                    "speed": 3.5
+                },
+                "transitions": [
+                    {
+                        "target": "BriarHover",
+                        "condition": "succeeded_waypoints"
+                    }
+                ]
+            },
+            {
+                "name": "BriarHover",
+                "args": {
+                    "hover_time": 90
+                },
+                "transitions": [
+                    {
+                        "target": "LandLocation",
+                        "condition": "succeeded_hover"
+                    }
+                ]
+            },
+            {
+                "name": "LandLocation",
+                "class": "BriarWaypoint",
+                "args": {
+                    "waypoint": {
+                        "latitude": 41.60661172734727,
+                        "longitude": -86.35612230724895,
+                        "altitude": 245.0
+                    },
+                    "speed": 3.5
+                },
+                "transitions": [
+                    {
+                        "target": "Land",
+                        "condition": "succeeded_waypoints"
+                    }
+                ]
+            },
+            {
+                "name": "Land",
+                "transitions": [
+                    {
+                        "target": "Disarm",
+                        "condition": "succeeded_land"
+                    }
+                ]
+            },
+            {
+                "name": "Disarm",
+                "transitions": [
+                    {
+                        "target": "mission_completed",
+                        "condition": "succeeded_disarm"
+                    }
+                ]
+            }
+        ]
+    }
+}

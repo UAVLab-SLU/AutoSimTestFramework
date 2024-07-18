@@ -1,0 +1,173 @@
+question,context,Senarios,index
+Test the flight stability of my sUAS during river search and rescue operation,"As the unmanned aircraft (UA) lifted off from the ship’s helideck it immediately pitched up 
+and transited rearwards with insufficient height to clear the 19-cm high gunwale about 2 m 
+behind it.  The impact damaged the UA tail structure, leading to a failure of the tail rotor 
+transmission and resulting in the UA spiralling into the sea alongside the ship.
+Following an investigation by the manufacturer software changes have been made to 
+reduce operator workload during the takeoff.During a public display of 400 synchronised unmanned aircraft (UA), several were seen 
+to deviate briefly from their pre-programmed position.  Shortly afterwards, two UA fell to 
+the ground and sustained damage.  It is likely the deviation was caused by a gust of wind 
+resulting in two UA colliding and losing control.  The safety zone put in place on the ground 
+by the operator and organiser mitigated any risk to the public.The unmanned air system (UAS) had been used to carry out an aerial search during 
+a police operation.  On completion, it was being flown back to the launch point, when, 
+without warning, it rapidly spiralled to the ground. It crashed into a small stream and was 
+extensively damaged.  An examination of the UAS data after the accident found the cause 
+was a propulsion error in one of its four motors.The UA was hovering at between 50 m to 65 m agl during a demonstration flight, when a 
+rhythmic, lower than normal sound was heard emanating from the UAS.  It then dipped 
+and spiralled downwards during which control could not be re-established.  The UA hit the 
+ground and was severely damaged.  A fatigue failure of a blade attachment bolt caused one 
+of the lift propeller blades to detach in flight.After takeoff the unmanned aircraft (UA) experienced winds exceeding the manufacturer’s 
+stated limitations and was unable to hold its position position.  A culmination of the 
+subsequent position warning and automatic attempt to return “home” and land triggered 
+a software error, commanding the UA to land while not over its home position.  As the UA 
+descended there was a loss of link with the ground control unit and the UA collided with a 
+tree.    The loss of signal was probably caused by the loss of radio line of sight between the 
+UA and ground control unit when it drifted in the high wind over a five-storey building."," Scenario 1:
+
+Environmental Context:
+
+Location: A dense forest area with a river running through it, characterized by thick foliage, uneven terrain, and limited GPS signal due to tree cover.
+Weather: Light rain, affecting sensor performance and visibility.
+Temperature: 15°C, slightly cooler than ideal for drone operations.
+Lighting Conditions: Overcast skies, requiring enhanced reliance on thermal imaging sensors.
+GPS Signal Quality: Generally low due to dense tree cover and terrain.
+Altitude: Varies from ground level (0 meters) to 50 meters, requiring precise altitude adjustments to navigate obstacles.
+Obstacles: Trees, branches, and uneven terrain posing potential collision risks.
+Network/communication quality: Weak and intermittent due to dense foliage and terrain.
+
+Mission:
+
+The sUAS is tasked with locating a missing hiker in the forest, using thermal imaging sensors to detect body heat signatures. The drone must navigate through the forest, avoiding obstacles, and maintaining a stable flight path.
+
+sUAS Configuration and Properties:
+
+Sensors: GPS, thermal camera, and acoustic sensors.
+Payload Weight: 1.5 kg, including rescue equipment and sensors.
+Battery Life: 30 minutes per flight, requiring efficient planning for search patterns and recharging logistics.
+
+sUAS Properties to be Tested:
+
+1. Maneuverability: Navigating through dense forest and avoiding obstacles.
+2. Durability: Withstanding light rain and cooler temperatures.
+3. Stability in Low Light: Operating in overcast conditions.
+4. Communication Range: Maintaining a stable link with the ground control unit.
+
+Scenario 2:
+
+Environmental Context:
+
+Location: A coastal area with a sandy beach, characterized by strong sea breezes, high humidity, and saltwater corrosion.
+Weather: Sunny with occasional gusts of wind, affecting flight stability.
+Temperature: 28°C, ideal for drone operations but potentially challenging for battery efficiency in prolonged missions.
+Lighting Conditions: Bright sunlight, requiring enhanced reliance on visual sensors.
+GPS Signal Quality: Generally high, but occasional interferences due to tall buildings and reflective surfaces.
+Altitude: Varies from ground level (0 meters) to 100 meters, necessitating versatile altitude adjustments to navigate obstacles.
+Obstacles: Beach umbrellas, beach chairs, and sand dunes posing potential collision risks.
+Network/communication quality: Strong and stable in open areas, but weak and intermittent near tall structures.
+
+Mission:
+
+The sUAS is tasked with locating a lost child on the beach, using visual sensors to detect the child's clothing and acoustic sensors to detect sounds of distress. The drone must navigate through the crowded beach, avoiding obstacles, and maintaining a stable flight path.
+
+sUAS Configuration and Properties:
+
+Sensors: GPS, visual camera, and acoustic sensors.
+Payload Weight: 1.8 kg, including rescue equipment and sensors.
+Battery Life: 40 minutes per flight, requiring efficient planning for search patterns and recharging logistics.
+
+sUAS Properties to be Tested:
+
+1. Maneuverability: Navigating through crowded beach and avoiding obstacles.
+2. Durability: Withstanding saltwater corrosion and high humidity.
+3. Stability in Bright Light: Operating in bright sunlight.
+4. Communication Range: Maintaining a stable link with the ground control unit.
+
+Scenario 3:
+
+Environmental Context:
+
+Location: A mountainous region with a river running through it, characterized by steep cliffs, rocky terrain, and limited GPS signal due to mountainous terrain.
+Weather: Cold temperatures and strong winds, affecting flight stability and sensor performance.
+Temperature: 5°C, challenging for drone operations.
+Lighting Conditions: Transitioning to dusk, requiring enhanced reliance on night vision and thermal imaging sensors.
+GPS Signal Quality: Generally low due to mountainous terrain and rocky cliffs.
+Altitude: Varies from ground level (0 meters) to 200 meters, requiring precise altitude adjustments to navigate obstacles.
+Obstacles: Cliffs, rocky terrain, and river rapids posing potential collision risks.
+Network/communication quality: Weak and intermittent due to mountainous terrain and rocky cliffs.
+
+Mission:
+
+The sUAS is tasked with locating a missing hiker in the mountainous region, using thermal imaging sensors to detect body heat signatures. The drone must navigate through the mountainous terrain, avoiding obstacles, and maintaining a stable flight path.
+
+sUAS Configuration and Properties:
+
+Sensors: GPS, thermal camera, and acoustic sensors.
+Payload Weight: 2.5 kg, including rescue equipment and sensors.
+Battery Life: 35 minutes per flight, requiring efficient planning for search patterns and recharging logistics.
+
+sUAS Properties to be Tested:
+
+1. Maneuverability: Navigating through mountainous terrain and avoiding obstacles.
+2. Durability: Withstanding cold temperatures and strong winds.
+3. Stability in Low Light: Operating as dusk approaches.
+4. Communication Range: Maintaining a stable link with the ground control unit.
+
+Scenario 4:
+
+Environmental Context:
+
+Location: A desert area with a river running through it, characterized by sand dunes, high temperatures, and limited GPS signal due to sandstorms.
+Weather: Hot and dry, affecting sensor performance and visibility.
+Temperature: 40°C, challenging for drone operations.
+Lighting Conditions: Bright sunlight, requiring enhanced reliance on visual sensors.
+GPS Signal Quality: Generally low due to sandstorms and sand dunes.
+Altitude: Varies from ground level (0 meters) to 150 meters, requiring precise altitude adjustments to navigate obstacles.
+Obstacles: Sand dunes, rocky terrain, and river rapids posing potential collision risks.
+Network/communication quality: Weak and intermittent due to sandstorms and sand dunes.
+
+Mission:
+
+The sUAS is tasked with locating a lost hiker in the desert, using thermal imaging sensors to detect body heat signatures. The drone must navigate through the desert terrain, avoiding obstacles, and maintaining a stable flight path.
+
+sUAS Configuration and Properties:
+
+Sensors: GPS, thermal camera, and acoustic sensors.
+Payload Weight: 2 kg, including rescue equipment and sensors.
+Battery Life: 30 minutes per flight, requiring efficient planning for search patterns and recharging logistics.
+
+sUAS Properties to be Tested:
+
+1. Maneuverability: Navigating through desert terrain and avoiding obstacles.
+2. Durability: Withstanding high temperatures and sandstorms.
+3. Stability in Bright Light: Operating in bright sunlight.
+4. Communication Range: Maintaining a stable link with the ground control unit.
+
+Scenario 5:
+
+Environmental Context:
+
+Location: A cityscape with a river running through it, characterized by tall buildings, narrow alleys, and significant structural damage.
+Weather: Windy with occasional gusts, affecting flight stability and sensor performance.
+Temperature: 20°C, ideal for drone operations but potentially challenging for battery efficiency in prolonged missions.
+Lighting Conditions: Transitioning to dusk, requiring enhanced reliance on night vision and thermal imaging sensors.
+GPS Signal Quality: Generally high, but occasional interferences due to tall buildings and underground obstructions.
+Altitude: Varies from ground level (0 meters) to 100 meters, necessitating versatile altitude adjustments to navigate obstacles.
+Obstacles: Power lines, tall buildings, and other urban infrastructure elements posing potential collision risks.
+Network/communication quality: Weak and intermittent in areas with dense structural damage and under tall buildings.
+
+Mission:
+
+The sUAS is tasked with locating a missing person in the cityscape, using thermal imaging sensors to detect body heat signatures. The drone must navigate through the cityscape, avoiding obstacles, and maintaining a stable flight path.
+
+sUAS Configuration and Properties:
+
+Sensors: GPS, thermal camera, and acoustic sensors.
+Payload Weight: 2 kg, including rescue equipment and sensors.
+Battery Life: 45 minutes per flight, requiring efficient planning for search patterns and recharging logistics.
+
+sUAS Properties to be Tested:
+
+1. Maneuverability: Navigating through cityscape and avoiding obstacles.
+2. Durability: Withstanding windy conditions and structural damage.
+3. Stability in Low Light: Operating as dusk approaches.
+4. Communication Range: Maintaining a stable link with the ground control unit.",[1]

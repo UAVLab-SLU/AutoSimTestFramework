@@ -1,0 +1,181 @@
+question,context,Senarios,index
+Create a simulation for my sUAS to perform night-time surveillance of a construction site to prevent theft.,"The UAS was being used in a police operation over an abandoned building near a public car 
+park and train station.  During hover over the building the aircraft’s motors stopped and the 
+aircraft fell vertically with no prior warning to the remote pilot.  The aircraft struck the roof of 
+the building and the battery separated.  Recorded data indicated that the battery probably 
+disconnected in flight.  This could have been caused by the battery not having been fully 
+latched prior to takeoff, or the latching mechanism or battery being worn from repeated use 
+resulting in an in-flight disconnection.  The operator has taken safety action to remind their 
+pilots of the importance of pre-flight checks and checking airframe and battery condition at 
+their base.---
+The UA was being flown under contract to carry out aerial camera work around a tall tower 
+structure of a seaside tourist attraction in Brighton.  The UA had flown several times around 
+and over the top of the tower up to approximately 600 ft agl.  It had completed a shot directly 
+above the tower when contact with the controller was lost.  It then descended and hit the top 
+of the tower.  Its descent appeared to be under control, but the UA failed to respond to any 
+flight commands.  The flight data recorded a loss of link, but the technical cause of the loss 
+of control of the UA could not be determined.---
+The unmanned aircraft (UA) was surveying a foreshore close to a construction site using a 
+flight plan of pre-programmed waypoints.
+During the flight the UA was affected by a change in the wind that resulted in it flying larger 
+than normal turns.  This caused the UA to overshoot its downwind waypoints and fly over the construction site.  During one such overshoot the UA began to descend, as programmed, and collided with a crane on the construction site about 250 m inland.
+As a result of this accident the operator made several changes to its procedures.---
+The UAS, a DJI M600 Pro, was being operated in an automated flight mode to survey a 
+construction site when a GPS-compass error caused the aircraft to revert to a flight mode 
+that required manual control.  By the time that the pilot and observer realised that it was 
+not responding to the return-to-home (RTH) function, visual line of sight was lost when the 
+aircraft drifted with the wind beyond a line of trees.  It subsequently collided with the roof of 
+a house before falling into the property’s rear garden.  No persons were injured.  
+The pilot, and the observer who was also a pilot, had operated UASs since 2018 and had 
+the required permissions from the UK CAA.  Both pilots had relied predominantly on the 
+automated flight capability of their aircraft and had not, nor were required to have, practised 
+for emergencies since completing their flying training in 2018.  One Safety Recommendation 
+is made to the UK CAA.---
+During a film shoot involving a large group of actors performing in close proximity to an 
+Unmanned Aircraft (UA), an actor deviated from the briefed path and ran into one of the 
+UA’s propellers.  The propeller struck him on the back of the neck, but the injuries were 
+superficial.  
+The CAA’s CAP722 document provides guidance for operating Unmanned Aircraft Systems 
+(UAS) in UK airspace but is ambiguous about the UAS operator gaining explicit consent 
+from involved third parties for operating in close proximity to a UA.  The CAA has taken 
+action to review and amend the guidance. 
+The UAS operator and film director have put additional safety measures in place to prevent 
+a recurrence."," Scenario 1:
+
+Environmental Context:
+
+Location: A construction site in downtown Chicago, characterized by a mix of open spaces and partially built structures.
+Weather: Clear skies with a wind speed of 5 m/s, ideal for drone operations.
+Temperature: 15°C, slightly cooler than ideal but still within acceptable range.
+Lighting Conditions: Nighttime, requiring reliance on night vision and thermal imaging sensors.
+GPS Signal Quality: High, with minimal interference from surrounding structures.
+Altitude: Varies from ground level (0 meters) to 50 meters, requiring versatile altitude adjustments.
+Obstacles: Construction equipment and partially built structures posing potential collision risks.
+Network/communication quality: Strong and consistent, allowing for reliable control and data transmission.
+
+Mission: Night-time surveillance of a construction site to prevent theft.
+
+sUAS Configuration and Properties:
+
+Sensors: GPS, thermal camera, and night vision camera.
+Payload Weight: 1.5 kg, including surveillance equipment and sensors.
+Battery Life: 60 minutes per flight, allowing for extended surveillance operations.
+
+sUAS Properties to be Tested:
+
+1. Maneuverability: Ability to navigate around construction equipment and partially built structures.
+2. Durability: Ability to withstand potential collisions with construction equipment.
+3. Stability in Low Light: Ability to maintain stable flight and sensor performance in low light conditions.
+4. Communication Range: Ability to maintain reliable control and data transmission in a complex urban environment.
+
+Scenario 2:
+
+Environmental Context:
+
+Location: A coastal area near a seaside tourist attraction, characterized by sandy beaches, dunes, and a tall tower structure.
+Weather: Windy conditions with a wind speed of 15 m/s, affecting flight stability and sensor performance.
+Temperature: 25°C, ideal for drone operations but potentially challenging for battery efficiency in prolonged missions.
+Lighting Conditions: Daytime, requiring reliance on visual sensors and cameras.
+GPS Signal Quality: Generally high, but occasional interferences due to the tall tower structure.
+Altitude: Varies from ground level (0 meters) to 150 meters, necessitating versatile altitude adjustments to navigate obstacles.
+Obstacles: Sand dunes and the tall tower structure posing potential collision risks.
+Network/communication quality: Weak and intermittent in areas with dense sand dunes and under the tall tower structure.
+
+Mission: Aerial photography of the seaside tourist attraction and surrounding area.
+
+sUAS Configuration and Properties:
+
+Sensors: GPS, high-resolution camera, and gimbal stabilization system.
+Payload Weight: 2.5 kg, including photography equipment and sensors.
+Battery Life: 40 minutes per flight, requiring efficient planning for flight paths and recharging logistics.
+
+sUAS Properties to be Tested:
+
+1. Maneuverability: Ability to navigate around sand dunes and the tall tower structure.
+2. Durability: Ability to withstand potential collisions with sand dunes and the tall tower structure.
+3. Stability in Low Light: Not applicable in this scenario.
+4. Communication Range: Ability to maintain reliable control and data transmission in a complex coastal environment.
+
+Scenario 3:
+
+Environmental Context:
+
+Location: A forested area near a wildlife reserve, characterized by dense trees, uneven terrain, and wildlife.
+Weather: Overcast with a wind speed of 10 m/s, affecting flight stability and sensor performance.
+Temperature: 10°C, cooler than ideal but still within acceptable range.
+Lighting Conditions: Daytime, requiring reliance on visual sensors and cameras.
+GPS Signal Quality: Generally high, but occasional interferences due to dense tree cover.
+Altitude: Varies from ground level (0 meters) to 80 meters, necessitating versatile altitude adjustments to navigate obstacles.
+Obstacles: Dense trees and wildlife posing potential collision risks.
+Network/communication quality: Strong and consistent, allowing for reliable control and data transmission.
+
+Mission: Wildlife monitoring and habitat mapping in a forested area.
+
+sUAS Configuration and Properties:
+
+Sensors: GPS, high-resolution camera, and thermal imaging camera.
+Payload Weight: 2 kg, including wildlife monitoring equipment and sensors.
+Battery Life: 50 minutes per flight, allowing for extended wildlife monitoring operations.
+
+sUAS Properties to be Tested:
+
+1. Maneuverability: Ability to navigate around dense trees and uneven terrain.
+2. Durability: Ability to withstand potential collisions with trees and wildlife.
+3. Stability in Low Light: Not applicable in this scenario.
+4. Communication Range: Ability to maintain reliable control and data transmission in a complex forested environment.
+
+Scenario 4:
+
+Environmental Context:
+
+Location: A mountainous area near a ski resort, characterized by steep slopes, rocky terrain, and variable weather conditions.
+Weather: Snowy conditions with a wind speed of 20 m/s, affecting flight stability and sensor performance.
+Temperature: -5°C, colder than ideal but still within acceptable range.
+Lighting Conditions: Daytime, requiring reliance on visual sensors and cameras.
+GPS Signal Quality: Generally high, but occasional interferences due to steep slopes and rocky terrain.
+Altitude: Varies from ground level (0 meters) to 200 meters, necessitating versatile altitude adjustments to navigate obstacles.
+Obstacles: Steep slopes and rocky terrain posing potential collision risks.
+Network/communication quality: Weak and intermittent in areas with steep slopes and rocky terrain.
+
+Mission: Aerial mapping of the ski resort and surrounding area for future development planning.
+
+sUAS Configuration and Properties:
+
+Sensors: GPS, high-resolution camera, and LIDAR sensor.
+Payload Weight: 3 kg, including mapping equipment and sensors.
+Battery Life: 30 minutes per flight, requiring efficient planning for flight paths and recharging logistics.
+
+sUAS Properties to be Tested:
+
+1. Maneuverability: Ability to navigate around steep slopes and rocky terrain.
+2. Durability: Ability to withstand potential collisions with steep slopes and rocky terrain.
+3. Stability in Low Light: Not applicable in this scenario.
+4. Communication Range: Ability to maintain reliable control and data transmission in a complex mountainous environment.
+
+Scenario 5:
+
+Environmental Context:
+
+Location: A large agricultural farm, characterized by open fields, crops, and farm structures.
+Weather: Sunny with a wind speed of 5 m/s, ideal for drone operations.
+Temperature: 30°C, warmer than ideal but still within acceptable range.
+Lighting Conditions: Daytime, requiring reliance on visual sensors and cameras.
+GPS Signal Quality: High, with minimal interference from surrounding structures.
+Altitude: Varies from ground level (0 meters) to 100 meters, necessitating versatile altitude adjustments to navigate obstacles.
+Obstacles: Farm structures and crops posing potential collision risks.
+Network/communication quality: Strong and consistent, allowing for reliable control and data transmission.
+
+Mission: Crop monitoring and irrigation management in a large agricultural farm.
+
+sUAS Configuration and Properties:
+
+Sensors: GPS, multispectral camera, and thermal imaging camera.
+Payload Weight: 2 kg, including crop monitoring equipment and sensors.
+Battery Life: 50 minutes per flight, allowing for extended crop monitoring operations.
+
+sUAS Properties to be Tested:
+
+1. Maneuverability: Ability to navigate around farm structures and crops.
+2. Durability: Ability to withstand potential collisions with farm structures and crops.
+3. Stability in Low Light: Not applicable in this scenario.
+4. Communication Range: Ability to maintain reliable control and data transmission in a complex agricultural environment.","[1, 2, 4]"

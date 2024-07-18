@@ -1,0 +1,974 @@
+Column Name,Description
+accel_bias[0],Bias correction value for the x-axis accelerometer.
+accel_bias[1],Bias correction value for the y-axis accelerometer.
+accel_bias[2],Bias correction value for the z-axis accelerometer.
+accel_bias_limit,The maximum allowable bias correction for accelerometers.
+accel_bias_stable,Indicates if the accelerometer bias is stable.
+accel_bias_valid,Indicates if the accelerometer bias correction is valid.
+accel_bias_variance[0],Variance of the bias correction for the x-axis accelerometer.
+accel_bias_variance[1],Variance of the bias correction for the y-axis accelerometer.
+accel_bias_variance[2],Variance of the bias correction for the z-axis accelerometer.
+accel_calibration_count,Number of times the accelerometer has been calibrated.
+accel_clipping[0],Clipping count for the x-axis accelerometer.
+accel_clipping[1],Clipping count for the y-axis accelerometer.
+accel_clipping[2],Clipping count for the z-axis accelerometer.
+accel_device_id,Device ID of the primary accelerometer.
+accel_device_id_primary,Device ID of the primary accelerometer sensor.
+accel_device_ids[0],Device ID of the first accelerometer sensor.
+accel_device_ids[1],Device ID of the second accelerometer sensor.
+accel_device_ids[2],Device ID of the third accelerometer sensor.
+accel_device_ids[3],Device ID of the fourth accelerometer sensor.
+accel_error_count,Total error count for the accelerometer.
+accel_fault_detected,Indicates if a fault has been detected in the accelerometer.
+accel_healthy[0],Health status of the first accelerometer sensor.
+accel_healthy[1],Health status of the second accelerometer sensor.
+accel_healthy[2],Health status of the third accelerometer sensor.
+accel_healthy[3],Health status of the fourth accelerometer sensor.
+accel_inconsistency_m_s_s[0],Inconsistency in the x-axis accelerometer readings.
+accel_inconsistency_m_s_s[1],Inconsistency in the y-axis accelerometer readings.
+accel_inconsistency_m_s_s[2],Inconsistency in the z-axis accelerometer readings.
+accel_inconsistency_m_s_s[3],Inconsistency in the fourth accelerometer readings.
+accel_innov,Accelerometer innovation metric.
+accel_innov_test_ratio,Test ratio for the accelerometer innovation.
+accel_innov_var,Variance in the accelerometer innovation.
+accel_noise_var,Variance in the accelerometer noise.
+accel_priority[0],Priority of the first accelerometer sensor.
+accel_priority[1],Priority of the second accelerometer sensor.
+accel_priority[2],Priority of the third accelerometer sensor.
+accel_priority[3],Priority of the fourth accelerometer sensor.
+accel_rate_hz,Sampling rate of the accelerometer in Hz.
+accel_raw_rate_hz,Raw sampling rate of the accelerometer in Hz.
+accel_vibration_metric,Metric indicating the level of vibration detected by the accelerometer.
+acceleration,Overall acceleration measurement.
+acceleration[0],Acceleration measurement along the x-axis.
+acceleration[1],Acceleration measurement along the y-axis.
+acceleration[2],Acceleration measurement along the z-axis.
+accelerometer_clipping,Overall clipping count for the accelerometer.
+accelerometer_integral_dt,Time integral for the accelerometer.
+accelerometer_m_s2[0],Acceleration in m/s² along the x-axis.
+accelerometer_m_s2[1],Acceleration in m/s² along the y-axis.
+accelerometer_m_s2[2],Acceleration in m/s² along the z-axis.
+accelerometer_timestamp_relative,Relative timestamp for the accelerometer data.
+accumulated_accel_error[0],Accumulated error for the x-axis accelerometer.
+accumulated_accel_error[1],Accumulated error for the y-axis accelerometer.
+accumulated_accel_error[2],Accumulated error for the z-axis accelerometer.
+accumulated_accel_error[3],Accumulated error for the fourth accelerometer.
+accumulated_gyro_error[0],Accumulated error for the x-axis gyroscope.
+accumulated_gyro_error[1],Accumulated error for the y-axis gyroscope.
+accumulated_gyro_error[2],Accumulated error for the z-axis gyroscope.
+accumulated_gyro_error[3],Accumulated error for the fourth gyroscope.
+actuator,Actuator data.
+actuator_saturation[0],Saturation status of the first actuator.
+actuator_saturation[10],Saturation status of the eleventh actuator.
+actuator_saturation[11],Saturation status of the twelfth actuator.
+actuator_saturation[12],Saturation status of the thirteenth actuator.
+actuator_saturation[13],Saturation status of the fourteenth actuator.
+actuator_saturation[14],Saturation status of the fifteenth actuator.
+actuator_saturation[15],Saturation status of the sixteenth actuator.
+actuator_saturation[1],Saturation status of the second actuator.
+actuator_saturation[2],Saturation status of the third actuator.
+actuator_saturation[3],Saturation status of the fourth actuator.
+actuator_saturation[4],Saturation status of the fifth actuator.
+actuator_saturation[5],Saturation status of the sixth actuator.
+actuator_saturation[6],Saturation status of the seventh actuator.
+actuator_saturation[7],Saturation status of the eighth actuator.
+actuator_saturation[8],Saturation status of the ninth actuator.
+actuator_saturation[9],Saturation status of the tenth actuator.
+additional_integ1,Additional integral metric 1.
+airspeed,Measured airspeed of the drone.
+airspeed_timestamp_rel,Relative timestamp for the airspeed data.
+allocated_thrust[0],Allocated thrust for the first motor.
+allocated_thrust[1],Allocated thrust for the second motor.
+allocated_thrust[2],Allocated thrust for the third motor.
+allocated_torque[0],Allocated torque for the first motor.
+allocated_torque[1],Allocated torque for the second motor.
+allocated_torque[2],Allocated torque for the third motor.
+alt,Altitude measurement.
+alt_ellipsoid,Altitude relative to the ellipsoid.
+alt_reset_counter,Counter for altitude resets.
+angular_velocity_valid,Indicates if the angular velocity data is valid.
+apply_flaps,Command to apply flaps.
+arguments[0],First argument in a set of arguments.
+arguments[10],Eleventh argument in a set of arguments.
+arguments[11],Twelfth argument in a set of arguments.
+arguments[12],Thirteenth argument in a set of arguments.
+arguments[13],Fourteenth argument in a set of arguments.
+arguments[14],Fifteenth argument in a set of arguments.
+arguments[15],Sixteenth argument in a set of arguments.
+arguments[16],Seventeenth argument in a set of arguments.
+arguments[17],Eighteenth argument in a set of arguments.
+arguments[18],Nineteenth argument in a set of arguments.
+arguments[19],Twentieth argument in a set of arguments.
+arguments[1],Second argument in a set of arguments.
+arguments[20],Twentieth argument in a set of arguments.
+arguments[21],Twenty-first argument in a set of arguments.
+arguments[22],Twenty-second argument in a set of arguments.
+arguments[23],Twenty-third argument in a set of arguments.
+arguments[24],Twenty-fourth argument in a set of arguments.
+arguments[2],Third argument in a set of arguments.
+arguments[3],Fourth argument in a set of arguments.
+arguments[4],Fifth argument in a set of arguments.
+arguments[5],Sixth argument in a set of arguments.
+arguments[6],Seventh argument in a set of arguments.
+arguments[7],Eighth argument in a set of arguments.
+arguments[8],Ninth argument in a set of arguments.
+arguments[9],Tenth argument in a set of arguments.
+armed,Indicates if the drone is armed.
+armed_time,Time when the drone was armed.
+arming_state,State of the arming process.
+at_rest,Indicates if the drone is at rest.
+attitude,Current attitude of the drone.
+attitude_valid,Indicates if the attitude data is valid.
+auto_mission_available,Indicates if an auto mission is available.
+automatic_gain_control,Status of the automatic gain control.
+aux1,Auxiliary data 1.
+aux2,Auxiliary data 2.
+aux3,Auxiliary data 3.
+aux4,Auxiliary data 4.
+aux5,Auxiliary data 5.
+aux6,Auxiliary data 6.
+aux_hvel[0],Horizontal velocity auxiliary data along the x-axis.
+aux_hvel[1],Horizontal velocity auxiliary data along the y-axis.
+aux_vvel,Vertical velocity auxiliary data.
+available_energy,Available energy.
+average_power,Average power consumption.
+average_time_to_empty,Average time to empty the battery.
+average_time_to_full,Average time to fully charge the battery.
+avoidance_system_healthy,Indicates if the avoidance system is healthy.
+avoidance_system_required,Indicates if the avoidance system is required.
+avoidance_system_valid,Indicates if the avoidance system data is valid.
+ax,Acceleration along the x-axis.
+ay,Acceleration along the y-axis.
+az,Acceleration along the z-axis.
+bad_yaw_using_gps_course,Indicates if there is a bad yaw using the GPS course.
+baro_alt_meter,Altitude measured by the barometer.
+baro_device_id,Device ID of the barometer.
+baro_pressure_pa,Pressure measured by the barometer in Pascals.
+baro_temp_celcius,Temperature measured by the barometer in Celsius.
+baro_vpos,Vertical position measured by the barometer.
+battery_healthy,Indicates if the battery is healthy.
+beta,Beta value.
+beta_test_ratio,Test ratio for the beta value.
+body_rate,Body rate data.
+c_variance_rad,Variance of the yaw rate in radians.
+calibration_count,Number of times the system has been calibrated.
+calibration_enabled,Indicates if calibration is enabled.
+capacity,Capacity of the battery.
+cell_count,Number of cells in the battery.
+check_fail_gps_fix,Indicates if there is a GPS fix failure check.
+check_fail_max_horz_drift,Indicates if there is a maximum horizontal drift failure check.
+check_fail_max_horz_err,Indicates if there is a maximum horizontal error failure check.
+check_fail_max_horz_spd_err,Indicates if there is a maximum horizontal speed error failure check.
+check_fail_max_pdop,Indicates if there is a maximum PDOP failure check.
+check_fail_max_spd_err,Indicates if there is a maximum speed error failure check.
+check_fail_max_vert_drift,Indicates if there is a maximum vertical drift failure check.
+check_fail_max_vert_err,Indicates if there is a maximum vertical error failure check.
+check_fail_max_vert_spd_err,Indicates if there is a maximum vertical speed error failure check.
+check_fail_min_sat_count,Indicates if there is a minimum satellite count failure check.
+checks_passed,Indicates if all checks have passed.
+circuit_breaker_engaged_airspd_check,Indicates if the airspeed check circuit breaker is engaged.
+circuit_breaker_engaged_enginefailure_check,Indicates if the engine failure check circuit breaker is engaged.
+circuit_breaker_engaged_posfailure_check,Indicates if the position failure check circuit breaker is engaged.
+circuit_breaker_engaged_power_check,Indicates if the power check circuit breaker is engaged.
+circuit_breaker_engaged_usb_check,Indicates if the USB check circuit breaker is engaged.
+circuit_breaker_flight_termination_disabled,Indicates if the flight termination circuit breaker is disabled.
+circuit_breaker_vtol_fw_arming_check,Indicates if the VTOL FW arming check circuit breaker is engaged.
+clip_counter[0],Clip counter for the first sensor.
+clip_counter[1],Clip counter for the second sensor.
+clip_counter[2],Clip counter for the third sensor.
+close_to_ground_or_skipped_check,Indicates if the drone is close to the ground or skipped a check.
+cog_rad,Course over ground in radians.
+combined_test_ratio[0],Combined test ratio for the first test.
+combined_test_ratio[1],Combined test ratio for the second test.
+combined_test_ratio[2],Combined test ratio for the third test.
+combined_test_ratio[3],Combined test ratio for the fourth test.
+combined_test_ratio[4],Combined test ratio for the fifth test.
+combined_test_ratio[5],Combined test ratio for the sixth test.
+combined_test_ratio[6],Combined test ratio for the seventh test.
+combined_test_ratio[7],Combined test ratio for the eighth test.
+combined_test_ratio[8],Combined test ratio for the ninth test.
+command,Command data.
+component_id,Component ID data.
+confirmation,Confirmation data.
+connected,Indicates if the drone is connected.
+control[0],Control data for the first control surface.
+control[1],Control data for the second control surface.
+control[2],Control data for the third control surface.
+control[3],Control data for the fourth control surface.
+control[4],Control data for the fifth control surface.
+control[5],Control data for the sixth control surface.
+control[6],Control data for the seventh control surface.
+control[7],Control data for the eighth control surface.
+control_mode_flags,Flags indicating the control mode.
+control_status_changes,Changes in the control status.
+covariances[0],Covariance matrix element 0.
+covariances[10],Covariance matrix element 10.
+covariances[11],Covariance matrix element 11.
+covariances[12],Covariance matrix element 12.
+covariances[13],Covariance matrix element 13.
+covariances[14],Covariance matrix element 14.
+covariances[15],Covariance matrix element 15.
+covariances[16],Covariance matrix element 16.
+covariances[17],Covariance matrix element 17.
+covariances[18],Covariance matrix element 18.
+covariances[19],Covariance matrix element 19.
+covariances[1],Covariance matrix element 1.
+covariances[20],Covariance matrix element 20.
+covariances[21],Covariance matrix element 21.
+covariances[22],Covariance matrix element 22.
+covariances[23],Covariance matrix element 23.
+covariances[2],Covariance matrix element 2.
+covariances[3],Covariance matrix element 3.
+covariances[4],Covariance matrix element 4.
+covariances[5],Covariance matrix element 5.
+covariances[6],Covariance matrix element 6.
+covariances[7],Covariance matrix element 7.
+covariances[8],Covariance matrix element 8.
+covariances[9],Covariance matrix element 9.
+cs_baro_hgt,Control status barometer height.
+cs_ev_hgt,Control status EV height.
+cs_ev_pos,Control status EV position.
+cs_ev_vel,Control status EV velocity.
+cs_ev_yaw,Control status EV yaw.
+cs_fixed_wing,Control status fixed wing.
+cs_fuse_aspd,Control status fuse airspeed.
+cs_fuse_beta,Control status fuse beta.
+cs_gnd_effect,Control status ground effect.
+cs_gps,Control status GPS.
+cs_gps_hgt,Control status GPS height.
+cs_gps_yaw,Control status GPS yaw.
+cs_gps_yaw_fault,Control status GPS yaw fault.
+cs_in_air,Control status in air.
+cs_inertial_dead_reckoning,Control status inertial dead reckoning.
+cs_mag_3d,Control status magnetometer 3D.
+cs_mag_aligned_in_flight,Control status magnetometer aligned in flight.
+cs_mag_dec,Control status magnetometer declination.
+cs_mag_fault,Control status magnetometer fault.
+cs_mag_field_disturbed,Control status magnetometer field disturbed.
+cs_mag_hdg,Control status magnetometer heading.
+cs_opt_flow,Control status optical flow.
+cs_rng_fault,Control status range fault.
+cs_rng_hgt,Control status range height.
+cs_rng_kin_consistent,Control status range kinematic consistent.
+cs_rng_stuck,Control status range stuck.
+cs_synthetic_mag_z,Control status synthetic magnetometer Z.
+cs_tilt_align,Control status tilt align.
+cs_vehicle_at_rest,Control status vehicle at rest.
+cs_wind,Control status wind.
+cs_wind_dead_reckoning,Control status wind dead reckoning.
+cs_yaw_align,Control status yaw align.
+current._padding0[0],"Current padding 0, element 0."
+current._padding0[1],"Current padding 0, element 1."
+current._padding0[2],"Current padding 0, element 2."
+current._padding0[3],"Current padding 0, element 3."
+current._padding0[4],"Current padding 0, element 4."
+current._padding0[5],"Current padding 0, element 5."
+current.acceptance_radius,Current acceptance radius.
+current.alt,Current altitude.
+current.alt_valid,Indicates if the current altitude is valid.
+current.cruising_speed,Current cruising speed.
+current.cruising_throttle,Current cruising throttle.
+current.disable_weather_vane,Indicates if weather vane is disabled.
+current.landing_gear,Current landing gear status.
+current.lat,Current latitude.
+current.loiter_direction,Current loiter direction.
+current.loiter_radius,Current loiter radius.
+current.lon,Current longitude.
+current.timestamp,Current timestamp.
+current.type,Current type.
+current.valid,Indicates if the current data is valid.
+current.velocity_frame,Current velocity frame.
+current.velocity_valid,Indicates if the current velocity data is valid.
+current.vx,Current velocity along the x-axis.
+current.vy,Current velocity along the y-axis.
+current.vz,Current velocity along the z-axis.
+current.yaw,Current yaw.
+current.yaw_valid,Indicates if the current yaw data is valid.
+current.yawspeed,Current yaw speed.
+current.yawspeed_valid,Indicates if the current yaw speed data is valid.
+current_a,Current in amperes.
+current_average_a,Average current in amperes.
+current_distance,Current distance.
+current_filtered_a,Filtered current in amperes.
+custom_faults,Custom faults.
+cycle_count,Cycle count.
+data_link_lost,Indicates if the data link is lost.
+data_link_lost_counter,Counter for data link lost occurrences.
+data_rate,Data rate.
+data_source,Data source.
+dead_reckoning,Dead reckoning status.
+delta_alt,Delta altitude.
+delta_angle[0],Delta angle element 0.
+delta_angle[1],Delta angle element 1.
+delta_angle[2],Delta angle element 2.
+delta_angle_coning_metric,Delta angle coning metric.
+delta_angle_dt,Delta angle time difference.
+delta_heading,Change in heading.
+delta_q_reset[0],Delta quaternion reset element 0.
+delta_q_reset[1],Delta quaternion reset element 1.
+delta_q_reset[2],Delta quaternion reset element 2.
+delta_q_reset[3],Delta quaternion reset element 3.
+delta_velocity[0],Delta velocity element 0.
+delta_velocity[1],Delta velocity element 1.
+delta_velocity[2],Delta velocity element 2.
+delta_velocity_clipping,Indicates if there is clipping in delta velocity.
+delta_velocity_dt,Delta velocity time difference.
+delta_vxy[0],Change in velocity along the x-axis.
+delta_vxy[1],Change in velocity along the y-axis.
+delta_vz,Change in velocity along the z-axis.
+delta_xy[0],Change in position along the x-axis.
+delta_xy[1],Change in position along the y-axis.
+delta_z,Change in position along the z-axis.
+design_capacity,Design capacity of the battery.
+device_id,Device ID.
+discharged_mah,Discharged capacity in milliampere-hours.
+dist_bottom,Distance to the bottom surface.
+dist_bottom_sensor_bitfield,Bitfield for bottom distance sensor.
+dist_bottom_valid,Indicates if the bottom distance is valid.
+distance_sensor_timestamp_rel,Relative timestamp for distance sensor data.
+drag[0],Drag force along the x-axis.
+drag[1],Drag force along the y-axis.
+emergency_yaw_reset_gps_yaw_stopped,Indicates if emergency yaw reset using GPS yaw has stopped.
+emergency_yaw_reset_mag_stopped,Indicates if emergency yaw reset using magnetometer has stopped.
+engine_failure,Indicates if there is an engine failure.
+eph,Horizontal position accuracy.
+epv,Vertical position accuracy.
+error_count,Count of errors.
+escs_error,Indicates if there is an error in the ESCs.
+escs_failure,Indicates if there is a failure in the ESCs.
+ev_hpos[0],Horizontal position from external vision system along the x-axis.
+ev_hpos[1],Horizontal position from external vision system along the y-axis.
+ev_hvel[0],Horizontal velocity from external vision system along the x-axis.
+ev_hvel[1],Horizontal velocity from external vision system along the y-axis.
+ev_vpos,Vertical position from external vision system.
+ev_vvel,Vertical velocity from external vision system.
+event_sequence,Sequence of events.
+evh,Horizontal position from external vision system.
+evv,Vertical position from external vision system.
+execution_mode,Mode of execution.
+failsafe,Indicates if failsafe is active.
+failsafe_timestamp,Timestamp for failsafe event.
+failure,Indicates if there is a failure.
+failure_detector_status,Status of the failure detector.
+fault_status_changes,Changes in fault status.
+faults,Faults detected.
+fd_alt,Altitude from failure detector.
+fd_arm_escs,Indicates if arming the ESCs failed.
+fd_battery,Indicates if there is a battery failure.
+fd_ext,Indicates if there is an external failure.
+fd_high_wind,Indicates if there is a high wind failure.
+fd_imbalanced_prop,Indicates if there is an imbalanced propeller failure.
+fd_pitch,Pitch from failure detector.
+fd_roll,Roll from failure detector.
+filter_fault_flags,Flags indicating filter faults.
+filtered_horizontal_speed_m_s,Filtered horizontal speed in meters per second.
+finished,Indicates if the process is finished.
+fix_type,Type of GPS fix.
+flag_armed,Indicates if the vehicle is armed.
+flag_control_acceleration_enabled,Indicates if control of acceleration is enabled.
+flag_control_altitude_enabled,Indicates if control of altitude is enabled.
+flag_control_attitude_enabled,Indicates if control of attitude is enabled.
+flag_control_auto_enabled,Indicates if automatic control is enabled.
+flag_control_climb_rate_enabled,Indicates if control of climb rate is enabled.
+flag_control_manual_enabled,Indicates if manual control is enabled.
+flag_control_offboard_enabled,Indicates if offboard control is enabled.
+flag_control_position_enabled,Indicates if control of position is enabled.
+flag_control_rates_enabled,Indicates if control of rates is enabled.
+flag_control_termination_enabled,Indicates if control termination is enabled.
+flag_control_velocity_enabled,Indicates if control of velocity is enabled.
+flag_multicopter_position_control_enabled,Indicates if multicopter position control is enabled.
+flaps,Status of the flaps.
+flight_terminated,Indicates if the flight is terminated.
+flight_termination,Status of flight termination.
+flow[0],Flow measurement along the x-axis.
+flow[1],Flow measurement along the y-axis.
+flow_control,Status of flow control.
+force_failsafe,Indicates if failsafe is forced.
+forwarding,Indicates if data is being forwarded.
+freefall,Indicates if the vehicle is in freefall.
+from_external,Indicates if the data is from an external source.
+fs_bad_acc_bias,Indicates if there is a bad accelerometer bias fault.
+fs_bad_acc_clipping,Indicates if there is a bad accelerometer clipping fault.
+fs_bad_acc_vertical,Indicates if there is a bad vertical accelerometer fault.
+fs_bad_airspeed,Indicates if there is a bad airspeed fault.
+fs_bad_hdg,Indicates if there is a bad heading fault.
+fs_bad_mag_decl,Indicates if there is a bad magnetometer declination fault.
+fs_bad_mag_x,Indicates if there is a bad magnetometer x-axis fault.
+fs_bad_mag_y,Indicates if there is a bad magnetometer y-axis fault.
+fs_bad_mag_z,Indicates if there is a bad magnetometer z-axis fault.
+fs_bad_optflow_x,Indicates if there is a bad optical flow x-axis fault.
+fs_bad_optflow_y,Indicates if there is a bad optical flow y-axis fault.
+fs_bad_pos_d,Indicates if there is a bad position fault.
+fs_bad_pos_e,Indicates if there is a bad position error along the east axis.
+fs_bad_pos_n,Indicates if there is a bad position error along the north axis.
+fs_bad_sideslip,Indicates if there is a bad sideslip fault.
+fs_bad_vel_d,Indicates if there is a bad vertical velocity fault.
+fs_bad_vel_e,Indicates if there is a bad velocity fault along the east axis.
+fs_bad_vel_n,Indicates if there is a bad velocity fault along the north axis.
+ftp,File transfer protocol data.
+full_charge_capacity_wh,Full charge capacity of the battery in watt-hours.
+fw_control_yaw,Fixed wing control yaw status.
+geofence_violated,Indicates if the geofence is violated.
+global_position_valid,Indicates if the global position is valid.
+gps_check_fail_flags,Flags indicating GPS check failures.
+gps_checks_passed,Indicates if GPS checks have passed.
+gps_data_stopped,Indicates if GPS data has stopped.
+gps_data_stopped_using_alternate,Indicates if GPS data has stopped and is using an alternate source.
+gps_fusion_timout,Indicates if there is a GPS fusion timeout.
+gps_hpos[0],Horizontal position from GPS along the x-axis.
+gps_hpos[1],Horizontal position from GPS along the y-axis.
+gps_hvel[0],Horizontal velocity from GPS along the x-axis.
+gps_hvel[1],Horizontal velocity from GPS along the y-axis.
+gps_position_valid,Indicates if the GPS position is valid.
+gps_quality_poor,Indicates if GPS quality is poor.
+gps_vpos,Vertical position from GPS.
+gps_vvel,Vertical velocity from GPS.
+ground_contact,Indicates if there is ground contact.
+gyro_bias[0],Bias correction value for the x-axis gyroscope.
+gyro_bias[1],Bias correction value for the y-axis gyroscope.
+gyro_bias[2],Bias correction value for the z-axis gyroscope.
+gyro_bias_limit,The maximum allowable bias correction for gyroscopes.
+gyro_bias_stable,Indicates if the gyroscope bias is stable.
+gyro_bias_valid,Indicates if the gyroscope bias correction is valid.
+gyro_bias_variance[0],Variance of the bias correction for the x-axis gyroscope.
+gyro_bias_variance[1],Variance of the bias correction for the y-axis gyroscope.
+gyro_bias_variance[2],Variance of the bias correction for the z-axis gyroscope.
+gyro_calibration_count,Number of times the gyroscope has been calibrated.
+gyro_device_id,Device ID of the gyroscope.
+gyro_device_id_primary,Device ID of the primary gyroscope sensor.
+gyro_device_ids[0],Device ID of the first gyroscope sensor.
+gyro_device_ids[1],Device ID of the second gyroscope sensor.
+gyro_device_ids[2],Device ID of the third gyroscope sensor.
+gyro_device_ids[3],Device ID of the fourth gyroscope sensor.
+gyro_error_count,Total error count for the gyroscope.
+gyro_fault_detected,Indicates if a fault has been detected in the gyroscope.
+gyro_healthy[0],Health status of the first gyroscope sensor.
+gyro_healthy[1],Health status of the second gyroscope sensor.
+gyro_healthy[2],Health status of the third gyroscope sensor.
+gyro_healthy[3],Health status of the fourth gyroscope sensor.
+gyro_inconsistency_rad_s[0],Inconsistency in the gyroscope readings along the x-axis.
+gyro_inconsistency_rad_s[1],Inconsistency in the gyroscope readings along the y-axis.
+gyro_inconsistency_rad_s[2],Inconsistency in the gyroscope readings along the z-axis.
+gyro_inconsistency_rad_s[3],Inconsistency in the gyroscope readings along the fourth axis.
+gyro_integral_dt,Time integral for the gyroscope.
+gyro_priority[0],Priority of the first gyroscope sensor.
+gyro_priority[1],Priority of the second gyroscope sensor.
+gyro_priority[2],Priority of the third gyroscope sensor.
+gyro_priority[3],Priority of the fourth gyroscope sensor.
+gyro_rad[0],Gyroscope measurement along the x-axis in radians.
+gyro_rad[1],Gyroscope measurement along the y-axis in radians.
+gyro_rad[2],Gyroscope measurement along the z-axis in radians.
+gyro_rate_hz,Sampling rate of the gyroscope in Hz.
+gyro_raw_rate_hz,Raw sampling rate of the gyroscope in Hz.
+gyro_vibration_metric,Metric indicating the level of vibration detected by the gyroscope.
+h_fov,Horizontal field of view.
+hagl,Height above ground level.
+hagl_max,Maximum height above ground level.
+hagl_min,Minimum height above ground level.
+hagl_rate,Rate of change of height above ground level.
+hagl_test_ratio,Test ratio for the height above ground level.
+has_low_throttle,Indicates if the throttle is low.
+hdop,Horizontal dilution of precision.
+heading,Current heading.
+heading_accuracy,Accuracy of the heading.
+heading_good_for_control,Indicates if the heading is good for control.
+heading_offset,Offset of the heading.
+heading_reset_counter,Counter for heading resets.
+health_flags,Flags indicating health status.
+healthy[0],Health status of the first component.
+healthy[1],Health status of the second component.
+healthy[2],Health status of the third component.
+healthy[3],Health status of the fourth component.
+healthy[4],Health status of the fifth component.
+healthy[5],Health status of the sixth component.
+healthy[6],Health status of the seventh component.
+healthy[7],Health status of the eighth component.
+healthy[8],Health status of the ninth component.
+heartbeat_component_log,Log for the heartbeat component.
+heartbeat_component_obstacle_avoidance,Obstacle avoidance status of the heartbeat component.
+heartbeat_component_osd,On-screen display status of the heartbeat component.
+heartbeat_component_pairing_manager,Pairing manager status of the heartbeat component.
+heartbeat_component_telemetry_radio,Telemetry radio status of the heartbeat component.
+heartbeat_component_uart_bridge,UART bridge status of the heartbeat component.
+heartbeat_component_udp_bridge,UDP bridge status of the heartbeat component.
+heartbeat_component_vio,Visual-inertial odometry status of the heartbeat component.
+heartbeat_type_adsb,Status of the ADS-B heartbeat type.
+heartbeat_type_antenna_tracker,Status of the antenna tracker heartbeat type.
+heartbeat_type_camera,Status of the camera heartbeat type.
+heartbeat_type_gcs,Status of the ground control station heartbeat type.
+heartbeat_type_gimbal,Status of the gimbal heartbeat type.
+heartbeat_type_onboard_controller,Status of the onboard controller heartbeat type.
+heartbeat_type_parachute,Status of the parachute heartbeat type.
+height_sensor_timeout,Indicates if there is a timeout for the height sensor.
+hgt_test_ratio,Test ratio for height.
+high_latency_data_link_lost,Indicates if the high latency data link is lost.
+hil_state,Hardware-in-the-loop simulation state.
+home_position_valid,Indicates if the home position is valid.
+horizontal_movement,Indicates if there is horizontal movement.
+hover_thrust,Thrust required for hovering.
+hover_thrust_var,Variance in hover thrust.
+id,Identification number.
+imbalanced_prop_metric,Metric for imbalanced propeller.
+in_descend,Indicates if the drone is descending.
+in_esc_calibration_mode,Indicates if the ESCs are in calibration mode.
+in_ground_effect,Indicates if the drone is in ground effect.
+in_transition_mode,Indicates if the drone is in transition mode.
+in_transition_to_fw,Indicates if the drone is transitioning to fixed-wing mode.
+information_event_changes,Changes in information events.
+innov_ve[0],Velocity innovation along the x-axis.
+innov_ve[1],Velocity innovation along the y-axis.
+innov_ve[2],Velocity innovation along the z-axis.
+innov_ve[3],Velocity innovation along the fourth axis.
+innov_ve[4],Velocity innovation along the fifth axis.
+innov_vn[0],Velocity innovation along the x-axis.
+innov_vn[1],Velocity innovation along the y-axis.
+innov_vn[2],Velocity innovation along the z-axis.
+innov_vn[3],Velocity innovation along the fourth axis.
+innov_vn[4],Velocity innovation along the fifth axis.
+innovation_check_flags,Flags indicating innovation checks.
+innovation_fault_status_changes,Changes in innovation fault status.
+instance_changed_count,Count of instance changes.
+instance_count,Count of instances.
+instances_available,Available instances.
+interface_error,Interface error status.
+invalid_accel_bias_cov_reset,Indicates if there is an invalid accelerometer bias covariance reset.
+is_powering_off,Indicates if the system is powering off.
+is_required,Indicates if the component is required.
+is_vtol,Indicates if the system is a VTOL.
+is_vtol_tailsitter,Indicates if the system is a VTOL tailsitter.
+item_changed_index,Index of the changed item.
+item_do_jump_changed,Count of do-jump item changes.
+item_do_jump_remaining,Remaining do-jump item count.
+jamming_indicator,Indicator for jamming.
+jamming_state,State of jamming.
+jerk[0],Jerk along the x-axis.
+jerk[1],Jerk along the y-axis.
+jerk[2],Jerk along the z-axis.
+landed,Indicates if the drone has landed.
+last_instance_change,Timestamp of the last instance change.
+lat,Latitude.
+lat_lon_reset_counter,Count of latitude and longitude resets.
+latest_arming_reason,Reason for the latest arming.
+latest_disarming_reason,Reason for the latest disarming.
+load,System load.
+local_altitude_valid,Indicates if the local altitude is valid.
+local_position_valid,Indicates if the local position is valid.
+local_velocity_valid,Indicates if the local velocity is valid.
+lockdown,Indicates if the system is in lockdown.
+log_levels,Log levels.
+lon,Longitude.
+mag_bias[0],Bias correction value for the x-axis magnetometer.
+mag_bias[1],Bias correction value for the y-axis magnetometer.
+mag_bias[2],Bias correction value for the z-axis magnetometer.
+mag_bias_limit,The maximum allowable bias correction for magnetometers.
+mag_bias_stable,Indicates if the magnetometer bias is stable.
+mag_bias_valid,Indicates if the magnetometer bias correction is valid.
+mag_bias_variance[0],Variance of the bias correction for the x-axis magnetometer.
+mag_bias_variance[1],Variance of the bias correction for the y-axis magnetometer.
+mag_bias_variance[2],Variance of the bias correction for the z-axis magnetometer.
+mag_device_id,Device ID of the magnetometer.
+mag_field[0],Magnetic field along the x-axis.
+mag_field[1],Magnetic field along the y-axis.
+mag_field[2],Magnetic field along the z-axis.
+mag_test_ratio,Test ratio for the magnetometer.
+magnetometer_ga[0],Magnetometer measurement in gauss along the x-axis.
+magnetometer_ga[1],Magnetometer measurement in gauss along the y-axis.
+magnetometer_ga[2],Magnetometer measurement in gauss along the z-axis.
+main_state,Main state of the system.
+main_state_changes,Changes in the main state.
+manual_home,Indicates if manual home is set.
+manual_lockdown,Indicates if manual lockdown is enabled.
+manufacture_date,Manufacture date.
+mavlink_v2,Indicates if MAVLink v2 is used.
+max_cell_voltage_delta,Maximum cell voltage delta.
+max_distance,Maximum distance.
+max_error,Maximum error.
+maybe_landed,Indicates if the drone is maybe landed.
+mean_accel[0],Mean acceleration along the x-axis.
+mean_accel[1],Mean acceleration along the y-axis.
+mean_accel[2],Mean acceleration along the z-axis.
+mean_gyro[0],Mean gyroscope reading along the x-axis.
+mean_gyro[1],Mean gyroscope reading along the y-axis.
+mean_gyro[2],Mean gyroscope reading along the z-axis.
+min_distance,Minimum distance.
+mission_failure,Indicates if there is a mission failure.
+mode,Mode of the system.
+n_states,Number of states.
+nav_state,Navigation state.
+nav_state_timestamp,Timestamp of the navigation state.
+next._padding0[0],"Padding for the next element, index 0."
+next._padding0[1],"Padding for the next element, index 1."
+next._padding0[2],"Padding for the next element, index 2."
+next._padding0[3],"Padding for the next element, index 3."
+next._padding0[4],"Padding for the next element, index 4."
+next._padding0[5],"Padding for the next element, index 5."
+next.acceptance_radius,Acceptance radius for the next waypoint.
+next.alt,Altitude for the next waypoint.
+next.alt_valid,Indicates if the altitude for the next waypoint is valid.
+next.cruising_speed,Cruising speed for the next waypoint.
+next.cruising_throttle,Cruising throttle for the next waypoint.
+next.disable_weather_vane,Indicates if the weather vane is disabled for the next waypoint.
+next.landing_gear,Landing gear status for the next waypoint.
+next.lat,Latitude for the next waypoint.
+next.loiter_direction,Loiter direction for the next waypoint.
+next.loiter_radius,Loiter radius for the next waypoint.
+next.lon,Longitude for the next waypoint.
+next.timestamp,Timestamp for the next waypoint.
+next.type,Type of the next waypoint.
+next.valid,Indicates if the next waypoint is valid.
+next.velocity_frame,Velocity frame for the next waypoint.
+next.velocity_valid,Indicates if the velocity data for the next waypoint is valid.
+next.vx,Velocity along the x-axis for the next waypoint.
+next.vy,Velocity along the y-axis for the next waypoint.
+next.vz,Velocity along the z-axis for the next waypoint.
+next.yaw,Yaw for the next waypoint.
+next.yaw_valid,Indicates if the yaw data for the next waypoint is valid.
+next.yawspeed,Yaw speed for the next waypoint.
+next.yawspeed_valid,Indicates if the yaw speed data for the next waypoint is valid.
+noise_per_ms,Noise per millisecond.
+nominal_voltage,Nominal voltage.
+noutputs,Number of outputs.
+offboard_control_signal_lost,Indicates if the offboard control signal is lost.
+onboard_control_sensors_enabled,Onboard control sensors enabled.
+onboard_control_sensors_health,Health of the onboard control sensors.
+onboard_control_sensors_present,Presence of the onboard control sensors.
+optical_flow_timestamp_rel,Relative timestamp for the optical flow data.
+orientation,Orientation data.
+output[0],Output data for the first output channel.
+output[10],Output data for the eleventh output channel.
+output[11],Output data for the twelfth output channel.
+output[12],Output data for the thirteenth output channel.
+output[13],Output data for the fourteenth output channel.
+output[14],Output data for the fifteenth output channel.
+output[15],Output data for the sixteenth output channel.
+output[1],Output data for the second output channel.
+output[2],Output data for the third output channel.
+output[3],Output data for the fourth output channel.
+output[4],Output data for the fifth output channel.
+output[5],Output data for the sixth output channel.
+output[6],Output data for the seventh output channel.
+output[7],Output data for the eighth output channel.
+output[8],Output data for the ninth output channel.
+output[9],Output data for the tenth output channel.
+output_tracking_error[0],Tracking error for the first output channel.
+output_tracking_error[1],Tracking error for the second output channel.
+output_tracking_error[2],Tracking error for the third output channel.
+over_discharge_count,Count of over discharge events.
+parachute_system_healthy,Indicates if the parachute system is healthy.
+parachute_system_present,Indicates if the parachute system is present.
+param1,Parameter 1.
+param2,Parameter 2.
+param3,Parameter 3.
+param4,Parameter 4.
+param5,Parameter 5.
+param6,Parameter 6.
+param7,Parameter 7.
+pitch,Pitch angle.
+pitch_body,Body pitch angle.
+pitch_reset_integral,Pitch reset integral.
+pitchspeed_integ,Integrated pitch speed.
+pos_horiz_accuracy,Horizontal position accuracy.
+pos_test_ratio,Test ratio for position.
+pos_vert_accuracy,Vertical position accuracy.
+position,Position data.
+position_drift_rate_horizontal_m_s,Horizontal position drift rate in meters per second.
+position_drift_rate_vertical_m_s,Vertical position drift rate in meters per second.
+position_reliant_on_gps,Indicates if the position is reliant on GPS.
+position_reliant_on_optical_flow,Indicates if the position is reliant on optical flow.
+position_reliant_on_vision_position,Indicates if the position is reliant on vision position.
+power_input_valid,Indicates if the power input is valid.
+pre_flt_fail_innov_heading,Indicates if there is a preflight failure due to heading innovation.
+pre_flt_fail_innov_height,Indicates if there is a preflight failure due to height innovation.
+pre_flt_fail_innov_vel_horiz,Indicates if there is a preflight failure due to horizontal velocity innovation.
+pre_flt_fail_innov_vel_vert,Indicates if there is a preflight failure due to vertical velocity innovation.
+pre_flt_fail_mag_field_disturbed,Indicates if there is a preflight failure due to disturbed magnetic field.
+prearmed,Indicates if the system is prearmed.
+pressure,Pressure data.
+previous._padding0[0],"Padding for the previous element, index 0."
+previous._padding0[1],"Padding for the previous element, index 1."
+previous._padding0[2],"Padding for the previous element, index 2."
+previous._padding0[3],"Padding for the previous element, index 3."
+previous._padding0[4],"Padding for the previous element, index 4."
+previous._padding0[5],"Padding for the previous element, index 5."
+previous.acceptance_radius,Acceptance radius for the previous waypoint.
+previous.alt,Altitude for the previous waypoint.
+previous.alt_valid,Indicates if the altitude for the previous waypoint is valid.
+previous.cruising_speed,Cruising speed for the previous waypoint.
+previous.cruising_throttle,Cruising throttle for the previous waypoint.
+previous.disable_weather_vane,Indicates if the weather vane is disabled for the previous waypoint.
+previous.landing_gear,Landing gear status for the previous waypoint.
+previous.lat,Latitude for the previous waypoint.
+previous.loiter_direction,Loiter direction for the previous waypoint.
+previous.loiter_radius,Loiter radius for the previous waypoint.
+previous.lon,Longitude for the previous waypoint.
+previous.timestamp,Timestamp for the previous waypoint.
+previous.type,Type of the previous waypoint.
+previous.valid,Indicates if the previous waypoint is valid.
+previous.velocity_frame,Velocity frame for the previous waypoint.
+previous.velocity_valid,Indicates if the velocity data for the previous waypoint is valid.
+previous.vx,Velocity along the x-axis for the previous waypoint.
+previous.vy,Velocity along the y-axis for the previous waypoint.
+previous.vz,Velocity along the z-axis for the previous waypoint.
+previous.yaw,Yaw for the previous waypoint.
+previous.yaw_valid,Indicates if the yaw data for the previous waypoint is valid.
+previous.yawspeed,Yaw speed for the previous waypoint.
+previous.yawspeed_valid,Indicates if the yaw speed data for the previous waypoint is valid.
+primary_instance,Primary instance of the system.
+priority,Priority level.
+q[0],Quaternion component 0.
+q[1],Quaternion component 1.
+q[2],Quaternion component 2.
+q[3],Quaternion component 3.
+q_d[0],Desired quaternion component 0.
+q_d[1],Desired quaternion component 1.
+q_d[2],Desired quaternion component 2.
+q_d[3],Desired quaternion component 3.
+quat_reset_counter,Quaternion reset counter.
+r,Radius value.
+ram_usage,RAM usage.
+rate_multiplier,Rate multiplier.
+rc_calibration_in_progress,Indicates if RC calibration is in progress.
+rc_calibration_valid,Indicates if RC calibration is valid.
+rc_signal_found_once,Indicates if RC signal was found once.
+rc_signal_lost,Indicates if RC signal is lost.
+ready_to_arm,Indicates if the system is ready to arm.
+ref_alt,Reference altitude.
+ref_lat,Reference latitude.
+ref_lon,Reference longitude.
+ref_timestamp,Reference timestamp.
+reject_airspeed,Indicates if airspeed is rejected.
+reject_hagl,Indicates if height above ground level is rejected.
+reject_hor_pos,Indicates if horizontal position is rejected.
+reject_hor_vel,Indicates if horizontal velocity is rejected.
+reject_mag_x,Indicates if magnetometer x-axis is rejected.
+reject_mag_y,Indicates if magnetometer y-axis is rejected.
+reject_mag_z,Indicates if magnetometer z-axis is rejected.
+reject_optflow_x,Indicates if optical flow x-axis is rejected.
+reject_optflow_y,Indicates if optical flow y-axis is rejected.
+reject_sideslip,Indicates if sideslip is rejected.
+reject_ver_pos,Indicates if vertical position is rejected.
+reject_ver_vel,Indicates if vertical velocity is rejected.
+reject_yaw,Indicates if yaw is rejected.
+relative_test_ratio[0],Relative test ratio for component 0.
+relative_test_ratio[1],Relative test ratio for component 1.
+relative_test_ratio[2],Relative test ratio for component 2.
+relative_test_ratio[3],Relative test ratio for component 3.
+relative_test_ratio[4],Relative test ratio for component 4.
+relative_test_ratio[5],Relative test ratio for component 5.
+relative_test_ratio[6],Relative test ratio for component 6.
+relative_test_ratio[7],Relative test ratio for component 7.
+relative_test_ratio[8],Relative test ratio for component 8.
+remaining,Remaining capacity.
+remaining_capacity_wh,Remaining capacity in watt-hours.
+reset_count_pod_d,Reset count for position down.
+reset_count_pos_ne,Reset count for position north-east.
+reset_count_quat,Reset count for quaternion.
+reset_count_vel_d,Reset count for velocity down.
+reset_count_vel_ne,Reset count for velocity north-east.
+reset_pos_to_gps,Indicates if position is reset to GPS.
+reset_pos_to_last_known,Indicates if position is reset to the last known value.
+reset_pos_to_vision,Indicates if position is reset to vision.
+reset_vel_to_flow,Indicates if velocity is reset to flow.
+reset_vel_to_gps,Indicates if velocity is reset to GPS.
+reset_vel_to_vision,Indicates if velocity is reset to vision.
+reset_vel_to_zero,Indicates if velocity is reset to zero.
+rho,Rho value.
+rng_vpos,Vertical position from range finder.
+roll,Roll angle.
+roll_body,Body roll angle.
+roll_reset_integral,Roll reset integral.
+rollspeed_integ,Integrated roll speed.
+rx_buffer_overruns,Count of receiver buffer overruns.
+rx_message_count,Count of received messages.
+rx_message_lost_count,Count of lost messages.
+rx_message_lost_rate,Rate of lost messages.
+rx_packet_drop_count,Count of dropped packets.
+rx_parse_errors,Count of parse errors.
+rx_rate_avg,Average receive rate.
+s_variance_m_s,Variance of speed in meters per second.
+safe_time_estimate,Safe time estimate.
+safety_off,Indicates if safety is off.
+safety_switch_available,Indicates if the safety switch is available.
+samples,Count of samples.
+satellites_used,Number of satellites used.
+scale,Scale factor.
+sd_card_detected_once,Indicates if the SD card was detected once.
+selected,Indicates if the component is selected.
+seq_current,Current sequence number.
+seq_reached,Indicates if the sequence is reached.
+seq_total,Total number of sequences.
+serial_number,Serial number.
+signal_quality,Quality of the signal.
+soft_stop,Indicates if a soft stop is in progress.
+solution_status_flags,Flags indicating the status of the solution.
+source,Source of the data.
+source_component,Source component ID.
+source_system,Source system ID.
+speed_down,Speed of descent.
+speed_up,Speed of ascent.
+starting_gps_fusion,Indicates if GPS fusion is starting.
+starting_vision_pos_fusion,Indicates if vision position fusion is starting.
+starting_vision_vel_fusion,Indicates if vision velocity fusion is starting.
+starting_vision_yaw_fusion,Indicates if vision yaw fusion is starting.
+state_of_health,State of health of the system.
+states[0],State component 0.
+states[10],State component 10.
+states[11],State component 11.
+states[12],State component 12.
+states[13],State component 13.
+states[14],State component 14.
+states[15],State component 15.
+states[16],State component 16.
+states[17],State component 17.
+states[18],State component 18.
+states[19],State component 19.
+states[1],State component 1.
+states[20],State component 20.
+states[21],State component 21.
+states[22],State component 22.
+states[23],State component 23.
+states[2],State component 2.
+states[3],State component 3.
+states[4],State component 4.
+states[5],State component 5.
+states[6],State component 6.
+states[7],State component 7.
+states[8],State component 8.
+states[9],State component 9.
+stay_in_failsafe,Indicates if the system should stay in failsafe mode.
+sticks_moving,Indicates if the sticks are moving.
+stopping_mag_use,Indicates if magnetometer use is stopping.
+stopping_navigation,Indicates if navigation is stopping.
+streams,Data streams.
+system_hotplug_timeout,Timeout for system hotplug.
+system_id,System ID.
+system_sensors_initialized,Indicates if system sensors are initialized.
+system_type,Type of system.
+takeoff_state,Takeoff state.
+takeoff_time,Takeoff time.
+target_component,Target component ID.
+target_system,Target system ID.
+tas_test_ratio,Test ratio for true airspeed.
+temperature,Temperature data.
+temperature_accel,Accelerometer temperature.
+temperature_gyro,Gyroscope temperature.
+terrain_alt,Altitude of terrain.
+terrain_alt_valid,Indicates if the terrain altitude is valid.
+thrust[0],Thrust value for the first component.
+thrust[1],Thrust value for the second component.
+thrust[2],Thrust value for the third component.
+thrust_body[0],Body thrust along the x-axis.
+thrust_body[1],Body thrust along the y-axis.
+thrust_body[2],Body thrust along the z-axis.
+thrust_setpoint_achieved,Indicates if the thrust setpoint is achieved.
+tilt_limit,Tilt limit.
+time_estimate,Time estimate.
+time_remaining_s,Time remaining in seconds.
+time_slip,Time slip.
+time_utc_usec,Timestamp in microseconds since UTC.
+timeout_flags,Flags indicating timeouts.
+timestamp,Timestamp.
+timestamp_sample,Timestamp sample.
+timestamp_time_relative,Timestamp relative to time.
+torque_setpoint_achieved,Indicates if the torque setpoint is achieved.
+tx_buffer_overruns,Count of transmitter buffer overruns.
+tx_error_rate_avg,Average error rate for transmission.
+tx_message_count,Count of transmitted messages.
+tx_rate_avg,Average transmission rate.
+type,Type of data.
+unallocated_thrust[0],Unallocated thrust for the first component.
+unallocated_thrust[1],Unallocated thrust for the second component.
+unallocated_thrust[2],Unallocated thrust for the third component.
+unallocated_torque[0],Unallocated torque for the first component.
+unallocated_torque[1],Unallocated torque for the second component.
+unallocated_torque[2],Unallocated torque for the third component.
+usb_connected,Indicates if USB is connected.
+v_fov,Vertical field of view.
+v_xy_valid,Indicates if the horizontal velocity data is valid.
+v_z_valid,Indicates if the vertical velocity data is valid.
+valid,Indicates if the data is valid.
+valid_alt,Indicates if the altitude data is valid.
+valid_hpos,Indicates if the horizontal position data is valid.
+valid_lpos,Indicates if the local position data is valid.
+var_accel[0],Variance of the accelerometer along the x-axis.
+var_accel[1],Variance of the accelerometer along the y-axis.
+var_accel[2],Variance of the accelerometer along the z-axis.
+var_gyro[0],Variance of the gyroscope along the x-axis.
+var_gyro[1],Variance of the gyroscope along the y-axis.
+var_gyro[2],Variance of the gyroscope along the z-axis.
+variance,Variance data.
+vdop,Vertical dilution of precision.
+vehicle_air_data_timestamp_rel,Relative timestamp for vehicle air data.
+vehicle_magnetometer_timestamp_rel,Relative timestamp for vehicle magnetometer data.
+vehicle_type,Type of vehicle.
+vel_d_m_s,Velocity down in meters per second.
+vel_e_m_s,Velocity east in meters per second.
+vel_m_s,Velocity in meters per second.
+vel_n_m_s,Velocity north in meters per second.
+vel_ned_valid,Indicates if velocity in NED frame is valid.
+vel_test_ratio,Test ratio for velocity.
+velocity,Velocity data.
+vertical_movement,Indicates if there is vertical movement.
+vision_data_stopped,Indicates if vision data has stopped.
+visual_odometry_timestamp_rel,Relative timestamp for visual odometry data.
+voltage_cell_v[0],Voltage of cell 0 in volts.
+voltage_cell_v[10],Voltage of cell 10 in volts.
+voltage_cell_v[11],Voltage of cell 11 in volts.
+voltage_cell_v[12],Voltage of cell 12 in volts.
+voltage_cell_v[13],Voltage of cell 13 in volts.
+voltage_cell_v[1],Voltage of cell 1 in volts.
+voltage_cell_v[2],Voltage of cell 2 in volts.
+voltage_cell_v[3],Voltage of cell 3 in volts.
+voltage_cell_v[4],Voltage of cell 4 in volts.
+voltage_cell_v[5],Voltage of cell 5 in volts.
+voltage_cell_v[6],Voltage of cell 6 in volts.
+voltage_cell_v[7],Voltage of cell 7 in volts.
+voltage_cell_v[8],Voltage of cell 8 in volts.
+voltage_cell_v[9],Voltage of cell 9 in volts.
+voltage_filtered_v,Filtered voltage in volts.
+voltage_v,Voltage in volts.
+vtol_fw_permanent_stab,Indicates if VTOL forward permanent stabilization is enabled.
+vtol_transition_failure,Indicates if there is a VTOL transition failure.
+vx,Velocity along the x-axis.
+vxy_max,Maximum horizontal velocity.
+vxy_reset_counter,Reset counter for horizontal velocity.
+vy,Velocity along the y-axis.
+vz,Velocity along the z-axis.
+vz_max,Maximum vertical velocity.
+vz_reset_counter,Reset counter for vertical velocity.
+want_takeoff,Indicates if takeoff is desired.
+warning,Warning message.
+warning_event_changes,Changes in warning events.
+weight[0],Weight value for component 0.
+weight[1],Weight value for component 1.
+weight[2],Weight value for component 2.
+weight[3],Weight value for component 3.
+weight[4],Weight value for component 4.
+x,Position along the x-axis.
+xy_global,Indicates if global XY position is valid.
+xy_reset_counter,Reset counter for XY position.
+xy_valid,Indicates if XY position is valid.
+xyz[0],Position along the x-axis.
+xyz[1],Position along the y-axis.
+xyz[2],Position along the z-axis.
+y,Position along the y-axis.
+yaw,Yaw angle.
+yaw[0],Yaw angle component 0.
+yaw[1],Yaw angle component 1.
+yaw[2],Yaw angle component 2.
+yaw[3],Yaw angle component 3.
+yaw[4],Yaw angle component 4.
+yaw_aligned_to_imu_gps,Indicates if yaw is aligned to IMU GPS.
+yaw_body,Body yaw angle.
+yaw_composite,Composite yaw angle.
+yaw_reset_integral,Integral of yaw reset.
+yaw_sp_move_rate,Yaw setpoint move rate.
+yaw_variance,Yaw variance.
+yawspeed,Yaw speed.
+yawspeed_integ,Integral of yaw speed.
+z,Position along the z-axis.
+z_deriv,Derivative of position along the z-axis.
+z_global,Indicates if global Z position is valid.
+z_reset_counter,Reset counter for Z position.
+z_valid,Indicates if Z position is valid.
+message_type,Type of message.

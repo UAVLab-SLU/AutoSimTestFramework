@@ -1,0 +1,177 @@
+question,context,Senarios,index
+i want to test Wind aspect of if make sure it covers all aspects with respect to Wind,"During an aerial survey of a sewage treatment works, the unmanned aircraft flew into a wind 
+turbine, the height of which the pilot had misjudged.The unmanned aircraft (UA) was surveying a foreshore close to a construction site using a 
+flight plan of pre-programmed waypoints.
+During the flight the UA was affected by a change in the wind that resulted in it flying larger 
+than normal turns.  This caused the UA to overshoot its downwind waypoints and fly over the construction site.  During one such overshoot the UA began to descend, as programmed, and collided with a crane on the construction site about 250 m inland.
+As a result of this accident the operator made several changes to its procedures.The aircraft dropped to the ground from a height of 15 m when power was lost to the electric 
+motors even though the battery’s energy level (State of Charge) was 97.7%.  The wind 
+conditions were turbulent and an investigation by the Unmanned Aircraft System’s (UAS) 
+manufacturer concluded that the probable cause for the power loss was that the battery had 
+become loose in flight.Conducting training flight as instructor pilot in an unmanned Aircraft X. Tower weather per 
+ATIS was reported as Few clouds 1100 ft. Prior to that, skies had been reported as clear. 
+Took off planning on VFR pattern work and found that the clouds had thicke ned and 
+pushed in. Decision was made and communicated to tower that we would make a full stop 
+landing. VFR cloud clearances were not maintained at times during the pattern. Full stop 
+landing was successfully completed after which Tower stated that clouds w ere now Broken 
+at 1200 ft. AGL.After takeoff the unmanned aircraft (UA) experienced winds exceeding the manufacturer’s 
+stated limitations and was unable to hold its position position.  A culmination of the 
+subsequent position warning and automatic attempt to return “home” and land triggered 
+a software error, commanding the UA to land while not over its home position.  As the UA 
+descended there was a loss of link with the ground control unit and the UA collided with a 
+tree.    The loss of signal was probably caused by the loss of radio line of sight between the 
+UA and ground control unit when it drifted in the high wind over a five-storey building."," Scenario 1:
+
+Environmental Context:
+
+Location: A coastal area with a mix of sandy beaches and rocky cliffs, with a small fishing village nearby.
+Weather: Wind speed of 15 m/s, with gusts up to 20 m/s, affecting flight stability and sensor performance.
+Temperature: 25°C, ideal for drone operations but potentially challenging for battery efficiency in prolonged missions.
+Lighting Conditions: Bright sunlight during the day, requiring enhanced reliance on optical sensors.
+GPS Signal Quality: Generally high, but occasional interferences due to the rocky cliffs and fishing boats.
+Altitude: Varies from ground level (0 meters) to 150 meters, necessitating versatile altitude adjustments to navigate obstacles.
+Obstacles: Fishing boats, rocky cliffs, and sand dunes posing potential collision risks.
+Network/communication quality: Strong and stable in open areas, but weak and intermittent near the fishing village and rocky cliffs.
+
+Mission:
+
+The sUAS is tasked with conducting a search and rescue operation for a missing person in the coastal area. The drone must navigate through the challenging terrain, avoid obstacles, and locate the missing person using thermal imaging sensors.
+
+sUAS Configuration and Properties:
+
+Sensors: GPS, thermal camera, and acoustic sensors.
+Payload Weight: 2.5 kg, including rescue equipment (e.g., first aid kit, communication device) and sensors.
+Battery Life: 40 minutes per flight, requiring efficient planning for search patterns and recharging logistics.
+
+sUAS Properties to be Tested:
+
+1. Maneuverability: The drone must navigate through the challenging terrain and avoid obstacles.
+2. Durability: The drone must withstand strong winds and gusts.
+3. Stability in Low Light: The drone must maintain stability during bright sunlight.
+4. Communication Range: The drone must maintain a strong and stable communication link with the ground control unit.
+
+Scenario quality:
+
+The sUAS must demonstrate its ability to navigate through challenging terrain, avoid obstacles, and maintain stability in strong winds and bright sunlight. The communication link must remain strong and stable throughout the mission.
+
+Scenario 2:
+
+Environmental Context:
+
+Location: A dense forest with a mix of deciduous and coniferous trees, with a small lake in the center.
+Weather: Wind speed of 5 m/s, with gusts up to 10 m/s, affecting flight stability and sensor performance.
+Temperature: 15°C, ideal for drone operations but potentially challenging for battery efficiency in prolonged missions.
+Lighting Conditions: Dappled sunlight through the tree canopy, requiring enhanced reliance on optical sensors.
+GPS Signal Quality: Generally low due to the dense forest canopy, requiring the use of alternative navigation methods.
+Altitude: Varies from ground level (0 meters) to 80 meters, necessitating versatile altitude adjustments to navigate obstacles.
+Obstacles: Trees, branches, and the lake posing potential collision risks.
+Network/communication quality: Weak and intermittent due to the dense forest canopy.
+
+Mission:
+
+The sUAS is tasked with conducting a search and rescue operation for a missing hiker in the dense forest. The drone must navigate through the challenging terrain, avoid obstacles, and locate the missing hiker using optical sensors and acoustic sensors.
+
+sUAS Configuration and Properties:
+
+Sensors: GPS, optical sensors, and acoustic sensors.
+Payload Weight: 2 kg, including rescue equipment (e.g., first aid kit, communication device) and sensors.
+Battery Life: 45 minutes per flight, requiring efficient planning for search patterns and recharging logistics.
+
+sUAS Properties to be Tested:
+
+1. Maneuverability: The drone must navigate through the dense forest and avoid obstacles.
+2. Durability: The drone must withstand gusts and maintain stability in dappled sunlight.
+3. Stability in Low Light: The drone must maintain stability in dappled sunlight.
+4. Communication Range: The drone must maintain a strong and stable communication link with the ground control unit.
+
+Scenario 3:
+
+Environmental Context:
+
+Location: A mountainous region with a mix of rocky terrain and snow-covered slopes.
+Weather: Wind speed of 20 m/s, with gusts up to 25 m/s, affecting flight stability and sensor performance.
+Temperature: -5°C, potentially challenging for battery efficiency in prolonged missions.
+Lighting Conditions: Transitioning from daylight to dusk, requiring enhanced reliance on night vision and thermal imaging sensors.
+GPS Signal Quality: Generally low due to the mountainous terrain, requiring the use of alternative navigation methods.
+Altitude: Varies from ground level (0 meters) to 200 meters, necessitating versatile altitude adjustments to navigate obstacles.
+Obstacles: Rocky terrain, snow-covered slopes, and cliffs posing potential collision risks.
+Network/communication quality: Weak and intermittent due to the mountainous terrain.
+
+Mission:
+
+The sUAS is tasked with conducting a search and rescue operation for a missing climber in the mountainous region. The drone must navigate through the challenging terrain, avoid obstacles, and locate the missing climber using thermal imaging sensors and night vision sensors.
+
+sUAS Configuration and Properties:
+
+Sensors: GPS, thermal camera, night vision camera, and acoustic sensors.
+Payload Weight: 3 kg, including rescue equipment (e.g., first aid kit, communication device) and sensors.
+Battery Life: 30 minutes per flight, requiring efficient planning for search patterns and recharging logistics.
+
+sUAS Properties to be Tested:
+
+1. Maneuverability: The drone must navigate through the mountainous terrain and avoid obstacles.
+2. Durability: The drone must withstand strong winds and gusts in cold temperatures.
+3. Stability in Low Light: The drone must maintain stability during the transition from daylight to dusk.
+4. Communication Range: The drone must maintain a strong and stable communication link with the ground control unit.
+
+Scenario 4:
+
+Environmental Context:
+
+Location: A desert region with a mix of sand dunes and rocky terrain.
+Weather: Wind speed of 10 m/s, with gusts up to 15 m/s, affecting flight stability and sensor performance.
+Temperature: 40°C, potentially challenging for battery efficiency in prolonged missions.
+Lighting Conditions: Bright sunlight throughout the day, requiring enhanced reliance on optical sensors.
+GPS Signal Quality: Generally high, but occasional interferences due to the sand dunes and rocky terrain.
+Altitude: Varies from ground level (0 meters) to 100 meters, necessitating versatile altitude adjustments to navigate obstacles.
+Obstacles: Sand dunes, rocky terrain, and cacti posing potential collision risks.
+Network/communication quality: Strong and stable in open areas, but weak and intermittent near the sand dunes and rocky terrain.
+
+Mission:
+
+The sUAS is tasked with conducting a search and rescue operation for a missing hiker in the desert region. The drone must navigate through the challenging terrain, avoid obstacles, and locate the missing hiker using optical sensors and acoustic sensors.
+
+sUAS Configuration and Properties:
+
+Sensors: GPS, optical sensors, and acoustic sensors.
+Payload Weight: 2.5 kg, including rescue equipment (e.g., first aid kit, communication device) and sensors.
+Battery Life: 45 minutes per flight, requiring efficient planning for search patterns and recharging logistics.
+
+sUAS Properties to be Tested:
+
+1. Maneuverability: The drone must navigate through the desert terrain and avoid obstacles.
+2. Durability: The drone must withstand strong winds and gusts in high temperatures.
+3. Stability in Low Light: The drone must maintain stability in bright sunlight.
+4. Communication Range: The drone must maintain a strong and stable communication link with the ground control unit.
+
+Scenario 5:
+
+Environmental Context:
+
+Location: A coastal city with a mix of tall buildings, narrow alleys, and significant structural damage.
+Weather: Wind speed of 15 m/s, with gusts up to 20 m/s, affecting flight stability and sensor performance.
+Temperature: 20°C, ideal for drone operations but potentially challenging for battery efficiency in prolonged missions.
+Lighting Conditions: Transitioning to dusk, requiring enhanced reliance on night vision and thermal imaging sensors.
+GPS Signal Quality: Generally high, but occasional interferences due to tall buildings and underground obstructions.
+Altitude: Varies from ground level (0 meters) to 100 meters, necessitating versatile altitude adjustments to navigate obstacles.
+Obstacles: Tall buildings, narrow alleys, and structural damage posing potential collision risks.
+Network/communication quality: Weak and intermittent in areas with dense structural damage and under tall buildings.
+
+Mission:
+
+The sUAS is tasked with conducting a search and rescue operation for a missing person in the coastal city. The drone must navigate through the challenging urban environment, avoid obstacles, and locate the missing person using thermal imaging sensors and night vision sensors.
+
+sUAS Configuration and Properties:
+
+Sensors: GPS, thermal camera, night vision camera, and acoustic sensors.
+Payload Weight: 2.5 kg, including rescue equipment (e.g., first aid kit, communication device) and sensors.
+Battery Life: 45 minutes per flight, requiring efficient planning for search patterns and recharging logistics.
+
+sUAS Properties to be Tested:
+
+1. Maneuverability: The drone must navigate through the urban environment and avoid obstacles.
+2. Durability: The drone must withstand strong winds and gusts in transitioning lighting conditions.
+3. Stability in Low Light: The drone must maintain stability during the transition from daylight to dusk.
+4. Communication Range: The drone must maintain a strong and stable communication link with the ground control unit.
+
+These scenarios cover a wide range of environmental contexts, missions, and sUAS configurations, ensuring that the sUAS is tested in various conditions and can perform effectively in real-world scenarios.",[3]
