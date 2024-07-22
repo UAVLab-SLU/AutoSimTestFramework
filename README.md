@@ -66,7 +66,13 @@ Automated misson
     }
 }
 ```
-
+## PX4
+replace the IP address with the IP address of the host machine
+```bash
+cd Firmware
+export PX4_SIM_HOST_ADDR=192.168.1.181
+make px4_sitl_default none_iris
+```
 
 ## ardupilot
 
