@@ -106,7 +106,7 @@ class PX4PointsMission:
             print(f"Disarming failed with error code: {error._result.result}")
 
 if __name__ == "__main__":
-    points = [[0.0, 0.0, -10.0], [0.0, 5.0, -10.0]]
+    points = [[0.0, 0.0, -10.0], [0.0, 5.0, -10.0], [5.0, 5.0, -10.0], [5.0, 0.0, -10.0], [0.0, 0.0, -10.0]]
     speed = 5
     mission = PX4PointsMission(points, speed)
     mission.start()
