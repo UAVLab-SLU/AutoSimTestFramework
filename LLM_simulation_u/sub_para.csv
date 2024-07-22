@@ -1,0 +1,2047 @@
+parameter,description
+flags,uint32 
+target_component,uint8 
+yaw_rate,float32 # unitless -1..1; can be NAN
+target_system,uint8 
+pitch,float32 # unitless -1..1; can be NAN
+origin_sysid,uint8 
+GIMBAL_MANAGER_FLAGS_NEUTRAL,uint32 = 2
+timestamp,uint64 # time since system start (microseconds)
+GIMBAL_MANAGER_FLAGS_ROLL_LOCK,uint32 = 4
+yaw,float32 # unitless -1..1; can be NAN
+GIMBAL_MANAGER_FLAGS_YAW_LOCK,uint32 = 16
+origin_compid,uint8 
+pitch_rate,float32 # unitless -1..1; can be NAN
+gimbal_device_id,uint8 
+GIMBAL_MANAGER_FLAGS_RETRACT,uint32 = 1
+GIMBAL_MANAGER_FLAGS_PITCH_LOCK,uint32 = 8
+yaw_sp_move_rate,float32 # rad/s (commanded by user)
+thrust_body,float32[3] # Normalized thrust command in body NED frame [-1;1]
+fw_control_yaw_wheel,bool # control heading with steering wheel (used for auto takeoff on runway)
+pitch_body,float32 # body angle in NED frame (can be NaN for FW)
+reset_integral,bool # Reset roll/pitch/yaw integrals (navigation logic change)
+roll_body,float32 # body angle in NED frame (can be NaN for FW)
+q_d,float32[4] # Desired quaternion for quaternion control
+yaw_body,float32 # body angle in NED frame (can be NaN for FW)
+MAV_DISTANCE_SENSOR_LASER,uint8 = 0
+sensor_type,uint8 # Type from MAV_DISTANCE_SENSOR enum.
+increment,float32 # Angular width in degrees of each array element.
+MAV_DISTANCE_SENSOR_INFRARED,uint8 = 2
+frame,uint8 #Coordinate frame of reference for the yaw rotation and offset of the sensor data. Defaults to MAV_FRAME_GLOBAL; which is North aligned. For body-mounted sensors use MAV_FRAME_BODY_FRD; which is vehicle front aligned.
+distances,uint16[72] # Distance of obstacles around the UAV with index 0 corresponding to local North. A value of 0 means that the obstacle is right in front of the sensor. A value of max_distance +1 means no obstacle is present. A value of UINT16_MAX for unknown/not used. In a array element; one unit corresponds to 1cm.
+min_distance,uint16 # Minimum distance the sensor can measure in centimeters.
+MAV_DISTANCE_SENSOR_ULTRASOUND,uint8 = 1
+MAV_DISTANCE_SENSOR_RADAR,uint8 = 3
+max_distance,uint16 # Maximum distance the sensor can measure in centimeters.
+MAV_FRAME_LOCAL_NED,uint8 = 1
+MAV_FRAME_GLOBAL,uint8 = 0
+angle_offset,float32 # Relative angle offset of the 0-index element in the distances array. Value of 0 corresponds to forward. Positive values are offsets to the right.
+MAV_FRAME_BODY_FRD,uint8 = 12
+FAILURE_ARM_ESC,uint16 = 16 # (1 << 4)
+NAVIGATION_STATE_TERMINATION,uint8 = 13 # Termination mode
+in_transition_mode,bool # True if VTOL is doing a transition
+component_id,uint8 # subsystem / component id; contains MAVLink's component ID field
+safety_button_available,bool # Set to true if a safety button is connected
+hil_state,uint8 
+ARM_DISARM_REASON_UNIT_TEST,uint8 = 13
+arming_state,uint8 
+usb_connected,bool # set to true (never cleared) once telemetry received from usb link
+system_type,uint8 # system type; contains mavlink MAV_TYPE
+gcs_connection_lost_counter,uint8 # counts unique GCS connection lost events
+calibration_enabled,bool 
+power_input_valid,bool # set if input power is valid
+NAVIGATION_STATE_STAB,uint8 = 15 # Stabilized mode
+NAVIGATION_STATE_OFFBOARD,uint8 = 14
+NAVIGATION_STATE_MANUAL,uint8 = 0 # Manual mode
+NAVIGATION_STATE_UNUSED1,uint8 = 11 # Free slot
+NAVIGATION_STATE_AUTO_TAKEOFF,uint8 = 17 # Takeoff
+system_id,uint8 # system id; contains MAVLink's system ID field
+NAVIGATION_STATE_ACRO,uint8 = 10 # Acro mode
+armed_time,uint64 # Arming timestamp (microseconds)
+NAVIGATION_STATE_UNUSED,uint8 = 9 # Free slot
+ARM_DISARM_REASON_LOCKDOWN,uint8 = 10
+latest_arming_reason,uint8 
+FAILURE_BATTERY,uint16 = 32 # (1 << 5)
+failure_detector_status,uint16 
+parachute_system_healthy,bool 
+nav_state,uint8 # Currently active mode
+ARM_DISARM_REASON_TRANSITION_TO_STANDBY,uint8 = 0
+ARM_DISARM_REASON_RC_SWITCH,uint8 = 2
+NAVIGATION_STATE_AUTO_MISSION,uint8 = 3 # Auto mission mode
+NAVIGATION_STATE_AUTO_VTOL_TAKEOFF,uint8 = 22 # Takeoff; transition; establish loiter
+VEHICLE_TYPE_AIRSHIP,uint8 = 4
+FAILURE_NONE,uint16 = 0
+FAILURE_MOTOR,uint16 = 128 # (1 << 7)
+safety_off,bool # Set to true if safety is off
+VEHICLE_TYPE_ROTARY_WING,uint8 = 1
+nav_state_timestamp,uint64 # time when current nav_state activated
+VEHICLE_TYPE_FIXED_WING,uint8 = 2
+FAILURE_ROLL,uint16 = 1 # (1 << 0)
+nav_state_user_intention,uint8 # Mode that the user selected (might be different from nav_state in a failsafe situation)
+NAVIGATION_STATE_ORBIT,uint8 = 21 # Orbit in a circle
+failsafe_and_user_took_over,bool # true if system is in failsafe state but the user took over control
+is_vtol_tailsitter,bool # True if the system performs a 90° pitch down rotation during transition from MC to FW
+NAVIGATION_STATE_AUTO_LAND,uint8 = 18 # Land
+latest_disarming_reason,uint8 
+NAVIGATION_STATE_ALTCTL,uint8 = 1 # Altitude control mode
+avoidance_system_valid,bool # Status of the obstacle avoidance system
+NAVIGATION_STATE_AUTO_LOITER,uint8 = 4 # Auto loiter mode
+ARM_DISARM_REASON_RC_STICK,uint8 = 1
+ARM_DISARM_REASON_AUTO_DISARM_PREFLIGHT,uint8 = 8
+in_transition_to_fw,bool # True if VTOL is doing a transition from MC to FW
+open_drone_id_system_healthy,bool 
+avoidance_system_required,bool # Set to true if avoidance system is enabled via COM_OBS_AVOID parameter
+ARM_DISARM_REASON_COMMAND_INTERNAL,uint8 = 3
+ARM_DISARM_REASON_MISSION_START,uint8 = 5
+ARM_DISARM_REASON_SAFETY_BUTTON,uint8 = 6
+failsafe,bool # true if system is in failsafe state (e.g.:RTL; Hover; Terminate; ...)
+is_vtol,bool # True if the system is VTOL capable
+NAVIGATION_STATE_UNUSED3,uint8 = 8 # Free slot
+ARM_DISARM_REASON_SHUTDOWN,uint8 = 12
+ARMING_STATE_ARMED,uint8 = 2
+rc_calibration_in_progress,bool 
+vehicle_type,uint8 
+NAVIGATION_STATE_MAX,uint8 = 23
+ARM_DISARM_REASON_FAILURE_DETECTOR,uint8 = 11
+HIL_STATE_ON,uint8 = 1
+NAVIGATION_STATE_AUTO_RTL,uint8 = 5 # Auto return to launch mode
+FAILURE_EXT,uint16 = 8 # (1 << 3)
+FAILURE_ALT,uint16 = 4 # (1 << 2)
+pre_flight_checks_pass,bool # true if all checks necessary to arm pass
+NAVIGATION_STATE_AUTO_PRECLAND,uint8 = 20 # Precision land with landing target
+HIL_STATE_OFF,uint8 = 0
+VEHICLE_TYPE_UNKNOWN,uint8 = 0
+high_latency_data_link_lost,bool # Set to true if the high latency data link (eg. RockBlock Iridium 9603 telemetry module) is lost
+FAILURE_IMBALANCED_PROP,uint16 = 64 # (1 << 6)
+ARM_DISARM_REASON_COMMAND_EXTERNAL,uint8 = 4
+NAVIGATION_STATE_DESCEND,uint8 = 12 # Descend mode (no position control)
+VEHICLE_TYPE_ROVER,uint8 = 3
+takeoff_time,uint64 # Takeoff timestamp (microseconds)
+ARMING_STATE_DISARMED,uint8 = 1
+ARM_DISARM_REASON_AUTO_DISARM_LAND,uint8 = 7
+NAVIGATION_STATE_AUTO_FOLLOW_TARGET,uint8 = 19 # Auto Follow
+NAVIGATION_STATE_UNUSED2,uint8 = 16 # Free slot
+FAILURE_PITCH,uint16 = 2 # (1 << 1)
+parachute_system_present,bool 
+ARM_DISARM_REASON_KILL_SWITCH,uint8 = 9
+gcs_connection_lost,bool # datalink to GCS lost
+NAVIGATION_STATE_POSCTL,uint8 = 2 # Position control mode
+open_drone_id_system_present,bool 
+indicated_frequency_rpm,float32 # indicated rotor Frequency in Revolution per minute
+estimated_accurancy_rpm,float32 # estimated accuracy in Revolution per minute
+accel_temperature,float32[4] 
+accel_offset_2,float32[3] # accelerometer 2 offsets in the FRD board frame XYZ-axis in m/s^s
+gyro_temperature,float32[4] 
+mag_offset_1,float32[3] # magnetometer 1 offsets in the FRD board frame XYZ-axis in m/s^s
+accel_offset_0,float32[3] # accelerometer 0 offsets in the FRD board frame XYZ-axis in m/s^s
+mag_device_ids,uint32[4] 
+mag_offset_2,float32[3] # magnetometer 2 offsets in the FRD board frame XYZ-axis in m/s^s
+accel_device_ids,uint32[4] 
+mag_offset_3,float32[3] # magnetometer 3 offsets in the FRD board frame XYZ-axis in m/s^s
+gyro_offset_0,float32[3] # gyro 0 XYZ offsets in the sensor frame in rad/s
+baro_offset_3,float32 # barometric pressure 3 offsets in the sensor frame in Pascals
+baro_device_ids,uint32[4] 
+gyro_device_ids,uint32[4] 
+gyro_offset_2,float32[3] # gyro 2 XYZ offsets in the sensor frame in rad/s
+mag_temperature,float32[4] 
+baro_offset_2,float32 # barometric pressure 2 offsets in the sensor frame in Pascals
+baro_offset_0,float32 # barometric pressure 0 offsets in the sensor frame in Pascals
+accel_offset_1,float32[3] # accelerometer 1 offsets in the FRD board frame XYZ-axis in m/s^s
+baro_offset_1,float32 # barometric pressure 1 offsets in the sensor frame in Pascals
+baro_temperature,float32[4] 
+mag_offset_0,float32[3] # magnetometer 0 offsets in the FRD board frame XYZ-axis in m/s^s
+gyro_offset_1,float32[3] # gyro 1 XYZ offsets in the sensor frame in rad/s
+gyro_offset_3,float32[3] # gyro 3 XYZ offsets in the sensor frame in rad/s
+accel_offset_3,float32[3] # accelerometer 3 offsets in the FRD board frame XYZ-axis in m/s^s
+healthy,bool[4] # sensor healthy
+device_ids,uint32[4] 
+external,bool[4] 
+inconsistency,float32[4] # magnitude of difference between sensor instance and mean
+device_id_primary,uint32 # current primary device id for reference
+enabled,bool[4] 
+priority,uint8[4] 
+fd_motor,bool 
+fd_battery,bool 
+fd_ext,bool 
+imbalanced_prop_metric,float32 # Metric of the imbalanced propeller check (low-passed)
+motor_failure_mask,uint16 # Bit-mask with motor indices; indicating critical motor failures
+fd_pitch,bool 
+fd_arm_escs,bool 
+fd_roll,bool 
+fd_imbalanced_prop,bool 
+fd_alt,bool 
+val,int32 
+bias_x,float32[4] # estimated X-bias of all the sensors
+stable,bool[4] 
+bias_y,float32[4] # estimated Y-bias of all the sensors
+bias_z,float32[4] # estimated Z-bias of all the sensors
+valid,bool[4] # true if the estimator has converged
+heartbeat_type_open_drone_id,bool # MAV_TYPE_ODID
+heartbeat_type_adsb,bool # MAV_TYPE_ADSB
+heartbeat_type_gcs,bool # MAV_TYPE_GCS
+LINK_TYPE_USB,uint8 = 3
+heartbeat_component_osd,bool # MAV_COMP_ID_OSD
+LINK_TYPE_IRIDIUM,uint8 = 4
+HEARTBEAT_TIMEOUT_US,uint64 = 2500000 # Heartbeat timeout (tolerate missing 1 + jitter)
+heartbeat_component_obstacle_avoidance,bool # MAV_COMP_ID_OBSTACLE_AVOIDANCE
+avoidance_system_healthy,bool 
+heartbeat_component_pairing_manager,bool # MAV_COMP_ID_PAIRING_MANAGER
+heartbeat_type_onboard_controller,bool # MAV_TYPE_ONBOARD_CONTROLLER
+rx_buffer_overruns,uint32 # number of RX buffer overruns
+heartbeat_component_log,bool # MAV_COMP_ID_LOG
+heartbeat_type_camera,bool # MAV_TYPE_CAMERA
+rate_multiplier,float32 
+rx_message_count,uint32 # count of total messages received
+rx_rate_avg,float32 # transmit rate average (Bytes/s)
+heartbeat_component_udp_bridge,bool # MAV_COMP_ID_UDP_BRIDGE
+data_rate,float32 # configured maximum data rate (Bytes/s)
+rx_packet_drop_count,uint32 # number of packet drops
+mode,uint8 
+ftp,bool 
+forwarding,bool 
+LINK_TYPE_UBIQUITY_BULLET,uint8 = 1
+streams,uint8 
+heartbeat_component_telemetry_radio,bool # MAV_COMP_ID_TELEMETRY_RADIO
+heartbeat_type_antenna_tracker,bool # MAV_TYPE_ANTENNA_TRACKER
+heartbeat_component_uart_bridge,bool # MAV_COMP_ID_UART_BRIDGE
+type,uint8 # type of the radio hardware (LINK_TYPE_*)
+mavlink_v2,bool 
+LINK_TYPE_WIRE,uint8 = 2
+heartbeat_component_vio,bool # MAV_COMP_ID_VISUAL_INERTIAL_ODOMETRY
+tx_rate_avg,float32 # transmit rate average (Bytes/s)
+LINK_TYPE_GENERIC,uint8 = 0
+flow_control,bool 
+tx_buffer_overruns,uint32 # number of TX buffer overruns
+heartbeat_type_gimbal,bool # MAV_TYPE_GIMBAL
+tx_error_rate_avg,float32 # transmit error rate average (Bytes/s)
+heartbeat_type_parachute,bool # MAV_TYPE_PARACHUTE
+tx_message_count,uint32 # total message sent count
+rx_parse_errors,uint32 # number of parse errors
+rx_message_lost_count,uint32 
+rx_message_lost_rate,float32 
+trim,float32[8] # range: [-1; 1]
+NUM_CONTROLS,uint8 = 8
+ESC_CONNECTION_TYPE_CAN,uint8 = 4 # CAN-Bus
+ESC_CONNECTION_TYPE_ONESHOT,uint8 = 2 # One Shot PPM
+counter,uint16 # incremented by the writing thread everytime new data is stored
+esc_count,uint8 # number of connected ESCs
+esc_connectiontype,uint8 # how ESCs connected to the system
+ESC_CONNECTION_TYPE_DSHOT,uint8 = 5 # DShot
+ESC_CONNECTION_TYPE_SERIAL,uint8 = 1 # Serial Bus connected ESC
+ESC_CONNECTION_TYPE_I2C,uint8 = 3 # I2C
+ESC_CONNECTION_TYPE_PPM,uint8 = 0 # Traditional PPM ESC
+esc_armed_flags,uint8 # Bitmask indicating which ESC is armed. For ESC's where the arming state is not known (returned by the ESC); the arming bits should always be set.
+esc_online_flags,uint8 # Bitmask indicating which ESC is online/offline
+CONNECTED_ESC_MAX,uint8 = 8 # The number of ESCs supported. Current (Q2/2013) we support 8 ESCs
+esc,EscReport[8] 
+air_temperature_celsius,float32 # air temperature in degrees Celsius; -1000 if unknown
+confidence,float32 # confidence value from 0 to 1 for this sensor
+timestamp_sample,uint64 
+true_airspeed_m_s,float32 # true filtered airspeed in m/s
+indicated_airspeed_m_s,float32 # indicated airspeed in m/s
+vx,float32 # in meters/sec
+z,float32 # in meters NED
+thrust,float32[3] # normalized thrust vector in NED
+acceleration,float32[3] # in meters/sec^2
+yawspeed,float32 # in radians/sec
+vz,float32 # in meters/sec
+x,float32 # in meters NED
+vy,float32 # in meters/sec
+y,float32 # in meters NED
+ORB_QUEUE_LENGTH,uint32 = 2
+timestamp_utc,uint64 # UTC timestamp
+feedback,bool # Trigger feedback from camera
+seq,uint32 # Image sequence number
+collective_thrust_normalized_setpoint,float32 # Collective thrust setpoint [0; 1]
+collective_tilt_normalized_setpoint,float32 # Collective tilt angle of motors of tiltrotor; 0: vertical; 1: horizontal [0; 1]
+device_id,uint32 # Device id
+state,uint32 # pin state mask
+xyz_derivative,float32[3] # angular acceleration about the FRD body frame XYZ-axis in rad/s^2
+xyz,float32[3] # Bias corrected angular velocity about the FRD body frame XYZ-axis in rad/s
+pre_flt_fail_innov_heading,bool 
+gyro_device_id,uint32 
+GPS_CHECK_FAIL_MAX_HORZ_DRIFT,uint8 = 6 # 6 : maximum allowed horizontal position drift fail - requires stationary vehicle
+CS_SYNTHETIC_MAG_Z,uint8 = 25 # 25 - true when we are using a synthesized measurement for the magnetometer Z component
+CS_EV_HGT,uint8 = 14 # 14 - true when height data from external vision measurements is being fused
+hgt_test_ratio,float32 # ratio of the vertical position innovation to the innovation test limit
+output_tracking_error,float32[3] # return a vector containing the output predictor angular; velocity and position tracking error magnitudes (rad); (m/s); (m)
+CS_EV_POS,uint8 = 12 # 12 - true when local position data from external vision is being fused
+CS_MAG_3D,uint8 = 5 # 5 - true if 3-axis magnetometer measurement are being fused
+GPS_CHECK_FAIL_MAX_VERT_ERR,uint8 = 4 # 4 : maximum allowed vertical position error fail
+CS_FIXED_WING,uint8 = 17 # 17 - true when thought to be operating as a fixed wing vehicle with constrained sideslip
+GPS_CHECK_FAIL_MIN_SAT_COUNT,uint8 = 1 # 1 : minimum required sat count fail
+reset_count_pos_ne,uint8 # number of horizontal position reset events (allow to wrap if count exceeds 255)
+gps_check_fail_flags,uint16 # Bitmask to indicate status of GPS checks - see definition below
+mag_strength_ref_gs,float32 
+CS_TILT_ALIGN,uint8 = 0 # 0 - true if the filter tilt alignment is complete
+GPS_CHECK_FAIL_MAX_HORZ_ERR,uint8 = 3 # 3 : maximum allowed horizontal position error fail
+reset_count_vel_d,uint8 # number of vertical velocity reset events (allow to wrap if count exceeds 255)
+timeout_flags,uint8 # Bitmask to indicate timeout flags (vel; pos; hgt)
+pos_horiz_accuracy,float32 # 1-Sigma estimated horizontal position accuracy relative to the estimators origin (m)
+CS_BARO_HGT,uint8 = 9 # 9 - true when baro height is being fused as a primary height reference
+filter_fault_flags,uint32 # Bitmask to indicate EKF internal faults
+accel_device_id,uint32 
+mag_inclination_deg,float32 
+pre_flt_fail_innov_height,bool 
+CS_IN_AIR,uint8 = 7 # 7 - true when thought to be airborne
+beta_test_ratio,float32 # ratio of the synthetic sideslip innovation to the innovation test limit
+mag_strength_gs,float32 
+mag_inclination_ref_deg,float32 
+CS_MAG_DEC,uint8 = 6 # 6 - true if synthetic magnetic declination measurements are being fused
+CS_GPS_HGT,uint8 = 11 # 11 - true when GPS height is being fused as a primary height reference
+control_mode_flags,uint64 # Bitmask to indicate EKF logic state
+CS_VEHICLE_AT_REST,uint8 = 26 # 26 - true when the vehicle is at rest
+GPS_CHECK_FAIL_MAX_VERT_DRIFT,uint8 = 7 # 7 : maximum allowed vertical position drift fail - requires stationary vehicle
+CS_MAG_FIELD,uint8 = 16 # 16 - true when only the magnetic field states are updated by the magnetometer
+CS_GPS_YAW_FAULT,uint8 = 27 # 27 - true when the GNSS heading has been declared faulty and is no longer being used
+CS_ASPD,uint8 = 19 # 19 - true when airspeed measurements are being fused
+CS_RNG_FAULT,uint8 = 28 # 28 - true when the range finder has been declared faulty and is no longer being used
+CS_RNG_STUCK,uint8 = 21 # 21 - true when a stuck range finder sensor has been detected
+innovation_check_flags,uint16 # Bitmask to indicate pass/fail status of innovation consistency checks
+health_flags,uint8 # Bitmask to indicate sensor health states (vel; pos; hgt)
+CS_GND_EFFECT,uint8 = 20 # 20 - true when when protection from ground effect induced static pressure rise is active
+tas_test_ratio,float32 # ratio of the true airspeed innovation to the innovation test limit
+solution_status_flags,uint16 # Bitmask indicating which filter kinematic state outputs are valid for flight control use.
+pos_test_ratio,float32 # ratio of the largest horizontal position innovation component to the innovation test limit
+CS_OPT_FLOW,uint8 = 3 # 3 - true if optical flow measurements are being fused
+GPS_CHECK_FAIL_GPS_FIX,uint8 = 0 # 0 : insufficient fix type (no 3D solution)
+GPS_CHECK_FAIL_MAX_PDOP,uint8 = 2 # 2 : maximum allowed PDOP fail
+CS_GPS,uint8 = 2 # 2 - true if GPS measurements are being fused
+CS_MAG_ALIGNED,uint8 = 23 # 23 - true when the in-flight mag field alignment has been completed
+reset_count_vel_ne,uint8 # number of horizontal position reset events (allow to wrap if count exceeds 255)
+CS_YAW_ALIGN,uint8 = 1 # 1 - true if the filter yaw alignment is complete
+vel_test_ratio,float32 # ratio of the largest velocity innovation component to the innovation test limit
+reset_count_pod_d,uint8 # number of vertical position reset events (allow to wrap if count exceeds 255)
+pre_flt_fail_mag_field_disturbed,bool 
+GPS_CHECK_FAIL_MAX_SPD_ERR,uint8 = 5 # 5 : maximum allowed speed error fail
+GPS_CHECK_FAIL_MAX_VERT_SPD_ERR,uint8 = 9 # 9 : maximum allowed vertical velocity discrepancy fail
+CS_GPS_YAW,uint8 = 22 # 22 - true when yaw (not ground course) data from a GPS receiver is being fused
+pos_vert_accuracy,float32 # 1-Sigma estimated vertical position accuracy relative to the estimators origin (m)
+hagl_test_ratio,float32 # ratio of the height above ground innovation to the innovation test limit
+time_slip,float32 # cumulative amount of time in seconds that the EKF inertial calculation has slipped relative to system time
+reset_count_quat,uint8 # number of quaternion reset events (allow to wrap if count exceeds 255)
+mag_device_id,uint32 
+baro_device_id,uint32 
+GPS_CHECK_FAIL_MAX_HORZ_SPD_ERR,uint8 = 8 # 8 : maximum allowed horizontal speed fail - requires stationary vehicle
+pre_flt_fail_innov_vel_vert,bool 
+CS_WIND,uint8 = 8 # 8 - true when wind velocity is being estimated
+mag_test_ratio,float32 # ratio of the largest magnetometer innovation component to the innovation test limit
+CS_MAG_FAULT,uint8 = 18 # 18 - true when the magnetometer has been declared faulty and is no longer being used
+CS_BETA,uint8 = 15 # 15 - true when synthetic sideslip measurements are being fused
+CS_EV_YAW,uint8 = 13 # 13 - true when yaw data from external vision measurements is being fused
+CS_MAG_HDG,uint8 = 4 # 4 - true if a simple magnetic yaw heading is being fused
+pre_flt_fail_innov_vel_horiz,bool 
+CS_RNG_HGT,uint8 = 10 # 10 - true when range finder height is being fused as a primary height reference
+CS_EV_VEL,uint8 = 24 # 24 - true when local frame velocity data fusion from external vision measurements is intended
+SOURCE_PROTOCOL_UNKNOWN,uint8 = 0
+SOURCE_PROTOCOL_MAVLINK,uint8 = 1
+estimated_offset,int64 # smoothed time offset between companion system and PX4 (microseconds)
+round_trip_time,uint32 # round trip time of this timesync packet (microseconds)
+SOURCE_PROTOCOL_DDS,uint8 = 2
+remote_timestamp,uint64 # remote system timestamp (microseconds)
+source_protocol,uint8 # timesync source
+observed_offset,int64 # raw time offset directly observed from this timesync packet (microseconds)
+angular_velocity_z,float32 
+q,float32[4] 
+GIMBAL_DEVICE_FLAGS_PITCH_LOCK,uint32 = 8
+angular_velocity_y,float32 
+GIMBAL_DEVICE_FLAGS_ROLL_LOCK,uint32 = 4
+GIMBAL_DEVICE_FLAGS_NEUTRAL,uint32 = 2
+angular_velocity_x,float32 
+GIMBAL_DEVICE_FLAGS_YAW_LOCK,uint32 = 16
+GIMBAL_DEVICE_FLAGS_RETRACT,uint32 = 1
+terrain_alt,float32 # Terrain altitude WGS84; (metres)
+alt,float32 # Altitude AMSL; (meters)
+epv,float32 # Standard deviation of vertical position error; (metres)
+delta_alt,float32 # Reset delta for altitude
+lon,float64 # Longitude; (degrees)
+alt_reset_counter,uint8 # Counter for reset events on altitude
+eph,float32 # Standard deviation of horizontal position error; (metres)
+terrain_alt_valid,bool # Terrain altitude estimate is valid
+dead_reckoning,bool # True if this position is estimated through dead-reckoning
+lat,float64 # Latitude; (degrees)
+lat_lon_reset_counter,uint8 # Counter for reset events on horizontal position coordinates
+alt_ellipsoid,float32 # Altitude above ellipsoid; (meters)
+LOGGER_TYPE_FULL,uint8 = 0 # Normal; full size log
+buffer_size_bytes,uint32 # total buffer size in Bytes
+dropouts,uint32 # number of failed buffer writes due to buffer overflow
+LOGGER_TYPE_MISSION,uint8 = 1 # reduced mission log (e.g. for geotagging)
+total_written_kb,float32 # total written to log in kiloBytes
+BACKEND_ALL,uint8 = 3
+write_rate_kb_s,float32 # write rate in kiloBytes/s
+backend,uint8 
+message_gaps,uint32 # messages misssed
+buffer_used_bytes,uint32 # current buffer fill in Bytes
+num_messages,uint8 
+BACKEND_MAVLINK,uint8 = 2
+BACKEND_FILE,uint8 = 1
+beta_innov_var,float32 # Sideslip measurement innovation variance
+windspeed_north,float32 # Wind component in north / X direction (m/sec)
+variance_north,float32 # Wind estimate error variance in north / X direction (m/sec)**2 - set to zero (no uncertainty) if not estimated
+variance_east,float32 # Wind estimate error variance in east / Y direction (m/sec)**2 - set to zero (no uncertainty) if not estimated
+tas_innov_var,float32 # True airspeed innovation variance
+tas_innov,float32 # True airspeed innovation
+windspeed_east,float32 # Wind component in east / Y direction (m/sec)
+beta_innov,float32 # Sideslip measurement innovation
+control_power,float32[3] 
+FAILURE_OVER_VOLTAGE,uint8 = 1 # (1 << 1)
+FAILURE_OVER_RPM,uint8 = 3 # (1 << 3)
+esc_temperature,float32 # Temperature measured from current ESC [degC] - if supported
+FAILURE_MOTOR_OVER_TEMPERATURE,uint8 = 2 # (1 << 2)
+esc_power,int8 # Applied power 0-100 in % (negative values reserved)
+FAILURE_INCONSISTENT_CMD,uint8 = 4 # (1 << 4) Set if ESC received an inconsistent command (i.e out of boundaries)
+actuator_function,uint8 # actuator output function (one of Motor1...MotorN)
+ESC_FAILURE_COUNT,uint8 = 10 # Counter - keep it as last element!
+FAILURE_MOTOR_WARN_TEMPERATURE,uint8 = 7 # (1 << 7)
+esc_state,uint8 # State of ESC - depend on Vendor
+esc_voltage,float32 # Voltage measured from current ESC [V] - if supported
+FAILURE_GENERIC,uint8 = 6 # (1 << 6)
+esc_cmdcount,uint8 # Counter of number of commands
+failures,uint16 # Bitmask to indicate the internal ESC faults
+esc_address,uint8 # Address of current ESC (in most cases 1-8 / must be set by driver)
+FAILURE_MOTOR_STUCK,uint8 = 5 # (1 << 5)
+FAILURE_OVER_CURRENT,uint8 = 0 # (1 << 0)
+FAILURE_OVER_ESC_TEMPERATURE,uint8 = 9 # (1 << 9)
+esc_rpm,int32 # Motor RPM; negative for reverse rotation [RPM] - if supported
+esc_current,float32 # Current measured from current ESC [A] - if supported
+FAILURE_WARN_ESC_TEMPERATURE,uint8 = 8 # (1 << 8)
+esc_errorcount,uint32 # Number of reported errors by ESC - if supported
+roll,float32 # [rad/s] roll rate setpoint
+INDEX_ROLL,uint8 = 0
+INDEX_YAW,uint8 = 2
+INDEX_PITCH,uint8 = 1
+control,float32[3] 
+in_ground_effect,bool # indicates if from the perspective of the landing detector the vehicle might be in ground effect (baro). This flag will become true if the vehicle is not moving horizontally and is descending (crude assumption that user is landing).
+landed,bool # true if vehicle is currently landed on the ground (3. stage)
+maybe_landed,bool # true if the vehicle might have landed (2. stage)
+close_to_ground_or_skipped_check,bool 
+vertical_movement,bool 
+freefall,bool # true if vehicle is currently in free-fall
+ground_contact,bool # true if vehicle has ground contact but is not landed (1. stage)
+in_descend,bool 
+has_low_throttle,bool 
+rotational_movement,bool 
+at_rest,bool 
+horizontal_movement,bool 
+TAKEOFF_STATE_SPOOLUP,uint8 = 2
+TAKEOFF_STATE_FLIGHT,uint8 = 5
+TAKEOFF_STATE_UNINITIALIZED,uint8 = 0
+TAKEOFF_STATE_RAMPUP,uint8 = 4
+tilt_limit,float32 # limited tilt feasibility during takeoff; contains maximum tilt otherwise
+TAKEOFF_STATE_READY_FOR_TAKEOFF,uint8 = 3
+TAKEOFF_STATE_DISARMED,uint8 = 1
+takeoff_state,uint8 
+error_count,uint32 
+pressure,float32 # static pressure measurement in Pascals
+temperature,float32 # temperature in degrees Celsius
+set_count,uint32 
+custom_default,uint16 
+export_count,uint32 
+get_count,uint32 
+instance,uint32 # Instance count - constantly incrementing
+active,uint16 
+changed,uint16 
+find_count,uint32 
+mag_inconsistency_angle,float32 # maximum angle between magnetometer instance field vectors in radians.
+time_estimate,float32 # [s] Estimated time for RTL
+safe_time_estimate,float32 # [s] Same as time_estimate; but with safety factor and safety margin included (factor*t + margin)
+scale,float32[3] # scale to map the RC input [-1; 1] to a parameter value
+value_max,float32[3] # minimal parameter value
+value_min,float32[3] # minimal parameter value
+RC_PARAM_MAP_NCHAN,uint8 = 3 # This limit is also hardcoded in the enum RC_CHANNELS_FUNCTION in rc_channels.h
+param_id,char[51] # MAP_NCHAN * (ID_LEN + 1) chars; corresponding param id; null terminated
+PARAM_ID_LEN,uint8 = 16 # corresponds to MAVLINK_MSG_PARAM_VALUE_FIELD_PARAM_ID_LEN
+value0,float32[3] # initial value around which the parameter value is changed
+param_index,int32[3] # corresponding param index; this field is ignored if set to -1; in this case param_id will be used
+flow_uncompensated_integral,float32[2] # integrated optical flow measurement (rad)
+gyro_rate_integral,float32[3] # gyro measurement integrated to flow rate and synchronized with flow measurements (rad)
+vel_body,float32[2] # velocity obtained from gyro-compensated and distance-scaled optical flow raw measurements in body frame(m/s)
+flow_compensated_integral,float32[2] # integrated optical flow measurement compensated for angular motion (rad)
+gyro_rate,float32[3] # gyro measurement synchronized with flow measurements (rad/s)
+vel_ne,float32[2] # same as vel_body but in local frame (m/s)
+FLAGS_NEED_ACK,uint8 = 1 # if set; this message requires to be acked.
+data,uint8[249] # ulog data
+length,uint8 # length of data
+first_message_offset,uint8 # offset into data where first message starts. This
+msg_sequence,uint16 # allows determine drops
+MAV_TUNNEL_PAYLOAD_TYPE_STORM32_RESERVED9,uint8 = 209 # Registered for STorM32 gimbal controller
+MAV_TUNNEL_PAYLOAD_TYPE_UNKNOWN,uint8 = 0 # Encoding of payload unknown
+MAV_TUNNEL_PAYLOAD_TYPE_STORM32_RESERVED0,uint8 = 200 # Registered for STorM32 gimbal controller
+MAV_TUNNEL_PAYLOAD_TYPE_STORM32_RESERVED8,uint8 = 208 # Registered for STorM32 gimbal controller
+MAV_TUNNEL_PAYLOAD_TYPE_STORM32_RESERVED4,uint8 = 204 # Registered for STorM32 gimbal controller
+MAV_TUNNEL_PAYLOAD_TYPE_STORM32_RESERVED1,uint8 = 201 # Registered for STorM32 gimbal controller
+MAV_TUNNEL_PAYLOAD_TYPE_STORM32_RESERVED2,uint8 = 202 # Registered for STorM32 gimbal controller
+MAV_TUNNEL_PAYLOAD_TYPE_STORM32_RESERVED6,uint8 = 206 # Registered for STorM32 gimbal controller
+payload_length,uint8 # Length of the data transported in payload
+payload,uint8[128] # Data itself
+MAV_TUNNEL_PAYLOAD_TYPE_STORM32_RESERVED3,uint8 = 203 # Registered for STorM32 gimbal controller
+payload_type,uint16 # A code that identifies the content of the payload (0 for unknown; which is the default). If this code is less than 32768; it is a 'registered' payload type and the corresponding code should be added to the MAV_TUNNEL_PAYLOAD_TYPE enum. Software creators can register blocks of types as needed. Codes greater than 32767 are considered local experiments and should not be checked in to any widely distributed codebase.
+MAV_TUNNEL_PAYLOAD_TYPE_STORM32_RESERVED5,uint8 = 205 # Registered for STorM32 gimbal controller
+MAV_TUNNEL_PAYLOAD_TYPE_STORM32_RESERVED7,uint8 = 207 # Registered for STorM32 gimbal controller
+innov_test_ratio,float32 # normalized innovation squared test ratio
+bias_var,float32 # estimated barometric altitude bias variance (m^2)
+innov_var,float32 # innovation variance of the last measurement fusion (m^2)
+bias,float32 # estimated barometric altitude bias (m)
+innov,float32 # innovation of the last measurement fusion (m)
+offset_z,float32 # UWB initiator offset in Z axis (NED drone frame)
+aoa_azimuth_fom,uint8 # AOA Azimuth FOM
+aoa_azimuth_resp,float32 # Angle of arrival of first incomming RX msg at the responder
+offset_x,float32 # UWB initiator offset in X axis (NED drone frame)
+distance,float32 # distance in m to the UWB receiver
+nlos,uint8 # None line of site condition y/n
+sessionid,uint32 # UWB SessionID
+aoa_dest_elevation_fom,uint8 # AOA Elevation FOM
+mac,uint16 # MAC adress of Initiator (controller)
+orientation,uint8 # Direction the sensor faces from MAV_SENSOR_ORIENTATION enum
+offset_y,float32 # UWB initiator offset in Y axis (NED drone frame)
+mac_dest,uint16 # MAC adress of Responder (Controlee)
+aoa_azimuth_dev,float32 # Angle of arrival of first incomming RX msg
+aoa_elevation_fom,uint8 # AOA Elevation FOM
+aoa_elevation_dev,float32 # Angle of arrival of first incomming RX msg
+status,uint16 # status feedback #
+aoa_elevation_resp,float32 # Angle of arrival of first incomming RX msg at the responder
+time_offset,uint32 # Time between Ranging Rounds in ms
+aoa_dest_azimuth_fom,uint8 # AOA Azimuth FOM
+accel_healthy,bool[4] 
+gyro_healthy,bool[4] 
+gyro_priority,uint8[4] 
+accel_priority,uint8[4] 
+accel_device_id_primary,uint32 # current primary accel device id for reference
+accel_inconsistency_m_s_s,float32[4] # magnitude of acceleration difference between IMU instance and mean in m/s^2.
+gyro_inconsistency_rad_s,float32[4] # magnitude of angular rate difference between IMU instance and mean in (rad/s).
+gyro_device_id_primary,uint32 # current primary gyro device id for reference
+UNKNOWN_ABORT_CRITERION,uint8 = 4
+flaring,bool # true if the aircraft is flaring
+TERRAIN_NOT_FOUND,uint8 = 2 # FW_LND_ABORT (1 << 0)
+ABORTED_BY_OPERATOR,uint8 = 1
+lateral_touchdown_offset,float32 # [m] lateral touchdown position offset manually commanded during landing
+abort_status,uint8 
+NOT_ABORTED,uint8 = 0
+TERRAIN_TIMEOUT,uint8 = 3 # FW_LND_ABORT (1 << 1)
+yaw_composite,float32 # composite yaw from GSF (rad)
+yaw_composite_valid,bool 
+innov_ve,float32[5] # East velocity innovation for each model in the filter bank (m/s)
+innov_vn,float32[5] # North velocity innovation for each model in the filter bank (m/s)
+weight,float32[5] # weighting for each model in the filter bank
+yaw_variance,float32 # composite yaw variance from GSF (rad^2)
+count,uint16 # count of the missions stored in the dataman
+safe_points_update_counter,uint16 # indicates updates to the safe points; reload from dataman if increased
+land_start_index,int32 # Index of the land start marker; if unavailable index of the land item; -1 otherwise
+current_seq,int32 # default -1; start at the one changed latest
+land_index,int32 # Index of the land item; -1 otherwise
+mission_update_counter,uint16 # indicates updates to the mission; reload from dataman if increased
+geofence_update_counter,uint16 # indicates updates to the geofence; reload from dataman if increased
+dataman_id,uint8 # default 0; there are two offboard storage places in the dataman: 0 or 1
+snr,uint8[20] # dBHz; Signal to noise ratio of satellite C/N0; range 0..99; zero when not tracking this satellite.
+azimuth,uint8[20] # Direction of satellite; 0: 0 deg; 255: 360 deg.
+prn,uint8[20] # Satellite PRN code assignment; (psuedorandom number SBAS; valid codes are 120-144)
+SAT_INFO_MAX_SATELLITES,uint8 = 20
+svid,uint8[20] # Space vehicle ID [1..255]; see scheme below
+used,uint8[20] # 0: Satellite not used; 1: used for navigation
+elevation,uint8[20] # Elevation (0: right on top of receiver; 90: on the horizon) of satellite
+yaw_speed,float32 
+position,float32[3] 
+velocity,float32[3] 
+point_valid,bool 
+rbv,int16 
+rp,int16 
+al,int16 
+rsv,int16 
+rcal,int16 
+rconf,int16 
+power_w,float32 # power in watts; -1 if unknown
+me,int16 
+rc,int16 
+voltage_v,float32 # Voltage in volts; 0 if unknown
+current_a,float32 # Current in amperes; -1 if unknown
+stale,bool # True if estimator stopped receiving follow_target messages for some time. The estimate can still be valid; though it might be inaccurate.
+pos_est,float32[3] # Estimated target NED position (m)
+fusion_count,uint64 
+prediction_count,uint64 
+lon_est,float64 # Estimated target longitude
+last_filter_reset_timestamp,uint64 # time of last filter reset (microseconds)
+alt_est,float32 # Estimated target altitude
+acc_est,float32[3] # Estimated target NED acceleration (m^2/s)
+vel_est,float32[3] # Estimated target NED velocity (m/s)
+lat_est,float64 # Estimated target latitude
+severity,uint8 # log level (same as in the linux kernel; starting with 0)
+text,char[127] 
+color,uint8 # see COLOR_*
+COLOR_CYAN,uint8 = 7
+MODE_BLINK_SLOW,uint8 = 3
+MODE_ON,uint8 = 1 # turn LED on
+COLOR_AMBER,uint8 = 6
+COLOR_RED,uint8 = 1
+COLOR_BLUE,uint8 = 3
+MODE_DISABLED,uint8 = 2 # disable this priority (switch to lower priority setting)
+COLOR_WHITE,uint8 = 8
+MODE_BLINK_NORMAL,uint8 = 4
+MODE_FLASH,uint8 = 7 # two fast blinks (on/off) with timing as in MODE_BLINK_FAST and then off for a while
+COLOR_GREEN,uint8 = 2
+led_mask,uint8 # bitmask which LED(s) to control; set to 0xff for all
+MODE_OFF,uint8 = 0 # turn LED off
+COLOR_PURPLE,uint8 = 5
+MAX_PRIORITY,uint8 = 2 # maximum priority (minimum is 0)
+MODE_BLINK_FAST,uint8 = 5
+COLOR_YELLOW,uint8 = 4
+COLOR_OFF,uint8 = 0 # this is only used in the drivers
+MODE_BREATHE,uint8 = 6 # continuously increase & decrease brightness (solid color if driver does not support it)
+num_blinks,uint8 # how many times to blink (number of on-off cycles if mode is one of MODE_BLINK_*) . Set to 0 for infinite
+integration_timespan_us,uint32 # (microseconds) accumulation timespan in microseconds
+quality,uint8 # quality; 0: bad quality; 255: maximum quality
+MODE_SUPER_LOWLIGHT,uint8 = 3
+delta_angle,float32[3] # (radians) accumulated gyro radians where a positive value is produced by a RH rotation about the body axis. Set to NaN if flow sensor does not have 3-axis gyro data.
+MODE_LOWLIGHT,uint8 = 2
+distance_m,float32 # (meters) Distance to the center of the flow field
+min_ground_distance,float32 # (meters) Minimum distance from ground at which the optical flow sensor operates reliably
+max_flow_rate,float32 # (radians/s) Magnitude of maximum angular which the optical flow sensor can measure reliably
+distance_available,bool 
+MODE_BRIGHT,uint8 = 1
+pixel_flow,float32[2] # (radians) optical flow in radians where a positive value is produced by a RH rotation about the body axis
+delta_angle_available,bool 
+MODE_UNKNOWN,uint8 = 0
+max_ground_distance,float32 # (meters) Maximum distance from ground at which the optical flow sensor operates reliably
+gps_hpos,float32[2] # horizontal GPS position innovation (m) and innovation variance (m**2)
+hagl_rate,float32 # height of ground rate innovation (m/s) and innovation variance ((m/s)**2)
+gps_vpos,float32 # vertical GPS position innovation (m) and innovation variance (m**2)
+ev_vvel,float32 # vertical external vision velocity innovation (m/sec) and innovation variance ((m/sec)**2)
+beta,float32 # synthetic sideslip innovation (rad) and innovation variance (rad**2)
+ev_hvel,float32[2] # horizontal external vision velocity innovation (m/sec) and innovation variance ((m/sec)**2)
+ev_hpos,float32[2] # horizontal external vision position innovation (m) and innovation variance (m**2)
+airspeed,float32 # airspeed innovation (m/sec) and innovation variance ((m/sec)**2)
+aux_vvel,float32 # vertical auxiliary velocity innovation from landing target measurement (m/sec) and innovation variance ((m/sec)**2)
+flow,float32[2] # flow innvoation (rad/sec) and innovation variance ((rad/sec)**2)
+ev_vpos,float32 # vertical external vision position innovation (m) and innovation variance (m**2)
+hagl,float32 # height of ground innovation (m) and innovation variance (m**2)
+gravity,float32[3] # gravity innovation from accelerometerr vector (m/s**2)
+aux_hvel,float32[2] # horizontal auxiliary velocity innovation from landing target measurement (m/sec) and innovation variance ((m/sec)**2)
+terr_flow,float32[2] # flow innvoation (rad/sec) and innovation variance computed by the terrain estimator ((rad/sec)**2)
+mag_field,float32[3] # earth magnetic field innovation (Gauss) and innovation variance (Gauss**2)
+rng_vpos,float32 # range sensor height innovation (m) and innovation variance (m**2)
+heading,float32 # heading innovation (rad) and innovation variance (rad**2)
+baro_vpos,float32 # barometer height innovation (m) and innovation variance (m**2)
+gps_vvel,float32 # vertical GPS velocity innovation (m/sec) and innovation variance ((m/sec)**2)
+gps_hvel,float32[2] # horizontal GPS velocity innovation (m/sec) and innovation variance ((m/sec)**2)
+drag,float32[2] # drag specific force innovation (m/sec**2) and innovation variance ((m/sec)**2)
+squawk,uint16 # Squawk code
+ADSB_EMITTER_TYPE_ULTRA_LIGHT=12,uint16 
+icao_address,uint32 # ICAO address
+ADSB_EMITTER_TYPE_HIGHLY_MANUV=6,uint16 
+ver_velocity,float32 # The vertical velocity in m/s; positive is up
+ADSB_EMITTER_TYPE_SMALL=2,uint16 
+ADSB_EMITTER_TYPE_GLIDER=9,uint16 
+ADSB_EMITTER_TYPE_SPACE=15,uint16 
+ADSB_EMITTER_TYPE_EMERGENCY_SURFACE=17,uint16 
+altitude,float32 # Altitude(ASL) in meters
+ADSB_EMITTER_TYPE_UNASSIGNED2=13,uint16 
+PX4_ADSB_FLAGS_VALID_COORDS,uint16 = 1
+ADSB_EMITTER_TYPE_HEAVY=5,uint16 
+ADSB_EMITTER_TYPE_LARGE=3,uint16 
+ADSB_EMITTER_TYPE_LIGHTER_AIR=10,uint16 
+ADSB_EMITTER_TYPE_UAV=14,uint16 
+PX4_ADSB_FLAGS_VALID_HEADING,uint16 = 4
+PX4_ADSB_FLAGS_VALID_ALTITUDE,uint16 = 2
+ADSB_EMITTER_TYPE_ROTOCRAFT=7,uint16 
+ADSB_EMITTER_TYPE_SERVICE_SURFACE=18,uint16 
+ADSB_EMITTER_TYPE_LIGHT=1,uint16 
+altitude_type,uint8 # Type from ADSB_ALTITUDE_TYPE enum
+tslc,uint8 # Time since last communication in seconds
+ADSB_EMITTER_TYPE_UNASSGINED3=16,uint16 
+ADSB_EMITTER_TYPE_PARACHUTE=11,uint16 
+ADSB_EMITTER_TYPE_NO_INFO=0,uint16 
+PX4_ADSB_FLAGS_VALID_SQUAWK,uint16 = 32
+ADSB_EMITTER_TYPE_ENUM_END=20,uint16 
+callsign,char[9] # The callsign; 8+null
+uas_id,uint8[18] # Unique UAS ID
+PX4_ADSB_FLAGS_RETRANSLATE,uint16 = 256
+ADSB_EMITTER_TYPE_POINT_OBSTACLE=19,uint16 
+hor_velocity,float32 # The horizontal velocity in m/s
+PX4_ADSB_FLAGS_VALID_VELOCITY,uint16 = 8
+ADSB_EMITTER_TYPE_HIGH_VORTEX_LARGE=4,uint16 
+ADSB_EMITTER_TYPE_UNASSIGNED=8,uint16 
+PX4_ADSB_FLAGS_VALID_CALLSIGN,uint16 = 16
+emitter_type,uint8 # Type from ADSB_EMITTER_TYPE enum
+ACTION_UNKILL,uint8 = 3
+ACTION_KILL,uint8 = 4
+ACTION_TOGGLE_ARMING,uint8 = 2
+ACTION_VTOL_TRANSITION_TO_FIXEDWING,uint8 = 7
+SOURCE_RC_SWITCH,uint8 = 1
+ACTION_SWITCH_MODE,uint8 = 5
+SOURCE_RC_STICK_GESTURE,uint8 = 0
+SOURCE_RC_BUTTON,uint8 = 2
+ACTION_ARM,uint8 = 1
+source,uint8 # how the request was triggered
+action,uint8 # what action is requested
+SOURCE_RC_MODE_SLOT,uint8 = 3
+ACTION_VTOL_TRANSITION_TO_MULTICOPTER,uint8 = 6
+ACTION_DISARM,uint8 = 0
+return_value,int32 
+return_sequence,uint32 
+STATE_LAUNCH_DETECTED_DISABLED_MOTOR,uint8 = 1 # launch detected; but keep motor(s) disabled (e.g. because it can't spin freely while on catapult)
+STATE_WAITING_FOR_LAUNCH,uint8 = 0 # waiting for launch
+STATE_FLYING,uint8 = 2 # launch detected; use normal takeoff/flying configuration
+launch_detection_state,uint8 
+return_switch,uint8 # return to launch 2 position switch (mandatory): _NORMAL_; RTL
+MODE_SLOT_1,uint8 = 1 # mode slot 1 selected
+transition_switch,uint8 # VTOL transition switch: _HOVER; FORWARD_FLIGHT
+MODE_SLOT_3,uint8 = 3 # mode slot 3 selected
+engage_main_motor_switch,uint8 # Engage the main motor (for helicopters)
+loiter_switch,uint8 # loiter 2 position switch (optional): _MISSION_; LOITER
+MODE_SLOT_5,uint8 = 5 # mode slot 5 selected
+MODE_SLOT_2,uint8 = 2 # mode slot 2 selected
+switch_changes,uint32 # number of switch changes
+SWITCH_POS_ON,uint8 = 1 # switch activated (value = 1)
+gear_switch,uint8 # landing gear switch: _DOWN_; UP
+MODE_SLOT_NONE,uint8 = 0 # no mode slot assigned
+MODE_SLOT_NUM,uint8 = 6 # number of slots
+MODE_SLOT_4,uint8 = 4 # mode slot 4 selected
+photo_switch,uint8 # Photo trigger switch
+MODE_SLOT_6,uint8 = 6 # mode slot 6 selected
+offboard_switch,uint8 # offboard 2 position switch (optional): _NORMAL_; OFFBOARD
+SWITCH_POS_NONE,uint8 = 0 # switch is not mapped
+kill_switch,uint8 # throttle kill: _NORMAL_; KILL
+arm_switch,uint8 # arm/disarm switch: _DISARMED_; ARMED
+video_switch,uint8 # Photo trigger switch
+mode_slot,uint8 # the slot a specific model selector is in
+SWITCH_POS_MIDDLE,uint8 = 2 # middle position (value = 0)
+SWITCH_POS_OFF,uint8 = 3 # switch not activated (value = -1)
+track_error_bound,float32 # track error bound [m]
+bearing,float32 # bearing angle [rad]
+heading_ref,float32 # heading angle reference [rad]
+lat_accel,float32 # resultant lateral acceleration reference [m/s^2]
+airspeed_ref,float32 # (true) airspeed reference [m/s]
+wind_est_valid,uint8 # (boolean) true = wind estimate is valid and/or being used by controller (also indicates if wind est usage is disabled despite being valid)
+bearing_feas_on_track,float32 # on-track bearing feasibility [0;1]
+adapted_period,float32 # adapted period (if auto-tuning enabled) [s]
+signed_track_error,float32 # signed track error [m]
+time_const,float32 # controller time constant [s]
+bearing_feas,float32 # bearing feasibility [0;1]
+lat_accel_ff,float32 # lateral acceleration demand only for maintaining curvature [m/s^2]
+min_ground_speed_ref,float32 # minimum forward ground speed reference [m/s]
+p_gain,float32 # controller proportional gain [rad/s]
+FUNCTION_PARAM_3_5,uint8 = 16
+FUNCTION_FLTBTN_SLOT_1,uint8 = 21
+FUNCTION_PARAM_1,uint8 = 14
+FUNCTION_FLAPS,uint8 = 7
+FUNCTION_AUX_2,uint8 = 9
+FUNCTION_PITCH,uint8 = 2
+FUNCTION_AUX_6,uint8 = 13
+channels,float32[18] # Scaled to -1..1 (throttle: 0..1)
+FUNCTION_AUX_5,uint8 = 12
+FUNCTION_FLTBTN_SLOT_4,uint8 = 24
+function,int8[28] # Functions mapping
+FUNCTION_GEAR,uint8 = 19
+FUNCTION_OFFBOARD,uint8 = 6
+FUNCTION_FLTBTN_SLOT_3,uint8 = 23
+FUNCTION_FLTBTN_SLOT_5,uint8 = 25
+rssi,uint8 # Receive signal strength index
+FUNCTION_YAW,uint8 = 3
+FUNCTION_ROLL,uint8 = 1
+FUNCTION_LOITER,uint8 = 5
+FUNCTION_KILLSWITCH,uint8 = 17
+FUNCTION_ENGAGE_MAIN_MOTOR,uint8 = 27
+channel_count,uint8 # Number of valid channels
+FUNCTION_FLTBTN_SLOT_2,uint8 = 22
+FUNCTION_TRANSITION,uint8 = 18
+FUNCTION_ARMSWITCH,uint8 = 20
+timestamp_last_valid,uint64 # Timestamp of last valid RC signal
+FUNCTION_AUX_3,uint8 = 10
+FUNCTION_PARAM_2,uint8 = 15
+frame_drop_count,uint32 # Number of dropped frames
+FUNCTION_RETURN,uint8 = 4
+FUNCTION_AUX_4,uint8 = 11
+signal_lost,bool # Control signal lost; should be checked together with topic timeout
+FUNCTION_FLTBTN_SLOT_COUNT,uint8 = 6
+FUNCTION_THROTTLE,uint8 = 0
+FUNCTION_AUX_1,uint8 = 8
+FUNCTION_FLTBTN_SLOT_6,uint8 = 26
+roll_offset,float32 # angle offset in rad
+ROI_WPINDEX,uint8 = 2 # Point toward given MISSION
+ROI_LOCATION,uint8 = 3 # Point toward fixed location
+ROI_TARGET,uint8 = 4 # Point toward target
+ROI_WPNEXT,uint8 = 1 # Point toward next MISSION with optional offset
+ROI_ENUM_END,uint8 = 5
+ROI_NONE,uint8 = 0 # No region of interest
+pitch_offset,float32 # angle offset in rad
+yaw_offset,float32 # angle offset in rad
+normalized_setpoint,float32 # [0; 1]
+ROTATION_FORWARD_FACING,uint8 = 0 # MAV_SENSOR_ROTATION_NONE
+current_distance,float32 # Current distance reading (in m)
+ROTATION_YAW_45,uint8 = 1 # MAV_SENSOR_ROTATION_YAW_45
+ROTATION_YAW_0,uint8 = 0 # MAV_SENSOR_ROTATION_NONE
+ROTATION_RIGHT_FACING,uint8 = 2 # MAV_SENSOR_ROTATION_YAW_90
+ROTATION_UPWARD_FACING,uint8 = 24 # MAV_SENSOR_ROTATION_PITCH_90
+signal_quality,int8 # Signal quality in percent (0...100%); where 0 = invalid signal; 100 = perfect signal; and -1 = unknown signal quality.
+ROTATION_CUSTOM,uint8 = 100 # MAV_SENSOR_ROTATION_CUSTOM
+ROTATION_YAW_90,uint8 = 2 # MAV_SENSOR_ROTATION_YAW_90
+ROTATION_YAW_270,uint8 = 6 # MAV_SENSOR_ROTATION_YAW_270
+v_fov,float32 # Sensor vertical field of view (rad)
+ROTATION_LEFT_FACING,uint8 = 6 # MAV_SENSOR_ROTATION_YAW_270
+h_fov,float32 # Sensor horizontal field of view (rad)
+ROTATION_YAW_225,uint8 = 5 # MAV_SENSOR_ROTATION_YAW_225
+ROTATION_DOWNWARD_FACING,uint8 = 25 # MAV_SENSOR_ROTATION_PITCH_270
+ROTATION_YAW_135,uint8 = 3 # MAV_SENSOR_ROTATION_YAW_135
+ROTATION_BACKWARD_FACING,uint8 = 4 # MAV_SENSOR_ROTATION_YAW_180
+ROTATION_YAW_315,uint8 = 7 # MAV_SENSOR_ROTATION_YAW_315
+ROTATION_YAW_180,uint8 = 4 # MAV_SENSOR_ROTATION_YAW_180
+variance,float32 # Measurement variance (in m^2); 0 for unknown / invalid readings
+PARAM_TYPE_UINT8,uint8 = 1 # MAV_PARAM_TYPE_UINT8
+message_type,uint8 # MAVLink message type: PARAM_REQUEST_READ; PARAM_REQUEST_LIST; PARAM_SET
+NODE_ID_ALL,uint8 = 0 # MAV_COMP_ID_ALL
+MESSAGE_TYPE_PARAM_REQUEST_LIST,uint8 = 21 # MAVLINK_MSG_ID_PARAM_REQUEST_LIST
+int_value,int64 # current value if param_type is int-like
+param_type,uint8 # MAVLink parameter type
+MESSAGE_TYPE_PARAM_SET,uint8 = 23 # MAVLINK_MSG_ID_PARAM_SET
+PARAM_TYPE_REAL32,uint8 = 9 # MAV_PARAM_TYPE_REAL32
+real_value,float32 # current value if param_type is float-like
+MESSAGE_TYPE_PARAM_REQUEST_READ,uint8 = 20 # MAVLINK_MSG_ID_PARAM_REQUEST_READ
+PARAM_TYPE_INT64,uint8 = 8 # MAV_PARAM_TYPE_INT64
+node_id,uint8 # UAVCAN node ID mapped from MAVLink component ID
+RTCM_MSG_USED_USED,uint8 = 2
+vel_m_s,float32 # GPS ground speed; (metres/sec)
+automatic_gain_control,uint16 # Automatic gain control monitor
+longitude_deg,float64 # Longitude in degrees; allows centimeter level RTK precision
+time_utc_usec,uint64 # Timestamp (microseconds; UTC); this is the timestamp which comes from the gps module. It might be unavailable right after cold start; indicated by a value of 0
+timestamp_time_relative,int32 # timestamp + timestamp_time_relative = Time of the UTC timestamp since system start; (microseconds)
+spoofing_state,uint8 # indicates whether spoofing has been detected or suspected by the receivers. O: Unknown; 1: OK; 2: Warning; 3: Critical
+latitude_deg,float64 # Latitude in degrees; allows centimeter level RTK precision
+JAMMING_STATE_UNKNOWN,uint8 = 0
+selected_rtcm_instance,uint8 # uorb instance that is being used for RTCM corrections
+s_variance_m_s,float32 # GPS speed accuracy estimate; (metres/sec)
+SPOOFING_STATE_INDICATED,uint8 = 2
+fix_type,uint8 # 0-1: no fix; 2: 2D fix; 3: 3D fix; 4: RTCM code differential; 5: Real-Time Kinematic; float; 6: Real-Time Kinematic; fixed; 8: Extrapolated. Some applications will not use the value of this field unless it is at least two; so always correctly fill in the fix.
+SPOOFING_STATE_MULTIPLE,uint8 = 3
+satellites_used,uint8 # Number of satellites used
+c_variance_rad,float32 # GPS course accuracy estimate; (radians)
+vel_n_m_s,float32 # GPS North velocity; (metres/sec)
+RTCM_MSG_USED_NOT_USED,uint8 = 1
+heading_accuracy,float32 # heading accuracy (rad; [0; 2PI])
+altitude_ellipsoid_m,float64 # Altitude above Ellipsoid; meters
+jamming_indicator,int32 # indicates jamming is occurring
+vel_ned_valid,bool # True if NED velocity is valid
+cog_rad,float32 # Course over ground (NOT heading; but direction of movement); -PI..PI; (radians)
+heading_offset,float32 # heading offset of dual antenna array in body frame. Set to NaN if not applicable. (rad; [-PI; PI])
+JAMMING_STATE_CRITICAL,uint8 = 3
+RTCM_MSG_USED_UNKNOWN,uint8 = 0
+SPOOFING_STATE_NONE,uint8 = 1
+rtcm_injection_rate,float32 # RTCM message injection rate Hz
+noise_per_ms,int32 # GPS noise per millisecond
+SPOOFING_STATE_UNKNOWN,uint8 = 0
+altitude_msl_m,float64 # Altitude above MSL; meters
+jamming_state,uint8 # indicates whether jamming has been detected or suspected by the receivers. O: Unknown; 1: OK; 2: Warning; 3: Critical
+JAMMING_STATE_WARNING,uint8 = 2
+vel_e_m_s,float32 # GPS East velocity; (metres/sec)
+rtcm_crc_failed,bool # RTCM message CRC failure detected
+hdop,float32 # Horizontal dilution of precision
+rtcm_msg_used,uint8 # Indicates if the RTCM message was used successfully by the receiver
+vdop,float32 # Vertical dilution of precision
+JAMMING_STATE_OK,uint8 = 1
+vel_d_m_s,float32 # GPS Down velocity; (metres/sec)
+fix,uint16 # count of error corrected packets
+remote_noise,uint8 # remote background noise level
+rxerrors,uint16 # receive errors
+txbuf,uint8 # how full the tx buffer is as a percentage
+remote_rssi,uint8 # remote signal strength
+noise,uint8 # background noise level
+attitude_euler_angle,float32[3] # Attitude/direction of the mount as euler angles in rad
+threat_level,uint8 
+id,uint32 
+altitude_minimum_delta,float32 
+horizontal_minimum_delta,float32 
+src,uint8 
+time_to_minimum_delta,float32 
+airspeed_sensor_measurement_valid,bool # True if data from at least one airspeed sensor is declared valid.
+calibrated_ground_minus_wind_m_s,float32 # CAS calculated from groundspeed - windspeed; where windspeed is estimated based on a zero-sideslip assumption; set to NAN if invalid
+calibrated_airspeed_m_s,float32 # calibrated airspeed in m/s (CAS; accounts for instrumentation errors); set to NAN if invalid
+selected_airspeed_index,int8 # 1-3: airspeed sensor index; 0: groundspeed-windspeed; -1: airspeed invalid
+true_ground_minus_wind_m_s,float32 # TAS calculated from groundspeed - windspeed; where windspeed is estimated based on a zero-sideslip assumption; set to NAN if invalid
+len,uint16 # length of data
+MAX_INSTANCES,uint8 = 2
+clip_counter,uint8[3] # clip count per axis in the sample period
+samples,uint8 # number of raw samples that went into this message
+signature,uint16 
+size_x,float32 #/** size of target along camera x-axis in units of tan(theta) **/
+pos_y,float32 # tan(theta); where theta is the angle between the target and the camera center of projection in camera y-axis
+pos_x,float32 # tan(theta); where theta is the angle between the target and the camera center of projection in camera x-axis
+size_y,float32 #/** size of target along camera y-axis in units of tan(theta) **/
+delta,float32 # time it should take to get to this waypoint; if this is the final waypoint (seconds)
+altitude_is_relative,bool # true if altitude is relative from start point
+loiter_exit_xtrack,bool # exit xtrack location: 0 for center of loiter wp; 1 for exit location
+vtol_back_transition,bool # part of the vtol back transition sequence
+loiter_radius,float32 # loiter radius in meters; 0 for a VTOL to hover; negative for counter-clockwise
+sequence_current,uint16 # Sequence of the current mission item
+nav_cmd,uint16 
+time_inside,float32 # time that the MAV should stay inside the radius before advancing in seconds
+origin,uint8 # mission item origin (onboard or mavlink)
+instance_count,uint32 # Instance count of this mission. Increments monotonically whenever the mission is modified
+force_heading,bool # heading needs to be reached
+autocontinue,bool # true if next waypoint should follow after this one
+acceptance_radius,float32 # default radius in which the mission is accepted as reached in meters
+longitude,float32 
+latitude,float32 
+calibration_count,uint8 # Calibration changed counter. Monotonically increases whenever calibration changes.
+magnetometer_ga,float32[3] # Magnetic field in the FRD body frame XYZ-axis in Gauss
+cs_gps_yaw,bool # 22 - true when yaw (not ground course) data fusion from a GPS receiver is intended
+cs_wind_dead_reckoning,bool # 30 - true if we are navigationg reliant on wind relative measurements
+cs_mag_aligned_in_flight,bool # 23 - true when the in-flight mag field alignment has been completed
+cs_ev_pos,bool # 12 - true when local position data fusion from external vision is intended
+cs_ev_yaw_fault,bool # 36 - true when the EV heading has been declared faulty and is no longer being used
+fault_status_changes,uint32 # number of filter fault status (fs) changes
+reject_hor_vel,bool # 0 - true if horizontal velocity observations have been rejected
+fs_bad_sideslip,bool # 6 - true if fusion of the synthetic sideslip constraint has encountered a numerical error
+fs_bad_mag_z,bool # 2 - true if the fusion of the magnetometer Z-axis has encountered a numerical error
+reject_optflow_y,bool # 12 - true if the Y optical flow observation has been rejected
+cs_gnd_effect,bool # 20 - true when protection from ground effect induced static pressure rise is active
+fs_bad_mag_x,bool # 0 - true if the fusion of the magnetometer X-axis has encountered a numerical error
+cs_fuse_aspd,bool # 19 - true when airspeed measurements are being fused
+cs_tilt_align,bool # 0 - true if the filter tilt alignment is complete
+cs_fuse_beta,bool # 15 - true when synthetic sideslip measurements are being fused
+cs_gravity_vector,bool # 34 - true when gravity vector measurements are being fused
+fs_bad_acc_bias,bool # 15 - true if bad delta velocity bias estimates have been detected
+cs_ev_hgt,bool # 14 - true when height data from external vision measurements is being fused
+cs_mag_3d,bool # 5 - true if 3-axis magnetometer measurement fusion is intended
+cs_gps_hgt,bool # 11 - true when GPS height is being fused as a primary height reference
+cs_fake_pos,bool # 32 - true when fake position measurements are being fused
+cs_wind,bool # 8 - true when wind velocity is being estimated
+fs_bad_vel_n,bool # 9 - true if fusion of the North velocity has encountered a numerical error
+reject_hagl,bool # 10 - true if the height above ground observation has been rejected
+cs_inertial_dead_reckoning,bool # 29 - true if we are no longer fusing measurements that constrain horizontal velocity drift
+fs_bad_acc_clipping,bool # 17 - true if delta velocity data contains clipping (asymmetric railing)
+cs_rng_hgt,bool # 10 - true when range finder height is being fused as a primary height reference
+cs_in_air,bool # 7 - true when the vehicle is airborne
+reject_airspeed,bool # 8 - true if the airspeed observation has been rejected
+reject_sideslip,bool # 9 - true if the synthetic sideslip observation has been rejected
+cs_rng_kin_consistent,bool # 31 - true when the range finder kinematic consistency check is passing
+cs_vehicle_at_rest,bool # 26 - true when the vehicle is at rest
+fs_bad_mag_decl,bool # 4 - true if the fusion of the magnetic declination has encountered a numerical error
+cs_mag_dec,bool # 6 - true if synthetic magnetic declination measurements fusion is intended
+cs_ev_yaw,bool # 13 - true when yaw data from external vision measurements fusion is intended
+cs_synthetic_mag_z,bool # 25 - true when we are using a synthesized measurement for the magnetometer Z component
+cs_rng_fault,bool # 28 - true when the range finder has been declared faulty and is no longer being used
+cs_fake_hgt,bool # 33 - true when fake height measurements are being fused
+fs_bad_vel_e,bool # 10 - true if fusion of the East velocity has encountered a numerical error
+fs_bad_pos_n,bool # 12 - true if fusion of the North position has encountered a numerical error
+fs_bad_pos_d,bool # 14 - true if fusion of the Down position has encountered a numerical error
+cs_ev_vel,bool # 24 - true when local frame velocity data fusion from external vision measurements is intended
+cs_baro_hgt,bool # 9 - true when baro height is being fused as a primary height reference
+fs_bad_acc_vertical,bool # 16 - true if bad vertical accelerometer data has been detected
+cs_mag,bool # 35 - true if 3-axis magnetometer measurement fusion (mag states only) is intended
+cs_mag_fault,bool # 18 - true when the magnetometer has been declared faulty and is no longer being used
+reject_yaw,bool # 7 - true if the yaw observation has been rejected
+cs_fixed_wing,bool # 17 - true when the vehicle is operating as a fixed wing vehicle
+fs_bad_vel_d,bool # 11 - true if fusion of the Down velocity has encountered a numerical error
+cs_yaw_align,bool # 1 - true if the filter yaw alignment is complete
+reject_ver_vel,bool # 1 - true if vertical velocity observations have been rejected
+cs_mag_field_disturbed,bool # 16 - true when the mag field does not match the expected strength
+cs_mag_hdg,bool # 4 - true if a simple magnetic yaw heading fusion is intended
+fs_bad_hdg,bool # 3 - true if the fusion of the heading angle has encountered a numerical error
+fs_bad_pos_e,bool # 13 - true if fusion of the East position has encountered a numerical error
+cs_opt_flow,bool # 3 - true if optical flow measurements fusion is intended
+cs_rng_stuck,bool # 21 - true when rng data wasn't ready for more than 10s and new rng values haven't changed enough
+reject_hor_pos,bool # 2 - true if horizontal position observations have been rejected
+cs_gps,bool # 2 - true if GPS measurement fusion is intended
+cs_mag_heading_consistent,bool # 37 - true when the heading obtained from mag data is declared consistent with the filter
+reject_ver_pos,bool # 3 - true if vertical position observations have been rejected
+fs_bad_mag_y,bool # 1 - true if the fusion of the magnetometer Y-axis has encountered a numerical error
+reject_optflow_x,bool # 11 - true if the X optical flow observation has been rejected
+control_status_changes,uint32 # number of filter control status (cs) changes
+fs_bad_airspeed,bool # 5 - true if fusion of the airspeed has encountered a numerical error
+fs_bad_optflow_x,bool # 7 - true if fusion of the optical flow X axis has encountered a numerical error
+fs_bad_optflow_y,bool # 8 - true if fusion of the optical flow Y axis has encountered a numerical error
+innovation_fault_status_changes,uint32 # number of innovation fault status (reject) changes
+cs_gps_yaw_fault,bool # 27 - true when the GNSS heading has been declared faulty and is no longer being used
+temperature_target_met,bool 
+controller_period_usec,uint32 
+MODE_PX4IO,uint8 = 2
+MODE_GPIO,uint8 = 1
+heater_on,bool 
+temperature_sensor,float32 
+feed_forward_value,float32 
+proportional_value,float32 
+controller_time_on_usec,uint32 
+integrator_value,float32 
+temperature_target,float32 
+value,float32 # the value to send as debug output
+ind,int8 # index of debug variable
+accel_fault_detected,bool 
+accumulated_gyro_error,float32[4] 
+instances_available,uint8 
+instance_changed_count,uint32 
+last_instance_change,uint64 
+combined_test_ratio,float32[9] 
+accumulated_accel_error,float32[4] 
+primary_instance,uint8 
+relative_test_ratio,float32[9] 
+gyro_fault_detected,bool 
+gyro_bias_limit,float32 # magnitude of maximum gyroscope in-run bias in body frame (rad/s)
+mag_bias_variance,float32[3] 
+accel_bias,float32[3] # accelerometer in-run bias in body frame (m/s^2)
+mag_bias,float32[3] # magnetometer in-run bias in body frame (Gauss)
+gyro_bias_variance,float32[3] 
+gyro_bias,float32[3] # gyroscope in-run bias in body frame (rad/s)
+gyro_bias_stable,bool # true when the gyro bias estimate is stable enough to use for calibration
+accel_bias_stable,bool # true when the accel bias estimate is stable enough to use for calibration
+mag_bias_limit,float32 # magnitude of maximum magnetometer in-run bias in body frame (Gauss)
+mag_bias_valid,bool 
+accel_bias_variance,float32[3] 
+accel_bias_limit,float32 # magnitude of maximum accelerometer in-run bias in body frame (m/s^2)
+mag_bias_stable,bool # true when the mag bias estimate is stable enough to use for calibration
+accel_bias_valid,bool 
+gyro_bias_valid,bool 
+primary_control_compid,uint8 
+secondary_control_sysid,uint8 
+secondary_control_compid,uint8 
+primary_control_sysid,uint8 
+vy_rel,float32 # Y/east velocity of target; relative to vehicle (navigation frame) [meters/second]
+is_static,bool # Flag indicating whether the landing target is static or moving with respect to the ground
+y_rel,float32 # Y/east position of target; relative to vehicle (navigation frame) [meters]
+rel_vel_valid,bool # Flag showing whether relative velocity is valid
+rel_pos_valid,bool # Flag showing whether relative position is valid
+cov_vy_rel,float32 # Y/east velocity variance [(meters/second)^2]
+z_abs,float32 # Z/down position of target; relative to origin (navigation frame) [meters]
+y_abs,float32 # Y/east position of target; relative to origin (navigation frame) [meters]
+z_rel,float32 # Z/down position of target; relative to vehicle (navigation frame) [meters]
+cov_vx_rel,float32 # X/north velocity variance [(meters/second)^2]
+abs_pos_valid,bool # Flag showing whether absolute position is valid
+x_rel,float32 # X/north position of target; relative to vehicle (navigation frame) [meters]
+vx_rel,float32 # X/north velocity of target; relative to vehicle (navigation frame) [meters/second]
+x_abs,float32 # X/north position of target; relative to origin (navigation frame) [meters]
+cov_x_rel,float32 # X/north position variance [meters^2]
+cov_y_rel,float32 # Y/east position variance [meters^2]
+arming_force_failsafe,bool 
+status_safety_button_event,bool # px4io safety button was pressed for longer than 1 second
+status_arm_sync,bool 
+status_fmu_ok,bool 
+status_rc_sumd,bool 
+arming_io_arm_ok,bool 
+status_fmu_initialized,bool 
+free_memory_bytes,uint16 
+alarm_rc_lost,bool 
+arming_failsafe_custom,bool 
+status_rc_ppm,bool 
+status_rc_sbus,bool 
+alarm_pwm_error,bool 
+status_rc_st24,bool 
+status_raw_pwm,bool 
+status_rc_dsm,bool 
+status_outputs_armed,bool 
+pwm_rate_hz,uint16[8] 
+status_failsafe,bool 
+arming_fmu_armed,bool 
+status_rc_ok,bool 
+arming_fmu_prearmed,bool 
+status_init_ok,bool 
+pwm_failsafe,uint16[8] 
+arming_lockdown,bool 
+rssi_v,float32 # RSSI pin voltage in volts
+pwm,uint16[8] 
+pwm_disarmed,uint16[8] 
+raw_inputs,uint16[18] 
+arming_termination_failsafe,bool 
+failure_flags,uint32 
+DEVICE_FLAGS_ROLL_LOCK,uint16 = 4
+DEVICE_FLAGS_PITCH_LOCK,uint16 = 8
+device_flags,uint16 
+DEVICE_FLAGS_YAW_LOCK,uint16 = 16
+received_from_mavlink,bool 
+DEVICE_FLAGS_RETRACT,uint16 = 1
+DEVICE_FLAGS_NEUTRAL,uint16 = 2
+from_external,bool # Indicates if the command came from an external source
+ARM_AUTH_DENIED_REASON_BAD_WEATHER,uint16 = 5
+ARM_AUTH_DENIED_REASON_GENERIC,uint16 = 0
+VEHICLE_CMD_RESULT_TEMPORARILY_REJECTED,uint8 = 1 # Command TEMPORARY REJECTED/DENIED |
+ARM_AUTH_DENIED_REASON_AIRSPACE_IN_USE,uint16 = 4
+VEHICLE_CMD_RESULT_ACCEPTED,uint8 = 0 # Command ACCEPTED and EXECUTED |
+result_param2,int32 # Additional parameter of the result; example: which parameter of MAV_CMD_NAV_WAYPOINT caused it to be denied.
+VEHICLE_CMD_RESULT_IN_PROGRESS,uint8 = 5 # Command being executed |
+result_param1,uint8 # Also used as progress[%]; it can be set with the reason why the command was denied; or the progress percentage when result is MAV_RESULT_IN_PROGRESS
+VEHICLE_CMD_RESULT_CANCELLED,uint8 = 6 # Command Canceled
+VEHICLE_CMD_RESULT_FAILED,uint8 = 4 # Command executed; but failed |
+result,uint8 # Command result
+VEHICLE_CMD_RESULT_UNSUPPORTED,uint8 = 3 # Command UNKNOWN/UNSUPPORTED |
+ARM_AUTH_DENIED_REASON_INVALID_WAYPOINT,uint16 = 2
+command,uint32 # Command that is being acknowledged
+VEHICLE_CMD_RESULT_DENIED,uint8 = 2 # Command PERMANENTLY DENIED |
+ARM_AUTH_DENIED_REASON_TIMEOUT,uint16 = 3
+ARM_AUTH_DENIED_REASON_NONE,uint16 = 1
+resolution,uint32 # ADC channel resolution
+channel_id,int16[12] # ADC channel IDs; negative for non-existent; TODO: should be kept same as array index
+raw_data,int32[12] # ADC channel raw value; accept negative value; valid if channel ID is positive
+v_ref,float32 # ADC channel voltage reference; use to calculate LSB voltage(lsb=scale/resolution)
+next,PositionSetpoint 
+current,PositionSetpoint 
+previous,PositionSetpoint 
+quat_reset_counter,uint8 # Quaternion reset counter
+delta_q_reset,float32[4] # Amount by which quaternion has changed during last reset
+rtt_ms,float32 # Round trip time (in ms)
+dropped_packets,uint32 # Number of dropped ping packets
+ping_sequence,uint32 # Sequence number of the ping packet
+ping_time,uint64 # Timestamp of the ping packet
+innovation_rejected,bool # true if the observation has been rejected
+fused,bool # true if the sample was successfully fused
+observation_variance,float32[3] 
+innovation,float32[3] 
+test_ratio,float32[3] 
+innovation_variance,float32[3] 
+time_last_fuse,uint64 
+estimator_instance,uint8 
+observation,float32[3] 
+task_name,char[24] 
+stack_free,uint16 
+connected,bool # Whether or not a battery is connected; based on a voltage threshold
+is_required,bool # Set if the battery is explicitly required before arming
+nominal_voltage,float32 # Nominal voltage of the battery pack
+BATTERY_MODE_HOT_SWAP,uint8 = 2 # Battery in hot-swap mode
+BATTERY_SOURCE_POWER_MODULE,uint8 = 0
+average_power,float32 # The average power of the current discharge
+BATTERY_STATE_UNHEALTHY,uint8 = 6 # Battery is diagnosed to be defective or an error occurred; usage is discouraged / prohibited. Possible causes (faults) are listed in faults field.
+BATTERY_WARNING_CRITICAL,uint8 = 2 # critical voltage; return / abort immediately
+BATTERY_FAULT_INCOMPATIBLE_FIRMWARE,uint8 = 7 # Battery firmware is not compatible with current autopilot firmware
+BATTERY_FAULT_COUNT,uint8 = 11 # Counter - keep it as last element!
+custom_faults,uint32 # Bitmask indicating smart battery internal manufacturer faults; those are not user actionable.
+BATTERY_WARNING_NONE,uint8 = 0 # no battery low voltage warning active
+BATTERY_FAULT_DEEP_DISCHARGE,uint8 = 0 # Battery has deep discharged
+cell_count,uint8 # Number of cells; 0 if unknown
+BATTERY_MODE_UNKNOWN,uint8 = 0 # Battery does not support a mode; or if it does; is operational
+remaining,float32 # From 1 to 0; -1 if unknown
+BATTERY_FAULT_SPIKES,uint8 = 1 # Voltage spikes
+average_time_to_full,uint16 # The predicted remaining time until the battery reaches full charge; in minutes
+BATTERY_FAULT_OVER_CURRENT,uint8 = 3 # Over-current
+design_capacity,float32 # The design capacity of the battery
+BATTERY_WARNING_OVER_TEMPERATURE,uint8 = 10 # Over-temperature
+state_of_health,uint16 # state of health. FullChargeCapacity/DesignCapacity; 0-100%.
+capacity,uint16 # actual capacity of the battery
+warning,uint8 # Current battery warning
+BATTERY_FAULT_INCOMPATIBLE_VOLTAGE,uint8 = 6 # Vehicle voltage is not compatible with battery one
+discharged_mah,float32 # Discharged amount in mAh; -1 if unknown
+BATTERY_FAULT_UNDER_TEMPERATURE,uint8 = 5 # Under-temperature fault
+serial_number,uint16 # serial number of the battery pack
+current_average_a,float32 # Battery current average in amperes; -1 if unknown
+over_discharge_count,uint16 # Number of battery overdischarge
+BATTERY_FAULT_OVER_TEMPERATURE,uint8 = 4 # Over-temperature
+max_cell_voltage_delta,float32 # Max difference between individual cell voltages
+BATTERY_WARNING_LOW,uint8 = 1 # warning of low voltage
+BATTERY_MODE_AUTO_DISCHARGING,uint8 = 1 # Battery is auto discharging (towards storage level)
+full_charge_capacity_wh,float32 # The compensated battery capacity
+remaining_capacity_wh,float32 # The compensated battery capacity remaining
+voltage_cell_v,float32[14] # Battery individual cell voltages; 0 if unknown
+current_filtered_a,float32 # Battery current in amperes; filtered; 0 if unknown
+BATTERY_SOURCE_ESCS,uint8 = 2
+average_time_to_empty,uint16 # predicted remaining battery capacity based on the average rate of discharge in min
+cycle_count,uint16 # number of discharge cycles the battery has experienced
+BATTERY_FAULT_CELL_FAIL=,uint8 2 # One or more cells have failed
+voltage_filtered_v,float32 # Battery voltage in volts; filtered; 0 if unknown
+time_remaining_s,float32 # predicted time in seconds remaining until battery is empty under previous averaged load; NAN if unknown
+manufacture_date,uint16 # manufacture date; part of serial number of the battery pack. Formatted as: Day + Month×32 + (Year–1980)×512
+is_powering_off,bool # Power off event imminent indication; false if unknown
+available_energy,float32 # The predicted charge or energy remaining in the battery
+BATTERY_FAULT_INCOMPATIBLE_MODEL,uint8 = 8 # Battery model is not supported by the system
+BATTERY_STATE_CHARGING,uint8 = 7 # Battery is charging
+BATTERY_FAULT_HARDWARE_FAILURE,uint8 = 9 # hardware problem
+BATTERY_WARNING_EMERGENCY,uint8 = 3 # immediate landing required
+faults,uint16 # Smart battery supply status/fault flags (bitmask) for health indication.
+max_error,uint16 # max error; expected margin of error in % in the state-of-charge calculation with a range of 1 to 100%
+BATTERY_WARNING_FAILED,uint8 = 4 # the battery has failed completely
+BATTERY_MODE_COUNT,uint8 = 3 # Counter - keep it as last element (once we're fully migrated to events interface we can just comment this)!
+interface_error,uint16 # interface error counter
+BATTERY_SOURCE_EXTERNAL,uint8 = 1
+humidity,float32 # Humidity provided by sensor
+speed_up,float32 # in meters/sec
+want_takeoff,bool # tell the controller to initiate takeoff when idling (ignored during flight)
+speed_down,float32 # in meters/sec
+valid_hpos,bool # true when the latitude and longitude have been set
+valid_alt,bool # true when the altitude has been set
+valid_lpos,bool # true when the local position (xyz) has been set
+manual_home,bool # true when home position was set manually
+gps_checks_passed,bool # 0 - true when gps quality checks are passing passed
+height_sensor_timeout,bool # 4 - true when the height sensor has not been used to correct the state estimates for a significant time period
+gps_data_stopped,bool # 2 - true when the gps data has stopped for a significant time period
+reset_hgt_to_rng,bool # 15 - true when the vertical position state is reset to the rng measurement
+gps_data_stopped_using_alternate,bool # 3 - true when the gps data has stopped for a significant time period but the filter is able to use other sources of data to maintain navigation
+warning_event_changes,uint32 # number of warning event changes
+reset_hgt_to_baro,bool # 13 - true when the vertical position state is reset to the baro measurement
+bad_yaw_using_gps_course,bool # 7 - true when the filter has detected an invalid yaw estimate and has reset the yaw angle to the GPS ground course
+yaw_aligned_to_imu_gps,bool # 12 - true when the filter resets the yaw to an estimate derived from IMU and GPS data
+reset_vel_to_gps,bool # 1 - true when the velocity states are reset to the gps measurement
+emergency_yaw_reset_gps_yaw_stopped,bool # 11 - true when the filter has detected bad GNSS yaw data; has reset the yaw to anothter source of data and has stopped further use of the GNSS yaw data
+emergency_yaw_reset_mag_stopped,bool # 10 - true when the filter has detected bad magnetometer data; has reset the yaw to anothter source of data and has stopped further use of the magnetometer data
+reset_pos_to_vision,bool # 7 - true when the position states are reset to the vision system measurement
+information_event_changes,uint32 # number of information event changes
+starting_vision_pos_fusion,bool # 9 - true when the filter starts using vision system position measurements to correct the state estimates
+starting_vision_yaw_fusion,bool # 11 - true when the filter starts using vision system yaw measurements to correct the state estimates
+reset_pos_to_gps,bool # 6 - true when the position states are reset to the gps measurement
+reset_hgt_to_ev,bool # 16 - true when the vertical position state is reset to the ev measurement
+reset_vel_to_zero,bool # 4 - true when the velocity states are reset to zero
+starting_gps_fusion,bool # 8 - true when the filter starts using gps measurements to correct the state estimates
+starting_vision_vel_fusion,bool # 10 - true when the filter starts using vision system velocity measurements to correct the state estimates
+gps_quality_poor,bool # 0 - true when the gps is failing quality checks
+invalid_accel_bias_cov_reset,bool # 6 - true when the filter has detected bad acceerometer bias state esitmstes and has reset the corresponding covariance matrix elements
+stopping_navigation,bool # 5 - true when the filter has insufficient data to estimate velocity and position and is falling back to an attitude; height and height rate mode of operation
+reset_hgt_to_gps,bool # 14 - true when the vertical position state is reset to the gps measurement
+reset_pos_to_last_known,bool # 5 - true when the position states are reset to the last known position
+reset_vel_to_vision,bool # 3 - true when the velocity states are reset to the vision system measurement
+gps_fusion_timout,bool # 1 - true when the gps data has not been used to correct the state estimates for a significant time period
+vision_data_stopped,bool # 9 - true when the vision system data has stopped for a significant time period
+reset_vel_to_flow,bool # 2 - true when the velocity states are reset using the optical flow measurement
+stopping_mag_use,bool # 8 - true when the filter has detected bad magnetometer data and is stopping further use of the magnetometer data
+rollspeed_integ,float32 
+wheel_rate_integ,float32 # FW only and optional
+pitchspeed_integ,float32 
+yawspeed_integ,float32 
+differential_pressure_pa,float32 # differential pressure reading in Pascals (may be negative)
+RESULT_SUCCESS,uint8 = 0
+RESULT_FAILURE_OTHER,uint8 = 100 # Mode failed (generic error)
+values,uint16[18] # measured pulse widths for each of the supported channels
+RC_INPUT_SOURCE_PX4IO_SUMD,uint8 = 13
+RC_INPUT_SOURCE_PX4FMU_CRSF,uint8 = 14
+RC_INPUT_SOURCE_MAVLINK,uint8 = 6
+RC_INPUT_SOURCE_QURT,uint8 = 7
+rc_total_frame_count,uint16 # Number of total RC frames. Note: intended purpose: observe the radio link quality if RSSI is not available. This value must not be used to trigger any failsafe-alike functionality.
+RC_INPUT_SOURCE_PX4FMU_SBUS,uint8 = 9
+rc_failsafe,bool # explicit failsafe flag: true on TX failure or TX out of range ; false otherwise. Only the true state is reliable; as there are some (PPM) receivers on the market going into failsafe without telling us explicitly.
+rssi_dbm,float32 # Actual rssi in units of dBm. NaN = invalid
+timestamp_last_signal,uint64 # last valid reception time
+RC_INPUT_MAX_CHANNELS,uint8 = 18 # Maximum number of R/C input channels in the system. S.Bus has up to 18 channels.
+RC_INPUT_SOURCE_UNKNOWN,uint8 = 0
+RC_INPUT_SOURCE_PX4FMU_SUMD,uint8 = 11
+link_quality,int8 # link quality. Percentage 0-100%. -1 = invalid
+RC_INPUT_SOURCE_PX4IO_PPM,uint8 = 2
+input_source,uint8 # Input source
+RC_INPUT_SOURCE_PX4IO_SBUS,uint8 = 4
+RC_INPUT_SOURCE_PX4FMU_PPM,uint8 = 1
+rc_lost_frame_count,uint16 # Number of lost RC frames. Note: intended purpose: observe the radio link quality if RSSI is not available. This value must not be used to trigger any failsafe-alike functionality.
+RC_INPUT_SOURCE_PX4FMU_GHST,uint8 = 15
+rc_ppm_frame_length,uint16 # Length of a single PPM frame. Zero for non-PPM systems
+RC_INPUT_SOURCE_PX4FMU_DSM,uint8 = 12
+rc_lost,"bool # RC receiver connection status: True;if no frame has arrived in the expected time; false otherwise. True usually means that the receiver has been disconnected; but can also indicate a radio link loss on ""stupid"" systems. Will remain false; if a RX with failsafe option continues to transmit frames after a link loss."
+RSSI_MAX,int8 = 100
+RC_INPUT_SOURCE_PX4IO_ST24,uint8 = 5
+RC_INPUT_SOURCE_PX4FMU_ST24,uint8 = 10
+RC_INPUT_SOURCE_PX4FMU_SPEKTRUM,uint8 = 8
+RC_INPUT_SOURCE_PX4IO_SPEKTRUM,uint8 = 3
+ground_distance,float32 # Altitude above ground (meters)
+COMMAND_RELEASE,int8 = 1
+COMMAND_GRAB,int8 = 0
+health_warning_flags,uint64 
+can_arm_mode_flags,uint64 # bitfield for each flight mode (NAVIGATION_STATE_*) if arming is possible
+health_error_flags,uint64 
+arming_check_warning_flags,uint64 
+arming_check_error_flags,uint64 
+health_is_present_flags,uint64 # flags for each health_component_t
+can_run_mode_flags,uint64 # bitfield for each flight mode if it can run
+mask,uint32 # Pin mask
+INPUT_FLOATING,uint32 = 0 # 0x0000
+OUTPUT_OPENDRAIN,uint32 = 256 # 0x0100
+config,uint32 
+PULLUP,uint32 = 16 # 0x0010
+OPENDRAIN,uint32 = 256 # 0x0100
+INPUT_PULLDOWN,uint32 = 32 # 0x0020
+OUTPUT_OPENDRAIN_PULLUP,uint32 = 272 # 0x0110
+OUTPUT_PUSHPULL,uint32 = 0 # 0x0000
+INPUT_PULLUP,uint32 = 16 # 0x0010
+OUTPUT,uint32 = 1 # 0x0001
+INPUT,uint32 = 0 # 0x0000
+PULLDOWN,uint32 = 32 # 0x0020
+flag_control_termination_enabled,bool # true if flighttermination is enabled
+flag_control_allocation_enabled,bool # true if control allocation is enabled
+flag_armed,bool # synonym for actuator_armed.armed
+flag_control_auto_enabled,bool # true if onboard autopilot should act
+flag_multicopter_position_control_enabled,bool 
+flag_control_rates_enabled,bool # true if rates are stabilized
+flag_control_manual_enabled,bool # true if manual input is mixed in
+flag_control_position_enabled,bool # true if position is controlled
+flag_control_velocity_enabled,bool # true if horizontal velocity (implies direction) is controlled
+flag_control_altitude_enabled,bool # true if altitude is controlled
+flag_control_offboard_enabled,bool # true if offboard control should be used
+flag_control_acceleration_enabled,bool # true if acceleration is controlled
+flag_control_climb_rate_enabled,bool # true if climb rate is controlled
+flag_control_attitude_enabled,bool # true if attitude stabilization is mixed in
+states,float32[24] # Internal filter states
+covariances,float32[24] # Diagonal Elements of Covariance Matrix
+n_states,uint8 # Number of states effectively used
+POSE_FRAME_NED,uint8 = 1 # NED earth-fixed frame
+VELOCITY_FRAME_FRD,uint8 = 2 # FRD world-fixed frame; arbitrary heading reference
+velocity_frame,uint8 # Reference frame of the velocity data
+pose_frame,uint8 # Position and orientation frame of reference
+orientation_variance,float32[3] 
+POSE_FRAME_FRD,uint8 = 2 # FRD world-fixed frame; arbitrary heading reference
+VELOCITY_FRAME_UNKNOWN,uint8 = 0
+VELOCITY_FRAME_NED,uint8 = 1 # NED earth-fixed frame
+reset_counter,uint8 
+VELOCITY_FRAME_BODY_FRD,uint8 = 3 # FRD body-fixed frame
+angular_velocity,float32[3] # Angular velocity in body-fixed frame (rad/s). NaN if invalid/unknown
+POSE_FRAME_UNKNOWN,uint8 = 0
+position_variance,float32[3] 
+velocity_variance,float32[3] 
+param5,float64 # Parameter 5; as defined by MAVLink uint16 VEHICLE_CMD enum.
+VEHICLE_CMD_NAV_DELAY,uint16 = 93 # Delay the next navigation command a number of seconds or until a specified time |Delay in seconds (decimal; -1 to enable time-of-day fields)| hour (24h format; UTC; -1 to ignore)| minute (24h format; UTC; -1 to ignore)| second (24h format; UTC)| Empty| Empty| Empty|
+VEHICLE_MOUNT_MODE_MAVLINK_TARGETING,uint8 = 2 # Load neutral position and start MAVLink Roll;Pitch;Yaw control with stabilization |
+VEHICLE_CMD_CONDITION_GATE,uint16 = 4501 # Wait until passing a threshold |2D coord mode: 0: Orthogonal to planned route | Altitude mode: 0: Ignore altitude| Empty| Empty| Lat| Lon| Alt|
+PARACHUTE_ACTION_RELEASE,uint8 = 2
+FAILURE_UNIT_SENSOR_ACCEL,uint8 = 1
+VEHICLE_CMD_MISSION_START,uint16 = 300 # start running a mission |first_item: the first mission item to run| last_item: the last mission item to run (after this item is run; the mission ends)|
+VEHICLE_ROI_TARGET,uint8 = 4 # Point toward target
+VEHICLE_CMD_SET_CAMERA_FOCUS,uint16 = 532
+VEHICLE_MOUNT_MODE_GPS_POINT,uint8 = 4 # Load neutral position and start to point to Lat;Lon;Alt |
+FAILURE_UNIT_SENSOR_AIRSPEED,uint8 = 8
+ARMING_ACTION_ARM,int8 = 1
+VEHICLE_CMD_DO_REPOSITION,uint16 = 192
+VEHICLE_CMD_NAV_GUIDED_MASTER,uint16 = 91 # set id of master controller |System ID| Component ID| Empty| Empty| Empty| Empty| Empty|
+VEHICLE_CMD_REQUEST_MESSAGE,uint16 = 512 # Request to send a single instance of the specified message
+VEHICLE_CMD_CONTROL_HIGH_LATENCY,uint16 = 2600 # control starting/stopping transmitting data over the high latency link
+VEHICLE_CMD_FIXED_MAG_CAL_YAW,uint16 = 42006 # Magnetometer calibration based on provided known yaw. This allows for fast calibration using WMM field tables in the vehicle; given only the known yaw of the vehicle. If Latitude and longitude are both zero then use the current vehicle location.
+FAILURE_UNIT_SENSOR_BARO,uint8 = 3
+VEHICLE_CMD_DO_MOUNT_CONTROL=205,uint16 # Mission command to control a camera or antenna mount |pitch or lat in degrees; depending on mount mode.| roll or lon in degrees depending on mount mode| yaw or alt (in meters) depending on mount mode| reserved| reserved| reserved| MAV_MOUNT_MODE enum value|
+VEHICLE_CMD_PREFLIGHT_REBOOT_SHUTDOWN,uint16 = 246 # Request the reboot or shutdown of system components. |0: Do nothing for autopilot; 1: Reboot autopilot; 2: Shutdown autopilot.| 0: Do nothing for onboard computer; 1: Reboot onboard computer; 2: Shutdown onboard computer.| Reserved| Reserved| Empty| Empty| Empty|
+VEHICLE_CMD_SET_CAMERA_ZOOM,uint16 = 531 # Set camera zoom
+VEHICLE_MOUNT_MODE_ENUM_END,uint8 = 5 #
+VEHICLE_CMD_DO_GIMBAL_MANAGER_CONFIGURE,uint16 = 1001 # Gimbal configuration to set which sysid/compid is in primary and secondary control
+VEHICLE_CMD_DO_JUMP,uint16 = 177 # Jump to the desired command in the mission list. Repeat this action only the specified number of times |Sequence number| Repeat count| Empty| Empty| Empty| Empty| Empty|
+VEHICLE_CMD_ACTUATOR_TEST,uint16 = 310 # Actuator testing command|value [-1;1]|timeout [s]|Empty|Empty|output function|
+FAILURE_TYPE_GARBAGE,uint8 = 3
+param4,float32 # Parameter 4; as defined by MAVLink uint16 VEHICLE_CMD enum.
+VEHICLE_CMD_PAYLOAD_CONTROL_DEPLOY,uint16 = 30002 # Control a pre-programmed payload deployment
+FAILURE_UNIT_SYSTEM_AVOIDANCE,uint8 = 103
+VEHICLE_CMD_VIDEO_START_CAPTURE,uint16 = 2500 # Start a video capture.
+ARMING_ACTION_DISARM,int8 = 0
+FAILURE_UNIT_SENSOR_GYRO,uint8 = 0
+SPEED_TYPE_DESCEND_SPEED,uint8 = 3
+VEHICLE_CMD_DO_FLIGHTTERMINATION,uint16 = 185 # Terminate flight immediately |Flight termination activated if > 0.5| Empty| Empty| Empty| Empty| Empty| Empty|
+VEHICLE_CMD_DO_SET_ROI_NONE,uint16 = 197 # Cancels any previous ROI command returning the vehicle/sensors to default flight characteristics. This can then be used by the vehicles control system to control the vehicle attitude and the attitude of various sensors such as cameras. |Empty| Empty| Empty| Empty| Empty| Empty| Empty|
+source_system,uint8 # System sending the command
+VEHICLE_CMD_PX4_INTERNAL_START,uint32 = 65537 # start of PX4 internal only vehicle commands (> UINT16_MAX)
+VEHICLE_CMD_DO_WINCH,uint16 = 42600 # Command to operate winch.
+VEHICLE_CMD_DO_REPEAT_SERVO,uint16 = 184 # Cycle a between its nominal setting and a desired PWM for a desired number of cycles with a desired period. |Servo number| PWM (microseconds; 1000 to 2000 typical)| Cycle count| Cycle time (seconds)| Empty| Empty| Empty|
+VEHICLE_CMD_NAV_WAYPOINT,uint16 = 16 # Navigate to MISSION. |Hold time in decimal seconds. (ignored by fixed wing; time to stay at MISSION for rotary wing)| Acceptance radius in meters (if the sphere with this radius is hit; the MISSION counts as reached)| 0 to pass through the WP; if > 0 radius in meters to pass by WP. Positive value for clockwise orbit; negative value for counter-clockwise orbit. Allows trajectory control.| Desired yaw angle at MISSION (rotary wing)| Latitude| Longitude| Altitude|
+FAILURE_TYPE_WRONG,uint8 = 4
+param1,float32 # Parameter 1; as defined by MAVLink uint16 VEHICLE_CMD enum.
+VEHICLE_CMD_NAV_TAKEOFF,uint16 = 22 # Takeoff from ground / hand |Minimum pitch (if airspeed sensor present); desired pitch without sensor| Empty| Empty| Yaw angle (if magnetometer present); ignored without magnetometer| Latitude| Longitude| Altitude|
+VEHICLE_CMD_SET_GPS_GLOBAL_ORIGIN,uint32 = 100000 # Sets the GPS coordinates of the vehicle local origin (0;0;0) position. |Empty|Empty|Empty|Empty|Latitude|Longitude|Altitude|
+param3,float32 # Parameter 3; as defined by MAVLink uint16 VEHICLE_CMD enum.
+FAILURE_UNIT_SYSTEM_MOTOR,uint8 = 101
+VEHICLE_CMD_DO_GO_AROUND,uint16 = 191 # Mission command to safely abort an autonomous landing. |Altitude (meters)| Empty| Empty| Empty| Empty| Empty| Empty|
+VEHICLE_CMD_DO_GUIDED_LIMITS=222,uint16 # set limits for external control |timeout - maximum time (in seconds) that external controller will be allowed to control vehicle. 0 means no timeout| absolute altitude min (in meters; AMSL) - if vehicle moves below this alt; the command will be aborted and the mission will continue. 0 means no lower altitude limit| absolute altitude max (in meters)- if vehicle moves above this alt; the command will be aborted and the mission will continue. 0 means no upper altitude limit| horizontal move limit (in meters; AMSL) - if vehicle moves more than this distance from it's location at the moment the command was executed; the command will be aborted and the mission will continue. 0 means no horizontal altitude limit| Empty| Empty| Empty|
+VEHICLE_CMD_NAV_PATHPLANNING,uint16 = 81 # Control autonomous path planning on the MAV. |0: Disable local obstacle avoidance / local path planning (without resetting map); 1: Enable local path planning; 2: Enable and reset local path planning| 0: Disable full path planning (without resetting map); 1: Enable; 2: Enable and reset map/occupancy grid; 3: Enable and reset planned route; but not occupancy grid| Empty| Yaw angle at goal; in compass degrees; [0..360]| Latitude/X of goal| Longitude/Y of goal| Altitude/Z of goal|
+VEHICLE_CMD_NAV_LOITER_UNLIM,uint16 = 17 # Loiter around this MISSION an unlimited amount of time |Empty| Empty| Radius around MISSION; in meters. If positive loiter clockwise; else counter-clockwise| Desired yaw angle.| Latitude| Longitude| Altitude|
+FAILURE_UNIT_SYSTEM_MAVLINK_SIGNAL,uint8 = 105
+VEHICLE_CMD_DO_CONTROL_VIDEO,uint16 = 200 # Control onboard camera system. |Camera ID (-1 for all)| Transmission: 0: disabled; 1: enabled compressed; 2: enabled raw| Transmission mode: 0: video stream; >0: single images every n seconds (decimal)| Recording: 0: disabled; 1: enabled compressed; 2: enabled raw| Empty| Empty| Empty|
+VEHICLE_CMD_NAV_LAND,uint16 = 21 # Land at location |Empty| Empty| Empty| Desired yaw angle.| Latitude| Longitude| Altitude|
+VEHICLE_CMD_OBLIQUE_SURVEY=260,uint16 # Mission command to set a Camera Auto Mount Pivoting Oblique Survey for this flight|Camera trigger distance (meters)| Shutter integration time (ms)| Camera minimum trigger interval| Number of positions| Roll| Pitch| Empty|
+FAILURE_TYPE_OFF,uint8 = 1
+VEHICLE_CMD_DO_GIMBAL_MANAGER_PITCHYAW,uint16 = 1000 # Setpoint to be sent to a gimbal manager to set a gimbal pitch and yaw
+VEHICLE_CMD_DO_SET_ROI_WPNEXT_OFFSET,uint16 = 196 # Sets the region of interest (ROI) to be toward next waypoint; with optional pitch/roll/yaw offset. This can then be used by the vehicles control system to control the vehicle attitude and the attitude of various sensors such as cameras. |Empty| Empty| Empty| Empty| pitch offset from next waypoint| roll offset from next waypoint| yaw offset from next waypoint|
+VEHICLE_ROI_WPNEXT,uint8 = 1 # Point toward next MISSION |
+VEHICLE_CMD_DO_INVERTED_FLIGHT=210,uint16 # Change to/from inverted flight |inverted (0=normal; 1=inverted)| Empty| Empty| Empty| Empty| Empty| Empty|
+VEHICLE_MOUNT_MODE_RETRACT,uint8 = 0 # Load and keep safe position (Roll;Pitch;Yaw) from permanent memory and stop stabilization |
+VEHICLE_CMD_DO_LAND_START,uint16 = 189 # Mission command to perform a landing. This is used as a marker in a mission to tell the autopilot where a sequence of mission items that represents a landing starts. It may also be sent via a COMMAND_LONG to trigger a landing; in which case the nearest (geographically) landing sequence in the mission will be used. The Latitude/Longitude is optional; and may be set to 0/0 if not needed. If specified then it will be used to help find the closest landing sequence. |Empty| Empty| Empty| Empty| Latitude| Longitude| Empty|
+VEHICLE_CMD_DO_DIGICAM_CONTROL=203,uint16 
+VEHICLE_CMD_RUN_PREARM_CHECKS,uint16 = 401 # Instructs a target system to run pre-arm checks.
+FAILURE_UNIT_SENSOR_VIO,uint8 = 6
+VEHICLE_CMD_DO_ORBIT,uint16 = 34 # Start orbiting on the circumference of a circle defined by the parameters. |Radius [m] |Velocity [m/s] |Yaw behaviour |Empty |Latitude/X |Longitude/Y |Altitude/Z |
+VEHICLE_ROI_LOCATION,uint8 = 3 # Point toward fixed location |
+VEHICLE_CMD_ARM_AUTHORIZATION_REQUEST,uint16 = 3001 # Request arm authorization
+SPEED_TYPE_CLIMB_SPEED,uint8 = 2
+VEHICLE_CMD_NAV_ROI,uint16 = 80 # Sets the region of interest (ROI) for a sensor set or the vehicle itself. This can then be used by the vehicles control system to control the vehicle attitude and the attitude of various sensors such as cameras. |Region of interest mode. (see MAV_ROI enum)| MISSION index/ target ID. (see MAV_ROI enum)| ROI index (allows a vehicle to manage multiple ROI's)| Empty| x the location of the fixed ROI (see MAV_FRAME)| y| z|
+VEHICLE_CMD_LOGGING_STOP,uint16 = 2511 # stop streaming ULog data
+VEHICLE_CMD_VIDEO_STOP_CAPTURE,uint16 = 2501 # Stop the current video capture.
+VEHICLE_CMD_INJECT_FAILURE,uint16 = 420 # Inject artificial failure for testing purposes
+VEHICLE_CMD_NAV_VTOL_LAND,uint16 = 85 # Transition to MC and land at location |Empty| Empty| Empty| Desired yaw angle.| Latitude| Longitude| Altitude|
+param2,float32 # Parameter 2; as defined by MAVLink uint16 VEHICLE_CMD enum.
+FAILURE_TYPE_STUCK,uint8 = 2
+VEHICLE_CMD_SET_CAMERA_MODE,uint16 = 530 # Set camera capture mode (photo; video; etc.)
+VEHICLE_CMD_DO_GRIPPER,uint16 = 211 # Command to operate a gripper
+VEHICLE_CMD_CONDITION_YAW,uint16 = 115 # Reach a certain target angle. |target angle: [0-360]; 0 is north| speed during yaw change:[deg per second]| direction: negative: counter clockwise; positive: clockwise [-1;1]| relative offset or absolute angle: [ 1;0]| Empty| Empty| Empty|
+FAILURE_TYPE_OK,uint8 = 0
+VEHICLE_CMD_GIMBAL_DEVICE_INFORMATION,uint16 = 283 # Command to ask information about a low level gimbal
+VEHICLE_CMD_PAYLOAD_PREPARE_DEPLOY,uint16 = 30001 # Prepare a payload deployment in the flight plan
+VEHICLE_CMD_DO_PAUSE_CONTINUE,uint16 = 193
+VEHICLE_CMD_DO_FENCE_ENABLE=207,uint16 # Mission command to enable the geofence |enable? (0=disable; 1=enable)| Empty| Empty| Empty| Empty| Empty| Empty|
+VEHICLE_CMD_DO_SET_ACTUATOR,uint16 = 187 # Sets actuators (e.g. servos) to a desired value. |Actuator 1| Actuator 2| Actuator 3| Actuator 4| Actuator 5| Actuator 6| Index|
+confirmation,uint8 # 0: First transmission of this command. 1-255: Confirmation transmissions (e.g. for kill command)
+FAILURE_UNIT_SYSTEM_BATTERY,uint8 = 100
+VEHICLE_CMD_DO_MOUNT_CONFIGURE=204,uint16 # Mission command to configure a camera or antenna mount |Mount operation mode (see MAV_MOUNT_MODE enum)| stabilize roll? (1 = yes; 0 = no)| stabilize pitch? (1 = yes; 0 = no)| stabilize yaw? (1 = yes; 0 = no)| Empty| Empty| Empty|
+VEHICLE_CMD_LOGGING_START,uint16 = 2510 # start streaming ULog data
+VEHICLE_CMD_DO_SET_CAM_TRIGG_INTERVAL=214,uint16 # Mission command to set TRIG_INTERVAL for this flight |Camera trigger distance (meters)| Shutter integration time (ms)| Empty| Empty| Empty| Empty| Empty|
+VEHICLE_CMD_DO_SET_MODE,uint16 = 176 # Set system mode. |Mode; as defined by ENUM MAV_MODE| Empty| Empty| Empty| Empty| Empty| Empty|
+VEHICLE_CMD_PREFLIGHT_UAVCAN,uint16 = 243 # UAVCAN configuration. If param 1 == 1 actuator mapping and direction assignment should be started
+param7,float32 # Parameter 7; as defined by MAVLink uint16 VEHICLE_CMD enum.
+VEHICLE_CMD_CONDITION_CHANGE_ALT,uint16 = 113 # Ascend/descend at rate. Delay mission state machine until desired altitude reached. |Descent / Ascend rate (m/s)| Empty| Empty| Empty| Empty| Empty| Finish Altitude|
+FAILURE_TYPE_DELAYED,uint8 = 6
+VEHICLE_CMD_DO_CHANGE_SPEED,uint16 = 178 # Change speed and/or throttle set points. |Speed type (0=Airspeed; 1=Ground Speed)| Speed (m/s; -1 indicates no change)| Throttle ( Percent; -1 indicates no change)| Empty| Empty| Empty| Empty|
+VEHICLE_ROI_NONE,uint8 = 0 # No region of interest |
+FAILURE_TYPE_INTERMITTENT,uint8 = 7
+VEHICLE_CMD_CONDITION_DISTANCE,uint16 = 114 # Delay mission state machine until within desired distance of next NAV point. |Distance (meters)| Empty| Empty| Empty| Empty| Empty| Empty|
+VEHICLE_CMD_DO_LAST,uint16 = 240 # NOP - This command is only used to mark the upper limit of the DO commands in the enumeration |Empty| Empty| Empty| Empty| Empty| Empty| Empty|
+VEHICLE_MOUNT_MODE_RC_TARGETING,uint8 = 3 # Load neutral position and start RC Roll;Pitch;Yaw control with stabilization |
+VEHICLE_CMD_DO_GUIDED_MASTER=221,uint16 # set id of master controller |System ID| Component ID| Empty| Empty| Empty| Empty| Empty|
+VEHICLE_CMD_DO_SET_RELAY,uint16 = 181 # Set a relay to a condition. |Relay number| Setting (1=on; 0=off; others possible depending on system hardware)| Empty| Empty| Empty| Empty| Empty|
+VEHICLE_CMD_CONFIGURE_ACTUATOR,uint16 = 311 # Actuator configuration command|configuration|Empty|Empty|Empty|output function|
+param6,float64 # Parameter 6; as defined by MAVLink uint16 VEHICLE_CMD enum.
+VEHICLE_CMD_CUSTOM_2,uint16 = 2 # test command
+VEHICLE_CMD_NAV_VTOL_TAKEOFF,uint16 = 84 # Takeoff from ground / hand and transition to fixed wing |Minimum pitch (if airspeed sensor present); desired pitch without sensor| Empty| Empty| Yaw angle (if magnetometer present); ignored without magnetometer| Latitude| Longitude| Altitude|
+PARACHUTE_ACTION_DISABLE,uint8 = 0
+FAILURE_TYPE_SLOW,uint8 = 5
+VEHICLE_CMD_NAV_GUIDED_LIMITS,uint16 = 90 # set limits for external control |timeout - maximum time (in seconds) that external controller will be allowed to control vehicle. 0 means no timeout| absolute altitude min (in meters; AMSL) - if vehicle moves below this alt; the command will be aborted and the mission will continue. 0 means no lower altitude limit| absolute altitude max (in meters)- if vehicle moves above this alt; the command will be aborted and the mission will continue. 0 means no upper altitude limit| horizontal move limit (in meters; AMSL) - if vehicle moves more than this distance from it's location at the moment the command was executed; the command will be aborted and the mission will continue. 0 means no horizontal altitude limit| Empty| Empty| Empty|
+VEHICLE_CMD_DO_MOUNT_CONTROL_QUAT=220,uint16 # Mission command to control a camera or antenna mount; using a quaternion as reference. |q1 - quaternion param #1; w (1 in null-rotation)| q2 - quaternion param #2; x (0 in null-rotation)| q3 - quaternion param #3; y (0 in null-rotation)| q4 - quaternion param #4; z (0 in null-rotation)| Empty| Empty| Empty|
+VEHICLE_CMD_IMAGE_START_CAPTURE,uint16 = 2000 # Start image capture sequence.
+FAILURE_UNIT_SENSOR_GPS,uint8 = 4
+SPEED_TYPE_AIRSPEED,uint8 = 0
+VEHICLE_CMD_NAV_RETURN_TO_LAUNCH,uint16 = 20 # Return to launch location |Empty| Empty| Empty| Empty| Empty| Empty| Empty|
+FAILURE_UNIT_SENSOR_DISTANCE_SENSOR,uint8 = 7
+VEHICLE_CMD_DO_MOTOR_TEST=209,uint16 # motor test command |Instance (1; ...)| throttle type| throttle| timeout [s]| Motor count | Test order| Empty|
+VEHICLE_CMD_CUSTOM_0,uint16 = 0 # test command
+VEHICLE_CMD_NAV_LOITER_TIME,uint16 = 19 # Loiter around this MISSION for X seconds |Seconds (decimal)| Empty| Radius around MISSION; in meters. If positive loiter clockwise; else counter-clockwise| Desired yaw angle.| Latitude| Longitude| Altitude|
+VEHICLE_CMD_DO_REPEAT_RELAY,uint16 = 182 # Cycle a relay on and off for a desired number of cycles with a desired period. |Relay number| Cycle count| Cycle time (seconds; decimal)| Empty| Empty| Empty| Empty|
+VEHICLE_CMD_DO_CHANGE_ALTITUDE,uint16 = 186 # Set the vehicle to Loiter mode and change the altitude to specified value |Altitude| Frame of new altitude | Empty| Empty| Empty| Empty| Empty|
+PARACHUTE_ACTION_ENABLE,uint8 = 1
+VEHICLE_CMD_DO_TRIGGER_CONTROL,uint16 = 2003 # Enable or disable on-board camera triggering system
+VEHICLE_CMD_DO_PARACHUTE=208,uint16 # Mission command to trigger a parachute |action (0=disable; 1=enable; 2=release; for some systems see PARACHUTE_ACTION enum; not in general message set.)| Empty| Empty| Empty| Empty| Empty| Empty|
+FAILURE_UNIT_SENSOR_OPTICAL_FLOW,uint8 = 5
+FAILURE_UNIT_SYSTEM_SERVO,uint8 = 102
+VEHICLE_CMD_CUSTOM_1,uint16 = 1 # test command
+VEHICLE_CMD_PREFLIGHT_SET_SENSOR_OFFSETS,uint16 = 242 # Set sensor offsets. This command will be only accepted if in pre-flight mode. |Sensor to adjust the offsets for: 0: gyros; 1: accelerometer; 2: magnetometer; 3: barometer; 4: optical flow| X axis offset (or generic dimension 1); in the sensor's raw units| Y axis offset (or generic dimension 2); in the sensor's raw units| Z axis offset (or generic dimension 3); in the sensor's raw units| Generic dimension 4; in the sensor's raw units| Generic dimension 5; in the sensor's raw units| Generic dimension 6; in the sensor's raw units|
+FAILURE_UNIT_SYSTEM_RC_SIGNAL,uint8 = 104
+PREFLIGHT_CALIBRATION_TEMPERATURE_CALIBRATION,uint16 = 3# param value for VEHICLE_CMD_PREFLIGHT_CALIBRATION to start temperature calibration
+VEHICLE_CMD_DO_SET_ROI,uint16 = 201 # Sets the region of interest (ROI) for a sensor set or the vehicle itself. This can then be used by the vehicles control system to control the vehicle attitude and the attitude of various sensors such as cameras. |Region of interest mode. (see MAV_ROI enum)| MISSION index/ target ID. (see MAV_ROI enum)| ROI index (allows a vehicle to manage multiple ROI's)| Empty| x the location of the fixed ROI (see MAV_FRAME)| y| z|
+VEHICLE_CMD_DO_VTOL_TRANSITION,uint16 = 3000 # Command VTOL transition
+VEHICLE_MOUNT_MODE_NEUTRAL,uint8 = 1 # Load and keep neutral position (Roll;Pitch;Yaw) from permanent memory. |
+VEHICLE_CMD_NAV_LAST,uint16 = 95 # NOP - This command is only used to mark the upper limit of the NAV/ACTION commands in the enumeration |Empty| Empty| Empty| Empty| Empty| Empty| Empty|
+GRIPPER_ACTION_GRAB,uint8 = 1
+VEHICLE_CMD_CONDITION_LAST,uint16 = 159 # NOP - This command is only used to mark the upper limit of the CONDITION commands in the enumeration |Empty| Empty| Empty| Empty| Empty| Empty| Empty|
+VEHICLE_CMD_DO_SET_HOME,uint16 = 179 # Changes the home location either to the current location or a specified location. |Use current (1=use current location; 0=use specified location)| Empty| Empty| Empty| Latitude| Longitude| Altitude|
+FAILURE_UNIT_SENSOR_MAG,uint8 = 2
+SPEED_TYPE_GROUNDSPEED,uint8 = 1
+VEHICLE_CMD_PREFLIGHT_CALIBRATION,uint16 = 241 # Trigger calibration. This command will be only accepted if in pre-flight mode. See mavlink spec MAV_CMD_PREFLIGHT_CALIBRATION
+VEHICLE_CMD_CONDITION_DELAY,uint16 = 112 # Delay mission state machine. |Delay in seconds (decimal)| Empty| Empty| Empty| Empty| Empty| Empty|
+VEHICLE_ROI_WPINDEX,uint8 = 2 # Point toward given MISSION |
+VEHICLE_CMD_NAV_LOITER_TURNS,uint16 = 18 # Loiter around this MISSION for X turns |Turns| Empty| Radius around MISSION; in meters. If positive loiter clockwise; else counter-clockwise| Desired yaw angle.| Latitude| Longitude| Altitude|
+VEHICLE_CMD_DO_SET_CAM_TRIGG_DIST=206,uint16 # Mission command to set TRIG_DIST for this flight |Camera trigger distance (meters)| Shutter integration time (ms)| Empty| Empty| Empty| Empty| Empty|
+GRIPPER_ACTION_RELEASE,uint8 = 0
+VEHICLE_CMD_NAV_PRECLAND,uint16 = 23 # Attempt a precision landing
+VEHICLE_ROI_ENUM_END,uint8 = 5
+VEHICLE_CMD_COMPONENT_ARM_DISARM,uint16 = 400 # Arms / Disarms a component |1 to arm; 0 to disarm
+source_component,uint8 # Component sending the command
+VEHICLE_CMD_START_RX_PAIR,uint16 = 500 # Starts receiver pairing |0:Spektrum| 0:Spektrum DSM2; 1:Spektrum DSMX|
+VEHICLE_CMD_DO_SET_ROI_LOCATION,uint16 = 195 # Sets the region of interest (ROI) to a location. This can then be used by the vehicles control system to control the vehicle attitude and the attitude of various sensors such as cameras. |Empty| Empty| Empty| Empty| Latitude| Longitude| Altitude|
+VEHICLE_CMD_DO_SET_PARAMETER,uint16 = 180 # Set a system parameter. Caution! Use of this command requires knowledge of the numeric enumeration value of the parameter. |Parameter number| Parameter value| Empty| Empty| Empty| Empty| Empty|
+VEHICLE_CMD_PREFLIGHT_STORAGE,uint16 = 245 # Request storage of different parameter values and logs. This command will be only accepted if in pre-flight mode. |Parameter storage: 0: READ FROM FLASH/EEPROM; 1: WRITE CURRENT TO FLASH/EEPROM| Mission storage: 0: READ FROM FLASH/EEPROM; 1: WRITE CURRENT TO FLASH/EEPROM| Reserved| Reserved| Empty| Empty| Empty|
+baro_alt_meter,float32 # Altitude above MSL calculated from temperature compensated baro sensor data using an ISA corrected for sea level pressure SENS_BARO_QNH.
+baro_pressure_pa,float32 # Absolute pressure in Pascals
+baro_temp_celcius,float32 # Temperature in degrees Celsius
+rho,float32 # air density
+handled_motor_failure_mask,uint16 # Bitmask of failed motors that were removed from the allocation / effectiveness matrix. Not necessarily identical to the report from FailureDetector
+unallocated_thrust,float32[3] # Unallocated thrust. Equal to 0 if the setpoint was achieved.
+ACTUATOR_SATURATION_LOWER,int8 = -2 # The actuator is saturated (with a value >= the desired value) because it has reached its minimum value
+thrust_setpoint_achieved,bool # Boolean indicating whether the 3D thrust setpoint was correctly allocated to actuators. 0 if not achieved; 1 if achieved.
+unallocated_torque,float32[3] # Unallocated torque. Equal to 0 if the setpoint was achieved.
+ACTUATOR_SATURATION_OK,int8 = 0 # The actuator is not saturated
+actuator_saturation,int8[16] # Indicates actuator saturation status.
+ACTUATOR_SATURATION_UPPER,int8 = 2 # The actuator is saturated (with a value <= the desired value) because it has reached its maximum value
+torque_setpoint_achieved,bool # Boolean indicating whether the 3D torque setpoint was correctly allocated to actuators. 0 if not achieved; 1 if achieved.
+ACTUATOR_SATURATION_LOWER_DYN,int8 = -1 # The actuator is saturated (with a value >= the desired value) because it cannot decrease its value faster
+ACTUATOR_SATURATION_UPPER_DYN,int8 = 1 # The actuator is saturated (with a value <= the desired value) because it cannot increase its value faster
+ready_to_arm,bool # Set to true if system is ready to be armed
+armed,bool # Set to true if system is armed
+lockdown,bool # Set to true if actuators are forced to being disabled (due to emergency or HIL)
+in_esc_calibration_mode,bool # IO/FMU should ignore messages from the actuator controls topics
+prearmed,bool # Set to true if the actuator safety is disabled but motors are not armed
+manual_lockdown,bool # Set to true if manual throttle kill switch is engaged
+force_failsafe,bool # Set to true if the actuators are forced to the failsafe position
+sensor_sample_rate_hz,float32 
+peak_snr_x,float32[3] # x axis peak SNR
+peak_snr_y,float32[3] # y axis peak SNR
+peak_snr_z,float32[3] # z axis peak SNR
+resolution_hz,float32 
+peak_frequencies_z,float32[3] # z axis peak frequencies
+peak_frequencies_x,float32[3] # x axis peak frequencies
+peak_frequencies_y,float32[3] # y axis peak frequencies
+rx_buf_end_index,uint16 # current size of the rx buffer
+last_heartbeat,uint64 # timestamp of the last successful sbd session
+tx_buf_write_pending,bool # indicates if a tx buffer write is pending
+failed_sbd_sessions,uint16 # number of failed sbd sessions
+successful_sbd_sessions,uint16 # number of successful sbd sessions
+num_tx_buf_reset,uint16 # number of times the tx buffer was reset
+tx_buf_write_index,uint16 # current size of the tx buffer
+rx_session_pending,bool # indicates if a rx session is pending
+ring_pending,bool # indicates if a ring call is pending
+rx_read_pending,bool # indicates if a rx read is pending
+tx_session_pending,bool # indicates if a tx session is pending
+rx_buf_read_index,uint16 # the rx buffer is parsed up to that index
+actuator,bool 
+body_rate,bool 
+attitude,bool 
+index,uint32 
+STATUS_FAILURE_READ_FAILED,uint8 = 3
+STATUS_FAILURE_WRITE_FAILED,uint8 = 4
+STATUS_FAILURE_CLEAR_FAILED,uint8 = 5
+STATUS_FAILURE_NO_DATA,uint8 = 2
+STATUS_SUCCESS,uint8 = 0
+client_id,uint8 
+STATUS_FAILURE_ID_ERR,uint8 = 1
+request_type,uint8 # id/read/write/clear
+item,uint8 # dm_item_t
+pps_rate_exceeded_counter,uint8 # Increments when PPS dt < 50ms
+rtc_timestamp,uint64 # Corrected GPS UTC timestamp at PPS capture event
+SOURCE_AS_SENSOR_2,uint8 = 2 # combined synthetic sideslip and airspeed fusion (data from second airspeed sensor)
+tas_scale_validated,float32 # Estimated true airspeed scale factor after validation
+tas_scale_raw,float32 # Estimated true airspeed scale factor (not validated)
+tas_scale_raw_var,float32 # True airspeed scale factor variance
+SOURCE_AS_SENSOR_3,uint8 = 3 # combined synthetic sideslip and airspeed fusion (data from third airspeed sensor)
+SOURCE_AS_BETA_ONLY,uint8 = 0 # wind estimate only based on synthetic sideslip fusion
+SOURCE_AS_SENSOR_1,uint8 = 1 # combined synthetic sideslip and airspeed fusion (data from first airspeed sensor)
+brick_valid,uint8 # brick bits power is good when bit 1
+hipower_5v_oc,uint8 # high power peripheral overcurrent when 1
+BRICK2_VALID_MASK=2,uint8 
+usb_valid,uint8 # USB is valid when 1
+can1_gps1_5v_valid,uint8 # 5V for CAN1/GPS1 valid
+servo_valid,uint8 # servo power is good when 1
+BRICK4_VALID_MASK=8,uint8 
+BRICK1_VALID_SHIFTS=0,uint8 
+voltage5v_v,float32 # peripheral 5V rail voltage
+periph_5v_oc,uint8 # peripheral overcurrent when 1
+BRICK4_VALID_SHIFTS=3,uint8 
+BRICK3_VALID_MASK=4,uint8 
+BRICK2_VALID_SHIFTS=1,uint8 
+BRICK3_VALID_SHIFTS=2,uint8 
+sensors3v3_valid,uint8 # Sensors 3V3 rail voltage was read (bitfield).
+BRICK1_VALID_MASK=1,uint8 
+sensors3v3,float32[4] # Sensors 3V3 rail voltage
+comp_5v_valid,uint8 # 5V to companion valid
+dt,float32 # delta time between samples (microseconds)
+ACK_TIMEOUT,int32 = 50 # timeout waiting for an ack until we retry to send the message [ms]
+ACK_MAX_TRIES,int32 = 50 # maximum amount of tries to (re-)send a message; each time waiting ACK_TIMEOUT ms
+SOURCE_MAVLINK_1,uint8 = 3 # mavlink instance 1
+aux4,float32 
+sticks_moving,bool 
+aux2,float32 
+SOURCE_UNKNOWN,uint8 = 0
+SOURCE_MAVLINK_0,uint8 = 2 # mavlink instance 0
+SOURCE_MAVLINK_3,uint8 = 5 # mavlink instance 3
+aux6,float32 
+flaps,float32 # position of flaps switch/knob/lever [-1; 1]
+aux5,float32 
+SOURCE_MAVLINK_5,uint8 = 7 # mavlink instance 5
+SOURCE_MAVLINK_4,uint8 = 6 # mavlink instance 4
+throttle,float32 # move up; positive thrust; -1 is minimum available 0% or -100% +1 is 100% thrust
+aux3,float32 
+data_source,uint8 
+aux1,float32 
+SOURCE_MAVLINK_2,uint8 = 4 # mavlink instance 2
+SOURCE_RC,uint8 = 1 # radio control (input_rc)
+GEAR_KEEP,int8 = 0 # keep the current state
+GEAR_DOWN,int8 = -1 # landing gear down
+landing_gear,int8 
+GEAR_UP,int8 = 1 # landing gear up
+MISSION_EXECUTION_MODE_NORMAL,uint8 = 0 # Execute the mission according to the planned items
+finished,bool # true if mission has been completed
+MISSION_EXECUTION_MODE_REVERSE,uint8 = 1 # Execute the mission in reverse order; ignoring commands and converting all waypoints to normal ones
+item_do_jump_remaining,uint16 # set to the number of do jumps remaining for that item
+seq_reached,int32 # Sequence of the mission item which has been reached; default -1
+item_do_jump_changed,bool # true if the number of do jumps remaining has changed
+item_changed_index,uint16 # indicate which item has changed
+seq_current,uint16 # Sequence of the current mission item
+MISSION_EXECUTION_MODE_FAST_FORWARD,uint8 = 2 # Execute the mission as fast as possible; for example converting loiter waypoints to normal ones
+seq_total,uint16 # Total number of mission items
+execution_mode,uint8 # indicates the mode in which the mission is executed
+failure,bool # true if the mission cannot continue or be completed for some reason
+carrier_solution_fixed,bool # carrier phase range solution with fixed ambiguities
+position_length,float32 
+relative_position_valid,bool 
+position_accuracy,float32[3] # Accuracy of relative position (m)
+carrier_solution_floating,bool # carrier phase range solution with floating ambiguities
+gnss_fix_ok,bool # GNSS valid fix (i.e within DOP & accuracy masks)
+reference_observations_miss,bool # extrapolated reference observations were used to compute moving base solution this epoch
+reference_station_id,uint16 # Reference Station ID
+differential_solution,bool # differential corrections were applied
+accuracy_length,float32 
+relative_position_normalized,bool # the components of the relative position vector (including the high-precision parts) are normalized
+moving_base_mode,bool # if the receiver is operating in moving base mode
+heading_valid,bool 
+reference_position_miss,bool # extrapolated reference position was used to compute moving base solution this epoch
+SETPOINT_TYPE_LOITER=2,uint8 # loiter setpoint
+SETPOINT_TYPE_POSITION=0,uint8 # position setpoint
+SETPOINT_TYPE_IDLE=5,uint8 # do nothing; switch off motors or keep at idle speed (MC)
+cruising_speed,float32 # the generally desired cruising speed (not a hard constraint)
+SETPOINT_TYPE_VELOCITY=1,uint8 # velocity setpoint
+SETPOINT_TYPE_LAND=4,uint8 # land setpoint; altitude must be ignored; descend until landing
+loiter_direction_counter_clockwise,bool # loiter direction is clockwise by default and can be changed using this field
+gliding_enabled,bool # commands the vehicle to glide if the capability is available (fixed wing only)
+SETPOINT_TYPE_TAKEOFF=3,uint8 # takeoff setpoint
+yaw_valid,bool # true if yaw setpoint valid
+disable_weather_vane,bool # VTOL: disable (in auto mode) the weather vane feature that turns the nose into the wind
+cruising_throttle,float32 # the generally desired cruising throttle (not a hard constraint); only has an effect for rover
+yawspeed_valid,bool # true if yawspeed setpoint valid
+hover_thrust,float32 # estimated hover thrust [0.1; 0.9]
+accel_innov_test_ratio,float32 # normalized innovation squared test ratio
+hover_thrust_var,float32 # estimated hover thrust variance
+accel_noise_var,float32 # vertical acceleration noise variance estimated form innovation residual
+accel_innov_var,float32 # innovation variance of the last acceleration fusion
+accel_innov,float32 # innovation of the last acceleration fusion
+request_sequence,uint32 
+cmd,char[100] 
+strlen,uint32 
+MAX_STRLEN,uint32 = 100
+est_cap,uint8 # target reporting capabilities
+POINT_2,uint8 = 2
+bezier_order,uint8 
+POINT_3,uint8 = 3
+POINT_0,uint8 = 0
+control_points,TrajectoryBezier[5] 
+NUMBER_POINTS,uint8 = 5
+POINT_1,uint8 = 1
+POINT_4,uint8 = 4
+pulse_width,uint32 # Pulse width; timer counts
+period,uint32 # Period; timer counts
+junk,uint8[64] 
+active_comp_id,uint8 # mavlink component id of currently active camera
+active_sys_id,uint8 # mavlink system id of the currently active camera
+optical_flow_timestamp_rel,int16 
+distance_sensor_timestamp_rel,int16 
+vehicle_magnetometer_timestamp_rel,int16 
+vehicle_air_data_timestamp_rel,int16 
+RELATIVE_TIMESTAMP_INVALID,int16 = 32767 # (0x7fff) If one of the relative timestamps
+visual_odometry_timestamp_rel,int16 
+airspeed_timestamp_rel,int16 
+kff,float32 
+STATE_FAIL,uint8 = 12
+kc,float32 
+dt_model,float32 
+STATE_PITCH,uint8 = 4
+STATE_COMPLETE,uint8 = 11
+kd,float32 
+STATE_TEST,uint8 = 10
+STATE_APPLY,uint8 = 9
+att_p,float32 
+STATE_YAW_PAUSE,uint8 = 7
+STATE_YAW,uint8 = 6
+y_filt,float32 
+u_filt,float32 
+STATE_IDLE,uint8 = 0
+STATE_WAIT_FOR_DISARM,uint8 = 13
+STATE_PITCH_PAUSE,uint8 = 5
+STATE_VERIFICATION,uint8 = 8
+STATE_INIT,uint8 = 1
+coeff_var,float32[5] # coefficients' variance of the identified discrete-time model
+fitness,float32 # fitness of the parameter estimate
+ki,float32 
+coeff,float32[5] # coefficients of the identified discrete-time model
+rate_sp,float32[3] 
+STATE_ROLL_PAUSE,uint8 = 3
+STATE_ROLL,uint8 = 2
+MAX_MAGS,uint8 = 4
+calibration_interval_perside_us,uint64 
+done_count,uint32 
+calibration_counter_total,uint32[4] 
+side_data_collected,bool[4] 
+calibration_points_perside,uint32 
+radius,float32 # Radius of the orbit circle. Positive values orbit clockwise; negative values orbit counter-clockwise. [m]
+ORBIT_YAW_BEHAVIOUR_HOLD_INITIAL_HEADING,uint8 = 1
+ORBIT_YAW_BEHAVIOUR_HOLD_FRONT_TO_CIRCLE_CENTER,uint8 = 0
+yaw_behaviour,uint8 
+ORBIT_YAW_BEHAVIOUR_HOLD_FRONT_TANGENT_TO_CIRCLE,uint8 = 3
+ORBIT_YAW_BEHAVIOUR_UNCONTROLLED,uint8 = 2
+ORBIT_YAW_BEHAVIOUR_RC_CONTROLLED,uint8 = 4
+TUNE_ID_ERROR,uint8 = 2
+TUNE_ID_PROG_PX4IO_ERR,uint8 = 18
+TUNE_ID_SD_INIT,uint8 = 14
+TUNE_ID_HOME_SET,uint8 = 13
+TUNE_ID_BATTERY_WARNING_FAST,uint8 = 8
+tune_id,uint8 # tune_id corresponding to TuneID::* from the tune_defaults.h in the tunes library
+VOLUME_LEVEL_MIN,uint8 = 0
+TUNE_ID_ARMING_FAILURE,uint8 = 10
+TUNE_ID_PROG_PX4IO,uint8 = 16
+TUNE_ID_PROG_PX4IO_OK,uint8 = 17
+TUNE_ID_PARACHUTE_RELEASE,uint8 = 11
+TUNE_ID_STOP,uint8 = 0
+TUNE_ID_POWER_OFF,uint8 = 19
+duration,uint32 # in us
+TUNE_ID_BATTERY_WARNING_SLOW,uint8 = 7
+TUNE_ID_GPS_WARNING,uint8 = 9
+silence,uint32 # in us
+TUNE_ID_NOTIFY_POSITIVE,uint8 = 3
+TUNE_ID_SINGLE_BEEP,uint8 = 12
+TUNE_ID_STARTUP,uint8 = 1
+TUNE_ID_NOTIFY_NEUTRAL,uint8 = 4
+tune_override,bool # if true the tune which is playing will be stopped and the new started
+TUNE_ID_NOTIFY_NEGATIVE,uint8 = 5
+frequency,uint16 # in Hz
+VOLUME_LEVEL_DEFAULT,uint8 = 20
+NUMBER_OF_TUNES,uint8 = 20
+VOLUME_LEVEL_MAX,uint8 = 100
+volume,uint8 # value between 0-100 if supported by backend
+TUNE_ID_ARMING_WARNING,uint8 = 6
+TUNE_ID_SD_ERROR,uint8 = 15
+triggered,bool # Set to true if the event is triggered
+vtol_fixed_wing_system_failure,bool # vehicle in fixed-wing system failure failsafe mode (after quad-chute)
+local_position_accuracy_low,bool # Local position estimate has dropped below threshold; but is currently still declared valid
+mission_failure,bool # Mission failure
+mode_req_local_position_relaxed,uint32 
+home_position_invalid,bool # No home position available
+attitude_invalid,bool # Attitude invalid
+battery_unhealthy,bool # Battery unhealthy
+mode_req_mission,uint32 
+offboard_control_signal_lost,bool # Offboard signal lost
+mode_req_home_position,uint32 
+mode_req_angular_velocity,uint32 
+local_velocity_invalid,bool # Local velocity estimate invalid
+angular_velocity_invalid,bool # Angular velocity invalid
+mode_req_offboard_signal,uint32 
+manual_control_signal_lost,bool # Manual control (RC) signal lost
+battery_warning,uint8 # Battery warning level
+mode_req_manual_control,uint32 
+mode_req_local_position,uint32 
+wind_limit_exceeded,bool # Wind limit exceeded
+fd_critical_failure,bool # Critical failure (attitude/altitude limit exceeded; or external ATS)
+fd_esc_arming_failure,bool # ESC failed to arm
+global_position_invalid,bool # Global position estimate invalid
+local_position_invalid_relaxed,bool # Local position with reduced accuracy requirements invalid (e.g. flying with optical flow)
+mode_req_attitude,uint32 
+battery_low_remaining_time,bool # Low battery based on remaining flight time
+mode_req_prevent_arming,uint32 # if set; cannot arm while in this mode
+mode_req_global_position,uint32 
+primary_geofence_breached,bool # Primary Geofence breached
+mode_req_other,uint32 # other requirements; not covered above (for external modes)
+fd_motor_failure,bool # Motor failure
+mode_req_wind_and_flight_time_compliance,uint32 # if set; mode cannot be entered if wind or flight time limit exceeded
+local_altitude_invalid,bool # Local altitude invalid
+mode_req_local_alt,uint32 
+flight_time_limit_exceeded,bool # Maximum flight time exceeded
+auto_mission_missing,bool # No mission available
+local_position_invalid,bool # Local position estimate invalid
+in_emergency_ascent,bool # [bool] True when doing emergency ascent (when distance to ground is below safety altitude)
+follow_angle,float32 # [rad] Current follow angle setting
+tracked_target_course,float32 # [rad] Tracked target course in NED local frame (North is course zero)
+orbit_angle_setpoint,float32 # [rad] Current orbit angle setpoint from the smooth trajectory generator
+desired_position_raw,float32[3] # [m] Raw 'idealistic' desired drone position if a drone could teleport from place to places
+angular_rate_setpoint,float32 # [rad/s] Angular rate commanded from Jerk-limited Orbit Angle trajectory for Orbit Angle
+gimbal_pitch,float32 # [rad] Gimbal pitch commanded to track target in the center of the frame
+pitch_sp_rad,float32 # Current pitch setpoint [rad]
+TECS_MODE_NORMAL,uint8 = 0
+height_rate_reference,float32 # Height rate setpoint reference [m/s]
+true_airspeed_derivative,float32 # True airspeed derivative [m/s^2]
+total_energy_balance_rate,float32 # Energy balance rate estimate [m^2/s^3]
+true_airspeed_derivative_sp,float32 # True airspeed derivative setpoint [m/s^2]
+TECS_MODE_UNDERSPEED,uint8 = 1
+true_airspeed_filtered,float32 # True airspeed filtered [m/s]
+height_rate_direct,float32 # Direct height rate setpoint from velocity reference generator [m/s]
+altitude_reference,float32 # Altitude setpoint reference AMSL [m]
+equivalent_airspeed_sp,float32 # Equivalent airspeed setpoint [m/s]
+pitch_integ,float32 # Pitch integrator value [rad]
+total_energy_balance_rate_sp,float32 # Energy balance rate setpoint [m^2/s^3]
+total_energy_rate,float32 # Total energy rate estimate [m^2/s^3]
+true_airspeed_derivative_raw,float32 # True airspeed derivative raw [m/s^2]
+throttle_sp,float32 # Current throttle setpoint [-]
+total_energy_rate_sp,float32 # Total energy rate setpoint [m^2/s^3]
+throttle_integ,float32 # Throttle integrator value [-]
+height_rate_setpoint,float32 # Height rate setpoint [m/s]
+true_airspeed_sp,float32 # True airspeed setpoint [m/s]
+throttle_trim,float32 # estimated throttle value [0;1] required to fly level at equivalent_airspeed_sp in the current atmospheric conditions
+height_rate,float32 # Height rate [m/s]
+altitude_sp,float32 # Altitude setpoint AMSL [m]
+innov_x,float32 
+innov_cov_x,float32 
+innov_cov_y,float32 
+innov_y,float32 
+param_count,uint16 # number of parameters exposed by the node
+CELLULAR_STATUS_FLAG_UNKNOWN=0,uint8 # State unknown or not reportable
+CELLULAR_STATUS_FLAG_SEARCHING=8,uint8 # Modem is searching for a network provider to register
+CELLULAR_STATUS_FLAG_DISABLING=5,uint8 # Modem is currently transitioning to the CELLULAR_STATUS_FLAG_DISABLED state
+lac,uint16 # Location area code. If unknown; set to: 0
+CELLULAR_STATUS_FLAG_ENABLED=7,uint8 # Modem is enabled and powered on but not registered with a network provider and not available for data connections
+mnc,uint16 # Mobile network code. If unknown; set to: UINT16_MAX
+CELLULAR_STATUS_FLAG_FAILED=1,uint8 # velocity setpoint
+mcc,uint16 # Mobile country code. If unknown; set to: UINT16_MAX
+CELLULAR_STATUS_FLAG_CONNECTING=11,uint8 # Modem is activating and connecting the first packet data bearer. Subsequent bearer activations when another bearer is already active do not cause this state to be entered
+CELLULAR_STATUS_FLAG_INITIALIZING=2,uint8 # Modem is being initialized
+CELLULAR_STATUS_FLAG_CONNECTED=12,uint8 # One or more packet data bearers is active and connected
+CELLULAR_NETWORK_FAILED_REASON_SIM_MISSING=2,uint8 # SIM is required for the modem but missing
+CELLULAR_STATUS_FLAG_ENABLING=6,uint8 # Modem is currently transitioning to the CELLULAR_STATUS_FLAG_ENABLED state
+CELLULAR_NETWORK_FAILED_REASON_UNKNOWN=1,uint8 # Error state is unknown
+failure_reason,uint8 #Failure reason when status in in CELLUAR_STATUS_FAILED
+CELLULAR_STATUS_FLAG_DISCONNECTING=10,uint8 # Modem is disconnecting and deactivating the last active packet data bearer. This state will not be entered if more than one packet data bearer is active and one of the active bearers is deactivated
+CELLULAR_NETWORK_FAILED_REASON_SIM_ERROR=3,uint8 # SIM is available; but not usable for connection
+CELLULAR_STATUS_FLAG_LOCKED=3,uint8 # Modem is locked
+CELLULAR_STATUS_FLAG_DISABLED=4,uint8 # Modem is not enabled and is powered down
+CELLULAR_NETWORK_FAILED_REASON_NONE=0,uint8 # No error
+CELLULAR_STATUS_FLAG_REGISTERED=9,uint8 # Modem is registered with a network provider; and data connections and messaging may be available for use
+accelerometer_m_s2,float32[3] # average value acceleration measured in the FRD body frame XYZ-axis in m/s^2 over the last accelerometer sampling period
+gyro_integral_dt,uint32 # gyro measurement sampling period in microseconds
+accelerometer_integral_dt,uint32 # accelerometer measurement sampling period in microseconds
+accelerometer_clipping,uint8 # bitfield indicating if there was any accelerometer clipping (per axis) during the integration time frame
+accelerometer_timestamp_relative,int32 # timestamp + accelerometer_timestamp_relative = Accelerometer timestamp
+CLIPPING_Z,uint8 = 4
+CLIPPING_X,uint8 = 1
+accel_calibration_count,uint8 # Calibration changed counter. Monotonically increases whenever accelermeter calibration changes.
+gyro_calibration_count,uint8 # Calibration changed counter. Monotonically increases whenever rate gyro calibration changes.
+gyro_clipping,uint8 # bitfield indicating if there was any gyro clipping (per axis) during the integration time frame
+gyro_rad,float32[3] # average angular rate measured in the FRD body frame XYZ-axis in rad/s over the last gyro sampling period
+CLIPPING_Y,uint8 = 2
+fixed_wing_system_failure,bool # vehicle in fixed-wing system failure failsafe mode (after quad-chute)
+VEHICLE_VTOL_STATE_FW,uint8 = 4
+VEHICLE_VTOL_STATE_TRANSITION_TO_FW,uint8 = 1
+VEHICLE_VTOL_STATE_UNDEFINED,uint8 = 0
+vehicle_vtol_state,uint8 # current state of the vtol; see VEHICLE_VTOL_STATE
+VEHICLE_VTOL_STATE_MC,uint8 = 3
+VEHICLE_VTOL_STATE_TRANSITION_TO_MC,uint8 = 2
+check_fail_max_vert_drift,bool # 7 : maximum allowed vertical position drift fail - requires stationary vehicle
+check_fail_max_spd_err,bool # 5 : maximum allowed speed error fail
+check_fail_max_vert_err,bool # 4 : maximum allowed vertical position error fail
+position_drift_rate_vertical_m_s,float32 # Vertical position rate magnitude (m/s)
+filtered_horizontal_speed_m_s,float32 # Filtered horizontal velocity magnitude (m/s)
+check_fail_max_horz_err,bool # 3 : maximum allowed horizontal position error fail
+check_fail_min_sat_count,bool # 1 : minimum required sat count fail
+check_fail_max_horz_drift,bool # 6 : maximum allowed horizontal position drift fail - requires stationary vehicle
+check_fail_max_pdop,bool # 2 : maximum allowed PDOP fail
+check_fail_max_horz_spd_err,bool # 8 : maximum allowed horizontal speed fail - requires stationary vehicle
+position_drift_rate_horizontal_m_s,float32 # Horizontal position rate magnitude (m/s)
+check_fail_gps_fix,bool # 0 : insufficient fix type (no 3D solution)
+check_fail_max_vert_spd_err,bool # 9 : maximum allowed vertical velocity discrepancy fail
+checks_passed,bool 
+name,char[10] # name of the debug array (max. 10 characters)
+ARRAY_SIZE,uint8 = 58
+ACTION_RELEASE_CONTROL,uint8 = 0 # exit test mode for the given function
+FUNCTION_MOTOR1,uint8 = 101
+MAX_NUM_SERVOS,uint8 = 8
+timeout_ms,uint32 # timeout in ms after which to exit test mode (if 0; do not time out)
+FUNCTION_SERVO1,uint8 = 201
+MAX_NUM_MOTORS,uint8 = 12
+ACTION_DO_CONTROL,uint8 = 1 # enable actuator test mode
+STATUS_FLAG_ELECTRONICS_OVERTEMP_WARNING,uint64 = 256 # Power electronics are near the maximum operating temperature; cooling is insufficient.
+STATUS_FLAG_ELECTRONICS_OVERTEMP_FAULT,uint64 = 512 # Power electronics hit the maximum operating temperature and shutdown.
+STATUS_FLAG_OVERTEMP_FAULT,uint64 = 128 # Generator hit the maximum operating temperature and shutdown.
+STATUS_FLAG_WARMING_UP,uint64 = 2097152 # Generator is not ready to generate yet.
+power_generated,float32 # [W] The power being generated. NaN: field not provided
+time_until_maintenance,int32 # [s] Seconds until this generator requires maintenance. A negative value indicates maintenance is past-due. INT32_MAX: field not provided.
+STATUS_FLAG_CHARGING,uint64 = 8 # Generator is charging the batteries (generating enough power to charge and provide the load).
+bat_current_setpoint,float32 # [A] The target battery current. Positive for out. Negative for in. NaN: field not provided
+STATUS_FLAG_BATTERY_UNDERVOLT_FAULT,uint64 = 262144 # Batteries are under voltage (generator will not start).
+battery_current,float32 # [A] Current into/out of battery. Positive for out. Negative for in. NaN: field not provided.
+STATUS_FLAG_OVERCURRENT_FAULT,uint64 = 32768 # Generator controller exceeded the overcurrent threshold and shutdown to prevent damage.
+STATUS_FLAG_MAXPOWER,uint64 = 32 # Generator is providing the maximum output.
+STATUS_FLAG_OFF,uint64 = 1 # Generator is off.
+STATUS_FLAG_OVERTEMP_WARNING,uint64 = 64 # Generator is near the maximum operating temperature; cooling is insufficient.
+rectifier_temperature,int16 # [degC] The temperature of the rectifier or power converter. INT16_MAX: field not provided.
+STATUS_FLAG_ELECTRONICS_FAULT,uint64 = 1024 # Power electronics experienced a fault and shutdown.
+load_current,float32 # [A] Current going to the UAV. If battery current not available this is the DC current from the generator. Positive for out. Negative for in. NaN: field not provided
+bus_voltage,float32 # [V] Voltage of the bus seen at the generator; or battery bus if battery bus is controlled by generator and at a different voltage to main bus.
+STATUS_FLAG_MAINTENANCE_REQUIRED,uint64 = 1048576 # Generator requires maintenance.
+STATUS_FLAG_BATTERY_OVERCHARGE_CURRENT_FAULT,uint64 = 65536 # Generator controller detected a high current going into the batteries and shutdown to prevent battery damage. |
+STATUS_FLAG_READY,uint64 = 2 # Generator is ready to start generating power.
+runtime,uint32 # [s] Seconds this generator has run since it was rebooted. UINT32_MAX: field not provided.
+STATUS_FLAG_COOLING_WARNING,uint64 = 8192 # Power electronic or generator cooling system error.
+generator_speed,uint16 # [rpm] Speed of electrical generator or alternator. UINT16_MAX: field not provided.
+STATUS_FLAG_IDLE,uint64 = 4194304 # Generator is idle.
+STATUS_FLAG_REDUCED_POWER,uint64 = 16 # Generator is operating at a reduced maximum power.
+STATUS_FLAG_GENERATING,uint64 = 4 # Generator is generating power.
+STATUS_FLAG_POWERSOURCE_FAULT,uint64 = 2048 # The power source supplying the generator failed e.g. mechanical generator stopped; tether is no longer providing power; solar cell is in shade; hydrogen reaction no longer happening.
+STATUS_FLAG_START_INHIBITED,uint64 = 524288 # Generator start is inhibited by e.g. a safety switch.
+STATUS_FLAG_OVERVOLTAGE_FAULT,uint64 = 131072 # Generator controller exceeded it's overvoltage threshold and shutdown to prevent it exceeding the voltage rating.
+STATUS_FLAG_COMMUNICATION_WARNING,uint64 = 4096 # Generator controller having communication problems.
+generator_temperature,int16 # [degC] The temperature of the mechanical motor; fuel cell core or generator. INT16_MAX: field not provided.
+STATUS_FLAG_POWER_RAIL_FAULT,uint64 = 16384 # Generator controller power rail experienced a fault.
+adapted_setpoint,float32[2] # velocities allowed
+original_setpoint,float32[2] # velocities demanded
+accel_clipping,uint32[3] # total clipping per axis
+gyro_error_count,uint32 
+var_gyro,float32[3] # gyroscope variance since last publication
+temperature_accel,float32 
+gyro_rate_hz,float32 
+mean_accel,float32[3] # average accelerometer readings since last publication
+mean_gyro,float32[3] # average gyroscope readings since last publication
+var_accel,float32[3] # accelerometer variance since last publication
+accel_vibration_metric,float32 # high frequency vibration level in the accelerometer data (m/s/s)
+temperature_gyro,float32 
+accel_error_count,uint32 
+gyro_raw_rate_hz,float32 # full raw sensor sample rate (Hz)
+gyro_vibration_metric,float32 # high frequency vibration level in the gyro data (rad/s)
+accel_raw_rate_hz,float32 # full raw sensor sample rate (Hz)
+delta_angle_coning_metric,float32 # average IMU delta angle coning correction (rad^2)
+accel_rate_hz,float32 
+GIMBAL_MANAGER_CAP_FLAGS_HAS_NEUTRAL,uint32 = 2
+yaw_min,float32 # [rad]
+cap_flags,uint32 
+GIMBAL_MANAGER_CAP_FLAGS_HAS_PITCH_LOCK,uint32 = 128
+roll_max,float32 # [rad]
+GIMBAL_MANAGER_CAP_FLAGS_HAS_YAW_LOCK,uint32 = 1024
+GIMBAL_MANAGER_CAP_FLAGS_HAS_PITCH_FOLLOW,uint32 = 64
+GIMBAL_MANAGER_CAP_FLAGS_CAN_POINT_LOCATION_LOCAL,uint32 = 65536
+roll_min,float32 # [rad]
+GIMBAL_MANAGER_CAP_FLAGS_HAS_ROLL_AXIS,uint32 = 4
+pitch_max,float32 # [rad]
+yaw_max,float32 # [rad]
+GIMBAL_MANAGER_CAP_FLAGS_HAS_ROLL_FOLLOW,uint32 = 8
+GIMBAL_MANAGER_CAP_FLAGS_HAS_ROLL_LOCK,uint32 = 16
+GIMBAL_MANAGER_CAP_FLAGS_CAN_POINT_LOCATION_GLOBAL,uint32 = 131072
+GIMBAL_MANAGER_CAP_FLAGS_HAS_RETRACT,uint32 = 1
+GIMBAL_MANAGER_CAP_FLAGS_SUPPORTS_INFINITE_YAW,uint32 = 2048
+GIMBAL_MANAGER_CAP_FLAGS_HAS_YAW_AXIS,uint32 = 256
+pitch_min,float32 # [rad]
+GIMBAL_MANAGER_CAP_FLAGS_HAS_PITCH_AXIS,uint32 = 32
+GIMBAL_MANAGER_CAP_FLAGS_HAS_YAW_FOLLOW,uint32 = 512
+xtrack_error,float32 # Signed track error [m]
+target_bearing,float32 # Bearing angle from aircraft to current target [rad]
+altitude_acceptance,float32 # Current vertical acceptance error [m]
+nav_pitch,float32 # Pitch setpoint [rad]
+nav_bearing,float32 # Bearing angle[rad]
+nav_roll,float32 # Roll setpoint [rad]
+wp_dist,float32 # Distance to active (next) waypoint [m]
+yaw_acceptance,float32 # Yaw acceptance error[rad]
+key,char[10] # max. 10 characters as key / name
+ram_usage,float32 # RAM usage from 0 to 1
+load,float32 # processor load from 0 to 1
+GIMBAL_DEVICE_CAP_FLAGS_HAS_ROLL_LOCK,uint32 = 16
+hardware_version,uint32 
+gimbal_device_compid,uint8 
+GIMBAL_DEVICE_CAP_FLAGS_SUPPORTS_INFINITE_YAW,uint32 = 2048
+model_name,uint8[32] 
+GIMBAL_DEVICE_CAP_FLAGS_HAS_YAW_FOLLOW,uint32 = 512
+custom_cap_flags,uint16 
+GIMBAL_DEVICE_CAP_FLAGS_HAS_YAW_AXIS,uint32 = 256
+GIMBAL_DEVICE_CAP_FLAGS_HAS_NEUTRAL,uint32 = 2
+GIMBAL_DEVICE_CAP_FLAGS_HAS_PITCH_AXIS,uint32 = 32
+firmware_version,uint32 
+uid,uint64 
+GIMBAL_DEVICE_CAP_FLAGS_HAS_RETRACT,uint32 = 1
+GIMBAL_DEVICE_CAP_FLAGS_HAS_ROLL_FOLLOW,uint32 = 8
+vendor_name,uint8[32] 
+custom_name,uint8[32] 
+GIMBAL_DEVICE_CAP_FLAGS_HAS_PITCH_LOCK,uint32 = 128
+GIMBAL_DEVICE_CAP_FLAGS_HAS_PITCH_FOLLOW,uint32 = 64
+GIMBAL_DEVICE_CAP_FLAGS_HAS_YAW_LOCK,uint32 = 1024
+GIMBAL_DEVICE_CAP_FLAGS_HAS_ROLL_AXIS,uint32 = 4
+NUM_ACTUATOR_OUTPUT_GROUPS,uint8 = 4 # for sanity checking
+noutputs,uint32 # valid outputs
+NUM_ACTUATOR_OUTPUTS,uint8 = 16
+output,float32[16] # output data; in natural output units
+storage_usage,uint32[4] # [MB] Amount of used storage space on the component system
+cpu_combined,uint8[10] # Combined CPU usage as the last 10 slices of 100 MS
+link_tx_max,uint32[6] # [Kb/s] Network capacity from the component system
+temperature_core,int8[8] # [degC] Temperature of the CPU core
+storage_type,uint32[4] # Storage type: 0: HDD; 1: SSD; 2: EMMC; 3: SD card (non-removable); 4: SD card (removable)
+link_type,uint32[6] # [Kb/s] Link type: 0-9: UART; 10-19: Wired network; 20-29: Wifi; 30-39: Point-to-point proprietary; 40-49: Mesh proprietary
+link_tx_rate,uint32[6] # [Kb/s] Network traffic from the component system
+link_rx_rate,uint32[6] # [Kb/s] Network traffic to the component system
+cpu_cores,uint8[8] # CPU usage on the component in percent
+gpu_cores,uint8[4] # GPU usage on the component in percent
+ram_total,uint32 # [MB] Total amount of RAM on the component system
+storage_total,uint32[4] # [MB] Total amount of storage space on the component system
+temperature_board,int8 # [degC] Temperature of the board
+fan_speed,int16[4] # [rpm] Fan speeds
+uptime,uint32 # [ms] time since system boot of the companion (milliseconds)
+link_rx_max,uint32[6] # [Kb/s] Network capacity to the component system
+gpu_combined,uint8[10] # Combined GPU usage as the last 10 slices of 100 MS
+delta_velocity_dt,uint16 # integration period in microseconds
+delta_velocity,float32[3] # delta velocity in the FRD body frame XYZ-axis in m/s over the integration time frame (delta_velocity_dt)
+delta_angle_dt,uint16 # integration period in microseconds
+delta_angle_clipping,uint8 # bitfield indicating if there was any gyro clipping (per axis) during the integration time frame
+delta_velocity_clipping,uint8 # bitfield indicating if there was any accelerometer clipping (per axis) during the integration time frame
+data_length,uint32 
+event_sequence,uint16 # Event sequence number
+log_levels,uint8 # Log levels: 4 bits MSB: internal; 4 bits LSB: external
+arguments,uint8[25] # (optional) arguments; depend on event id
+MAV_TRAJECTORY_REPRESENTATION_WAYPOINTS,uint8 = 0
+waypoints,TrajectoryWaypoint[5] 
+reversible_flags,uint16 # bitset which motors are configured to be reversible
+ACTUATOR_FUNCTION_MOTOR1,uint8 = 101
+v_xy_valid,bool # true if vx and vy are valid
+delta_xy,float32[2] 
+ref_alt,float32 # Reference altitude AMSL; (metres)
+ax,float32 # North velocity derivative in NED earth-fixed frame; (metres/sec^2)
+xy_global,bool # true if position (x; y) has a valid global reference (ref_lat; ref_lon)
+z_global,bool # true if z has a valid global reference (ref_alt)
+hagl_min,float32 # minimum height above ground level - set to 0 when limiting not required (meters)
+delta_vz,float32 
+vz_max,float32 # maximum vertical speed - set to 0 when limiting not required (meters/sec)
+delta_heading,float32 
+az,float32 # Down velocity derivative in NED earth-fixed frame; (metres/sec^2)
+evv,float32 # Standard deviation of vertical velocity error; (metres/sec)
+dist_bottom_valid,bool # true if distance to bottom surface is valid
+z_valid,bool # true if z is valid
+ref_lon,float64 # Reference point longitude; (degrees)
+DIST_BOTTOM_SENSOR_NONE,uint8 = 0
+v_z_valid,bool # true if vz is valid
+hagl_max,float32 # maximum height above ground level - set to 0 when limiting not required (meters)
+evh,float32 # Standard deviation of horizontal velocity error; (metres/sec)
+vxy_reset_counter,uint8 
+unaided_heading,float32 # Same as heading but generated by integrating corrected gyro data only
+vz_reset_counter,uint8 
+heading_good_for_control,bool 
+delta_vxy,float32[2] 
+vxy_max,float32 # maximum horizontal speed - set to 0 when limiting not required (meters/sec)
+dist_bottom,float32 # Distance from from bottom surface to ground; (metres)
+DIST_BOTTOM_SENSOR_FLOW,uint8 = 2 # (1 << 1) a flow sensor is used to estimate dist_bottom field (mostly fixed-wing use case)
+xy_reset_counter,uint8 
+z_deriv,float32 # Down position time derivative in NED earth-fixed frame; (metres/sec)
+heading_reset_counter,uint8 
+ref_lat,float64 # Reference point latitude; (degrees)
+DIST_BOTTOM_SENSOR_RANGE,uint8 = 1 # (1 << 0) a range sensor is used to estimate dist_bottom field
+xy_valid,bool # true if x and y are valid
+dist_bottom_sensor_bitfield,uint8 # bitfield indicating what type of sensor is used to estimate dist_bottom
+delta_z,float32 
+ay,float32 # East velocity derivative in NED earth-fixed frame; (metres/sec^2)
+z_reset_counter,uint8 
+ref_timestamp,uint64 # Time when reference position was set since system start; (microseconds)
+jerk,float32[3] # in meters/second^3 (for logging only)
+throttle_position_percent,uint8 # Throttle position; percent
+exhaust_gas_temperature,float32 # Exhaust gas temperature (EGT); kelvin
+FLAG_CRANKSHAFT_SENSOR_ERROR,uint32 = 4
+FLAG_OIL_PRESSURE_ABOVE_NOMINAL,uint32 = 131072 # Over-pressure warning
+FLAG_CRANKSHAFT_SENSOR_ERROR_SUPPORTED,uint32 = 2 # Error of the crankshaft sensor. This flag is optional.
+FLAG_TEMPERATURE_ABOVE_NOMINAL,uint32 = 32 # Over-temperature warning
+fuel_consumption_rate_cm3pm,float32 # Instant fuel consumption estimate; (centimeter^3)/minute
+STATE_STARTING,uint8 = 1 # The engine is starting. This is a transient state.
+FLAG_FUEL_PRESSURE_ABOVE_NOMINAL,uint32 = 1024 # Over-pressure warning
+coolant_temperature,float32 # Engine coolant temperature; kelvin
+SPARK_PLUG_SINGLE,uint8 = 0
+intake_manifold_temperature,float32 # Engine intake manifold temperature; kelvin
+SPARK_PLUG_SECOND_ACTIVE,uint8 = 2
+spark_plug_usage,uint8 # Spark plug activity report.
+engine_speed_rpm,uint32 # Engine speed; revolutions per minute
+FLAG_TEMPERATURE_SUPPORTED,uint32 = 8 # Temperature levels. These flags are optional
+FLAG_OIL_PRESSURE_BELOW_NOMINAL,uint32 = 65536 # Under-pressure warning
+ecu_index,uint8 # The index of the publishing ECU
+FLAG_GENERAL_ERROR,uint32 = 1 # General error.
+SPARK_PLUG_FIRST_ACTIVE,uint8 = 1
+FLAG_MISFIRE_OBSERVED,uint32 = 16384 # Misfire condition observed warning
+FLAG_DEBRIS_DETECTED,uint32 = 524288 # Detection of debris warning
+ignition_timing_deg,float32 # Cylinder ignition timing; angular degrees of the crankshaft
+STATE_RUNNING,uint8 = 2 # The engine is running normally.
+FLAG_TEMPERATURE_EGT_ABOVE_NOMINAL,uint32 = 128 # Exhaust gas over-temperature warning
+spark_dwell_time_ms,float32 # Spark dwell time; millisecond
+lambda_coefficient,float32 # Estimated lambda coefficient; dimensionless ratio
+FLAG_TEMPERATURE_BELOW_NOMINAL,uint32 = 16 # Under-temperature warning
+oil_pressure,float32 # Oil pressure; kilopascal
+intake_manifold_pressure_kpa,float32 # Engine intake manifold pressure; kilopascal
+injection_time_ms,float32 # Fuel injection time; millisecond
+cylinder_head_temperature,float32 # Cylinder head temperature (CHT); kelvin
+FLAG_TEMPERATURE_OVERHEATING,uint32 = 64 # Critical overheating
+SPARK_PLUG_BOTH_ACTIVE,uint8 = 3
+STATE_STOPPED,uint8 = 0 # The engine is not running. This is the default state.
+atmospheric_pressure_kpa,float32 # Atmospheric (barometric) pressure; kilopascal
+fuel_pressure,float32 # Fuel pressure; kilopascal
+FLAG_FUEL_PRESSURE_SUPPORTED,uint32 = 256 # Fuel pressure. These flags are optional
+FLAG_DETONATION_SUPPORTED,uint32 = 2048 # Detonation warning. This flag is optional.
+FLAG_DETONATION_OBSERVED,uint32 = 4096 # Detonation condition observed warning
+FLAG_MISFIRE_SUPPORTED,uint32 = 8192 # Misfire warning. This flag is optional.
+FLAG_FUEL_PRESSURE_BELOW_NOMINAL,uint32 = 512 # Under-pressure warning
+oil_temperature,float32 # Oil temperature; kelvin
+estimated_consumed_fuel_volume_cm3,float32 # Estimate of the consumed fuel since the start of the engine; centimeter^3
+FLAG_OIL_PRESSURE_SUPPORTED,uint32 = 32768 # Oil pressure. These flags are optional
+FLAG_DEBRIS_SUPPORTED,uint32 = 262144 # Debris warning. This flag is optional
+engine_load_percent,uint8 # Engine load estimate; percent; [0; 127]
+STATE_FAULT,uint8 = 3 # The engine can no longer function.
+GF_ACTION_RTL,uint8 = 3 # switch to AUTO|RTL
+geofence_violation_reason,uint8 # one of geofence_violation_reason_t::*
+GF_ACTION_NONE,uint8 = 0 # no action on geofence violation
+GF_ACTION_WARN,uint8 = 1 # critical mavlink message
+GF_ACTION_LAND,uint8 = 5 # switch to AUTO|LAND
+GF_ACTION_LOITER,uint8 = 2 # switch to AUTO|LOITER
+home_required,bool # true if the geofence requires a valid home position
+primary_geofence_action,uint8 # action to take when the primary geofence is breached
+GF_ACTION_TERMINATE,uint8 = 4 # flight termination
+normalized_wheel_setpoint,float32 # negative is turning left; positive turning right [-1; 1]
+PWR_BUTTON_STATE_IDEL,uint8 = 0 # Button went up without meeting shutdown button down time (delete event)
+event,uint8 # one of PWR_BUTTON_STATE_*
+PWR_BUTTON_STATE_DOWN,uint8 = 1 # Button went Down
+PWR_BUTTON_STATE_REQUEST_SHUTDOWN,uint8 = 3 # Button went Up after meeting shutdown button down time
+PWR_BUTTON_STATE_UP,uint8 = 2 # Button went Up

@@ -1,0 +1,180 @@
+question,context,Senarios,index
+"Develop scenarios to test my sUAS in environmental monitoring of forest health, using LiDAR and hyperspectral imaging to assess canopy density, identify tree species, and detect early signs of disease.","The unmanned aircraft system (UAS) was fitted with a third-party lidar1 pod for its planned 
+survey mission which involved flights of around 8 minutes duration.  As it commenced its 
+pre-programmed route, it appeared to continue to climb above the 30 m height that had been 
+set.  The remote pilots observed that is was too high and attempted to land it immediately.  
+The aircraft appeared unresponsive to the remote pilot’s inputs and it then commenced an 
+uncontrolled descent, rapidly increasing speed, until it struck the ground.---
+After takeoff the unmanned aircraft (UA) experienced winds exceeding the manufacturer’s 
+stated limitations and was unable to hold its position position.  A culmination of the 
+subsequent position warning and automatic attempt to return “home” and land triggered 
+a software error, commanding the UA to land while not over its home position.  As the UA 
+descended there was a loss of link with the ground control unit and the UA collided with a 
+tree.    The loss of signal was probably caused by the loss of radio line of sight between the 
+UA and ground control unit when it drifted in the high wind over a five-storey building.---
+The UAS, a DJI Phantom 4 RTK, was being operated in an automated flight mode to survey 
+a railway track and surrounding infrastructure when one of the four propellers detached 
+whilst in-flight.  The aircraft rapidly descended from a height of 70 m (230 ft) where it struck 
+the ground in the rear garden of a house.  No persons were injured.
+This investigation has reviewed the new UAS regulations introduced on 31 December 2020 
+concerning the safe overflight of people and data available to assist in risk assessments.  
+Two Safety Recommendations are made to the UK CAA.---
+During an aerial survey flight, the UAS detected a rapid loss of battery power and initiated 
+an immediate automatic landing. Whilst descending, its flight behaviour became erratic, 
+control was lost to the remote pilot, and the UA struck an uninvolved person before hitting 
+the ground. It was not possible to determine a cause for the loss of battery power or the flight 
+behaviour. There may have been an opportunity during flight control checks to consider 
+unexpected battery discharge rate as a reason to abort the flight.---
+The unmanned aircraft (UA) was surveying a foreshore close to a construction site using a 
+flight plan of pre-programmed waypoints.
+During the flight the UA was affected by a change in the wind that resulted in it flying larger 
+than normal turns.  This caused the UA to overshoot its downwind waypoints and fly over the construction site.  During one such overshoot the UA began to descend, as programmed, and collided with a crane on the construction site about 250 m inland.
+As a result of this accident the operator made several changes to its procedures."," Scenario 1:
+
+Environmental Context:
+
+Location: A dense forest in the Pacific Northwest, characterized by a variety of tree species, uneven terrain, and dense undergrowth.
+Weather: Light rain, affecting sensor performance and flight stability.
+Temperature: 15°C, ideal for drone operations but potentially challenging for battery efficiency in prolonged missions.
+Lighting Conditions: Overcast, requiring enhanced reliance on LiDAR and hyperspectral imaging sensors.
+GPS Signal Quality: Generally high, but occasional interferences due to dense tree cover.
+Altitude: Varies from ground level (0 meters) to 50 meters, necessitating versatile altitude adjustments to navigate obstacles.
+Obstacles: Fallen trees and other natural debris posing potential collision risks.
+Network/communication quality: Weak and intermittent in areas with dense tree cover.
+
+Mission:
+
+The sUAS will be tasked with monitoring the health of the forest, assessing canopy density, identifying tree species, and detecting early signs of disease. The sUAS will follow a pre-programmed route, covering the entire forest area.
+
+sUAS Configuration and Properties:
+
+Sensors: LiDAR for assessing canopy density and detecting early signs of disease. Hyperspectral imaging for identifying tree species.
+Payload Weight: 2.5 kg, including sensors and rescue equipment (e.g., first aid kit, communication device).
+Battery Life: 40 minutes per flight, requiring efficient planning for search patterns and recharging logistics.
+
+sUAS Properties to be Tested:
+
+1. Maneuverability: Ability to navigate through dense forest and uneven terrain.
+2. Durability: Ability to withstand light rain and potential impacts with fallen trees or debris.
+3. Stability in Low Light: Ability to operate effectively in overcast conditions.
+4. Communication Range: Ability to maintain a reliable connection with the ground control unit in areas with dense tree cover.
+
+Scenario 2:
+
+Environmental Context:
+
+Location: A tropical rainforest in South America, characterized by high humidity, dense vegetation, and a variety of tree species.
+Weather: High humidity and frequent rain showers, affecting sensor performance and flight stability.
+Temperature: 25°C, ideal for drone operations but potentially challenging for battery efficiency in prolonged missions.
+Lighting Conditions: Transitioning from day to night, requiring enhanced reliance on night vision and thermal imaging sensors.
+GPS Signal Quality: Generally high, but occasional interferences due to dense tree cover.
+Altitude: Varies from ground level (0 meters) to 100 meters, necessitating versatile altitude adjustments to navigate obstacles.
+Obstacles: Dense vegetation and tree canopies posing potential collision risks.
+Network/communication quality: Weak and intermittent in areas with dense tree cover.
+
+Mission:
+
+The sUAS will be tasked with monitoring the health of the rainforest, assessing canopy density, identifying tree species, and detecting early signs of disease. The sUAS will follow a pre-programmed route, covering the entire rainforest area.
+
+sUAS Configuration and Properties:
+
+Sensors: LiDAR for assessing canopy density and detecting early signs of disease. Hyperspectral imaging for identifying tree species.
+Payload Weight: 2.5 kg, including sensors and rescue equipment (e.g., first aid kit, communication device).
+Battery Life: 40 minutes per flight, requiring efficient planning for search patterns and recharging logistics.
+
+sUAS Properties to be Tested:
+
+1. Maneuverability: Ability to navigate through dense vegetation and uneven terrain.
+2. Durability: Ability to withstand high humidity and potential impacts with vegetation or tree branches.
+3. Stability in Low Light: Ability to operate effectively in transitioning light conditions.
+4. Communication Range: Ability to maintain a reliable connection with the ground control unit in areas with dense tree cover.
+
+Scenario 3:
+
+Environmental Context:
+
+Location: A mountainous region in the Himalayas, characterized by high altitude, steep slopes, and a variety of tree species.
+Weather: Strong winds and low temperatures, affecting sensor performance and flight stability.
+Temperature: -5°C, potentially challenging for battery efficiency in prolonged missions.
+Lighting Conditions: Transitioning from day to night, requiring enhanced reliance on night vision and thermal imaging sensors.
+GPS Signal Quality: Generally high, but occasional interferences due to high altitude and steep slopes.
+Altitude: Varies from ground level (0 meters) to 200 meters, necessitating versatile altitude adjustments to navigate obstacles.
+Obstacles: Steep slopes and rocky terrain posing potential collision risks.
+Network/communication quality: Weak and intermittent in areas with steep slopes and rocky terrain.
+
+Mission:
+
+The sUAS will be tasked with monitoring the health of the mountainous region, assessing canopy density, identifying tree species, and detecting early signs of disease. The sUAS will follow a pre-programmed route, covering the entire mountainous region.
+
+sUAS Configuration and Properties:
+
+Sensors: LiDAR for assessing canopy density and detecting early signs of disease. Hyperspectral imaging for identifying tree species.
+Payload Weight: 2.5 kg, including sensors and rescue equipment (e.g., first aid kit, communication device).
+Battery Life: 40 minutes per flight, requiring efficient planning for search patterns and recharging logistics.
+
+sUAS Properties to be Tested:
+
+1. Maneuverability: Ability to navigate through steep slopes and rocky terrain.
+2. Durability: Ability to withstand strong winds and low temperatures.
+3. Stability in Low Light: Ability to operate effectively in transitioning light conditions.
+4. Communication Range: Ability to maintain a reliable connection with the ground control unit in areas with steep slopes and rocky terrain.
+
+Scenario 4:
+
+Environmental Context:
+
+Location: A coastal region in Australia, characterized by sandy beaches, dunes, and a variety of tree species.
+Weather: High winds and salt spray, affecting sensor performance and flight stability.
+Temperature: 30°C, ideal for drone operations but potentially challenging for battery efficiency in prolonged missions.
+Lighting Conditions: Transitioning from day to night, requiring enhanced reliance on night vision and thermal imaging sensors.
+GPS Signal Quality: Generally high, but occasional interferences due to tall dunes and coastal structures.
+Altitude: Varies from ground level (0 meters) to 100 meters, necessitating versatile altitude adjustments to navigate obstacles.
+Obstacles: Sand dunes and coastal structures posing potential collision risks.
+Network/communication quality: Weak and intermittent in areas with tall dunes and coastal structures.
+
+Mission:
+
+The sUAS will be tasked with monitoring the health of the coastal region, assessing canopy density, identifying tree species, and detecting early signs of disease. The sUAS will follow a pre-programmed route, covering the entire coastal region.
+
+sUAS Configuration and Properties:
+
+Sensors: LiDAR for assessing canopy density and detecting early signs of disease. Hyperspectral imaging for identifying tree species.
+Payload Weight: 2.5 kg, including sensors and rescue equipment (e.g., first aid kit, communication device).
+Battery Life: 40 minutes per flight, requiring efficient planning for search patterns and recharging logistics.
+
+sUAS Properties to be Tested:
+
+1. Maneuverability: Ability to navigate through sandy beaches and dunes.
+2. Durability: Ability to withstand high winds and salt spray.
+3. Stability in Low Light: Ability to operate effectively in transitioning light conditions.
+4. Communication Range: Ability to maintain a reliable connection with the ground control unit in areas with tall dunes and coastal structures.
+
+Scenario 5:
+
+Environmental Context:
+
+Location: A desert region in Africa, characterized by high temperatures, sand dunes, and a variety of tree species.
+Weather: High temperatures and occasional sandstorms, affecting sensor performance and flight stability.
+Temperature: 40°C, potentially challenging for battery efficiency in prolonged missions.
+Lighting Conditions: Transitioning from day to night, requiring enhanced reliance on night vision and thermal imaging sensors.
+GPS Signal Quality: Generally high, but occasional interferences due to high temperatures and sandstorms.
+Altitude: Varies from ground level (0 meters) to 100 meters, necessitating versatile altitude adjustments to navigate obstacles.
+Obstacles: Sand dunes and rocky terrain posing potential collision risks.
+Network/communication quality: Weak and intermittent in areas with high temperatures and sandstorms.
+
+Mission:
+
+The sUAS will be tasked with monitoring the health of the desert region, assessing canopy density, identifying tree species, and detecting early signs of disease. The sUAS will follow a pre-programmed route, covering the entire desert region.
+
+sUAS Configuration and Properties:
+
+Sensors: LiDAR for assessing canopy density and detecting early signs of disease. Hyperspectral imaging for identifying tree species.
+Payload Weight: 2.5 kg, including sensors and rescue equipment (e.g., first aid kit, communication device).
+Battery Life: 40 minutes per flight, requiring efficient planning for search patterns and recharging logistics.
+
+sUAS Properties to be Tested:
+
+1. Maneuverability: Ability to navigate through sand dunes and rocky terrain.
+2. Durability: Ability to withstand high temperatures and potential impacts with sand dunes or rocky terrain.
+3. Stability in Low Light: Ability to operate effectively in transitioning light conditions.
+4. Communication Range: Ability to maintain a reliable connection with the ground control unit in areas with high temperatures and sandstorms.",[1]

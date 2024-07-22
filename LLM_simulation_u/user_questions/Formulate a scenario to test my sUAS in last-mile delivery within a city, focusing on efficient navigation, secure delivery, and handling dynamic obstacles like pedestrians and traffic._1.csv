@@ -1,0 +1,190 @@
+question,context,Senarios,index
+"Formulate a scenario to test my sUAS in last-mile delivery within a city, focusing on efficient navigation, secure delivery, and handling dynamic obstacles like pedestrians and traffic.","The unmanned aircraft (UA) was surveying a foreshore close to a construction site using a 
+flight plan of pre-programmed waypoints.
+During the flight the UA was affected by a change in the wind that resulted in it flying larger 
+than normal turns.  This caused the UA to overshoot its downwind waypoints and fly over the construction site.  During one such overshoot the UA began to descend, as programmed, and collided with a crane on the construction site about 250 m inland.
+As a result of this accident the operator made several changes to its procedures.---
+During a public display of 400 synchronised unmanned aircraft (UA), several were seen 
+to deviate briefly from their pre-programmed position.  Shortly afterwards, two UA fell to 
+the ground and sustained damage.  It is likely the deviation was caused by a gust of wind 
+resulting in two UA colliding and losing control.  The safety zone put in place on the ground 
+by the operator and organiser mitigated any risk to the public.---
+While conducting a flight in support of police search operations, the pilot became concerned 
+about losing visual line of sight with the unmanned aircraft (UA) and attempted to activate 
+the return-to-home (RTH) function.  The UA had not acquired a GPS signal prior to the flight 
+and therefore did not record its takeoff point, rendering the RTH function ineffective.  The 
+UA lost connection with the controller and drifted in the wind.  It was located undamaged the 
+next day approximately 5 km away, having performed an automatic landing.---
+At XA:09 Day 0 was a near miss between a crewed aircraft and my sUAS I was Remote 
+Pilot In Command (RPIC) flying above myself and my visual observer and out at 350 ft. 
+AGL by around 500 ft. to the west. Upon hearing the engine of an aircraft from the north , I 
+began to bring my aircraft in to land as to give way for the crewed aircraft. My sUAS was 
+not descending as fast as normal (it may have only felt like it is descending slower). I did 
+hear the engine of the crewed aircraft change in pitch as well as saw  a course change. 
+After landing and observing the flight path of the crewed aircraft which seemed to be en -
+route to land at ZZZ, I powered down my equipment and started trying to find out how to 
+report the near miss. Could not find correct contact informat ion for ZZZ ATC to report. At 
+time of flight and near miss, no active TFR's or NOTAM's in place.  
+Callback: 1  
+The reporter learned during post flight review this wasn't a near miss. There was more 
+than 1000 feet of vertical and lateral separation between the UAS and the fixed wing 
+aircraft.---
+The UAS, a DJI M600 Pro, was being operated in an automated flight mode to survey a 
+construction site when a GPS-compass error caused the aircraft to revert to a flight mode 
+that required manual control.  By the time that the pilot and observer realised that it was 
+not responding to the return-to-home (RTH) function, visual line of sight was lost when the 
+aircraft drifted with the wind beyond a line of trees.  It subsequently collided with the roof of 
+a house before falling into the property’s rear garden.  No persons were injured.  
+The pilot, and the observer who was also a pilot, had operated UASs since 2018 and had 
+the required permissions from the UK CAA.  Both pilots had relied predominantly on the 
+automated flight capability of their aircraft and had not, nor were required to have, practised 
+for emergencies since completing their flying training in 2018.  One Safety Recommendation 
+is made to the UK CAA."," Scenario 1:
+
+Environmental Context:
+
+Location: A bustling city center with high-rise buildings, crowded streets, and heavy traffic.
+Weather: Clear skies with a wind speed of 5 m/s.
+Temperature: 25°C, ideal for drone operations.
+Lighting Conditions: Daylight, requiring standard camera and sensor performance.
+GPS Signal Quality: High, with minimal interference.
+Altitude: Varies from ground level to 120 meters, requiring precise altitude control.
+Obstacles: Pedestrians, vehicles, and other moving objects.
+Network/communication quality: Strong and stable, with minimal interference.
+
+Mission:
+
+The sUAS is tasked with delivering a package from a central location to a designated drop-off point within the city. The mission requires the sUAS to navigate through the urban environment, avoiding obstacles and following traffic regulations.
+
+sUAS Configuration and Properties:
+
+Sensors: GPS, obstacle avoidance sensors, and a camera for visual confirmation of the delivery.
+Payload Weight: 1.5 kg, including the package and sensors.
+Battery Life: 30 minutes per flight, requiring efficient planning for delivery routes.
+
+sUAS Properties to be Tested:
+
+1. Maneuverability: Ability to navigate through tight spaces and avoid obstacles.
+2. Durability: Ability to withstand potential collisions with urban infrastructure.
+3. Stability in Low Light: Not applicable in this scenario.
+4. Communication Range: Ability to maintain a stable connection with the control station.
+
+Scenario 2:
+
+Environmental Context:
+
+Location: A suburban area with residential buildings, parks, and open spaces.
+Weather: Overcast with a wind speed of 15 m/s.
+Temperature: 15°C, potentially challenging for battery efficiency in prolonged missions.
+Lighting Conditions: Transitioning to dusk, requiring enhanced reliance on night vision and thermal imaging sensors.
+GPS Signal Quality: Generally high, but occasional interferences due to tall buildings and underground obstructions.
+Altitude: Varies from ground level to 80 meters, necessitating versatile altitude adjustments to navigate obstacles.
+Obstacles: Trees, power lines, and other urban infrastructure elements posing potential collision risks.
+Network/communication quality: Weak and intermittent in areas with dense structural damage and under tall buildings.
+
+Mission:
+
+The sUAS is tasked with conducting a search and rescue operation in a suburban area. The mission requires the sUAS to locate a missing person using thermal imaging sensors and relay their location to the rescue team.
+
+sUAS Configuration and Properties:
+
+Sensors: GPS, thermal camera, and acoustic sensors for detecting sounds indicating the presence of missing persons.
+Payload Weight: 2.5 kg, including rescue equipment (e.g., first aid kit, communication device) and sensors.
+Battery Life: 45 minutes per flight, requiring efficient planning for search patterns and recharging logistics.
+
+sUAS Properties to be Tested:
+
+1. Maneuverability: Ability to navigate through trees and other obstacles.
+2. Durability: Ability to withstand potential collisions with urban infrastructure.
+3. Stability in Low Light: Ability to maintain stable flight and sensor performance in low light conditions.
+4. Communication Range: Ability to maintain a stable connection with the control station in low light conditions.
+
+Scenario 3:
+
+Environmental Context:
+
+Location: A rural area with farmland, forests, and open fields.
+Weather: Clear skies with a wind speed of 10 m/s.
+Temperature: 20°C, ideal for drone operations.
+Lighting Conditions: Daylight, requiring standard camera and sensor performance.
+GPS Signal Quality: High, with minimal interference.
+Altitude: Varies from ground level to 100 meters, requiring precise altitude control.
+Obstacles: Trees, power lines, and other rural infrastructure elements posing potential collision risks.
+Network/communication quality: Strong and stable, with minimal interference.
+
+Mission:
+
+The sUAS is tasked with conducting a crop monitoring operation in a rural area. The mission requires the sUAS to survey the farmland, detecting any signs of crop disease or pest infestation.
+
+sUAS Configuration and Properties:
+
+Sensors: GPS, multispectral camera, and a thermal camera for detecting signs of crop disease or pest infestation.
+Payload Weight: 2 kg, including the sensors and additional equipment.
+Battery Life: 60 minutes per flight, allowing for extensive coverage of the farmland.
+
+sUAS Properties to be Tested:
+
+1. Maneuverability: Ability to navigate through trees and other obstacles.
+2. Durability: Ability to withstand potential collisions with rural infrastructure.
+3. Stability in Low Light: Not applicable in this scenario.
+4. Communication Range: Ability to maintain a stable connection with the control station.
+
+Scenario 4:
+
+Environmental Context:
+
+Location: A coastal area with beaches, cliffs, and rocky terrain.
+Weather: Overcast with a wind speed of 20 m/s.
+Temperature: 10°C, potentially challenging for battery efficiency in prolonged missions.
+Lighting Conditions: Transitioning to dusk, requiring enhanced reliance on night vision and thermal imaging sensors.
+GPS Signal Quality: Generally high, but occasional interferences due to tall buildings and underground obstructions.
+Altitude: Varies from ground level to 150 meters, necessitating versatile altitude adjustments to navigate obstacles.
+Obstacles: Cliffs, rocky terrain, and other coastal infrastructure elements posing potential collision risks.
+Network/communication quality: Weak and intermittent in areas with dense structural damage and under tall buildings.
+
+Mission:
+
+The sUAS is tasked with conducting a search and rescue operation in a coastal area. The mission requires the sUAS to locate a missing person using thermal imaging sensors and relay their location to the rescue team.
+
+sUAS Configuration and Properties:
+
+Sensors: GPS, thermal camera, and acoustic sensors for detecting sounds indicating the presence of missing persons.
+Payload Weight: 3 kg, including rescue equipment (e.g., first aid kit, communication device) and sensors.
+Battery Life: 60 minutes per flight, allowing for extensive coverage of the coastal area.
+
+sUAS Properties to be Tested:
+
+1. Maneuverability: Ability to navigate through cliffs and other obstacles.
+2. Durability: Ability to withstand potential collisions with coastal infrastructure.
+3. Stability in Low Light: Ability to maintain stable flight and sensor performance in low light conditions.
+4. Communication Range: Ability to maintain a stable connection with the control station in low light conditions.
+
+Scenario 5:
+
+Environmental Context:
+
+Location: A mountainous area with steep cliffs, narrow valleys, and rugged terrain.
+Weather: Clear skies with a wind speed of 5 m/s.
+Temperature: 5°C, potentially challenging for battery efficiency in prolonged missions.
+Lighting Conditions: Daylight, requiring standard camera and sensor performance.
+GPS Signal Quality: High, with minimal interference.
+Altitude: Varies from ground level to 200 meters, necessitating versatile altitude adjustments to navigate obstacles.
+Obstacles: Cliffs, narrow valleys, and other mountainous infrastructure elements posing potential collision risks.
+Network/communication quality: Strong and stable, with minimal interference.
+
+Mission:
+
+The sUAS is tasked with conducting a geological survey in a mountainous area. The mission requires the sUAS to survey the terrain, detecting any signs of geological instability or potential hazards.
+
+sUAS Configuration and Properties:
+
+Sensors: GPS, multispectral camera, and a thermal camera for detecting signs of geological instability or potential hazards.
+Payload Weight: 2.5 kg, including the sensors and additional equipment.
+Battery Life: 60 minutes per flight, allowing for extensive coverage of the mountainous area.
+
+sUAS Properties to be Tested:
+
+1. Maneuverability: Ability to navigate through narrow valleys and other obstacles.
+2. Durability: Ability to withstand potential collisions with mountainous infrastructure.
+3. Stability in Low Light: Not applicable in this scenario.
+4. Communication Range: Ability to maintain a stable connection with the control station.",[]
