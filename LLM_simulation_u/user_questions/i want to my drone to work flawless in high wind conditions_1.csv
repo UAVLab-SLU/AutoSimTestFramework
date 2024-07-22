@@ -1,0 +1,170 @@
+question,context,Senarios,index
+i want to my drone to work flawless in high wind conditions,"After takeoff the unmanned aircraft (UA) experienced winds exceeding the manufacturer’s 
+stated limitations and was unable to hold its position position.  A culmination of the 
+subsequent position warning and automatic attempt to return “home” and land triggered 
+a software error, commanding the UA to land while not over its home position.  As the UA 
+descended there was a loss of link with the ground control unit and the UA collided with a 
+tree.    The loss of signal was probably caused by the loss of radio line of sight between the 
+UA and ground control unit when it drifted in the high wind over a five-storey building.The aircraft dropped to the ground from a height of 15 m when power was lost to the electric 
+motors even though the battery’s energy level (State of Charge) was 97.7%.  The wind 
+conditions were turbulent and an investigation by the Unmanned Aircraft System’s (UAS) 
+manufacturer concluded that the probable cause for the power loss was that the battery had 
+become loose in flight.During a public display of 400 synchronised unmanned aircraft (UA), several were seen 
+to deviate briefly from their pre-programmed position.  Shortly afterwards, two UA fell to 
+the ground and sustained damage.  It is likely the deviation was caused by a gust of wind 
+resulting in two UA colliding and losing control.  The safety zone put in place on the ground 
+by the operator and organiser mitigated any risk to the public.My Drone was involved in an incident with a flying hot air balloon. My drone was hovering 
+under 50 ft while filming guest who where taking a balloon ride before taking off. A flying 
+balloon came within few feet of the balloon i was filming causing my drone  to lose control 
+and striking a side of the basket from the flying balloon. The incident was inadvertent and 
+not deliberate.I was flying in Location A across the street from the park. A hawk came out from hiding in 
+the sun and attacked my drone. It was damaged and fell 250 feet. I recovered the parts. 
+It looks like it is a complete loss."," Scenario 1:
+
+Environmental Context:
+
+Location: A dense forest area with varying terrain, including hills and valleys.
+Weather: Wind speed of 15 m/s, causing turbulence and affecting flight stability.
+Temperature: 10°C, potentially affecting battery performance.
+Lighting Conditions: Overcast, requiring reliance on onboard sensors.
+GPS Signal Quality: Moderate, with occasional signal loss due to tree cover.
+Altitude: Varies from 50 meters to 150 meters, requiring altitude adjustments.
+Obstacles: Trees and uneven terrain, posing potential collision risks.
+Network/communication quality: Weak in areas with dense tree cover.
+
+Mission:
+
+The sUAS is tasked with conducting a search and rescue operation in the forest area. The mission involves locating a missing hiker using thermal imaging sensors and relaying the coordinates to the rescue team.
+
+sUAS Configuration and Properties:
+
+Sensors: GPS, thermal camera, and acoustic sensors.
+Payload Weight: 2.5 kg, including rescue equipment and sensors.
+Battery Life: 40 minutes per flight, requiring efficient planning for search patterns and recharging logistics.
+
+sUAS Properties to be Tested:
+
+1. Maneuverability: Navigating through dense forest and varying terrain.
+2. Durability: Withstanding potential impacts from tree branches and uneven terrain.
+3. Stability in Low Light: Operating in overcast conditions.
+4. Communication Range: Maintaining a reliable connection in areas with dense tree cover.
+
+Scenario 2:
+
+Environmental Context:
+
+Location: A coastal area with sandy beaches and rocky cliffs.
+Weather: Wind speed of 12 m/s, affecting flight stability and sensor performance.
+Temperature: 25°C, ideal for drone operations but potentially challenging for battery efficiency in prolonged missions.
+Lighting Conditions: Transitioning from daylight to dusk, requiring enhanced reliance on night vision and thermal imaging sensors.
+GPS Signal Quality: Generally high, but occasional interferences due to tall cliffs and rocky terrain.
+Altitude: Varies from ground level (0 meters) to 50 meters, necessitating versatile altitude adjustments to navigate obstacles.
+Obstacles: Rocky cliffs and sand dunes, posing potential collision risks.
+Network/communication quality: Weak and intermittent in areas with dense structural damage and under tall cliffs.
+
+Mission:
+
+The sUAS is tasked with monitoring a coastal erosion site and collecting data on the rate of erosion using onboard sensors. The mission involves flying over the erosion site and capturing images and data for analysis.
+
+sUAS Configuration and Properties:
+
+Sensors: GPS, high-resolution camera, and environmental sensors.
+Payload Weight: 2.2 kg, including data collection equipment and sensors.
+Battery Life: 50 minutes per flight, requiring efficient planning for data collection and recharging logistics.
+
+sUAS Properties to be Tested:
+
+1. Maneuverability: Navigating through rocky cliffs and sandy beaches.
+2. Durability: Withstanding potential impacts from rocks and sand.
+3. Stability in Low Light: Operating in transitioning lighting conditions.
+4. Communication Range: Maintaining a reliable connection in areas with dense cliffs and rocky terrain.
+
+Scenario 3:
+
+Environmental Context:
+
+Location: A mountainous region with varying altitudes and steep slopes.
+Weather: Wind speed of 8 m/s, affecting flight stability and sensor performance.
+Temperature: 5°C, potentially affecting battery performance.
+Lighting Conditions: Transitioning from daylight to dusk, requiring enhanced reliance on night vision and thermal imaging sensors.
+GPS Signal Quality: Generally high, but occasional interferences due to mountainous terrain.
+Altitude: Varies from ground level (0 meters) to 200 meters, necessitating versatile altitude adjustments to navigate obstacles.
+Obstacles: Steep slopes and rocky terrain, posing potential collision risks.
+Network/communication quality: Weak and intermittent in areas with dense structural damage and under tall mountains.
+
+Mission:
+
+The sUAS is tasked with conducting a geological survey of a mountainous region to identify potential landslide risks. The mission involves flying over the region and capturing images and data for analysis.
+
+sUAS Configuration and Properties:
+
+Sensors: GPS, high-resolution camera, and environmental sensors.
+Payload Weight: 2.3 kg, including data collection equipment and sensors.
+Battery Life: 45 minutes per flight, requiring efficient planning for data collection and recharging logistics.
+
+sUAS Properties to be Tested:
+
+1. Maneuverability: Navigating through steep slopes and rocky terrain.
+2. Durability: Withstanding potential impacts from rocks and uneven terrain.
+3. Stability in Low Light: Operating in transitioning lighting conditions.
+4. Communication Range: Maintaining a reliable connection in areas with dense mountainous terrain.
+
+Scenario 4:
+
+Environmental Context:
+
+Location: A desert area with sand dunes and sparse vegetation.
+Weather: Wind speed of 10 m/s, affecting flight stability and sensor performance.
+Temperature: 35°C, potentially affecting battery efficiency in prolonged missions.
+Lighting Conditions: Transitioning from daylight to dusk, requiring enhanced reliance on night vision and thermal imaging sensors.
+GPS Signal Quality: Generally high, but occasional interferences due to sand dunes and sparse vegetation.
+Altitude: Varies from ground level (0 meters) to 100 meters, necessitating versatile altitude adjustments to navigate obstacles.
+Obstacles: Sand dunes and sparse vegetation, posing potential collision risks.
+Network/communication quality: Weak and intermittent in areas with dense structural damage and under tall sand dunes.
+
+Mission:
+
+The sUAS is tasked with conducting a wildlife survey in a desert area to identify and track animal populations. The mission involves flying over the desert and capturing images and data for analysis.
+
+sUAS Configuration and Properties:
+
+Sensors: GPS, high-resolution camera, and thermal imaging sensors.
+Payload Weight: 2.1 kg, including data collection equipment and sensors.
+Battery Life: 55 minutes per flight, requiring efficient planning for data collection and recharging logistics.
+
+sUAS Properties to be Tested:
+
+1. Maneuverability: Navigating through sand dunes and sparse vegetation.
+2. Durability: Withstanding potential impacts from sand and vegetation.
+3. Stability in Low Light: Operating in transitioning lighting conditions.
+4. Communication Range: Maintaining a reliable connection in areas with dense desert terrain.
+
+Scenario 5:
+
+Environmental Context:
+
+Location: A cityscape with tall buildings and narrow alleys.
+Weather: Wind speed of 15 m/s, affecting flight stability and sensor performance.
+Temperature: 15°C, potentially affecting battery efficiency in prolonged missions.
+Lighting Conditions: Transitioning from daylight to dusk, requiring enhanced reliance on night vision and thermal imaging sensors.
+GPS Signal Quality: Generally high, but occasional interferences due to tall buildings and underground obstructions.
+Altitude: Varies from ground level (0 meters) to 150 meters, necessitating versatile altitude adjustments to navigate obstacles.
+Obstacles: Tall buildings and narrow alleys, posing potential collision risks.
+Network/communication quality: Weak and intermittent in areas with dense structural damage and under tall buildings.
+
+Mission:
+
+The sUAS is tasked with conducting a security surveillance operation in a cityscape to monitor potential threats and relay information to the security team. The mission involves flying over the cityscape and capturing images and data for analysis.
+
+sUAS Configuration and Properties:
+
+Sensors: GPS, high-resolution camera, and acoustic sensors.
+Payload Weight: 2.4 kg, including surveillance equipment and sensors.
+Battery Life: 40 minutes per flight, requiring efficient planning for surveillance patterns and recharging logistics.
+
+sUAS Properties to be Tested:
+
+1. Maneuverability: Navigating through tall buildings and narrow alleys.
+2. Durability: Withstanding potential impacts from buildings and urban infrastructure.
+3. Stability in Low Light: Operating in transitioning lighting conditions.
+4. Communication Range: Maintaining a reliable connection in areas with dense urban infrastructure.",[2]

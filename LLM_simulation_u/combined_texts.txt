@@ -1,0 +1,135 @@
+INFO;14:38:52;Drone 1;taking off
+INFO;14:38:52;Drone 1;heading: [0, 0, 0]
+INFO;14:38:52;Drone 1;heading: [0, 10, -5]
+INFO;14:38:52;Drone 1;heading: [10, 10, -5]
+INFO;14:38:54;Drone 1;heading: [10, 0, -5]
+INFO;14:38:54;Drone 1;heading: [0, 10, -5]
+INFO;14:38:54;Drone 1;heading: [0, 0, 0]
+INFO;14:38:55;Drone 1;task over
+
+INFO;14:38:52;Drone 1;CollisionMonitor started
+PASS;14:38:55;Drone 1;No collision detected
+
+INFO;14:38:52;Drone 1;Landing space geolocation: [[41.97984810593547, -87.93607016252984]]
+INFO;14:38:52;Drone 1;Landing space cartesian location: [(0.34962032549083233, 0.09529715869575739, 0)]
+INFO;14:38:52;Drone 1;Landspace monitor started
+PASS;14:38:55;Drone 1;No landing violations detected
+
+FAIL;14:38:52;Drone 1;Invalid zone polyhedra input, using default zones
+INFO;14:38:52;Drone 1;NoFlyZoneMonitor created no-fly polyhedra zones, [[[1, -10, 0], [1, 10, 0], [5, -10, 0], [5, 10, 0], [1, -10, 999], [1, 10, 999], [5, -10, 999], [5, 10, 999]], [[-1, -10, 0], [-1, 10, 0], [-5, -10, 0], [-5, 10, 0], [-1, -10, 999], [-1, 10, 999], [-5, -10, 999], [-5, 10, 999]]]
+INFO;14:38:52;Drone 1;NoFlyZoneMonitor started
+PASS;14:38:55;Drone 1;Mission finished, NoFlyZoneMonitor ended without violation
+
+INFO;14:38:52;Drone 1;speed 20 m/s with wind No wind
+INFO;14:38:52;Drone 1;Register drone location every 0.02 seconds
+INFO;14:38:52;Drone 1;current position: 8.83, 15.25, -6.26
+INFO;14:38:52;Drone 1;current position: 8.83, 15.25, -6.26
+INFO;14:38:52;Drone 1;current position: 8.83, 15.25, -6.26
+INFO;14:38:52;Drone 1;current position: 8.83, 15.25, -6.26
+INFO;14:38:52;Drone 1;current position: 8.83, 15.25, -6.26
+INFO;14:38:53;Drone 1;current position: 8.83, 15.25, -6.26
+INFO;14:38:53;Drone 1;current position: 8.83, 15.25, -6.26
+INFO;14:38:53;Drone 1;current position: 8.83, 15.25, -6.26
+INFO;14:38:53;Drone 1;current position: 8.83, 15.25, -6.26
+INFO;14:38:53;Drone 1;current position: 8.83, 15.25, -6.26
+INFO;14:38:53;Drone 1;current position: 8.83, 15.25, -6.26
+INFO;14:38:53;Drone 1;current position: 8.83, 15.25, -6.26
+INFO;14:38:53;Drone 1;current position: 8.83, 15.25, -6.26
+INFO;14:38:53;Drone 1;current position: 8.83, 15.25, -6.26
+INFO;14:38:53;Drone 1;current position: 8.83, 15.25, -6.26
+INFO;14:38:53;Drone 1;current position: 8.83, 15.25, -6.26
+INFO;14:38:53;Drone 1;current position: 8.83, 15.25, -6.26
+INFO;14:38:53;Drone 1;current position: 8.83, 15.25, -6.26
+INFO;14:38:53;Drone 1;current position: 8.83, 15.25, -6.26
+INFO;14:38:53;Drone 1;current position: 8.83, 15.25, -6.26
+INFO;14:38:53;Drone 1;current position: 8.83, 15.25, -6.26
+INFO;14:38:53;Drone 1;current position: 8.83, 15.25, -6.26
+INFO;14:38:53;Drone 1;current position: 8.83, 15.25, -6.26
+INFO;14:38:53;Drone 1;current position: 8.83, 15.25, -6.26
+INFO;14:38:53;Drone 1;current position: 8.83, 15.25, -6.26
+INFO;14:38:53;Drone 1;current position: 8.83, 15.25, -6.26
+INFO;14:38:53;Drone 1;current position: 8.83, 15.25, -6.26
+INFO;14:38:53;Drone 1;current position: 8.83, 15.25, -6.26
+INFO;14:38:53;Drone 1;current position: 8.83, 15.25, -6.26
+INFO;14:38:53;Drone 1;current position: 8.83, 15.25, -6.26
+INFO;14:38:53;Drone 1;current position: 8.83, 15.25, -6.26
+INFO;14:38:53;Drone 1;current position: 8.83, 15.25, -6.26
+INFO;14:38:53;Drone 1;current position: 8.83, 15.25, -6.26
+INFO;14:38:53;Drone 1;current position: 8.83, 15.25, -6.26
+INFO;14:38:53;Drone 1;current position: 8.83, 15.25, -6.26
+INFO;14:38:53;Drone 1;current position: 8.83, 15.25, -6.26
+INFO;14:38:53;Drone 1;current position: 8.83, 15.25, -6.26
+INFO;14:38:54;Drone 1;current position: 8.83, 15.25, -6.26
+INFO;14:38:54;Drone 1;current position: 8.83, 15.25, -6.26
+INFO;14:38:54;Drone 1;current position: 8.83, 15.25, -6.26
+INFO;14:38:54;Drone 1;current position: 8.83, 15.25, -6.26
+INFO;14:38:54;Drone 1;current position: 8.83, 15.25, -6.26
+INFO;14:38:54;Drone 1;current position: 8.83, 15.25, -6.26
+INFO;14:38:54;Drone 1;current position: 8.83, 15.25, -6.26
+INFO;14:38:54;Drone 1;current position: 8.83, 15.25, -6.26
+INFO;14:38:54;Drone 1;current position: 8.83, 15.25, -6.26
+INFO;14:38:54;Drone 1;current position: 8.83, 15.25, -6.26
+INFO;14:38:54;Drone 1;current position: 8.83, 15.25, -6.26
+INFO;14:38:54;Drone 1;current position: 8.83, 15.25, -6.26
+INFO;14:38:54;Drone 1;current position: 8.83, 15.25, -6.26
+INFO;14:38:54;Drone 1;current position: 8.83, 15.25, -6.26
+INFO;14:38:54;Drone 1;current position: 8.83, 15.25, -6.26
+INFO;14:38:54;Drone 1;current position: 8.83, 15.25, -6.26
+INFO;14:38:54;Drone 1;current position: 8.83, 15.25, -6.26
+INFO;14:38:54;Drone 1;current position: 8.83, 15.25, -6.26
+INFO;14:38:54;Drone 1;current position: 8.83, 15.25, -6.26
+INFO;14:38:54;Drone 1;current position: 8.83, 15.25, -6.26
+INFO;14:38:54;Drone 1;current position: 8.83, 15.25, -6.26
+INFO;14:38:54;Drone 1;current position: 8.83, 15.25, -6.26
+INFO;14:38:54;Drone 1;current position: 8.83, 15.25, -6.26
+INFO;14:38:54;Drone 1;current position: 8.83, 15.25, -6.26
+INFO;14:38:54;Drone 1;current position: 8.83, 15.25, -6.26
+INFO;14:38:54;Drone 1;current position: 8.83, 15.25, -6.26
+INFO;14:38:54;Drone 1;current position: 8.83, 15.25, -6.26
+INFO;14:38:54;Drone 1;current position: 8.83, 15.25, -6.26
+INFO;14:38:54;Drone 1;current position: 8.83, 15.25, -6.26
+INFO;14:38:54;Drone 1;current position: 8.83, 15.25, -6.26
+INFO;14:38:54;Drone 1;current position: 8.83, 15.25, -6.26
+INFO;14:38:54;Drone 1;current position: 8.83, 15.25, -6.26
+INFO;14:38:55;Drone 1;current position: 8.83, 15.25, -6.26
+INFO;14:38:55;Drone 1;current position: 8.83, 15.25, -6.26
+INFO;14:38:55;Drone 1;current position: 8.83, 15.25, -6.26
+INFO;14:38:55;Drone 1;current position: 8.83, 15.25, -6.26
+INFO;14:38:55;Drone 1;current position: 8.83, 15.25, -6.26
+INFO;14:38:55;Drone 1;current position: 8.83, 15.25, -6.26
+INFO;14:38:55;Drone 1;current position: 8.83, 15.25, -6.26
+INFO;14:38:55;Drone 1;current position: 8.83, 15.25, -6.26
+INFO;14:38:55;Drone 1;current position: 8.83, 15.25, -6.26
+INFO;14:38:55;Drone 1;current position: 8.83, 15.25, -6.26
+INFO;14:38:55;Drone 1;current position: 8.83, 15.25, -6.26
+INFO;14:38:55;Drone 1;current position: 8.83, 15.25, -6.26
+INFO;14:38:55;Drone 1;current position: 8.83, 15.25, -6.26
+INFO;14:38:55;Drone 1;current position: 8.83, 15.25, -6.26
+INFO;14:38:55;Drone 1;current position: 8.83, 15.25, -6.26
+INFO;14:38:55;Drone 1;current position: 8.83, 15.25, -6.26
+INFO;14:38:55;Drone 1;current position: 8.83, 15.25, -6.26
+INFO;14:38:55;Drone 1;current position: 8.83, 15.25, -6.26
+INFO;14:38:55;Drone 1;current position: 8.83, 15.25, -6.26
+INFO;14:38:55;Drone 1;current position: 8.83, 15.25, -6.26
+INFO;14:38:55;Drone 1;current position: 8.83, 15.25, -6.26
+INFO;14:38:55;Drone 1;current position: 8.83, 15.25, -6.26
+INFO;14:38:55;Drone 1;current position: 8.83, 15.25, -6.26
+INFO;14:38:55;Drone 1;current position: 8.83, 15.25, -6.26
+INFO;14:38:55;Drone 1;current position: 8.83, 15.25, -6.26
+INFO;14:38:55;Drone 1;current position: 8.83, 15.25, -6.26
+INFO;14:38:55;Drone 1;current position: 8.83, 15.25, -6.26
+INFO;14:38:55;Drone 1;Mission task finished
+PASS;14:38:55;Drone 1;No deviation violation (<12 meters)
+FAIL;14:38:55;Drone 1;Actual distance is 0
+
+INFO;14:38:52;Drone 1;speed 20 m/s with wind No wind
+INFO;14:38:53;Drone location: 8.833015441894531, 15.249445915222168, -6.25848913192749
+INFO;14:38:53;Wind set to: -12.2409, 12.1099, -1.62509
+INFO;14:38:54;Drone location: 8.833015441894531, 15.249445915222168, -6.25848913192749
+INFO;14:38:54;Wind set to: -12.2409, 12.1099, -1.62509
+INFO;14:38:55;Drone location: 8.833015441894531, 15.249445915222168, -6.25848913192749
+INFO;14:38:55;Wind set to: -12.2409, 12.1099, -1.62509
+INFO;14:38:55;Drone location: 8.833015441894531, 15.249445915222168, -6.25848913192749
+INFO;14:38:55;Wind set to: -12.2409, 12.1099, -1.62509
+INFO;14:38:55;Drone 1;task over
+
