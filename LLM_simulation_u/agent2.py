@@ -531,15 +531,23 @@ class Agents:
 
         if not os.path.exists(output_folder):
             os.makedirs(output_folder)
-        
+
+        time = pd.to_datetime(data['timestamp'], unit='us')
+
         for column in filtered_data:
             plt.figure()
-            plt.plot(data.index, data[column], label=column)
-            plt.xlabel('Index')
+            # column_data = data[column].dropna().reset_index(drop=True)
+            # plt.plot(column_data.index, column_data, label=column)
+            # plt.plot(data.index, data[column], label=column)
+            plt.plot(time, data[column], label=column)
+
+            plt.xlabel('Time')
             plt.ylabel(column)
             plt.title(f'Plot of {column}')
             plt.legend()
             plt.grid(True)
+            # plt.ylim(bottom=0)
+            plt.xlim(left=min(time),right=max(time))
             plot_path = os.path.join(output_folder, f'{column}.png')
             plt.savefig(plot_path)
             plt.close()
@@ -626,7 +634,8 @@ class Agents:
         df = pd.read_csv("/home/uav/Documents/AI_Hunter/LLMS/ulg_data/06_40_19.csv")
         # non_empty_columns = [col for col in df.columns if df[col].notnull().any()]
         # Agents.create_and_save_plots(df,filtered_data,"plots_data")
-        # text,images = Agents.Analytics_two(file_path)
+        # text = Agents.Analytics_one(file_path)
+        text,images = Agents.Analytics_two(file_path)
         # image_path = input("Enter the path to the plots folder")
         
         model_id = "microsoft/Phi-3-vision-128k-instruct" 
@@ -638,59 +647,71 @@ class Agents:
         # cls.model =  AutoModelForCausalLM.from_pretrained(model_id, device_map="cuda", trust_remote_code=True, torch_dtype="auto", _attn_implementation='flash_attention_2') # use _attn_implementation='eager' to disable flash attention
 
         
-        images = Agents.load_images_from_folder(file_path)
+        # images = Agents.load_images_from_folder(file_path)
         # s = ""
         # for i in range(len(images)):
         #     s+= f"<|image_{i+1}|>"
 
 
-        # responses_ll = []
-        # for i in range(0,len(images),5):
-        #     image_tags = "".join([f"<|image_{j+1}|>" for j in range(len(images[i:i+5]))])
+        responses_ll = []
+        for i in range(0,len(images),5):
+            image_tags = "".join([f"<|image_{j+1}|>" for j in range(len(images[i:i+5]))])
 
-        #     promt_a = """
-        #     Analytics Report Request for Drone ULG Data
-        #     I have a set of plots derived from my drone's ULG data. As an expert in drone analytics, I would like you to analyze these plots and provide a detailed report.
-        #     The report should include the following:
-        #     1)Understanding the Plots 2)Impact on Drone Behavior 3)Key Observations 4)Correlations Between Plots
-        #     Rules:
-        #     1)Understand the plots and provide your expert opinion.
-        #     2)Keep the response crisp and summarized, with key observations highlighted.
-        #     3)Highlight any correlations between plots.
-        #     Please ensure the report is comprehensive yet concise, offering actionable insights and a clear understanding of the drone's performance based on the ULG data.
-        #     """
+            promt_a = """
+            Analytics Report Request for Drone ULG Data
+            I have a set of plots derived from my drone's ULG data. As an expert in drone analytics, I would like you to analyze these plots and provide a detailed report.
+            The report should include the following:
+            1)Understanding the Plots 2)Impact on Drone Behavior 3)Key Observations 4)Correlations Between Plots
+            Rules:
+            1)Understand the plots and provide your expert opinion.
+            2)Keep the response crisp and summarized, with key observations highlighted.
+            3)Highlight any correlations between plots.
+            Please ensure the report is comprehensive yet concise, offering actionable insights and a clear understanding of the drone's performance based on the ULG data.
+            """
 
-        #     messages = [ 
-        #         {"role": "user", "content":f"{image_tags}\ni would like a detailed analysis of the images I have provided, focusing on the metrics displayed and their impact on drone behavior"}, 
-        #         {"role": "assistant", "content": "understand what is present in images and give very insightfull responses as per user questions"}, 
-        #         {"role": "user", "content": f"{promt_a}"} 
-        #     ] 
+            messages = [ 
+                {"role": "user", "content":f"{image_tags}\ni would like a detailed analysis of the images I have provided, focusing on the metrics displayed and their impact on drone behavior"}, 
+                {"role": "assistant", "content": "understand what is present in images and give very insightfull responses as per user questions"}, 
+                {"role": "user", "content": f"{promt_a}"} 
+            ] 
 
-        #     # image = Image.open(requests.get(url, stream=True).raw) 
+            # image = Image.open(requests.get(url, stream=True).raw) 
 
-        #     batch_images = images[i:i+5]
-        #     prompt = processor.tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
-        #     for j, image in enumerate(batch_images):
-        #         image.id = j + 1
-        #     inputs = processor(prompt,batch_images, return_tensors="pt").to("cuda:0") 
+            batch_images = images[i:i+5]
+            prompt = processor.tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
+            for j, image in enumerate(batch_images):
+                image.id = j + 1
+            inputs = processor(prompt,batch_images, return_tensors="pt").to("cuda:0") 
 
-            # generation_args = { 
-            #     "max_new_tokens": 1000, 
-            #     "temperature": 0.0, 
-            #     "do_sample": False, 
-            # } 
+            generation_args = { 
+                "max_new_tokens": 1000, 
+                "temperature": 0.0, 
+                "do_sample": False, 
+            } 
 
-        #     generate_ids = model.generate(**inputs, eos_token_id=processor.tokenizer.eos_token_id, **generation_args) 
+            generate_ids = model.generate(**inputs, eos_token_id=processor.tokenizer.eos_token_id, **generation_args) 
 
-        #     # remove input tokens 
-        #     generate_ids = generate_ids[:, inputs['input_ids'].shape[1]:]
-        #     response = processor.batch_decode(generate_ids, skip_special_tokens=True, clean_up_tokenization_spaces=False)[0] 
-        #     responses_ll.append(response)
-        #     torch.cuda.empty_cache()
+            # remove input tokens 
+            generate_ids = generate_ids[:, inputs['input_ids'].shape[1]:]
+            response = processor.batch_decode(generate_ids, skip_special_tokens=True, clean_up_tokenization_spaces=False)[0] 
+            responses_ll.append(response)
+            torch.cuda.empty_cache()
+        Analysis = ""
+        for res in responses_ll:
+            Analysis += res
+        # Data_a = pd.read_csv(f"user_analytics/{file_path}.csv")
+
         # Analysis = ""
-        # for res in responses_ll:
+        # for res in Data_a["0"]:
         #     Analysis += res
-        torch.cuda.empty_cache()
+        
+        # torch.cuda.empty_cache()
+        df_t = pd.DataFrame(responses_ll)
+        df_t.to_csv(f"user_analytics/{file_path}.csv",index =False)
+        print(Analysis)
+        return text,images,Analysis
+
+
         # print(f"Initial analysis is complete.\n{Analysis} You may now ask further questions.")
         # while True:
         #     user_query = input("Enter your question or type 'exit' to finish: ")
@@ -715,58 +736,145 @@ class Agents:
         #     generate_ids = generate_ids[:, inputs['input_ids'].shape[1]:]  # Remove input tokens
         #     response = processor.batch_decode(generate_ids, skip_special_tokens=True, clean_up_tokenization_spaces=False)[0]
         #     print("AI Response:", response)
-        print("you need any questions further Apart from this Analytics??")
-        while True:
-            user_query = input("Enter your question or type 'exit' to finish: ")
-            if user_query.lower() == 'exit':
-                break
-            cosine_similarity, indices = search_a(user_query, 5)
-            contextlist = Analytics_data.iloc[indices[0]]["parameter"]
-            # context = combine_context(contextlist)
-            Agents.create_and_save_plots(df,contextlist.to_list(),user_query)
+        # print("you need any questions further Apart from this Analytics??")
+        # while True:
+        #     user_query = input("Enter your question or type 'exit' to finish: ")
+        #     if user_query.lower() == 'exit':
+        #         break
+        #     cosine_similarity, indices = search_a(user_query, 5)
+        #     contextlist = Analytics_data.iloc[indices[0]]["parameter"]
+        #     # context = combine_context(contextlist)
+        #     Agents.create_and_save_plots(df,contextlist.to_list(),user_query)
             
-            image_tags = "".join([f"<|image_{j+1}|>" for j in range(len(contextlist.to_list()))])
-            path_to_load = input("give the path to directory")
-            images_n = Agents.load_images_from_folder(path_to_load)
-            promt_a = """
-            Analytics Report Request for Drone ULG Data
-            I have a set of plots derived from my drone's ULG data. As an expert in drone analytics, I would like you to analyze these plots and provide a detailed report.
-            The report should include the following:
-            1)Understanding the Plots 2)Impact on Drone Behavior 3)Key Observations 4)Correlations Between Plots
-            Rules:
-            1)Understand the plots and provide your expert opinion.
-            2)Keep the response crisp and summarized, with key observations highlighted.
-            3)Highlight any correlations between plots.
-            Please ensure the report is comprehensive yet concise, offering actionable insights and a clear understanding of the drone's performance based on the ULG data.
-            """
+        #     image_tags = "".join([f"<|image_{j+1}|>" for j in range(len(contextlist.to_list()))])
+        #     path_to_load = input("give the path to directory")
+        #     images_n = Agents.load_images_from_folder(path_to_load)
+        #     promt_a = """
+        #     Analytics Report Request for Drone ULG Data
+        #     I have a set of plots derived from my drone's ULG data. As an expert in drone analytics, I would like you to analyze these plots and provide a detailed report.
+        #     The report should include the following:
+        #     1)Understanding the Plots 2)Impact on Drone Behavior 3)Key Observations 4)Correlations Between Plots
+        #     Rules:
+        #     1)Understand the plots and provide your expert opinion.
+        #     2)Keep the response crisp and summarized, with key observations highlighted.
+        #     3)Highlight any correlations between plots.
+        #     Please ensure the report is comprehensive yet concise, offering actionable insights and a clear understanding of the drone's performance based on the ULG data.
+        #     """
 
-            messages = [ 
-                {"role": "user", "content":f"{image_tags}\ni would like a detailed analysis of the images I have provided, focusing on the metrics displayed and their impact on drone behavior"}, 
-                {"role": "assistant", "content": "understand what is present in images and give very insightfull responses as per user questions"}, 
-                {"role": "user", "content": f"{promt_a}"} 
-            ] 
-            generation_args = { 
-                "max_new_tokens": 1000, 
-                "temperature": 0.0, 
-                "do_sample": False, 
-            }
-            # messages = [
-            #     {"role": "system", "content": f"{Analysis}"},  # Passing previous responses as memory
-            #     {"role": "user", "content": f"{user_query}"}
-            # ]
+        #     messages = [ 
+        #         {"role": "user", "content":f"{image_tags}\ni would like a detailed analysis of the images I have provided, focusing on the metrics displayed and their impact on drone behavior"}, 
+        #         {"role": "assistant", "content": "understand what is present in images and give very insightfull responses as per user questions"}, 
+        #         {"role": "user", "content": f"{promt_a}"} 
+        #     ] 
+        #     generation_args = { 
+        #         "max_new_tokens": 1000, 
+        #         "temperature": 0.0, 
+        #         "do_sample": False, 
+        #     }
+        #     # messages = [
+        #     #     {"role": "system", "content": f"{Analysis}"},  # Passing previous responses as memory
+        #     #     {"role": "user", "content": f"{user_query}"}
+        #     # ]
 
-            prompt = processor.tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
-            inputs = processor(prompt,images_n, return_tensors="pt").to("cuda:0")
+        #     prompt = processor.tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
+        #     inputs = processor(prompt,images_n, return_tensors="pt").to("cuda:0")
 
-            generate_ids = model.generate(**inputs, eos_token_id=processor.tokenizer.eos_token_id, **generation_args)
-            generate_ids = generate_ids[:, inputs['input_ids'].shape[1]:]  # Remove input tokens
-            response = processor.batch_decode(generate_ids, skip_special_tokens=True, clean_up_tokenization_spaces=False)[0]
-            print("AI Response:", response)
+        #     generate_ids = model.generate(**inputs, eos_token_id=processor.tokenizer.eos_token_id, **generation_args)
+        #     generate_ids = generate_ids[:, inputs['input_ids'].shape[1]:]  # Remove input tokens
+        #     response = processor.batch_decode(generate_ids, skip_special_tokens=True, clean_up_tokenization_spaces=False)[0]
+        #     print("AI Response:", response)
+    @staticmethod
+    def clarification(file_path,user_query):
+        Data_a = pd.read_csv(f"user_analytics/{file_path}.csv")
+
+        Analysis = ""
+        for res in Data_a["0"]:
+            Analysis += res
+        model_id = "microsoft/Phi-3-vision-128k-instruct"
+        model, tokenizer, processor = Agents.model_manager.load_model(model_id, device_map="cuda", quantization_config=nf4_config)
+
+        # user_query = user_query
+        prompt_Ab = f"""
+        Provide explanation and clarification based on the user's question regarding the provided analytics data.
+        ==========================
+        Analysis data:-{Analysis}
+        ==========================
+        instructions:-
+        user questions :-{user_query}"""
+        messages = [
+            {"role": "system", "content": "intelligent AI system cabale of Answering any question you have"},  # Passing previous responses as memory
+            {"role": "user", "content": f"{prompt_Ab}"}
+        ]
+        generation_args = { 
+            "max_new_tokens": 1000, 
+            "temperature": 0.0, 
+            "do_sample": False, 
+        }
+
+        prompt = processor.tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
+        inputs = processor(prompt, return_tensors="pt").to("cuda:0")
+
+        generate_ids = model.generate(**inputs, eos_token_id=processor.tokenizer.eos_token_id, **generation_args)
+        generate_ids = generate_ids[:, inputs['input_ids'].shape[1]:]  # Remove input tokens
+        response = processor.batch_decode(generate_ids, skip_special_tokens=True, clean_up_tokenization_spaces=False)[0]
+        return response
 
         
             # return responses_ll
         # print(response)
-if __name__ == "__main__":
+
+    @staticmethod
+    def new_analytics(user_query):
+        model_id = "microsoft/Phi-3-vision-128k-instruct"
+        model, tokenizer, processor = Agents.model_manager.load_model(model_id, device_map="cuda", quantization_config=nf4_config)
+        df = pd.read_csv("/home/uav/Documents/AI_Hunter/LLMS/ulg_data/06_40_19.csv")
+        cosine_similarity, indices = search_a(user_query, 5)
+        contextlist = Analytics_data.iloc[indices[0]]["parameter"]
+        # context = combine_context(contextlist)
+        Agents.create_and_save_plots(df,contextlist.to_list(),user_query)
+        
+        image_tags = "".join([f"<|image_{j+1}|>" for j in range(len(contextlist.to_list()))])
+        # path_to_load = input("give the path to directory")
+        path_to_load = user_query
+        images_n = Agents.load_images_from_folder(path_to_load)
+        promt_a = """
+        Analytics Report Request for Drone ULG Data
+        I have a set of plots derived from my drone's ULG data. As an expert in drone analytics, I would like you to analyze these plots and provide a detailed report.
+        The report should include the following:
+        1)Understanding the Plots 2)Impact on Drone Behavior 3)Key Observations 4)Correlations Between Plots
+        Rules:
+        1)Understand the plots and provide your expert opinion.
+        2)Keep the response crisp and summarized, with key observations highlighted.
+        3)Highlight any correlations between plots.
+        Please ensure the report is comprehensive yet concise, offering actionable insights and a clear understanding of the drone's performance based on the ULG data.
+        """
+
+        messages = [ 
+            {"role": "user", "content":f"{image_tags}\ni would like a detailed analysis of the images I have provided, focusing on the metrics displayed and their impact on drone behavior"}, 
+            {"role": "assistant", "content": "understand what is present in images and give very insightfull responses as per user questions"}, 
+            {"role": "user", "content": f"{promt_a}"} 
+        ] 
+        generation_args = { 
+            "max_new_tokens": 1000, 
+            "temperature": 0.0, 
+            "do_sample": False, 
+        }
+        # messages = [
+        #     {"role": "system", "content": f"{Analysis}"},  # Passing previous responses as memory
+        #     {"role": "user", "content": f"{user_query}"}
+        # ]
+
+        prompt = processor.tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
+        inputs = processor(prompt,images_n, return_tensors="pt").to("cuda:0")
+
+        generate_ids = model.generate(**inputs, eos_token_id=processor.tokenizer.eos_token_id, **generation_args)
+        generate_ids = generate_ids[:, inputs['input_ids'].shape[1]:]  # Remove input tokens
+        response = processor.batch_decode(generate_ids, skip_special_tokens=True, clean_up_tokenization_spaces=False)[0]
+        return images_n,response
+        # print("AI Response:", response)
+
+
+# if __name__ == "__main__":
  
-    rags_data,iamges = Agents.Analytics_three("i want scenarios that involve very high wind conditions. i wan to test my system more in the context of wind so make sure i cover all edge cases in that conext")
-    print("rags performance metrics",rags_data)
+#     rags_data,iamges = Agents.Analytics_three("i want scenarios that involve very high wind conditions. i wan to test my system more in the context of wind so make sure i cover all edge cases in that conext")
+#     print("rags performance metrics",rags_data)

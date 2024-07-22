@@ -1,9 +1,14 @@
 from flask import Flask, request, jsonify,send_file
 from agent2 import Agents
-# import os
+from io import BytesIO
+import base64
+
 app = Flask(__name__)
-# os.environ['TF_ENABLE_ONEDNN_OPTS'] = '0'
-# os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
+
+
+
+
+
 @app.route('/generate_scenario', methods=['POST'])
 def generate_scenario():
     user_input = request.json.get('user_input', '')
@@ -36,9 +41,9 @@ def analyze():
     analytics_input = request.json.get('analytics_input', '')
     if not analytics_input:
         return jsonify({"error": "Analytics input is required."}), 400
-    text, images = Agents.Analytics_two(analytics_input)
+    text, images,Analysis = Agents.Analytics_three(analytics_input)
+    torch.cuda.empty_cache()
 
-    # Convert images to base64
     image_data = []
     for image in images:
         buffered = BytesIO()
@@ -49,8 +54,41 @@ def analyze():
     return jsonify({
         "analysis_result1": text,
         "analysis_result2": image_data,
+        "analysis_report" : Analysis,
     })
 
+@app.route('/newanalytics', methods=['POST'])
+def newanalytics():
+    analytics_input = request.json.get('analytics_input', '')
+    images ,response = Agents.new_analytics(analytics_input)
+    torch.cuda.empty_cache()
+    print(images)
+    image_data = []
+    for image in images:
+        buffered = BytesIO()
+        image.save(buffered, format="PNG")
+        img_str = base64.b64encode(buffered.getvalue()).decode()
+        image_data.append(img_str)
+
+    return jsonify({
+        "output_one": image_data,
+        "output_two": response
+    })
+
+@app.route('/deepdiverequest', methods=['POST'])
+def deepdiverequest():
+    deep_dive_input1 = request.json.get('deep_dive_input1', '')
+    deep_dive_input2 = request.json.get('deep_dive_input2', '')
+
+    response = Agents.clarification(deep_dive_input1,deep_dive_input2)
+    torch.cuda.empty_cache()
+    return jsonify({
+        "output_one": response,
+    })
+
+
+
+    
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=5000)
