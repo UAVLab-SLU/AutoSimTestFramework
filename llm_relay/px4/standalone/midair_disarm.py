@@ -9,9 +9,7 @@ class PX4PointsMission:
     def __init__(self, points, speed):
         self.points = points
         self.speed = speed
-        self.loiter_time = 3
-        self.gyro_failure_time = 5  # Time in seconds after start to inject gyro failure
-        self.gyro_active = True
+        self.loiter_time = 6
 
     def __str__(self):
         return ("Points: " + str(self.points) +
@@ -68,10 +66,7 @@ class PX4PointsMission:
             await drone.action.disarm()
             return
 
-        await asyncio.sleep(1)
-        print("-- test telemetry")
-        print(drone.telemetry.health())
-        await asyncio.sleep(1)
+        await asyncio.sleep(3)
 
         await drone.offboard.set_position_ned(
             PositionNedYaw(0.0, 0.0, -20.0, 0.0))
@@ -81,6 +76,14 @@ class PX4PointsMission:
             print("-- Go to point: " + str(point))
             await drone.offboard.set_position_ned(
                 PositionNedYaw(point[0], point[1], point[2], 0))
+
+            if point == self.points[3]:
+                print("-- Injecting motor failure")
+                await drone.failure.inject(
+                    FailureUnit.SYSTEM_MOTOR,
+                    FailureType.OFF,
+                    0
+                )
             await asyncio.sleep(self.loiter_time)
             await drone.failure.inject(
                 FailureUnit.SYSTEM_MOTOR,
@@ -106,7 +109,7 @@ class PX4PointsMission:
             print(f"Disarming failed with error code: {error._result.result}")
 
 if __name__ == "__main__":
-    points = [[0.0, 0.0, -10.0], [0.0, 5.0, -10.0], [5.0, 5.0, -10.0], [5.0, 0.0, -10.0], [0.0, 0.0, -10.0]]
+    points = [[0.0, 0.0, -10.0], [0.0, 10, -10.0], [10, 10, -10.0], [10, 10, -10.0], [10, 10, -10.0]]
     speed = 5
     mission = PX4PointsMission(points, speed)
     mission.start()
