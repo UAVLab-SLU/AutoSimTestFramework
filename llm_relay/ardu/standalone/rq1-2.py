@@ -16,7 +16,7 @@ latitude = 27.994402
 longitude = -82.582034
 
 wind_vector = [3.5, 3.5, 0]
-
+vehicle.airspeed = 3
 # set location
 vehicle.home_location = vehicle.location.global_frame
 vehicle.home_location.lat = latitude
@@ -34,7 +34,7 @@ vehicle.armed = True
 
 print("takeoff")
 
-vehicle.simple_takeoff(5)
+#vehicle.simple_takeoff(5)
 
 while True:
     print("Altitude: ", vehicle.location.global_relative_frame.alt)
