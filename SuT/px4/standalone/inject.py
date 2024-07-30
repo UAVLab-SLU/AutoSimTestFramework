@@ -9,7 +9,7 @@ print("Connecting to drone")
 async def connect():
     await drone.connect(system_address="udp://127.0.0.1:14580")
     await drone.failure.inject(
-                    FailureUnit.SENSOR_AIRSPEED,  # The unit to fail
+                    FailureUnit.SENSOR_MAG,
                     FailureType.OFF,
                     0
                     )
