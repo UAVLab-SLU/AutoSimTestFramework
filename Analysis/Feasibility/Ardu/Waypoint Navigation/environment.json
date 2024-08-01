@@ -1,0 +1,43 @@
+
+{
+    "environment": {
+        "Wind": {
+            "Direction": "SE",
+            "Velocity": 18
+        },
+        "Origin": {
+            "Latitude": 27.994402,
+            "Longitude": -82.582034,
+            "Height": 100
+        },
+        "TimeOfDay": "14:00:00",
+        "UseGeo": true,
+        "UseCFD": true
+    },
+    "monitors": {
+        "circular_deviation_monitor": {
+            "param": [
+                12
+            ]
+        },
+        "collision_monitor": {
+            "param": []
+        },
+        "point_deviation_monitor": {
+            "param": [
+                12
+            ]
+        },
+        "min_sep_dist_monitor": {
+            "param": [
+                8,
+                1
+            ]
+        },
+        "wind_monitor": {
+            "param": [
+                0.6
+            ]
+        }
+    }
+}
