@@ -1,4 +1,3 @@
-
 {
     "environment": {
         "Wind": {
@@ -13,31 +12,5 @@
         "TimeOfDay": "14:00:00",
         "UseGeo": true,
         "UseCFD": true
-    },
-    "monitors": {
-        "circular_deviation_monitor": {
-            "param": [
-                12
-            ]
-        },
-        "collision_monitor": {
-            "param": []
-        },
-        "point_deviation_monitor": {
-            "param": [
-                12
-            ]
-        },
-        "min_sep_dist_monitor": {
-            "param": [
-                8,
-                1
-            ]
-        },
-        "wind_monitor": {
-            "param": [
-                0.6
-            ]
-        }
     }
 }
