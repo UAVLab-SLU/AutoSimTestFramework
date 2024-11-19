@@ -1,0 +1,37 @@
+{
+    "SettingsVersion": 1.2,
+    "SimMode": "Multirotor",
+    "ClockType": "SteppableClock",
+    "ViewMode": "SpringArmChase",
+    "DefaultVehicleConfig": "PX4",
+    "Vehicles": {
+        "Drone 1": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": -3,
+            "LocalHostIp": "192.168.1.181",
+            "VehicleType": "PX4Multirotor",
+            "UseSerial": false,
+            "LockStep": true,
+            "UseTcp": true,
+            "TcpPort": 4560,
+            "ControlPortLocal": 14540,
+            "ControlPortRemote": 14580,
+            "Sensors": {
+                "Barometer": {
+                    "SensorType": 1,
+                    "Enabled": true,
+                    "PressureFactorSigma": 0.0001825
+                }
+            },
+            "Parameters": {
+                "NAV_RCL_ACT": 0,
+                "NAV_DLL_ACT": 0,
+                "COM_OBL_ACT": 1,
+                "LPE_LAT": 40.7128,
+                "LPE_LON": -74.0060
+            }
+        }
+    },
+    "Wind": { "X": 10.6, "Y": 10.6, "Z": 0 }
+}
