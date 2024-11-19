@@ -6,7 +6,7 @@
 ## Data Collected and processed to build the AutoSimTest Framework
 
 ### S-Agent Knowledge Base 
-sUAS incident data collected from multiple sources and used to construct the knowledge base of the S-agent can be accessed here: [S-Agent Knowledge Base](ttps://github.com/UAVLab-SLU/AutoSimTestFramework/blob/main/AutoSIMTestFramework/knowledga_base.csv)
+sUAS incident data collected from multiple sources and used to construct the knowledge base of the S-agent can be accessed here: [S-Agent Knowledge Base](https://github.com/UAVLab-SLU/AutoSimTestFramework/blob/main/AutoSIMTestFramework/knowledga_base.csv)
 
 ### A-Agent Knowledge Base
 Data collected and used to build the knowledge-base of Analytics Agent can be found [here](https://github.com/UAVLab-SLU/AutoSimTestFramework/tree/main/Px4%20Flight%20Controller%20Params)
