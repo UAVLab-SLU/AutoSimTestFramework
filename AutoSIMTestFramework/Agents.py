@@ -19,8 +19,8 @@ data = pd.read_csv("knowledga_base.csv")
 
 Analytics_data = pd.read_csv("/home/uav/Documents/AI_Hunter/LLMS/ulg_data/wind1_context_columns.csv")
 
-with open('missions.json', 'r') as file:
-    mission_json_data = json.load(file)
+with open('/home/uav/Documents/AI_Hunter/LLMS/AutoSimTestFramework/AutoSIMTestFramework/missions_imp.json', 'r') as file:
+    mission_json_data_D = json.load(file)
 
 
 with open('/home/uav/Documents/AI_Hunter/LLMS/columns.txt', 'r') as file:
@@ -221,7 +221,7 @@ class Agents:
     def Mission_Agent(missions,mission_type):
 
         if mission_type == "px4":
-            json = mission_json_data[mission_type]
+            json = mission_json_data_D[mission_type]
             text = f"""
             Mission details: {missions}
             
@@ -243,7 +243,7 @@ class Agents:
             1) dont change the Structure of Example json follow it 100% all the time
             """
         if mission_type == "drone_response":
-            json = mission_json_data[mission_type]
+            json_d = mission_json_data_D[mission_type]
             text = f"""
             Mission details: {missions}
             prompt :
@@ -267,12 +267,44 @@ class Agents:
                 Disarm:
                 Transitions: Targets for succeeded disarm and mission completion.
             Example JSON Structure:
-            {json}
-            Instructions:
-            Generate state names: Reflect the purpose or nature of each state.
-            Drone Speed: Randomly select values between 1 and 10 meters per second for each state involving movement.
-            Waypoints: Create diverse waypoints with at least two different coordinates to demonstrate various mission patterns.
-            Logical Flight Path: Ensure the waypoints form a logical and feasible flight path for the drone."""
+            {json_d}
+            Rules:
+            1)Ensure that the generated JSON structure matches the format of the example exactly. Do not change key names or the overall structure.
+            2)json generated should be valid as its given as input to simulation system so no room for error
+            """
+
+
+            # text = f"""
+            # Mission details: {missions}
+            # prompt :
+            # Create a JSON object for a drone mission with the following structure and capabilities.
+            # The mission should include a list of states, each with specific attributes and transitions.
+            # The JSON should represent a sequence of drone operations, starting from takeoff, navigating through waypoints, hovering, and eventually landing and disarming. Ensure the mission includes:
+
+            # States:
+            #     Takeoff:
+            #     Attributes: altitude, speed, and altitude_threshold.
+            #     Transitions: Targets for succeeded and failed takeoff.
+            #     Waypoint Navigation:
+            #     Attributes: waypoint (latitude, longitude, altitude), speed.
+            #     Transitions: Targets for succeeded waypoints.
+            #     Hover:
+            #     Attributes: hover_time.
+            #     Transitions: Targets for succeeded hover.
+            #     Landing:
+            #     Attributes: waypoint (latitude, longitude, altitude), speed.
+            #     Transitions: Targets for succeeded waypoints and landing.
+            #     Disarm:
+            #     Transitions: Targets for succeeded disarm and mission completion.
+            # Example JSON Structure:
+            # {json}
+            # Instructions:
+            # Generate state names: Reflect the purpose or nature of each state.
+            # Drone Speed: Randomly select values between 1 and 10 meters per second for each state involving movement.
+            # Waypoints: Create diverse waypoints with at least two different coordinates to demonstrate various mission patterns.
+            # Logical Flight Path: Ensure the waypoints form a logical and feasible flight path for the drone.
+            
+            # """
 
         
         messages = [ 
@@ -288,48 +320,61 @@ class Agents:
         return agent_response[-1]["content"]
 
     @staticmethod
-    def Environment_specification_Agent(rest):
-        # Environment Specification Generator Agent
-        json = """JSON
-         "environment": {"Wind": {"Direction": "NE","Velocity": 15},
-                         "Origin": {"Latitude": value,"Longitude": value,"Height": 0, "Name": "Specify Region"},
-                         "TimeOfDay": "10:00:00","UseGeo": true, "UseCFD": true },
-         "monitors": {"circular_deviation_monitor": {"param": [15]},
-                      "collision_monitor": {"param": []},
-                      "point_deviation_monitor": {"param": [15]},
-                      "min_sep_dist_monitor": {"param": [10,1]},
-                      "landspace_monitor": {"param": [[[0,0]]]},
-                      "no_fly_zone_monitor": { "param": [[[0,0],[0,0],[0,0]]]},
-                      "wind_monitor": { "param": [0.5]}}"""
+    def Environment_specification_Agent(rest,temp=0.0):
+        json = mission_json_data_D["envi"]
+        # text = f"""
+        # Generate a JSON Object for sUAS System Simulation
+        # Create a JSON object based on the provided context and the example JSON format below. The goal is to generate an environment for a drone simulation system to test various scenarios and build optimal drone scripts.
+        # Context:
+        # {rest}
+        # Example JSON Format:
+        # {json}
+        # Field Values:
+        # Direction: string (N, NE, E, SE, S, SW, W, NW)
+        # Velocity: int (m/s)
+        # Height: int (m)
+        # UseGeo: Boolean (True for lat/long/height, False for cartesian)
+        # UseCFD: Boolean (True or False ) 
+        # Monitors:
+        # circular_deviation_monitor: [int] (meters)
+        # collision_monitor: [] (no parameters)
+        # point_deviation_monitor: [int] (meters)
+        # min_sep_dist_monitor: [int, int] (meters, meters)
+        # landspace_monitor: [float, float] (latitude, longitude)
+        # no_fly_zone_monitor: [[float, float], ...] (list of points for a polygon)
+        # Instructions:
+        # 1)Generate a JSON object based on the provided context, following the example JSON structure 100% & add json so that it will help me to write
+        # regex and extract the json.
+        # 2)Change the values randomly to create a new environment , do not copy the example JSON.
+        # 3)Ensure no overlap between the example JSON and the generated JSON.
+        # 4)Please generate a new JSON object for the drone simulation environment based on the provided context and rules
+        # Rules:
+        # 1) dont change the Structure of Example json
+        # """
         text = f"""
-        Generate a JSON Object for sUAS System Simulation
-        Create a JSON object based on the provided context and the example JSON format below. The goal is to generate an environment for a drone simulation system to test various scenarios and build optimal drone scripts.
+        Prompt:Generate a valid JSON object for configuring a drone simulation environment based on the provided context and format. Follow these instructions carefully to ensure the generated JSON meets all requirements.
         Context:
         {rest}
+        Use the following information to create an environment and test parameters for a drone simulation. The generated JSON must include randomized values that differ from the example provided.
         Example JSON Format:
         {json}
-        Field Values:
-        Direction: string (N, NE, E, SE, S, SW, W, NW)
-        Velocity: int (m/s)
-        Height: int (m)
-        UseGeo: Boolean (true for lat/long/height, false for cartesian)
-        UseCFD: Boolean (true or False ) 
+        Field Definitions:
+        Direction: A string indicating wind direction (e.g., "N", "NE", "E", "SE", "S", "SW", "W", "NW").
+        Velocity: An integer for wind speed in m/s.
+        Height: An integer representing the altitude in meters.
+        UseGeo: Boolean indicating whether geographic coordinates are used.
+        UseCFD: Boolean to indicate the use of Computational Fluid Dynamics.
         Monitors:
-        circular_deviation_monitor: [int] (meters)
-        collision_monitor: [] (no parameters)
-        point_deviation_monitor: [int] (meters)
-        min_sep_dist_monitor: [int, int] (meters, meters)
-        landspace_monitor: [float, float] (latitude, longitude)
-        no_fly_zone_monitor: [[float, float], ...] (list of points for a polygon)
-        Instructions:
-        1)Generate a JSON object based on the provided context, following the example JSON structure 100% & add json so that it will help me to write
-        regex and extract the json.
-        2)Change the values randomly to create a new environment , do not copy the example JSON.
-        3)Ensure no overlap between the example JSON and the generated JSON.
-        4)Please generate a new JSON object for the drone simulation environment based on the provided context and rules
-        Rules:
-        1) dont change the Structure of Example json
-        """
+        circular_deviation_monitor: Array of integers (in meters).
+        collision_monitor: Empty array (no parameters).
+        point_deviation_monitor: Array of integers (in meters).
+        min_sep_dist_monitor: Array of two integers (minimum separation distance in meters).
+        landspace_monitor: Array of latitude and longitude coordinates (floating-point numbers).
+        no_fly_zone_monitor: Array of arrays, each with latitude and longitude coordinates representing points of a polygon.
+        wind_monitor: Array with a single float value (parameter for wind monitoring).
+        rules:
+        1)Ensure that the generated JSON structure matches the format of the example exactly. Do not change key names or the overall structure.
+        2)json generated should be valid as its given as input to simulation system so no room for error"""
                 
         messages = [ 
             {"role": "user", "content": "I am an sUAS Software designer and I need your assistance on Automating UAV testing"}, 
@@ -353,11 +398,31 @@ class Agents:
             mission_response = mission_responses[i]
             try:
                 # Extract and parse environment JSON
+                # json_match_env = re.search(r'\{.*\}', environment_response, re.DOTALL)
+                # if json_match_env:
+                #     json_data_e = json.loads(json_match_env.group(0))
+                # else:
+                #     raise ValueError("No JSON found in environment response")
                 json_match_env = re.search(r'\{.*\}', environment_response, re.DOTALL)
+
                 if json_match_env:
-                    json_data_e = json.loads(json_match_env.group(0))
+                    try:
+                        # Extract the matched JSON string
+                        json_str = json_match_env.group(0)
+                        
+                        # Parse the JSON string to a Python dictionary
+                        json_data_e = json.loads(json_str)
+                        
+                        # Convert the Python dictionary back to a JSON-formatted string for display or storage
+                        json_string = json.dumps(json_data_e, indent=2)
+                        # print("Extracted JSON:")
+                        # print(json_string)
+                        
+                    except json.JSONDecodeError as e:
+                        raise ValueError(f"Invalid JSON structure: {e}")
                 else:
                     raise ValueError("No JSON found in environment response")
+
     
                 # Extract and parse mission JSON
                 json_match_mission = re.search(r'\{.*\}', mission_response, re.DOTALL)
@@ -439,15 +504,52 @@ class Agents:
             mission_responses.append(mission_response)
             torch.cuda.empty_cache()
         for rest_part in rest:
-            environment_response = Agents.Environment_specification_Agent(rest_part)
+            environment_response = Agents.Environment_specification_Agent(rest_part,temp=0.0)
             environment_responses.append(environment_response)
             torch.cuda.empty_cache()
         environment_json_list, mission_json_list,index = Agents.json_extraction(environment_responses, mission_responses)
+        
+        # Re-run failed extractions with higher temperature
+
+        # if len(environment_json_list) < 5:
+        #     for i in range(5):
+        #         if i not in index:
+        #             # Re-run only for invalid JSON responses with higher temperature
+        #             new_environment_response = Agents.Environment_specification_Agent(rest[i], temp=0.2)
+        #             environment_responses[i] = new_environment_response  # Update the specific element
+                    
+        #             # Extract JSON for the updated response
+        #             updated_json = Agents.json_extraction(new_environment_response, mission_responses[i])
+        #             if updated_json[0]:  # Assuming `json_extraction` returns a valid JSON in a list format
+        #                 environment_json_list[i] = updated_json[0]  # Update the JSON list with the new result
+        #                 index.append(i) 
+
+        # if len(mission_json_list) < 5:
+        #     for i in range(5):
+        #         if i not in index and i < len(missions):
+        #             # Re-run only for invalid mission JSON responses
+        #             new_mission_response = Agents.Mission_Agent(missions[i], mission_type, temp=0.2)
+        #             mission_responses[i] = new_mission_response  # Update the specific element
+                    
+        #             # Extract JSON for the updated response
+        #             updated_mission_json = Agents.json_extraction(environment_responses[i], new_mission_response)
+        #             if updated_mission_json[0]:  # Assuming the mission JSON is the second return value
+        #                 mission_json_list[i] = updated_mission_json[0]  # Update the JSON list with the new result
+        #                 index.append(i)
+
+
+
+
+
+
+
         try:
             df1 = pd.DataFrame([user_input,cotext,scenario_response,str(index)])
             df1 = df1.T
             df1.columns = ["question","context","Senarios","index"]
-            df2 = pd.DataFrame([mission_responses,environment_responses])
+            # df2 = pd.DataFrame([mission_responses,environment_responses])
+            df2 = pd.DataFrame([environment_json_list,mission_json_list])
+
             df2 = df2.T
             df2.columns =["misson","environment"]
             df1.to_csv(f"user_questions/{user_input}_1.csv",index=False)
@@ -466,7 +568,104 @@ class Agents:
         #     df = pd.DataFrame(rags_p)
         #     df.to_csv(f"{user_input}.csv",index=False)
         return scenario_response ,cotext,m_r,e_r# mission_responses, environment_responses
+    @staticmethod
+    def validate_px4_mission(mission_json):
+        issues = []
+        
+        # Rule: Check mission name and parameters structure
+        if "Mission" not in mission_json or "name" not in mission_json["Mission"] or "param" not in mission_json["Mission"]:
+            issues.append("Mission JSON structure is missing required fields.")
+        
+        # Rule: Check if mission name is a string
+        if "Mission" in mission_json and not isinstance(mission_json["Mission"].get("name"), str):
+            issues.append("Mission name should be a string.")
+        
+        # Rule: Validate velocity and waypoints in param
+        params = mission_json["Mission"].get("param", [])
+        if not isinstance(params, list) or len(params) < 2:
+            issues.append("Parameters should be a list with velocity and waypoints.")
+        else:
+            velocity = params[0]
+            waypoints = params[1]
 
+            if not (isinstance(velocity, int) and 1 <= velocity <= 100):
+                issues.append("Velocity should be an integer between 1 and 100.")
+
+            if not (isinstance(waypoints, list) and len(waypoints) >= 5):
+                issues.append("There should be at least five waypoints.")
+
+            for waypoint in waypoints:
+                if not (isinstance(waypoint, list) and len(waypoint) == 3 and all(isinstance(coord, (int, float)) for coord in waypoint)):
+                    issues.append("Each waypoint should be a list of three numerical coordinates.")
+                    
+        return issues if issues else ["PX4 Mission JSON is valid."]
+    @staticmethod
+    def validate_drone_response_mission(mission_json):
+        issues = []
+        
+        # Rule: Check if states are present
+        if "states" not in mission_json or not isinstance(mission_json["states"], list):
+            issues.append("Drone response JSON structure is missing 'states' list.")
+        else:
+            state_names = {"Takeoff", "BriarWaypoint", "BriarHover", "LandLocation", "Land", "Disarm"}
+            
+            for state in mission_json["states"]:
+                if "name" not in state or state["name"] not in state_names:
+                    issues.append(f"State {state} has an invalid or missing name.")
+                
+                # Check specific attributes per state
+                if state["name"] == "Takeoff":
+                    if not all(attr in state["args"] for attr in ["altitude", "speed", "altitude_threshold"]):
+                        issues.append("Takeoff state missing required attributes.")
+                
+                elif state["name"] == "BriarWaypoint":
+                    waypoint = state["args"].get("waypoint", {})
+                    if not all(key in waypoint for key in ("latitude", "longitude", "altitude")):
+                        issues.append("BriarWaypoint missing required waypoint attributes.")
+                
+                elif state["name"] == "BriarHover" and "hover_time" not in state["args"]:
+                    issues.append("BriarHover state missing 'hover_time'.")
+
+        return issues if issues else ["Drone response mission JSON is valid."]
+    @staticmethod
+    def validate_environment_specification(environment_json):
+        issues = []
+        
+        # Rule: Check environment structure and required keys
+        if "environment" not in environment_json or "monitors" not in environment_json:
+            issues.append("Environment JSON is missing required 'environment' or 'monitors' sections.")
+        else:
+            # Check environment values
+            environment = environment_json["environment"]
+            if not isinstance(environment.get("Wind", {}).get("Direction"), str):
+                issues.append("Wind Direction should be a string (N, NE, E, SE, S, SW, W, NW).")
+            
+            if not isinstance(environment.get("Wind", {}).get("Velocity"), int):
+                issues.append("Wind Velocity should be an integer.")
+            
+            origin = environment.get("Origin", {})
+            if not all(key in origin for key in ("Latitude", "Longitude", "Height", "Name")):
+                issues.append("Origin is missing one of 'Latitude', 'Longitude', 'Height', or 'Name'.")
+            
+            # Check monitor parameters
+            monitors = environment_json["monitors"]
+            required_monitors = {
+                "circular_deviation_monitor": [15],
+                "collision_monitor": [],
+                "point_deviation_monitor": [15],
+                "min_sep_dist_monitor": [10, 1],
+                "landspace_monitor": [[0, 0]],
+                "no_fly_zone_monitor": [[[0, 0], [0, 0], [0, 0]]],
+                "wind_monitor": [0.5]
+            }
+            
+            for monitor, params in required_monitors.items():
+                if monitor not in monitors:
+                    issues.append(f"{monitor} is missing in monitors.")
+                elif not isinstance(monitors[monitor].get("param"), list):
+                    issues.append(f"{monitor} param should be a list.")
+        
+        return issues if issues else ["Environment specification JSON is valid."]
 
     @staticmethod
     def Analytics_v1(file_path):
@@ -498,8 +697,9 @@ class Agents:
         return scenarios
     @staticmethod
     def Analytics_one(file_path):
-
+        print("file_path",file_path)
         mission_data = pd.read_csv(f"user_questions/{file_path}_1.csv")
+        print("mission_data:-",mission_data)
         mission_scenarios = Agents.extract_scenarios(mission_data["Senarios"][0])
         # print(mission_data["Senarios"][0])
         # print("=======================================")
@@ -579,7 +779,7 @@ class Agents:
     def Analytics_two(file_path):
         text = Agents.Analytics_one(file_path)
         torch.cuda.empty_cache()
-        
+        print("text:-",text)
         df = pd.read_csv("/home/uav/Documents/AI_Hunter/LLMS/ulg_data/wind1_filtered.csv")
         non_empty_columns = [col for col in df.columns if df[col].notnull().any()]
         responses = []

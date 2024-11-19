@@ -1,8 +1,11 @@
 from flask import Flask, request, jsonify,send_file
-from agent2 import Agents
+import json
+# from agent2 import Agents
+from Agents import Agents
+import re
 from io import BytesIO
 import base64
-
+import torch
 app = Flask(__name__)
 
 
@@ -15,11 +18,12 @@ def generate_scenario():
     mission_type = request.json.get('mission_type', 'px4')
     if not user_input:
         return jsonify({"error": "User input is required."}), 400
+    sanitized_input = re.sub(r'[^\w\s-]', '', user_input).replace(' ', '_')
     scenario_response, context, mission_json_list, environment_json_list = Agents.main(user_input,mission_type)
     
     #
-    file1_path = f"user_questions/{user_input}_1.csv"
-
+    #file1_path = f"user_questions/{sanitized_input}_1.csv"
+    file1_path = f"user_questions/{sanitized_input}_1.csv"
     return jsonify({
         "scenario_response": scenario_response,
         "context": context,
@@ -86,7 +90,31 @@ def deepdiverequest():
         "output_one": response,
     })
 
+@app.route('/validate_json',methods=['POST'])
+def validate_json():
+    mjson = request.json.get('json_input','')
+    ejson = request.json.get('json_type','px4')
 
+    if not mjson:
+        return jsonify({"validation_result": "No JSON input provided"}), 400
+    try:
+        mjson = json.loads(mjson) if isinstance(mjson, str) else mjson
+    except json.JSONDecodeError:
+        return jsonify({"validation_result": "Invalid JSON format"})
+
+        #return jsonify({"validation_result": "Invalid JSON format"}), 400
+    if ejson == "px4":
+        response = Agents.validate_px4_mission(mjson)
+    elif ejson == "drone_response":
+        response = Agents.validate_drone_response_mission(mjson)
+    elif ejson == "environment_json":
+        response  = Agents.validate_environment_specification(mjson)
+    
+    
+    else:
+        return jsonify({"validation_result": "Invalid JSON type provided"}), 400
+    
+    return jsonify({"validation_result": response})
 
     
 

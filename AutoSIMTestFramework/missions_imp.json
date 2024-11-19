@@ -94,5 +94,47 @@
                 ]
             }
         ]
-    }
+    },
+    "envi":{
+        "environment": {
+          "Wind": {
+            "Direction": "NE",
+            "Velocity": 15
+          },
+          "Origin": {
+            "Latitude": 40.7128,
+            "Longitude": -74.0060,
+            "Height": 0,
+            "Name": "Specify Region"
+          },
+          "TimeOfDay": "10:00:00",
+          "UseGeo": true,
+          "UseCFD": true
+        },
+        "monitors": {
+          "circular_deviation_monitor": {
+            "param": [15]
+          },
+          "collision_monitor": {
+            "param": []
+          },
+          "point_deviation_monitor": {
+            "param": [15]
+          },
+          "min_sep_dist_monitor": {
+            "param": [10, 1]
+          },
+          "landspace_monitor": {
+            "param": [[0, 0]]
+          },
+          "no_fly_zone_monitor": {
+            "param": [[0, 0], [1, 1], [2, 2]]
+          },
+          "wind_monitor": {
+            "param": [0.5]
+          }
+        }
+      }
+      
 }
+
