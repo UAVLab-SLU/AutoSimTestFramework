@@ -112,7 +112,7 @@ mavproxy.py --master tcp:127.0.0.1:5760 --out udp:127.0.0.1:14551 --out udp:10.5
 Execute the Python script to connect to Dronekit:
 Note: Ensure Python 3.9 is used for running the script, as later versions might be incompatible with Dronekit.
 ```
-python llm_relay/ardu/dronekit_mission.py
+python SuT/ardu/dronekit_mission.py
 ```
 
 ### logs
