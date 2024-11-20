@@ -1,0 +1,8 @@
+{
+    "Mission": {
+        "name": "Search_and_Rescue_Mission",
+        "speed": 3,
+        "altitude": 5,
+        "scan_range": 10
+    }
+}

@@ -1,0 +1,16 @@
+{
+    "environment": {
+        "Wind": {
+            "Direction": "NE",
+            "Velocity": 15
+        },
+        "Origin": {
+            "Latitude": 40.7128,
+            "Longitude": -74.0060,
+            "Height": 100
+        },
+        "TimeOfDay": "14:00:00",
+        "UseGeo": true,
+        "UseCFD": true
+    }
+}
