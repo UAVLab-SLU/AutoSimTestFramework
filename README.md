@@ -88,12 +88,6 @@ Follow these steps to set up and run the AUTOSIMTEST Framework Codebase.
    ```bash
    python app.py
    ```
-   - 
-   - If **port 80** is unavailable or you decide to change it, update the following code in `app.py`:
-     ```python
-     app.run(host='0.0.0.0', port=<new_port>)
-     ```
-   - Also update the port in the frontend code (`frontend2.py` and `Analytics_Agent_front_end.py`) to match the new port.
 
 2. **Run the Gradio Frontend** 
    - Launch the Gradio-based frontend for communicating with the S-Agent, Env-Agent, and M-Agent
