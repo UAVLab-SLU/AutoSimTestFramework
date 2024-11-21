@@ -23,13 +23,13 @@ The mission inputs were generated using the model-based design approach for 5 di
 ### Implementation of Px4 and Ardupilot based SuT.
 We designed our own System-Under-Tests. The implementation of these SuT can be found [here](SuT). We tested our SuT using the AutoSimTest Framework. 
 
-Sample of Expected Mission Input by Px4 can be found [here - Missing at the moment]()
+Sample of Expected Mission Input by Px4 can be found [here](SuT/px4/standalone/rq1.py)
 
 Sample of Airsim Settings to execute a Px4 Mission can be found [here](SuT/px4/airsim-setting-sample.json)
 
-Sample of Expected Mission Input by Ardupilot can be found [here - Missing at the moment]()
+Sample of Expected Mission Input by Ardupilot can be found [here](SuT/ardu/standalone/rq1-1.py)
 
-Sample of Aurdupilot-Sitl Simulator input can be found here [here - Missing at the moment]()
+Sample of Aurdupilot-Sitl Simulator input can be found here [here](https://github.com/Akademicki-Klub-Lotniczy/ardupilot-sitl-docker/blob/master/docker-compose.yml)
 
 #### Instructions to run the SuT
 - [Px4](SuT/px4/README.md)
