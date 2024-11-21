@@ -69,7 +69,7 @@ class PX4PointsMission:
         print("Connecting to mavsdk server")
         drone = System()
         print("Connecting to drone")
-        await drone.connect(system_address="udp://127.0.0.1:14580")
+        await drone.connect(system_address="udp://192.168.8.1:14551")
 
         print("Waiting for drone to connect...")
         async for state in drone.core.connection_state():
