@@ -1,4 +1,4 @@
-question,context,Senarios
+question,context,Agent responses
 What were the peak accelerations recorded during the flight?,"438    airspeed_timestamp_rel
 77               acceleration
 460             accel_rate_hz
