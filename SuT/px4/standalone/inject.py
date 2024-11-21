@@ -1,8 +1,6 @@
 import asyncio
 from mavsdk import System
-from mavsdk.offboard import OffboardError, PositionNedYaw
 from mavsdk.failure import FailureUnit, FailureType
-from mavsdk.telemetry import LandedState
 
 drone = System()
 print("Connecting to drone")
