@@ -107,22 +107,22 @@ Follow these steps to set up and run the AUTOSIMTEST Framework Codebase.
    ```
    
 
-## Px4 Flight Controller based SuT
+<!-- ## Px4 Flight Controller based SuT
 
 
 ## Ardupilot Flight Controller based SuT
 
 
-### Execution Instructions
+### Execution Instructions -->
 
 
-## Other Common Components of SuT
+<!-- ## Other Common Components of SuT -->
 
 <!-- ### Flight Control relay
 Description:
 `llm_relay` contains the code for the PX4 and ardu relay. The relay is responsible for communicating with the flight controller firmware using Mavsdk server. -->
 
-## Input Mission format
+<!-- ## Input Mission format
 
 Waypoint based mission
 first param is the speed of the drone
@@ -143,26 +143,6 @@ second param is the list of waypoints
                             0,
                             10,
                             -5
-                        ],
-                        [
-                            10,
-                            10,
-                            -5
-                        ],
-                        [
-                            10,
-                            0,
-                            -5
-                        ],
-                        [
-                            0,
-                            10,
-                            -5
-                        ],
-                        [
-                            0,
-                            0,
-                            0
                         ]
                     ]
                 ]
@@ -182,7 +162,7 @@ Automated misson
     }
 }
 ```
-
+ -->
 
 
 
