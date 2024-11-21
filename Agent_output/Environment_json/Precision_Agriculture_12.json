@@ -1,0 +1,67 @@
+{
+    "environment": {
+        "Wind": {
+            "Direction": "SW",
+            "Velocity": 10
+        },
+        "Origin": {
+            "Latitude": 43.3223,
+            "Longitude": 11.2886,
+            "Height": 120,
+            "Name": "Vineyard in Tuscany, Italy"
+        },
+        "TimeOfDay": "12:00:00",
+        "UseGeo": true,
+        "UseCFD": true
+    },
+    "monitors": {
+        "circular_deviation_monitor": {
+            "param": [
+                20
+            ]
+        },
+        "collision_monitor": {
+            "param": []
+        },
+        "point_deviation_monitor": {
+            "param": [
+                25
+            ]
+        },
+        "min_sep_dist_monitor": {
+            "param": [
+                12,
+                2
+            ]
+        },
+        "landspace_monitor": {
+            "param": [
+                [
+                    0.0,
+                    0.0
+                ]
+            ]
+        },
+        "no_fly_zone_monitor": {
+            "param": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    1.0,
+                    1.0
+                ],
+                [
+                    2.0,
+                    2.0
+                ]
+            ]
+        },
+        "wind_monitor": {
+            "param": [
+                0.7
+            ]
+        }
+    }
+}

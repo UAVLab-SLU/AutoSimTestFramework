@@ -1,0 +1,86 @@
+{
+    "environment": {
+        "Wind": {
+            "Direction": "SW",
+            "Velocity": 25
+        },
+        "Origin": {
+            "Latitude": 39.5501,
+            "Longitude": -105.7821,
+            "Height": 100,
+            "Name": "Mountainous Area in Colorado"
+        },
+        "TimeOfDay": "16:00:00",
+        "UseGeo": true,
+        "UseCFD": true
+    },
+    "monitors": {
+        "circular_deviation_monitor": {
+            "param": [
+                20
+            ]
+        },
+        "collision_monitor": {
+            "param": []
+        },
+        "point_deviation_monitor": {
+            "param": [
+                25
+            ]
+        },
+        "min_sep_dist_monitor": {
+            "param": [
+                15,
+                2
+            ]
+        },
+        "landspace_monitor": {
+            "param": [
+                [
+                    -10.5,
+                    45.3
+                ],
+                [
+                    -11.2,
+                    45.7
+                ]
+            ]
+        },
+        "no_fly_zone_monitor": {
+            "param": [
+                [
+                    -12.0,
+                    46.0
+                ],
+                [
+                    -12.5,
+                    46.5
+                ],
+                [
+                    -13.0,
+                    47.0
+                ]
+            ]
+        },
+        "wind_monitor": {
+            "param": [
+                0.7
+            ]
+        }
+    },
+    "sUAS": {
+        "Sensors": [
+            "GPS",
+            "Thermal Camera",
+            "Acoustic Sensors"
+        ],
+        "Payload Weight": 2.5,
+        "Battery Life": 45
+    },
+    "sUAS Properties to be Tested": {
+        "Maneuverability": true,
+        "Durability": true,
+        "Stability in Low Light": true,
+        "Communication Range": true
+    }
+}

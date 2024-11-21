@@ -1,0 +1,67 @@
+{
+    "environment": {
+        "Wind": {
+            "Direction": "SW",
+            "Velocity": 20
+        },
+        "Origin": {
+            "Latitude": 34.0522,
+            "Longitude": -118.2437,
+            "Height": 0,
+            "Name": "Desert Area"
+        },
+        "TimeOfDay": "15:00:00",
+        "UseGeo": true,
+        "UseCFD": true
+    },
+    "monitors": {
+        "circular_deviation_monitor": {
+            "param": [
+                10
+            ]
+        },
+        "collision_monitor": {
+            "param": []
+        },
+        "point_deviation_monitor": {
+            "param": [
+                12
+            ]
+        },
+        "min_sep_dist_monitor": {
+            "param": [
+                8,
+                1
+            ]
+        },
+        "landspace_monitor": {
+            "param": [
+                [
+                    0.0,
+                    0.0
+                ]
+            ]
+        },
+        "no_fly_zone_monitor": {
+            "param": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    1.0,
+                    1.0
+                ],
+                [
+                    2.0,
+                    2.0
+                ]
+            ]
+        },
+        "wind_monitor": {
+            "param": [
+                0.7
+            ]
+        }
+    }
+}

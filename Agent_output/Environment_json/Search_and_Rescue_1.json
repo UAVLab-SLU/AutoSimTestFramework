@@ -1,0 +1,75 @@
+{
+    "environment": {
+        "Wind": {
+            "Direction": "SW",
+            "Velocity": 10
+        },
+        "Origin": {
+            "Latitude": 45.7128,
+            "Longitude": -110.006,
+            "Height": 100,
+            "Name": "Dense Forest Area"
+        },
+        "TimeOfDay": "14:00:00",
+        "UseGeo": true,
+        "UseCFD": true
+    },
+    "monitors": {
+        "circular_deviation_monitor": {
+            "param": [
+                20
+            ]
+        },
+        "collision_monitor": {
+            "param": []
+        },
+        "point_deviation_monitor": {
+            "param": [
+                25
+            ]
+        },
+        "min_sep_dist_monitor": {
+            "param": [
+                15,
+                2
+            ]
+        },
+        "landspace_monitor": {
+            "param": [
+                [
+                    -10,
+                    -10
+                ],
+                [
+                    10,
+                    10
+                ]
+            ]
+        },
+        "no_fly_zone_monitor": {
+            "param": [
+                [
+                    -15,
+                    -15
+                ],
+                [
+                    -10,
+                    -10
+                ],
+                [
+                    10,
+                    10
+                ],
+                [
+                    15,
+                    15
+                ]
+            ]
+        },
+        "wind_monitor": {
+            "param": [
+                0.7
+            ]
+        }
+    }
+}

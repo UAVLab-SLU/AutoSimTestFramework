@@ -1,0 +1,67 @@
+{
+    "environment": {
+        "Wind": {
+            "Direction": "SW",
+            "Velocity": 10
+        },
+        "Origin": {
+            "Latitude": 46.7667,
+            "Longitude": -117.0,
+            "Height": 100,
+            "Name": "Orchard in Washington State, USA"
+        },
+        "TimeOfDay": "12:00:00",
+        "UseGeo": true,
+        "UseCFD": true
+    },
+    "monitors": {
+        "circular_deviation_monitor": {
+            "param": [
+                20
+            ]
+        },
+        "collision_monitor": {
+            "param": []
+        },
+        "point_deviation_monitor": {
+            "param": [
+                25
+            ]
+        },
+        "min_sep_dist_monitor": {
+            "param": [
+                15,
+                2
+            ]
+        },
+        "landspace_monitor": {
+            "param": [
+                [
+                    -122.6764,
+                    45.6568
+                ]
+            ]
+        },
+        "no_fly_zone_monitor": {
+            "param": [
+                [
+                    -122.6764,
+                    45.6568
+                ],
+                [
+                    -122.6764,
+                    45.6568
+                ],
+                [
+                    -122.6764,
+                    45.6568
+                ]
+            ]
+        },
+        "wind_monitor": {
+            "param": [
+                0.7
+            ]
+        }
+    }
+}

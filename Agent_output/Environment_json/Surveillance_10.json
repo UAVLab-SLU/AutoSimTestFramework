@@ -1,0 +1,71 @@
+{
+    "environment": {
+        "Wind": {
+            "Direction": "SW",
+            "Velocity": 12
+        },
+        "Origin": {
+            "Latitude": 34.0522,
+            "Longitude": -111.0937,
+            "Height": 100,
+            "Name": "Arizona Desert"
+        },
+        "TimeOfDay": "14:30:00",
+        "UseGeo": true,
+        "UseCFD": true
+    },
+    "monitors": {
+        "circular_deviation_monitor": {
+            "param": [
+                20
+            ]
+        },
+        "collision_monitor": {
+            "param": []
+        },
+        "point_deviation_monitor": {
+            "param": [
+                25
+            ]
+        },
+        "min_sep_dist_monitor": {
+            "param": [
+                15,
+                2
+            ]
+        },
+        "landspace_monitor": {
+            "param": [
+                [
+                    -10.5,
+                    12.3
+                ],
+                [
+                    -11.2,
+                    13.4
+                ]
+            ]
+        },
+        "no_fly_zone_monitor": {
+            "param": [
+                [
+                    -12.1,
+                    14.5
+                ],
+                [
+                    -12.8,
+                    15.6
+                ],
+                [
+                    -13.4,
+                    16.7
+                ]
+            ]
+        },
+        "wind_monitor": {
+            "param": [
+                0.7
+            ]
+        }
+    }
+}

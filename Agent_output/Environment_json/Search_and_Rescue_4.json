@@ -1,0 +1,75 @@
+{
+    "environment": {
+        "Wind": {
+            "Direction": "SW",
+            "Velocity": 25
+        },
+        "Origin": {
+            "Latitude": 45.2128,
+            "Longitude": -110.006,
+            "Height": 100,
+            "Name": "Mountainous Region"
+        },
+        "TimeOfDay": "14:00:00",
+        "UseGeo": true,
+        "UseCFD": true
+    },
+    "monitors": {
+        "circular_deviation_monitor": {
+            "param": [
+                20
+            ]
+        },
+        "collision_monitor": {
+            "param": []
+        },
+        "point_deviation_monitor": {
+            "param": [
+                25
+            ]
+        },
+        "min_sep_dist_monitor": {
+            "param": [
+                15,
+                2
+            ]
+        },
+        "landspace_monitor": {
+            "param": [
+                [
+                    -10.5,
+                    30.2
+                ],
+                [
+                    -15.3,
+                    35.4
+                ]
+            ]
+        },
+        "no_fly_zone_monitor": {
+            "param": [
+                [
+                    -12.5,
+                    32.2
+                ],
+                [
+                    -18.3,
+                    37.4
+                ],
+                [
+                    -20.1,
+                    40.2
+                ]
+            ]
+        },
+        "wind_monitor": {
+            "param": [
+                0.7
+            ]
+        }
+    },
+    "rules": [
+        "Ensure that the generated JSON structure matches the format of the example exactly.",
+        "JSON generated should be valid as it is given as input to the simulation system so no room for error."
+    ]
+}

@@ -1,0 +1,71 @@
+{
+    "environment": {
+        "Wind": {
+            "Direction": "SW",
+            "Velocity": 18
+        },
+        "Origin": {
+            "Latitude": 41.8781,
+            "Longitude": -87.6298,
+            "Height": 10,
+            "Name": "Chicago Flood Simulation"
+        },
+        "TimeOfDay": "14:00:00",
+        "UseGeo": true,
+        "UseCFD": true
+    },
+    "monitors": {
+        "circular_deviation_monitor": {
+            "param": [
+                20
+            ]
+        },
+        "collision_monitor": {
+            "param": []
+        },
+        "point_deviation_monitor": {
+            "param": [
+                25
+            ]
+        },
+        "min_sep_dist_monitor": {
+            "param": [
+                12,
+                2
+            ]
+        },
+        "landspace_monitor": {
+            "param": [
+                [
+                    -87.6298,
+                    41.8781
+                ],
+                [
+                    -87.63,
+                    41.8783
+                ]
+            ]
+        },
+        "no_fly_zone_monitor": {
+            "param": [
+                [
+                    -87.63,
+                    41.8783
+                ],
+                [
+                    -87.6302,
+                    41.8785
+                ],
+                [
+                    -87.6304,
+                    41.8787
+                ]
+            ]
+        },
+        "wind_monitor": {
+            "param": [
+                0.7
+            ]
+        }
+    }
+}

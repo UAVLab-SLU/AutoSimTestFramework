@@ -1,0 +1,67 @@
+{
+    "environment": {
+        "Wind": {
+            "Direction": "SW",
+            "Velocity": 22
+        },
+        "Origin": {
+            "Latitude": 35.6895,
+            "Longitude": 139.6917,
+            "Height": 100,
+            "Name": "Mountainous Region"
+        },
+        "TimeOfDay": "16:00:00",
+        "UseGeo": true,
+        "UseCFD": true
+    },
+    "monitors": {
+        "circular_deviation_monitor": {
+            "param": [
+                18
+            ]
+        },
+        "collision_monitor": {
+            "param": []
+        },
+        "point_deviation_monitor": {
+            "param": [
+                17
+            ]
+        },
+        "min_sep_dist_monitor": {
+            "param": [
+                12,
+                1
+            ]
+        },
+        "landspace_monitor": {
+            "param": [
+                [
+                    0.0,
+                    0.0
+                ]
+            ]
+        },
+        "no_fly_zone_monitor": {
+            "param": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    1.0,
+                    1.0
+                ],
+                [
+                    2.0,
+                    2.0
+                ]
+            ]
+        },
+        "wind_monitor": {
+            "param": [
+                0.6
+            ]
+        }
+    }
+}

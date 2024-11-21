@@ -1,0 +1,71 @@
+{
+    "environment": {
+        "Wind": {
+            "Direction": "SW",
+            "Velocity": 18
+        },
+        "Origin": {
+            "Latitude": 36.1044,
+            "Longitude": -115.1539,
+            "Height": 10,
+            "Name": "Coastal Area"
+        },
+        "TimeOfDay": "14:00:00",
+        "UseGeo": true,
+        "UseCFD": true
+    },
+    "monitors": {
+        "circular_deviation_monitor": {
+            "param": [
+                20
+            ]
+        },
+        "collision_monitor": {
+            "param": []
+        },
+        "point_deviation_monitor": {
+            "param": [
+                25
+            ]
+        },
+        "min_sep_dist_monitor": {
+            "param": [
+                12,
+                2
+            ]
+        },
+        "landspace_monitor": {
+            "param": [
+                [
+                    -122.4539,
+                    37.7555
+                ],
+                [
+                    -118.2437,
+                    34.0522
+                ]
+            ]
+        },
+        "no_fly_zone_monitor": {
+            "param": [
+                [
+                    -122.4539,
+                    37.7555
+                ],
+                [
+                    -118.2437,
+                    34.0522
+                ],
+                [
+                    -120.7405,
+                    35.4676
+                ]
+            ]
+        },
+        "wind_monitor": {
+            "param": [
+                0.7
+            ]
+        }
+    }
+}

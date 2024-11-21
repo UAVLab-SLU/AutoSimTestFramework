@@ -1,0 +1,71 @@
+{
+    "environment": {
+        "Wind": {
+            "Direction": "SW",
+            "Velocity": 25
+        },
+        "Origin": {
+            "Latitude": 41.8781,
+            "Longitude": -87.6298,
+            "Height": 100,
+            "Name": "Chicago"
+        },
+        "TimeOfDay": "16:00:00",
+        "UseGeo": true,
+        "UseCFD": true
+    },
+    "monitors": {
+        "circular_deviation_monitor": {
+            "param": [
+                20
+            ]
+        },
+        "collision_monitor": {
+            "param": []
+        },
+        "point_deviation_monitor": {
+            "param": [
+                25
+            ]
+        },
+        "min_sep_dist_monitor": {
+            "param": [
+                15,
+                2
+            ]
+        },
+        "landspace_monitor": {
+            "param": [
+                [
+                    -87.6298,
+                    41.8781
+                ],
+                [
+                    -87.6298,
+                    41.8781
+                ]
+            ]
+        },
+        "no_fly_zone_monitor": {
+            "param": [
+                [
+                    -87.6298,
+                    41.8781
+                ],
+                [
+                    -87.6298,
+                    41.8781
+                ],
+                [
+                    -87.6298,
+                    41.8781
+                ]
+            ]
+        },
+        "wind_monitor": {
+            "param": [
+                0.7
+            ]
+        }
+    }
+}

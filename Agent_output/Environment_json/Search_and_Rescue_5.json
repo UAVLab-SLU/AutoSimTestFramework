@@ -1,0 +1,67 @@
+{
+    "environment": {
+        "Wind": {
+            "Direction": "SW",
+            "Velocity": 12
+        },
+        "Origin": {
+            "Latitude": 40.7128,
+            "Longitude": -74.006,
+            "Height": 0,
+            "Name": "City Area"
+        },
+        "TimeOfDay": "16:00:00",
+        "UseGeo": true,
+        "UseCFD": true
+    },
+    "monitors": {
+        "circular_deviation_monitor": {
+            "param": [
+                18
+            ]
+        },
+        "collision_monitor": {
+            "param": []
+        },
+        "point_deviation_monitor": {
+            "param": [
+                18
+            ]
+        },
+        "min_sep_dist_monitor": {
+            "param": [
+                12,
+                1
+            ]
+        },
+        "landspace_monitor": {
+            "param": [
+                [
+                    0.0,
+                    0.0
+                ]
+            ]
+        },
+        "no_fly_zone_monitor": {
+            "param": [
+                [
+                    0.0,
+                    0.0
+                ],
+                [
+                    1.0,
+                    1.0
+                ],
+                [
+                    2.0,
+                    2.0
+                ]
+            ]
+        },
+        "wind_monitor": {
+            "param": [
+                0.6
+            ]
+        }
+    }
+}

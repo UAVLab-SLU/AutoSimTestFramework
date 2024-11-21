@@ -1,0 +1,67 @@
+{
+    "environment": {
+        "Wind": {
+            "Direction": "SW",
+            "Velocity": 10
+        },
+        "Origin": {
+            "Latitude": 38.9637,
+            "Longitude": -95.865,
+            "Height": 100,
+            "Name": "Rural Kansas Farm"
+        },
+        "TimeOfDay": "14:00:00",
+        "UseGeo": true,
+        "UseCFD": true
+    },
+    "monitors": {
+        "circular_deviation_monitor": {
+            "param": [
+                20
+            ]
+        },
+        "collision_monitor": {
+            "param": []
+        },
+        "point_deviation_monitor": {
+            "param": [
+                25
+            ]
+        },
+        "min_sep_dist_monitor": {
+            "param": [
+                12,
+                2
+            ]
+        },
+        "landspace_monitor": {
+            "param": [
+                [
+                    0.1,
+                    0.2
+                ]
+            ]
+        },
+        "no_fly_zone_monitor": {
+            "param": [
+                [
+                    0.3,
+                    0.4
+                ],
+                [
+                    0.5,
+                    0.6
+                ],
+                [
+                    0.7,
+                    0.8
+                ]
+            ]
+        },
+        "wind_monitor": {
+            "param": [
+                0.7
+            ]
+        }
+    }
+}

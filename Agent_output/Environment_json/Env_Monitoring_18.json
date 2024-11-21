@@ -1,0 +1,90 @@
+{
+    "environment": {
+        "Wind": {
+            "Direction": "SW",
+            "Velocity": 12
+        },
+        "Origin": {
+            "Latitude": 39.7392,
+            "Longitude": -104.9903,
+            "Height": 200,
+            "Name": "Mountainous Region"
+        },
+        "TimeOfDay": "16:00:00",
+        "UseGeo": true,
+        "UseCFD": true
+    },
+    "monitors": {
+        "circular_deviation_monitor": {
+            "param": [
+                20
+            ]
+        },
+        "collision_monitor": {
+            "param": []
+        },
+        "point_deviation_monitor": {
+            "param": [
+                25
+            ]
+        },
+        "min_sep_dist_monitor": {
+            "param": [
+                12,
+                2
+            ]
+        },
+        "landspace_monitor": {
+            "param": [
+                [
+                    -10.5,
+                    45.3
+                ],
+                [
+                    -11.2,
+                    45.7
+                ]
+            ]
+        },
+        "no_fly_zone_monitor": {
+            "param": [
+                [
+                    -12.0,
+                    46.0
+                ],
+                [
+                    -12.5,
+                    46.5
+                ],
+                [
+                    -13.0,
+                    47.0
+                ]
+            ]
+        },
+        "wind_monitor": {
+            "param": [
+                0.7
+            ]
+        }
+    },
+    "sUAS_configuration": {
+        "Sensors": {
+            "Air_Quality_Sensor": {
+                "Pollutants": [
+                    "CO2",
+                    "NO2",
+                    "Particulate_Matter"
+                ]
+            }
+        },
+        "Payload_Weight": 1.5,
+        "Battery_Life": 30
+    },
+    "sUAS_properties_to_be_tested": {
+        "Maneuverability": "Navigating through mountainous terrain and steep slopes",
+        "Durability": "Withstanding potential impacts from rocks and steep slopes",
+        "Stability_in_Low_Light": "Navigating through dusk",
+        "Communication_Range": "Maintaining communication in areas with moderate signal loss"
+    }
+}
