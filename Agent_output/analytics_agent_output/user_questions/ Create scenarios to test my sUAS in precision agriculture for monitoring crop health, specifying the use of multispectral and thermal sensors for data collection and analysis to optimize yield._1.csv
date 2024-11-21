@@ -1,0 +1,186 @@
+question,context,Senarios,index
+" Create scenarios to test my sUAS in precision agriculture for monitoring crop health, specifying the use of multispectral and thermal sensors for data collection and analysis to optimize yield.","The unmanned aircraft (UA) was surveying a foreshore close to a construction site using a 
+flight plan of pre-programmed waypoints.
+During the flight the UA was affected by a change in the wind that resulted in it flying larger 
+than normal turns.  This caused the UA to overshoot its downwind waypoints and fly over the construction site.  During one such overshoot the UA began to descend, as programmed, and collided with a crane on the construction site about 250 m inland.
+As a result of this accident the operator made several changes to its procedures.---
+At XA:09 Day 0 was a near miss between a crewed aircraft and my sUAS I was Remote 
+Pilot In Command (RPIC) flying above myself and my visual observer and out at 350 ft. 
+AGL by around 500 ft. to the west. Upon hearing the engine of an aircraft from the north , I 
+began to bring my aircraft in to land as to give way for the crewed aircraft. My sUAS was 
+not descending as fast as normal (it may have only felt like it is descending slower). I did 
+hear the engine of the crewed aircraft change in pitch as well as saw  a course change. 
+After landing and observing the flight path of the crewed aircraft which seemed to be en -
+route to land at ZZZ, I powered down my equipment and started trying to find out how to 
+report the near miss. Could not find correct contact informat ion for ZZZ ATC to report. At 
+time of flight and near miss, no active TFR's or NOTAM's in place.  
+Callback: 1  
+The reporter learned during post flight review this wasn't a near miss. There was more 
+than 1000 feet of vertical and lateral separation between the UAS and the fixed wing 
+aircraft.---
+Whilst the unmanned aircraft (UA) was climbing, in hover mode, one of the rear electronic 
+speed controllers (ECSs) overheated causing a loss of control of its associated motor and 
+propeller.  Control of the aircraft was lost and it fell into a crop field, damaging it beyond 
+economical repair.  The manufacturer is looking to re-design the rear propellers to reduce 
+the likelihood of the ESCs overheating.---
+After takeoff the unmanned aircraft (UA) experienced winds exceeding the manufacturer’s 
+stated limitations and was unable to hold its position position.  A culmination of the 
+subsequent position warning and automatic attempt to return “home” and land triggered 
+a software error, commanding the UA to land while not over its home position.  As the UA 
+descended there was a loss of link with the ground control unit and the UA collided with a 
+tree.    The loss of signal was probably caused by the loss of radio line of sight between the 
+UA and ground control unit when it drifted in the high wind over a five-storey building.---
+The unmanned aircraft system (UAS) was fitted with a third-party lidar1 pod for its planned 
+survey mission which involved flights of around 8 minutes duration.  As it commenced its 
+pre-programmed route, it appeared to continue to climb above the 30 m height that had been 
+set.  The remote pilots observed that is was too high and attempted to land it immediately.  
+The aircraft appeared unresponsive to the remote pilot’s inputs and it then commenced an 
+uncontrolled descent, rapidly increasing speed, until it struck the ground."," Scenario 1:
+
+Environmental Context:
+
+Location: A large-scale vineyard in Napa Valley, California, with rolling hills and varying elevations.
+Weather: Clear skies with a mild wind of 5 m/s, ideal for drone operations.
+Temperature: 25°C, optimal for battery efficiency and sensor performance.
+Lighting Conditions: Bright daylight, requiring standard camera and sensor operation.
+GPS Signal Quality: High, with minimal interference from the surrounding terrain.
+Altitude: Varies from 10 meters to 50 meters, requiring precise altitude control.
+Obstacles: Vineyard trellises and occasional birds, requiring collision avoidance.
+Network/communication quality: Strong and stable, ensuring reliable data transmission.
+
+Mission:
+
+The sUAS will perform a precision agriculture mission, monitoring crop health and identifying areas of stress or disease. The drone will fly a pre-programmed route over the vineyard, capturing multispectral and thermal images for data collection and analysis.
+
+sUAS Configuration and Properties:
+
+Sensors: Multispectral camera for capturing crop health data, thermal camera for detecting temperature variations, GPS for navigation, and obstacle avoidance sensors.
+Payload Weight: 1.5 kg, including sensors and additional equipment.
+Battery Life: 60 minutes per flight, allowing for extended coverage of the vineyard.
+
+sUAS Properties to be Tested:
+
+1. Maneuverability: Ability to navigate through the vineyard's varying terrain and elevations.
+2. Durability: Resistance to potential impacts from vineyard trellises or birds.
+3. Stability in Low Light: Not applicable in this scenario.
+4. Communication Range: Reliable data transmission over the vineyard's large area.
+
+Scenario 2:
+
+Environmental Context:
+
+Location: A large-scale cornfield in Iowa, with flat terrain and minimal obstructions.
+Weather: Overcast skies with a wind speed of 15 m/s, challenging for drone operations.
+Temperature: 15°C, potentially affecting battery efficiency and sensor performance.
+Lighting Conditions: Low light conditions due to cloud cover, requiring enhanced reliance on thermal imaging sensors.
+GPS Signal Quality: Moderate, with potential interference from the surrounding terrain.
+Altitude: Varies from 10 meters to 100 meters, requiring versatile altitude adjustments.
+Obstacles: Minimal, with the primary concern being the wind.
+Network/communication quality: Moderate, with potential interference from the surrounding terrain.
+
+Mission:
+
+The sUAS will perform a precision agriculture mission, monitoring crop health and identifying areas of stress or disease. The drone will fly a pre-programmed route over the cornfield, capturing multispectral and thermal images for data collection and analysis.
+
+sUAS Configuration and Properties:
+
+Sensors: Multispectral camera for capturing crop health data, thermal camera for detecting temperature variations, GPS for navigation, and obstacle avoidance sensors.
+Payload Weight: 1.5 kg, including sensors and additional equipment.
+Battery Life: 60 minutes per flight, allowing for extended coverage of the cornfield.
+
+sUAS Properties to be Tested:
+
+1. Maneuverability: Ability to navigate through the windy conditions and maintain stability.
+2. Durability: Resistance to potential impacts from wind gusts or debris.
+3. Stability in Low Light: Enhanced reliance on thermal imaging sensors due to low light conditions.
+4. Communication Range: Reliable data transmission despite potential interference from the surrounding terrain.
+
+Scenario 3:
+
+Environmental Context:
+
+Location: A large-scale soybean field in Brazil, with varying terrain and dense vegetation.
+Weather: Rainy conditions with a wind speed of 10 m/s, affecting drone operations.
+Temperature: 28°C, potentially affecting battery efficiency and sensor performance.
+Lighting Conditions: Overcast skies, requiring enhanced reliance on thermal imaging sensors.
+GPS Signal Quality: Moderate, with potential interference from the surrounding terrain.
+Altitude: Varies from 10 meters to 50 meters, requiring precise altitude control.
+Obstacles: Dense vegetation and occasional birds, requiring collision avoidance.
+Network/communication quality: Moderate, with potential interference from the surrounding terrain.
+
+Mission:
+
+The sUAS will perform a precision agriculture mission, monitoring crop health and identifying areas of stress or disease. The drone will fly a pre-programmed route over the soybean field, capturing multispectral and thermal images for data collection and analysis.
+
+sUAS Configuration and Properties:
+
+Sensors: Multispectral camera for capturing crop health data, thermal camera for detecting temperature variations, GPS for navigation, and obstacle avoidance sensors.
+Payload Weight: 1.5 kg, including sensors and additional equipment.
+Battery Life: 60 minutes per flight, allowing for extended coverage of the soybean field.
+
+sUAS Properties to be Tested:
+
+1. Maneuverability: Ability to navigate through the dense vegetation and maintain stability.
+2. Durability: Resistance to potential impacts from birds or vegetation.
+3. Stability in Low Light: Enhanced reliance on thermal imaging sensors due to overcast skies.
+4. Communication Range: Reliable data transmission despite potential interference from the surrounding terrain.
+
+Scenario 4:
+
+Environmental Context:
+
+Location: A large-scale wheat field in Australia, with flat terrain and minimal obstructions.
+Weather: Hot and dry conditions with a wind speed of 20 m/s, challenging for drone operations.
+Temperature: 35°C, potentially affecting battery efficiency and sensor performance.
+Lighting Conditions: Bright daylight, requiring standard camera and sensor operation.
+GPS Signal Quality: High, with minimal interference from the surrounding terrain.
+Altitude: Varies from 10 meters to 100 meters, requiring versatile altitude adjustments.
+Obstacles: Minimal, with the primary concern being the wind.
+Network/communication quality: Strong and stable, ensuring reliable data transmission.
+
+Mission:
+
+The sUAS will perform a precision agriculture mission, monitoring crop health and identifying areas of stress or disease. The drone will fly a pre-programmed route over the wheat field, capturing multispectral and thermal images for data collection and analysis.
+
+sUAS Configuration and Properties:
+
+Sensors: Multispectral camera for capturing crop health data, thermal camera for detecting temperature variations, GPS for navigation, and obstacle avoidance sensors.
+Payload Weight: 1.5 kg, including sensors and additional equipment.
+Battery Life: 60 minutes per flight, allowing for extended coverage of the wheat field.
+
+sUAS Properties to be Tested:
+
+1. Maneuverability: Ability to navigate through the windy conditions and maintain stability.
+2. Durability: Resistance to potential impacts from wind gusts or debris.
+3. Stability in Low Light: Not applicable in this scenario.
+4. Communication Range: Reliable data transmission despite potential interference from the surrounding terrain.
+
+Scenario 5:
+
+Environmental Context:
+
+Location: A large-scale rice paddy in Thailand, with varying terrain and water bodies.
+Weather: Humid conditions with a wind speed of 5 m/s, ideal for drone operations.
+Temperature: 30°C, potentially affecting battery efficiency and sensor performance.
+Lighting Conditions: Bright daylight, requiring standard camera and sensor operation.
+GPS Signal Quality: High, with minimal interference from the surrounding terrain.
+Altitude: Varies from 10 meters to 50 meters, requiring precise altitude control.
+Obstacles: Water bodies and occasional birds, requiring collision avoidance.
+Network/communication quality: Strong and stable, ensuring reliable data transmission.
+
+Mission:
+
+The sUAS will perform a precision agriculture mission, monitoring crop health and identifying areas of stress or disease. The drone will fly a pre-programmed route over the rice paddy, capturing multispectral and thermal images for data collection and analysis.
+
+sUAS Configuration and Properties:
+
+Sensors: Multispectral camera for capturing crop health data, thermal camera for detecting temperature variations, GPS for navigation, and obstacle avoidance sensors.
+Payload Weight: 1.5 kg, including sensors and additional equipment.
+Battery Life: 60 minutes per flight, allowing for extended coverage of the rice paddy.
+
+sUAS Properties to be Tested:
+
+1. Maneuverability: Ability to navigate through the water bodies and maintain stability.
+2. Durability: Resistance to potential impacts from birds or water bodies.
+3. Stability in Low Light: Not applicable in this scenario.
+4. Communication Range: Reliable data transmission despite potential interference from the surrounding terrain.","[1, 2]"

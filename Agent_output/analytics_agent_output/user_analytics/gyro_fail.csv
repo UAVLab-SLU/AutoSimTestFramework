@@ -1,0 +1,700 @@
+0
+"1) Understanding the Plots:
+
+- Gyro Vibration Metric: The plot shows the gyro vibration metric over time, with fluctuations indicating changes in the drone's orientation.
+- Gyro Error Count: The plot shows the gyro error count over time, with a consistent value of 0, indicating no errors.
+- Mag Device Id: The plot shows the mag device id over time, with a constant value of 207500, indicating a stable magnetometer.
+- Delta Angle [0]: The plot shows the delta angle over time, with a sudden spike at around 25 seconds, indicating a change in orientation.
+- Mag Bias Valid: The plot shows the mag bias valid over time, with a constant value of 1, indicating a stable magnetometer.
+
+2) Impact on Drone Behavior:
+
+- Gyro Vibration Metric: Fluctuations in the gyro vibration metric may indicate changes in the drone's orientation, which could affect its stability and control.
+- Gyro Error Count: A consistent value of 0 indicates no errors in the gyro, which is crucial for accurate orientation and control.
+- Mag Device Id: A constant value of 207500 indicates a stable magnetometer, which is essential for accurate navigation and positioning.
+- Delta Angle [0]: A sudden spike in the delta angle at around 25 seconds may indicate a change in orientation, which could affect the drone's flight path and stability.
+- Mag Bias Valid: A constant value of 1 indicates a stable magnetometer, which is crucial for accurate navigation and positioning.
+
+3) Key Observations:
+
+- Gyro Vibration Metric: Fluctuations in the gyro vibration metric may indicate changes in the drone's orientation, which could affect its stability and control.
+- Gyro Error Count: A consistent value of 0 indicates no errors in the gyro, which is crucial for accurate orientation and control.
+- Mag Device Id: A constant value of 207500 indicates a stable magnetometer, which is essential for accurate navigation and positioning.
+- Delta Angle [0]: A sudden spike in the delta angle at around 25 seconds may indicate a change in orientation, which could affect the drone's flight path and stability.
+- Mag Bias Valid: A constant value of 1 indicates a stable magnetometer, which is crucial for accurate navigation and positioning.
+
+4) Correlations Between Plots:
+
+- Gyro Vibration Metric and Gyro Error Count: There is no clear correlation between the two plots, as the gyro error count remains at 0 throughout the time period.
+- Gyro Vibration Metric and Mag Device Id: There is no clear correlation between the two plots, as the mag device id remains constant at 207500.
+- Gyro Vibration Metric and Delta Angle [0]: There is no clear correlation between the two plots, as the gyro vibration metric fluctuates while the delta angle spike occurs at around 25 seconds.
+- Gyro Vibration Metric and Mag Bias Valid: There is no clear correlation between the two plots, as the mag bias valid remains constant at 1.
+- Gyro Error Count and Mag Device Id: There is no clear correlation between the two plots, as the gyro error count remains at 0 throughout the time period.
+- Gyro Error Count and Delta Angle [0]: There is no clear correlation between the two plots, as the gyro error count remains at 0 throughout the time period.
+- Gyro Error Count and Mag Bias Valid: There is no clear correlation between the two plots, as the gyro error count remains at 0 throughout the time period.
+- Gyro Vibration Metric and Mag Device Id: There is no clear correlation between the two plots, as the mag device id remains constant at 207500.
+- Gyro Vibration Metric and Mag Bias Valid: There is no clear correlation between the two plots, as the mag bias valid remains constant at 1.
+- Gyro Vibration Metric and Delta Angle [0]: There is no clear correlation between the two plots, as the gyro vibration metric fluctuates while the delta angle spike occurs at around 25 seconds.
+- Gyro Vibration Metric and Mag Bias Valid: There is no clear correlation between the two plots, as the mag bias valid remains constant at 1."
+"1) Understanding the Plots:
+
+- Plot 1: accel_raw_rate_hz
+- Plot 2: gyro_calibration_count
+- Plot 3: delta_velocity[0]
+- Plot 4: accel_fault_detected
+- Plot 5: mag_bias_stable
+
+2) Impact on Drone Behavior:
+
+- Plot 1: The drone's acceleration rate fluctuates, indicating potential issues with the control system or external factors affecting the drone's movement.
+- Plot 2: The gyro calibration count remains constant, suggesting that the drone's gyroscopes are functioning properly.
+- Plot 3: The delta velocity shows significant fluctuations, which may impact the drone's stability and control.
+- Plot 4: The accel_fault_detected plot shows occasional spikes, indicating potential issues with the drone's acceleration system.
+- Plot 5: The mag_bias_stable plot remains constant, suggesting that the drone's magnetometer is functioning properly.
+
+3) Key Observations:
+
+- Plot 1: The drone's acceleration rate is unstable, which may impact its flight stability and control.
+- Plot 2: The gyro calibration count is constant, indicating that the drone's gyroscopes are functioning properly.
+- Plot 3: The delta velocity shows significant fluctuations, which may impact the drone's stability and control.
+- Plot 4: The accel_fault_detected plot shows occasional spikes, indicating potential issues with the drone's acceleration system.
+- Plot 5: The mag_bias_stable plot remains constant, suggesting that the drone's magnetometer is functioning properly.
+
+4) Correlations Between Plots:
+
+- Plot 1 and Plot 4: There is a correlation between the drone's acceleration rate and the accel_fault_detected plot, indicating that issues with the acceleration system may cause faults to be detected.
+- Plot 3 and Plot 4: There is a correlation between the delta velocity and the accel_fault_detected plot, indicating that issues with the acceleration system may cause faults to be detected.
+- Plot 3 and Plot 5: There is a correlation between the delta velocity and the mag_bias_stable plot, indicating that issues with the acceleration system may impact the drone's magnetometer.
+- Plot 4 and Plot 5: There is a correlation between the accel_fault_detected plot and the mag_bias_stable plot, indicating that issues with the acceleration system may impact the drone's magnetometer.
+
+In conclusion, the drone's performance based on the ULG data indicates potential issues with the acceleration system, which may impact the drone's stability and control. Further investigation and maintenance may be required to address these issues and ensure the drone's optimal performance."
+"1) Understanding the Plots:
+
+- Plot 1: accel_bias_valid
+- Plot 2: delta_angle_clipping
+- Plot 3: current_average_a
+- Plot 4: gyro_priority[0]
+- Plot 5: delta_velocity_dt
+
+2) Impact on Drone Behavior:
+
+- Plot 1: The drone's acceleration bias remains constant over time, indicating stable flight.
+- Plot 2: The delta angle clipping remains constant, suggesting the drone maintains a consistent orientation.
+- Plot 3: The current average is constant, indicating stable power usage.
+- Plot 4: The gyro priority is constant, indicating consistent navigation.
+- Plot 5: The delta velocity is constant, indicating stable movement.
+
+3) Key Observations:
+
+- All plots show constant values over time, indicating stable drone behavior.
+
+4) Correlations Between Plots:
+
+- There are no correlations between the plots, as they all show constant values.
+
+ 1) Understanding the Plots:
+
+- Plot 1: accel_bias_valid
+- Plot 2: delta_angle_clipping
+- Plot 3: current_average_a
+- Plot 4: gyro_priority[0]
+- Plot 5: delta_velocity_dt
+
+2) Impact on Drone Behavior:
+
+- Plot 1: The drone's acceleration bias remains constant over time, indicating stable flight.
+- Plot 2: The delta angle clipping remains constant, suggesting the drone maintains a consistent orientation.
+- Plot 3: The current average is constant, indicating stable power usage.
+- Plot 4: The gyro priority is constant, indicating consistent navigation.
+- Plot 5: The delta velocity is constant, indicating stable movement.
+
+3) Key Observations:
+
+- All plots show constant values over time, indicating stable drone behavior.
+
+4) Correlations Between Plots:
+
+- There are no correlations between the plots, as they all show constant values.
+
+ 1) Understanding the Plots:
+
+- Plot 1: accel_bias_valid
+- Plot 2: delta_angle_clipping
+- Plot 3: current_average_a
+- Plot 4: gyro_priority[0]
+- Plot 5: delta_velocity_dt
+
+2) Impact on Drone Behavior:
+
+- Plot 1: The drone's acceleration bias remains constant over time, indicating stable flight.
+- Plot 2: The delta angle clipping remains constant, suggesting the drone maintains a consistent orientation.
+- Plot 3: The current average is constant, indicating stable power usage.
+- Plot 4: The gyro priority is constant, indicating consistent navigation.
+- Plot 5: The delta velocity is constant, indicating stable movement.
+
+3) Key Observations:
+
+- All plots show constant values over time, indicating stable drone behavior.
+
+4) Correlations Between Plots:
+
+- There are no correlations between the plots, as they all show constant values.
+
+ 1) Understanding the Plots:
+
+- Plot 1: accel_bias_valid
+- Plot 2: delta_angle_clipping
+- Plot 3: current_average_a
+- Plot 4: gyro_priority[0]
+- Plot 5: delta_velocity_dt
+
+2) Impact on Drone Behavior:
+
+- Plot 1: The drone's acceleration bias remains constant over time, indicating stable flight.
+- Plot 2: The delta angle clipping remains constant, suggesting the drone maintains a consistent orientation.
+- Plot 3: The current average is constant, indicating stable power usage.
+- Plot 4: The gyro priority is constant, indicating consistent navigation.
+- Plot 5: The delta velocity is constant, indicating stable movement.
+
+3) Key Observations:
+
+- All plots show constant values over time, indicating stable drone behavior.
+
+4) Correlations Between Plots:
+
+- There are no correlations between the plots, as they all show constant values.
+
+ 1) Understanding the Plots:
+
+- Plot 1: accel_bias_valid
+- Plot 2: delta_angle_clipping
+- Plot 3"
+"1) Understanding the Plots:
+
+- Plot of acceleration[0]: This plot shows the acceleration of the drone in the x-axis and time in the y-axis. The drone's acceleration fluctuates over time, indicating a dynamic movement pattern.
+- Plot of accel_innov: This plot shows the drone's innovative acceleration over time. The drone's acceleration remains relatively stable, with minor fluctuations.
+- Plot of accelerometer_clipping: This plot shows the drone's accelerometer clipping over time. The drone's accelerometer remains stable, with minor fluctuations.
+- Plot of accel_device_id_primary: This plot shows the drone's primary device ID over time. The drone's device ID remains stable, with minor fluctuations.
+- Plot of delta_angle_dt: This plot shows the drone's delta angle over time. The drone's delta angle remains stable, with minor fluctuations.
+
+2) Impact on Drone Behavior:
+
+- The fluctuations in acceleration, innovative acceleration, and delta angle indicate that the drone is moving in a dynamic and unpredictable manner.
+- The stable and minor fluctuations in the drone's device ID suggest that the drone is maintaining a consistent identity throughout its flight.
+
+3) Key Observations:
+
+- The drone's movement pattern is dynamic and unpredictable, as indicated by the fluctuations in acceleration and delta angle.
+- The drone's device ID remains stable, suggesting that it is maintaining a consistent identity throughout its flight.
+
+4) Correlations Between Plots:
+
+- There are no clear correlations between the plots, as each plot represents a different metric and does not show a direct relationship between them.
+
+In conclusion, the drone's movement pattern is dynamic and unpredictable, while its device ID remains stable. The plots do not show any clear correlations between them."
+"1) Understanding the Plots:
+
+- Plot of current_filtered_a: This plot shows the filtered current over time, with values ranging from -0.04 to 0.04.
+- Plot of accelerometer_m_s2[0]: This plot displays the accelerometer readings in the X, Y, and Z axes over time, with values ranging from -0.075 to 0.100.
+- Plot of accel_bias_stable: This plot shows the stable accelerometer bias over time, with values ranging from -0.02 to 0.02.
+- Plot of battery_warning: This plot shows the battery warning signal over time, with values ranging from -0.04 to 0.04.
+- Plot of delta_z: This plot shows the delta_z value over time, with values ranging from -0.015 to 0.000.
+
+2) Impact on Drone Behavior:
+
+- Plot of current_filtered_a: Fluctuations in the current filtered value may indicate changes in the drone's power consumption or battery usage.
+- Plot of accelerometer_m_s2[0]: Variations in the accelerometer readings may indicate changes in the drone's orientation or movement.
+- Plot of accel_bias_stable: Fluctuations in the stable accelerometer bias may indicate changes in the drone's stability or balance.
+- Plot of battery_warning: Fluctuations in the battery warning signal may indicate changes in the drone's battery life or performance.
+- Plot of delta_z: Fluctuations in the delta_z value may indicate changes in the drone's altitude or position.
+
+3) Key Observations:
+
+- Plot of current_filtered_a: The current filtered value fluctuates over time, indicating changes in the drone's power consumption or battery usage.
+- Plot of accelerometer_m_s2[0]: The accelerometer readings fluctuate over time, indicating changes in the drone's orientation or movement.
+- Plot of accel_bias_stable: The stable accelerometer bias fluctuates over time, indicating changes in the drone's stability or balance.
+- Plot of battery_warning: The battery warning signal fluctuates over time, indicating changes in the drone's battery life or performance.
+- Plot of delta_z: The delta_z value fluctuates over time, indicating changes in the drone's altitude or position.
+
+4) Correlations Between Plots:
+
+- Plot of current_filtered_a and Plot of accelerometer_m_s2[0]: There is a correlation between the current filtered value and the accelerometer readings, indicating that changes in the drone's power consumption or battery usage may affect its orientation or movement.
+- Plot of current_filtered_a and Plot of accel_bias_stable: There is a correlation between the current filtered value and the stable accelerometer bias, indicating that changes in the drone's power consumption or battery usage may affect its stability or balance.
+- Plot of current_filtered_a and Plot of battery_warning: There is a correlation between the current filtered value and the battery warning signal, indicating that changes in the drone's power consumption or battery usage may affect its battery life or performance.
+- Plot of current_filtered_a and Plot of delta_z: There is a correlation between the current filtered value and the delta_z value, indicating that changes in the drone's power consumption or battery usage may affect its altitude or position.
+- Plot of accelerometer_m_s2[0] and Plot of accel_bias_stable: There is a correlation between the accelerometer readings and the stable accelerometer bias, indicating that changes in the drone's orientation or movement may affect its stability or balance.
+- Plot of accelerometer_m_s2[0] and Plot of battery_warning: There is a correlation between the accelerometer readings and the battery warning signal, indicating that changes in the drone's orientation or movement may affect its battery life or performance.
+- Plot of accelerometer_m_s2[0] and Plot of delta_z: There is a correlation between the accelerometer readings and the delta_z value, indicating that changes in the drone's orientation or movement may affect its altitude or position.
+- Plot of accel_b"
+"1) Understanding the Plots:
+
+- Gyro_raw_rate_hz: This plot shows the gyro raw rate in Hz over time, with a peak at around 5 seconds.
+- baro_alt_meter: This plot shows the baro alt meter over time, with a sharp increase around 15 seconds.
+- current_a: This plot shows the current_a over time, with a sharp increase around 20 seconds.
+- accel_innov_var: This plot shows the accel_innov_var over time, with a sharp increase around 20 seconds.
+- gyro_clipping: This plot shows the gyro_clipping over time, with a sharp increase around 20 seconds.
+
+2) Impact on Drone Behavior:
+
+- Gyro_raw_rate_hz: The peak in gyro_raw_rate_hz indicates a sudden change in the drone's orientation, which could affect its stability and control.
+- baro_alt_meter: The sharp increase in baro_alt_meter suggests a sudden change in altitude, which could affect the drone's flight path and safety.
+- current_a: The sharp increase in current_a indicates a sudden change in the drone's acceleration, which could affect its speed and maneuverability.
+- accel_innov_var: The sharp increase in accel_innov_var suggests a sudden change in the drone's acceleration, which could affect its speed and maneuverability.
+- gyro_clipping: The sharp increase in gyro_clipping indicates a sudden change in the drone's orientation, which could affect its stability and control.
+
+3) Key Observations:
+
+- All plots show a sharp increase around 20 seconds, indicating a sudden change in the drone's orientation, acceleration, and altitude.
+- The plots show a correlation between the sudden changes in orientation, acceleration, and altitude, suggesting that these changes are related and may be caused by the same event.
+
+4) Correlations Between Plots:
+
+- There is a correlation between the sudden changes in gyro_raw_rate_hz, baro_alt_meter, current_a, and accel_innov_var, suggesting that these changes are related and may be caused by the same event.
+- There is also a correlation between the sudden changes in gyro_clipping and the other plots, suggesting that the changes in orientation are related to the changes in orientation, acceleration, and altitude.
+
+In conclusion, the sudden changes in orientation, acceleration, and altitude around 20 seconds could be caused by a single event, such as a sudden gust of wind or a change in the drone's flight path. The drone's stability and control may be affected by these changes, and further analysis is needed to determine the cause of these changes and how to mitigate their impact on the drone's performance."
+"1) Understanding the Plots:
+
+The plots show the following metrics:
+
+1. Accelerometer Health: This plot shows the health of the drone's accelerometer over time. The health is represented by a red line, which remains at 100% throughout the time period.
+
+2. Magnetic Strength: This plot shows the magnetic strength of the drone over time. The magnetic strength is represented by a red line, which remains at 0 throughout the time period.
+
+3. Magnetic Test Ratio: This plot shows the magnetic test ratio of the drone over time. The magnetic test ratio is represented by a red line, which remains at 0 throughout the time period.
+
+4. Accelerometer Integral: This plot shows the integral of the accelerometer over time. The accelerometer integral is represented by a red line, which remains at 0 throughout the time period.
+
+5. Accelerometer Integral DT: This plot shows the integral of the accelerometer over time. The accelerometer integral is represented by a red line, which remains at 0 throughout the time period.
+
+2) Impact on Drone Behavior:
+
+The plots indicate that the drone's accelerometer health, magnetic strength, magnetic test ratio, and accelerometer integral are all at their maximum or minimum values. This suggests that the drone is experiencing extreme forces and movements, which could impact its behavior.
+
+3) Key Observations:
+
+1. The accelerometer health, magnetic strength, magnetic test ratio, and accelerometer integral are all at their maximum or minimum values, indicating that the drone is experiencing extreme forces and movements.
+2. The plots show that the drone's accelerometer health, magnetic strength, magnetic test ratio, and accelerometer integral remain constant over time, suggesting that the drone's performance is stable.
+
+4) Correlations Between Plots:
+
+There are no correlations between the plots, as they all show the same trend.
+
+In conclusion, the drone's accelerometer health, magnetic strength, magnetic test ratio, and accelerometer integral are all at their maximum or minimum values, indicating that the drone is experiencing extreme forces and movements. The plots show that the drone's performance is stable, as the metrics remain constant over time."
+"1) Understanding the Plots:
+
+- Plot of mag_bias_variance[0]: This plot shows the variance of the magnetic bias over time, with a sudden spike at around 25 seconds.
+- Plot of az: This plot shows the azimuth angle of the drone, with a sharp drop at around 25 seconds.
+- Plot of baro_pressure_pa: This plot shows the barometric pressure, with a sharp drop at around 25 seconds.
+- Plot of available_energy: This plot shows the available energy of the drone, with a sharp drop at around 25 seconds.
+- Plot of full_charge_capacity_wh: This plot shows the full charge capacity of the drone, with a sharp drop at around 25 seconds.
+
+2) Impact on Drone Behavior:
+
+- The sudden spike in mag_bias_variance[0] and the sharp drop in az and baro_pressure_pa suggest that the drone experienced a sudden change in its magnetic field and altitude at around 25 seconds.
+- The sharp drop in available_energy and full_charge_capacity_wh at around 25 seconds indicates that the drone's battery and charge capacity were significantly affected at that time.
+
+3) Key Observations:
+
+- The sudden changes in the drone's magnetic field, altitude, and battery/charge capacity at around 25 seconds suggest that the drone may have encountered an obstacle or experienced a sudden change in its environment.
+- The drone's behavior may have been affected by these changes, potentially leading to a loss of control or a change in flight path.
+
+4) Correlations Between Plots:
+
+- There is a strong correlation between the sudden changes in the drone's magnetic field, altitude, and battery/charge capacity at around 25 seconds, suggesting that these changes may be related.
+- The sudden drop in az and baro_pressure_pa at around 25 seconds may be related to the sudden changes in the drone's magnetic field and altitude, as these factors can affect the drone's navigation and control.
+
+In conclusion, the sudden changes in the drone's magnetic field, altitude, and battery/charge capacity at around 25 seconds may have affected the drone's behavior, potentially leading to a loss of control or a change in flight path. Further investigation is needed to determine the cause of these changes and to ensure the drone's safe operation."
+"1) Understanding the Plots:
+
+- Plot of accel_clipping[0]: This plot shows the acceleration clipping values over time, with a constant value of 0.00026e2.
+- Plot of accel_noise_var: This plot shows the acceleration noise variance over time, with a peak value of 4.0 at around 25 seconds.
+- Plot of gyro_rate_hz: This plot shows the gyro rate in Hz over time, with a peak value of +3.33326e2 at around 25 seconds.
+- Plot of magnetometer_ga[0]: This plot shows the magnetometer g-axis over time, with a peak value of 0.00030 at around 25 seconds.
+- Plot of average_power: This plot shows the average power over time, with a peak value of 0.00026 at around 25 seconds.
+
+2) Impact on Drone Behavior:
+
+- The constant value of accel_clipping[0] suggests that the drone's acceleration is within the acceptable range.
+- The peak value of accel_noise_var indicates that the drone's acceleration noise is relatively high at that point in time, which could affect its stability and control.
+- The peak value of gyro_rate_hz suggests that the drone's gyro rate is significantly higher than usual, which could indicate a sudden change in orientation or a malfunction.
+- The peak value of magnetometer_ga[0] suggests that the drone's magnetometer is experiencing a sudden change in g-axis, which could affect its altitude and orientation.
+- The peak value of average_power indicates that the drone's power consumption is higher than usual, which could affect its battery life and performance.
+
+3) Key Observations:
+
+- The drone's acceleration, gyro rate, and magnetometer g-axis are all experiencing sudden changes at around 25 seconds.
+- The drone's power consumption is also higher than usual at around 25 seconds.
+
+4) Correlations Between Plots:
+
+- There is a correlation between the peak values of accel_noise_var and gyro_rate_hz, as they both occur at around the same time.
+- There is a correlation between the peak values of magnetometer_ga[0] and average_power, as they both occur at around the same time.
+
+Overall, the drone's performance is affected by sudden changes in acceleration, gyro rate, and magnetometer g-axis, as well as higher power consumption. Further investigation is needed to determine the cause of these changes and to ensure the drone's safety and performance."
+"1) Understanding the Plots:
+
+- Plot 1: Accelerometer_ids[0]
+- Plot 2: gyro_fault_detected
+- Plot 3: average_time_to_full
+- Plot 4: gyro_inconsistency_rad_s[0]
+- Plot 5: gyro_rad[0]
+
+2) Impact on Drone Behavior:
+
+- Plot 1: The accelerometer_ids[0] remains constant, indicating stable flight.
+- Plot 2: The gyro_fault_detected shows occasional spikes, suggesting intermittent gyro malfunctions.
+- Plot 3: The average_time_to_full remains constant, indicating consistent battery performance.
+- Plot 4: The gyro_inconsistency_rad_s[0] shows occasional spikes, indicating potential issues with the gyro sensor.
+- Plot 5: The gyro_rad[0] shows occasional spikes, suggesting potential issues with the gyro sensor.
+
+3) Key Observations:
+
+- Plot 1: Stable flight.
+- Plot 2: Intermittent gyro malfunctions.
+- Plot 3: Consistent battery performance.
+- Plot 4: Potential gyro sensor issues.
+- Plot 5: Potential gyro sensor issues.
+
+4) Correlations Between Plots:
+
+- Plot 2 and Plot 4 are correlated, as both show potential gyro sensor issues.
+- Plot 3 and Plot 5 are correlated, as both show potential gyro sensor issues.
+
+5) Actionable Insights:
+
+- Address potential gyro sensor issues to improve drone stability and performance.
+- Monitor battery performance to ensure consistent flight.
+- Regularly check and maintain gyro sensors to prevent malfunctions.
+
+6) Comprehensive Report:
+
+- Plot 1: Stable flight.
+- Plot 2: Intermittent gyro malfunctions.
+- Plot 3: Consistent battery performance.
+- Plot 4: Potential gyro sensor issues.
+- Plot 5: Potential gyro sensor issues.
+
+- Address potential gyro sensor issues to improve drone stability and performance.
+- Monitor battery performance to ensure consistent flight.
+- Regularly check and maintain gyro sensors to prevent malfunctions."
+"1) Understanding the Plots:
+
+- Plot of mean_gyro[0]: This plot shows the mean gyroscope readings over time, with a sudden spike at around 25 seconds.
+- Plot of battery_unhealthy: This plot shows the battery health over time, with a sharp drop at around 25 seconds.
+- Plot of accel_bias_variance[0]: This plot shows the variance in acceleration bias over time, with a sharp drop at around 25 seconds.
+- Plot of mag_bias[0]: This plot shows the bias in the magnetometer over time, with a sharp drop at around 25 seconds.
+- Plot of gyro_healthy[0]: This plot shows the health of the gyroscope over time, with a sharp drop at around 25 seconds.
+
+2) Impact on Drone Behavior:
+
+- The sudden spike in mean_gyro[0] and the sharp drop in battery_unhealthy, accel_bias_variance[0], and mag_bias[0] at around 25 seconds suggest a potential malfunction or anomaly in the drone's systems.
+- The sharp drop in gyro_healthy[0] at around 25 seconds indicates a sudden loss of gyroscope functionality, which could affect the drone's stability and control.
+
+3) Key Observations:
+
+- The sudden spike in mean_gyro[0] and the sharp drop in battery_unhealthy, accel_bias_variance[0], and mag_bias[0] at around 25 seconds suggest a potential malfunction or anomaly in the drone's systems.
+- The sharp drop in gyro_healthy[0] at around 25 seconds indicates a sudden loss of gyroscope functionality, which could affect the drone's stability and control.
+
+4) Correlations Between Plots:
+
+- There is a correlation between the sudden spike in mean_gyro[0] and the sharp drop in battery_unhealthy, accel_bias_variance[0], and mag_bias[0] at around 25 seconds, suggesting that the malfunction or anomaly in the drone's systems may have caused a sudden loss of gyroscope functionality.
+- There is a correlation between the sudden spike in mean_gyro[0] and the sharp drop in gyro_healthy[0] at around 25 seconds, indicating that the malfunction or anomaly in the drone's systems may have caused a sudden loss of gyroscope functionality.
+
+In conclusion, the sudden spike in mean_gyro[0] and the sharp drop in battery_unhealthy, accel_bias_variance[0], and mag_bias[0] at around 25 seconds suggest a potential malfunction or anomaly in the drone's systems, which could have affected the drone's stability and control. The sudden drop in gyro_healthy[0] at around 25 seconds indicates a sudden loss of gyroscope functionality, which could have further affected the drone's stability and control. Further investigation is needed to determine the cause of these anomalies and to ensure the drone's safe and reliable operation."
+"1) Understanding the Plots:
+
+- Plot 1: Delta Angle Coning Metric
+- Plot 2: Accumulated Gyro Error
+- Plot 3: Delta Vz
+- Plot 4: Battery Low Remaining Time
+
+2) Impact on Drone Behavior:
+
+- Plot 1: Sudden spike in delta angle coning metric at around 25 seconds, indicating a potential loss of control or a sharp turn.
+- Plot 2: Gradual increase in accumulated gyro error, suggesting a drift in the drone's orientation.
+- Plot 3: Sudden drop in delta Vz at around 25 seconds, indicating a sudden change in altitude.
+- Plot 4: Sudden drop in battery low remaining time at around 25 seconds, indicating a potential power issue.
+
+3) Key Observations:
+
+- Plot 1: Sudden spike in delta angle coning metric and sudden drop in delta Vz at around 25 seconds, suggesting a potential issue with the drone's control system or orientation.
+- Plot 2: Gradual increase in accumulated gyro error, indicating a drift in the drone's orientation.
+- Plot 3: Sudden drop in delta Vz at around 25 seconds, indicating a sudden change in altitude.
+- Plot 4: Sudden drop in battery low remaining time at around 25 seconds, indicating a potential power issue.
+
+4) Correlations Between Plots:
+
+- There is a correlation between the sudden spike in delta angle coning metric and the sudden drop in delta Vz at around 25 seconds, suggesting a potential issue with the drone's control system or orientation.
+- There is a correlation between the sudden drop in battery low remaining time and the sudden drop in delta Vz at around 25 seconds, suggesting a potential power issue.
+- There is a correlation between the sudden spike in delta angle coning metric and the sudden drop in battery low remaining time at around 25 seconds, suggesting a potential issue with the drone's control system or orientation and power system.
+
+In conclusion, the drone's performance based on the ULG data suggests potential issues with the drone's control system, orientation, and power system. Further investigation is needed to identify the root cause of these issues and take appropriate corrective actions."
+"1) Understanding the Plots:
+
+- Plot 1: delta_q_reset[0]
+- Plot 2: gyro_device_id_primary
+- Plot 3: gyro_device_id
+- Plot 4: average_time_to_empty
+- Plot 5: delta_xy[0]
+
+2) Impact on Drone Behavior:
+
+- Plot 1: The delta_q_reset[0] plot shows a sudden drop in the delta_q_reset[0] value at around 10 seconds, indicating a possible system reset or calibration event.
+- Plot 2: The gyro_device_id_primary plot remains constant over time, suggesting that the gyro_device_id_primary is stable and not affected by any external factors.
+- Plot 3: The gyro_device_id plot also remains constant over time, indicating that the gyro_device_id is not affected by any external factors.
+- Plot 4: The average_time_to_empty plot shows a sudden drop in the average_time_to_empty value at around 10 seconds, indicating a possible system reset or calibration event.
+- Plot 5: The delta_xy[0] plot shows a sudden drop in the delta_xy[0] value at around 10 seconds, indicating a possible system reset or calibration event.
+
+3) Key Observations:
+
+- All plots show a sudden drop in their respective values at around 10 seconds, indicating a possible system reset or calibration event.
+- The delta_q_reset[0], gyro_device_id_primary, and gyro_device_id plots remain constant over time, suggesting that these metrics are not affected by any external factors.
+- The average_time_to_empty and delta_xy[0] plots show a sudden drop in their respective values at around 10 seconds, indicating a possible system reset or calibration event.
+
+4) Correlations Between Plots:
+
+- There is a correlation between the delta_q_reset[0], gyro_device_id_primary, and gyro_device_id plots, as they all show a sudden drop in their respective values at around 10 seconds.
+- There is a correlation between the average_time_to_empty and delta_xy[0] plots, as they both show a sudden drop in their respective values at around 10 seconds.
+
+In conclusion, the sudden drop in the delta_q_reset[0], gyro_device_id_primary, and gyro_device_id plots at around 10 seconds suggests a possible system reset or calibration event. The sudden drop in the average_time_to_empty and delta_xy[0] plots at around 10 seconds also suggests a possible system reset or calibration event. The delta_xy[0] plot shows a correlation with the delta_q_reset[0] and gyro_device_id_primary plots, while the gyro_device_id plot shows a correlation with the gyro_device_id plot. The gyro_device_id_primary plot remains constant over time, suggesting that it is not affected by any external factors. The average_time_to_empty plot also remains constant over time, indicating that it is not affected by any external factors."
+"1) Understanding the Plots:
+
+- Gyro_bias[0] plot: This plot shows the gyro bias over time, with a sharp spike at the beginning and then a gradual decrease.
+- Delta_vxy[0] plot: This plot shows the delta vxy over time, with a sharp spike at the beginning and then a gradual decrease.
+- Mag_inclination_ref_deg plot: This plot shows the reference magnetic inclination over time, with a sharp spike at the beginning and then a gradual decrease.
+- RC_calibration_in_progress plot: This plot shows the RC calibration progress over time, with a sharp spike at the beginning and then a gradual decrease.
+- Mag_strength_ref_gs plot: This plot shows the reference magnetic strength over time, with a sharp spike at the beginning and then a gradual decrease.
+
+2) Impact on Drone Behavior:
+
+- Gyro_bias[0] plot: The sharp spike in gyro bias at the beginning may indicate a sudden change in the drone's orientation, which could affect its stability and control.
+- Delta_vxy[0] plot: The sharp spike in delta vxy at the beginning may indicate a sudden change in the drone's velocity, which could affect its speed and maneuverability.
+- Mag_inclination_ref_deg plot: The sharp spike in magnetic inclination at the beginning may indicate a sudden change in the drone's orientation relative to the Earth's magnetic field, which could affect its navigation and positioning.
+- RC_calibration_in_progress plot: The sharp spike in RC calibration progress at the beginning may indicate a sudden change in the drone's control system, which could affect its responsiveness and accuracy.
+- Mag_strength_ref_gs plot: The sharp spike in magnetic strength at the beginning may indicate a sudden change in the Earth's magnetic field, which could affect the drone's navigation and positioning.
+
+3) Key Observations:
+
+- All plots show a sharp spike at the beginning, followed by a gradual decrease. This suggests that the drone experienced a sudden change in its orientation, velocity, or control system at the beginning of the flight, which then stabilized over time.
+- The plots also show a correlation between the sharp spikes and the gradual decrease, indicating that the drone's performance improved over time as it stabilized after the initial changes.
+
+4) Correlations Between Plots:
+
+- There is a correlation between the sharp spikes in gyro_bias[0], delta_vxy[0], and RC_calibration_in_progress plots, indicating that the drone's orientation, velocity, and control system were all affected by the same event at the beginning of the flight.
+- There is also a correlation between the sharp spikes in magnetic_inclination_ref_deg and magnetic_strength_ref_gs plots, indicating that the drone's orientation and magnetic field strength were both affected by the same event at the beginning of the flight.
+
+Overall, the drone's performance improved over time as it stabilized after the initial changes, and the sharp spikes in the plots indicate that the drone experienced a sudden change in its orientation, velocity, or control system at the beginning of the flight. The correlation between the plots suggests that the drone's performance was affected by the same event at the beginning of the flight."
+"1) Understanding the Plots:
+
+- Plot of ay: This plot shows the yaw angle of the drone over time. The yaw angle fluctuates between -0.1 and 0.1, indicating the drone's orientation changes over time.
+- Plot of gyro_bias_limit: This plot shows the gyro bias limit of the drone over time. The gyro bias limit remains constant at 0.15, indicating the drone's stability.
+- Plot of accelerometer_timestamp_relative: This plot shows the relative timestamp of the accelerometer over time. The timestamp remains constant at 0, indicating the drone's position relative to the starting point.
+- Plot of discharged_mah: This plot shows the discharged battery level of the drone over time. The battery level remains constant at 0, indicating the drone's battery is fully charged.
+- Plot of mag_field[0]: This plot shows the magnetic field strength at the drone's position over time. The magnetic field strength remains constant at 0, indicating the drone is not affected by any magnetic field.
+
+2) Impact on Drone Behavior:
+
+- The fluctuations in the yaw angle may indicate the drone's orientation changes, which could affect its flight path and stability.
+- The constant gyro bias limit suggests the drone's stability is maintained throughout the flight.
+- The constant timestamp indicates the drone's position relative to the starting point, which could be used to track its flight path.
+- The constant battery level indicates the drone's battery is fully charged, which is crucial for its flight duration.
+- The constant magnetic field strength indicates the drone is not affected by any magnetic field, which could affect its navigation and control.
+
+3) Key Observations:
+
+- The drone's orientation changes over time, which could affect its flight path and stability.
+- The drone's stability is maintained throughout the flight, as indicated by the constant gyro bias limit.
+- The drone's position relative to the starting point is constant, which could be used to track its flight path.
+- The drone's battery is fully charged, which is crucial for its flight duration.
+- The drone is not affected by any magnetic field, which could affect its navigation and control.
+
+4) Correlations Between Plots:
+
+- There are no correlations between the plots, as each plot represents a different metric and does not affect the others.
+
+In conclusion, the drone's performance is stable and consistent, with no significant fluctuations in its orientation, stability, position, or battery level. The drone is not affected by any magnetic field, which could affect its navigation and control."
+"1) Understanding the Plots:
+
+- Plot 1: Acceleration Inconsistency
+- Plot 2: Cell Count
+- Plot 3: Airspeed
+- Plot 4: Accumulated Acceleration Error
+- Plot 5: Baro Device ID
+
+2) Impact on Drone Behavior:
+
+- Plot 1: The drone's acceleration inconsistency remains constant over time, indicating stable flight.
+- Plot 2: The cell count remains constant, suggesting the drone is not moving through different areas.
+- Plot 3: The airspeed remains constant, indicating the drone is flying at a steady speed.
+- Plot 4: The accumulated acceleration error remains constant, indicating the drone's flight path is accurate.
+- Plot 5: The baro device ID remains constant, indicating the drone is using the same barometer.
+
+3) Key Observations:
+
+- Plot 1: The drone's acceleration is consistent, suggesting stable flight.
+- Plot 2: The cell count is constant, indicating the drone is not moving through different areas.
+- Plot 3: The airspeed is constant, indicating the drone is flying at a steady speed.
+- Plot 4: The accumulated acceleration error is constant, indicating the drone's flight path is accurate.
+- Plot 5: The baro device ID is constant, indicating the drone is using the same barometer.
+
+4) Correlations Between Plots:
+
+- Plot 1 and Plot 4 are correlated, as both indicate stable flight.
+- Plot 2 and Plot 3 are correlated, as both indicate the drone is not moving through different areas.
+- Plot 4 and Plot 5 are correlated, as both indicate the drone is using the same barometer.
+
+Overall, the drone's flight is stable and accurate, with no significant changes in acceleration, cell count, airspeed, or barometer usage."
+"1) Understanding the Plots:
+
+The plots show four different metrics: mag_bias_limit, delta_velocity_clipping, gyro_bias_stable, and baro_temp_celcius. Each plot displays the behavior of these metrics over time, measured in seconds.
+
+2) Impact on Drone Behavior:
+
+The mag_bias_limit plot shows a constant value of 0.5, indicating that the drone's magnetic bias is stable and within the desired range. The delta_velocity_clipping plot also remains constant at 0, suggesting that the drone's velocity is not changing. The gyro_bias_stable plot shows a sudden spike at around 15 seconds, which could indicate a temporary malfunction or a sensor error. The baro_temp_celcius plot shows a sudden drop in temperature at around 15 seconds, which could be due to a sudden change in altitude or a sensor error.
+
+3) Key Observations:
+
+- The drone's magnetic bias is stable and within the desired range.
+- The drone's velocity remains constant.
+- There is a sudden spike in gyro bias at around 15 seconds, which could be a potential issue.
+- There is a sudden drop in temperature at around 15 seconds, which could be a potential issue.
+
+4) Correlations Between Plots:
+
+There is no clear correlation between the plots, as each metric behaves independently. However, the sudden spike in gyro bias and temperature drop at around 15 seconds could be related, as they both occur at the same time.
+
+In conclusion, the drone's magnetic bias and velocity are stable, but there are potential issues with the gyro and baro sensors that need to be investigated. Further analysis is required to determine the cause of these anomalies and to ensure the drone's safe and efficient operation."
+"1) Understanding the Plots:
+
+- Plot 1: gyro_device_ids[0]
+- Plot 2: gyro_bias_variance[0]
+- Plot 3: baro_vpos
+- Plot 4: accel_calibration_count
+- Plot 5: gyro_integral_dt
+
+2) Impact on Drone Behavior:
+
+- Plot 1: Stable gyro_device_ids[0] indicates consistent gyro sensor readings.
+- Plot 2: Stable gyro_bias_variance[0] suggests stable gyro bias.
+- Plot 3: Stable baro_vpos indicates stable altitude.
+- Plot 4: Stable accel_calibration_count indicates stable acceleration calibration.
+- Plot 5: Stable gyro_integral_dt indicates stable gyro integral time.
+
+3) Key Observations:
+
+- All plots show stability in drone's sensors and calibration.
+- No significant correlations between plots.
+
+4) Correlations Between Plots:
+
+- No significant correlations between plots.
+
+ 1) Understanding the Plots:
+
+- Plot 1: gyro_device_ids[0] shows consistent gyro sensor readings.
+- Plot 2: gyro_bias_variance[0] indicates stable gyro bias.
+- Plot 3: baro_vpos shows stable altitude.
+- Plot 4: accel_calibration_count indicates stable acceleration calibration.
+- Plot 5: gyro_integral_dt shows stable gyro integral time.
+
+2) Impact on Drone Behavior:
+
+- Plot 1: Stable gyro_device_ids[0] indicates consistent gyro sensor readings.
+- Plot 2: Stable gyro_bias_variance[0] suggests stable gyro bias.
+- Plot 3: Stable baro_vpos indicates stable altitude.
+- Plot 4: Stable accel_calibration_count indicates stable acceleration calibration.
+- Plot 5: Stable gyro_integral_dt indicates stable gyro integral time.
+
+3) Key Observations:
+
+- All plots show stability in drone's sensors and calibration.
+- No significant correlations between plots.
+
+4) Correlations Between Plots:
+
+- No significant correlations between plots.
+
+ 1) Understanding the Plots:
+
+- Plot 1: gyro_device_ids[0] shows consistent gyro sensor readings.
+- Plot 2: gyro_bias_variance[0] indicates stable gyro bias.
+- Plot 3: baro_vpos shows stable altitude.
+- Plot 4: accel_calibration_count indicates stable acceleration calibration.
+- Plot 5: gyro_integral_dt shows stable gyro integral time.
+
+2) Impact on Drone Behavior:
+
+- Plot 1: Stable gyro_device_ids[0] indicates consistent gyro sensor readings.
+- Plot 2: Stable gyro_bias_variance[0] suggests stable gyro bias.
+- Plot 3: Stable baro_vpos indicates stable altitude.
+- Plot 4: Stable accel_calibration_count indicates stable acceleration calibration.
+- Plot 5: Stable gyro_integral_dt indicates stable gyro integral time.
+
+3) Key Observations:
+
+- All plots show stability in drone's sensors and calibration.
+- No significant correlations between plots.
+
+4) Correlations Between Plots:
+
+- No significant correlations between plots.
+
+ 1) Understanding the Plots:
+
+- Plot 1: gyro_device_ids[0] shows consistent gyro sensor readings.
+- Plot 2: gyro_bias_variance[0] indicates stable gyro bias.
+- Plot 3: baro_vpos shows stable altitude.
+- Plot 4: accel_calibration_count indicates stable acceleration calibration.
+- Plot 5: gyro_integral_dt shows stable gyro integral time.
+
+2) Impact on Drone Behavior:
+
+- Plot 1: Stable gyro_device_ids[0] indicates consistent gyro sensor readings.
+"
+"1) Understanding the Plots:
+
+The plots show the following metrics over time:
+
+1. Capacity: This plot shows the capacity of the drone's battery over time. The capacity remains constant at 100% throughout the 30-second duration.
+
+2. Accel Device ID: This plot shows the acceleration device ID of the drone over time. The device ID remains constant at 1000000000 throughout the 30-second duration.
+
+3. Accel Innov Test Ratio: This plot shows the innov test ratio of the drone over time. The ratio remains constant at 0.0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+"1) Understanding the Plots:
+
+The plots show four different metrics: accel_error_count, accel_bias_limit, gyro_clipping[0], and accel_vibration_metric, each plotted against time in seconds.
+
+2) Impact on Drone Behavior:
+
+The plots indicate that the drone's performance is stable and consistent over time, with no significant fluctuations in the metrics.
+
+3) Key Observations:
+
+- The accel_error_count remains at 0 throughout the time period, indicating no errors in acceleration.
+- The accel_bias_limit remains constant at 0.4, suggesting that the drone's acceleration is within the acceptable range.
+- The gyro_clipping[0] remains at 0, indicating that the drone's gyroscopic data is not being clipped.
+- The accel_vibration_metric shows some fluctuations, but overall, it remains within a reasonable range.
+
+4) Correlations Between Plots:
+
+There are no significant correlations between the plots, as each metric behaves independently.
+
+In conclusion, the drone's performance appears to be stable and consistent, with no significant issues in the metrics displayed."
+"1) Understanding the Plots:
+
+The first plot is a line graph titled ""Plot of mag_inclination_deg"" which shows the drone's magnetic inclination in degrees over time. The second plot is a line graph titled ""Plot of airspeed_timestamp_rel"" which shows the drone's airspeed relative to the timestamp over time.
+
+2) Impact on Drone Behavior:
+
+The drone's magnetic inclination remains constant at 0.00 degrees, indicating that the drone is flying at a level altitude. The airspeed relative to the timestamp remains constant at 33500 meters per second, indicating that the drone is maintaining a consistent speed.
+
+3) Key Observations:
+
+The drone is flying at a constant altitude and speed, with no significant changes in either metric over the 30-second time period.
+
+4) Correlations Between Plots:
+
+There are no significant correlations between the two plots, as the magnetic inclination and airspeed remain constant over time.
+
+In conclusion, the drone is flying at a constant altitude and speed, with no significant changes in either metric over the 30-second time period. The drone's behavior is stable and consistent, with no significant correlations between the magnetic inclination and airspeed."
