@@ -63,7 +63,7 @@ We designed our own System-Under-Tests. The implementation of these SuTs can be 
 
 ### AUTOSIMTEST Framework Codebase
 
-The implementation of the AutoSimTest Framework including all Agents and communication between then is available here [Go to AutoSimTestFramework](AutoSimTestFramework/AutoSimTestFramework) for replication and further research and analysis.
+The implementation of the AutoSimTest Framework including all Agents and communication between then is available here [Go to AutoSimTestFramework](AutoSIMTestFramework/) for replication and further research and analysis.
 
 ### AutoSimTestFramework Setup Guide
 
