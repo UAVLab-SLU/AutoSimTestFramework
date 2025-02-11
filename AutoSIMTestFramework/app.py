@@ -1,5 +1,5 @@
 from flask import Flask, request, jsonify,send_file
-from agent2 import Agents
+from Agents import Agents
 from io import BytesIO
 import base64
 
@@ -42,7 +42,6 @@ def analyze():
     if not analytics_input:
         return jsonify({"error": "Analytics input is required."}), 400
     text, images,Analysis = Agents.Analytics_three(analytics_input)
-    torch.cuda.empty_cache()
 
     image_data = []
     for image in images:
@@ -61,7 +60,6 @@ def analyze():
 def newanalytics():
     analytics_input = request.json.get('analytics_input', '')
     images ,response = Agents.new_analytics(analytics_input)
-    torch.cuda.empty_cache()
     print(images)
     image_data = []
     for image in images:
@@ -81,14 +79,11 @@ def deepdiverequest():
     deep_dive_input2 = request.json.get('deep_dive_input2', '')
 
     response = Agents.clarification(deep_dive_input1,deep_dive_input2)
-    torch.cuda.empty_cache()
     return jsonify({
         "output_one": response,
     })
 
 
-
-    
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=5000)
