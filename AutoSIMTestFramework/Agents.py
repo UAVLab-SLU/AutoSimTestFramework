@@ -68,7 +68,7 @@ def combine_context(contentlist):
 
 class ModelManager:
     def __init__(self):
-        self.groq_client = Groq(api_key="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")
+        self.groq_client = Groq(api_key="YOUR API KEY HERE")
 
     def load_model(self, model_id):
         # Only Groq models are supported now
