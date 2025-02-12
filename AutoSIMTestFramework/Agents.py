@@ -8,22 +8,21 @@ import faiss
 import re
 from PIL import Image 
 import requests 
-import torch
 import matplotlib.pyplot as plt
 import json
-from transformers import AutoModelForCausalLM ,AutoTokenizer,AutoProcessor,pipeline
-from transformers import BitsAndBytesConfig
+from groq import Groq
 
 import argparse
 data = pd.read_csv("knowledga_base.csv")
+root = '/Users/aadityashah/Downloads/LLMS/'
 
-Analytics_data = pd.read_csv("/home/uav/Documents/AI_Hunter/LLMS/ulg_data/wind1_context_columns.csv")
+Analytics_data = pd.read_csv(f"{root}/ulg_data/wind1_context_columns.csv")
 
 with open('missions.json', 'r') as file:
     mission_json_data = json.load(file)
 
 
-with open('/home/uav/Documents/AI_Hunter/LLMS/columns.txt', 'r') as file:
+with open(f'{root}/columns.txt', 'r') as file:
     analytics_columns = file.read()
 
 #load knowledge base
@@ -31,8 +30,6 @@ knowledge = data.drop(["filename","synopsis"],axis=1)
 knowledge_tensor = torch.tensor(knowledge.values, dtype=torch.float32)
 normalized_embeddings  = F.normalize(knowledge_tensor, p=2.0, dim=1)
 dimension = knowledge_tensor.shape[1]
-res = faiss.StandardGpuResources()
-# index = faiss.GpuIndexFlatIP(res,dimension)
 index = faiss.IndexFlatIP(dimension)
 
 index.add(normalized_embeddings.numpy())
@@ -42,8 +39,6 @@ knowledge_a = Analytics_data.drop(["parameter","description","content"],axis=1)
 knowledge_tensor_a = torch.tensor(knowledge_a.values, dtype=torch.float32)
 normalized_embeddings_a  = F.normalize(knowledge_tensor_a, p=2.0, dim=1)
 dimension_a = knowledge_tensor_a.shape[1]
-res_a = faiss.StandardGpuResources()
-# index_a = faiss.GpuIndexFlatIP(res_a,dimension_a)
 index_a = faiss.IndexFlatIP(dimension_a)
 
 index_a.add(normalized_embeddings_a.numpy())
@@ -71,75 +66,34 @@ def search_a(query,k):
 def combine_context(contentlist):
     return "---\n".join(contentlist)
 
-nf4_config = BitsAndBytesConfig(
-   load_in_4bit=True,
-   bnb_4bit_quant_type="nf4",
-   bnb_4bit_use_double_quant=True,
-   bnb_4bit_compute_dtype=torch.bfloat16
-)
-
-
 class ModelManager:
     def __init__(self):
-        self.models = {}
-        self.tokenizers = {}
-        self.processors = {}
-        self.current_model_id = None
+        self.groq_client = Groq(api_key="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")
 
-    def load_model(self, model_id, device_map="cuda", quantization_config=nf4_config):
-        if self.current_model_id != model_id:
-            if self.current_model_id is not None:
-                self.unload_model(self.current_model_id)
-            self.models[model_id] = AutoModelForCausalLM.from_pretrained(
-                model_id, 
-                device_map=device_map, 
-                quantization_config=nf4_config, 
-                trust_remote_code=True
-            )
-            self.tokenizers[model_id] = AutoTokenizer.from_pretrained(model_id)
-            if 'vision' in model_id:
-                self.processors[model_id] = AutoProcessor.from_pretrained(
-                    model_id, 
-                    quantization_config=nf4_config, 
-                    trust_remote_code=True
-                )
-            self.current_model_id = model_id
-
-        return self.models[model_id], self.tokenizers[model_id], self.processors.get(model_id, None)
-
-    def unload_model(self, model_id):
-        if model_id in self.models:
-            del self.models[model_id]
-            del self.tokenizers[model_id]
-            if model_id in self.processors:
-                del self.processors[model_id]
-            torch.cuda.empty_cache()
-
-# Instantiate the model manager
-model_manager = ModelManager()
-
-
+    def load_model(self, model_id):
+        # Only Groq models are supported now
+        return None, None, None
 
 class Agents:
-    model_manager = model_manager
+    model_manager = ModelManager()
+    
     @staticmethod
     def model_x(messages, temp, sample, tokens, model_id):
-
-        model, tokenizer, processor = Agents.model_manager.load_model(model_id, device_map="cuda", quantization_config=nf4_config)
-        generation_args = {
-            "max_new_tokens": tokens,
-            "temperature": temp,
-            "do_sample": sample,
-        }
-
-        if processor is not None:
-            pipe = pipeline("text-to-image", model=model, tokenizer=tokenizer, processor=processor)
-        else:
-            pipe = pipeline("text-generation", model=model, tokenizer=tokenizer)
-        
-        output = pipe(messages, **generation_args)
-        return output[0]['generated_text']
-
+        # Format messages for Groq
+        formatted_messages = []
+        for msg in messages:
+            formatted_messages.append({
+                "role": msg["role"],
+                "content": msg["content"]
+            })
+                
+        completion = Agents.model_manager.groq_client.chat.completions.create(
+            model=model_id,
+            messages=formatted_messages,
+            temperature=temp,
+            max_tokens=tokens
+        )
+        return [{"content": completion.choices[0].message.content}]
 
     @staticmethod
     def scenario_generator_Agent(user_input):
@@ -203,7 +157,7 @@ class Agents:
         temp = 0.0
         sample = False
         tokens = 10000
-        response = Agents.model_x(messages, temp, sample,tokens,"microsoft/Phi-3-medium-128k-instruct")
+        response = Agents.model_x(messages, temp, sample,tokens,"llama-3.3-70b-versatile")
         return response[-1]["content"],context
 
     @staticmethod
@@ -284,7 +238,7 @@ class Agents:
         temp = 0.0
         sample = False
         tokens = 10000
-        agent_response = Agents.model_x(messages, temp, sample,tokens,"microsoft/Phi-3-medium-128k-instruct")
+        agent_response = Agents.model_x(messages, temp, sample,tokens,"llama-3.3-70b-versatile")
         return agent_response[-1]["content"]
 
     @staticmethod
@@ -340,7 +294,7 @@ class Agents:
         temp = 0.0
         sample = False
         tokens = 5000
-        agent_response = Agents.model_x(messages, temp, sample,tokens,"microsoft/Phi-3-medium-128k-instruct")
+        agent_response = Agents.model_x(messages, temp, sample,tokens,"llama-3.3-70b-versatile")
         return agent_response[-1]["content"]
         
     @staticmethod
@@ -395,7 +349,7 @@ class Agents:
 
         Answer_relevancy - Measures how relevant the answer is to the question.
 
-        Context_recall - Measures the retriever’s ability to retrieve all necessary information required to answer the question.
+        Context_recall - Measures the retriever's ability to retrieve all necessary information required to answer the question.
 
         """
         messages = [ 
@@ -407,7 +361,7 @@ class Agents:
         temp = 0.0
         sample = False
         tokens = 250
-        agent_response = Agents.model_x(messages, temp, sample,tokens,"microsoft/Phi-3-medium-128k-instruct")
+        agent_response = Agents.model_x(messages, temp, sample,tokens,"llama-3.3-70b-versatile")
         pattern = r"(\d+)\.\s(\w+):\s(\d\.\d)\s-\s(.+?)\n"
 
         matches = re.findall(pattern, agent_response[-1]["content"])
@@ -428,7 +382,6 @@ class Agents:
     @staticmethod
     def main(user_input,mission_type):
         scenario_response,cotext = Agents.scenario_generator_Agent(user_input)
-        torch.cuda.empty_cache()
         missions, rest = Agents.helper_for_mission_and_environment(scenario_response)
         
         mission_responses = []
@@ -437,11 +390,9 @@ class Agents:
         for mission in missions:
             mission_response = Agents.Mission_Agent(mission,mission_type)
             mission_responses.append(mission_response)
-            torch.cuda.empty_cache()
         for rest_part in rest:
             environment_response = Agents.Environment_specification_Agent(rest_part)
             environment_responses.append(environment_response)
-            torch.cuda.empty_cache()
         environment_json_list, mission_json_list,index = Agents.json_extraction(environment_responses, mission_responses)
         try:
             df1 = pd.DataFrame([user_input,cotext,scenario_response,str(index)])
@@ -488,7 +439,7 @@ class Agents:
         temp = 0.0
         sample = False
         tokens = 1000
-        agent_response = Agents.model_x(messages, temp, sample,tokens,"microsoft/Phi-3-medium-128k-instruct")
+        agent_response = Agents.model_x(messages, temp, sample,tokens,"llama-3.3-70b-versatile")
         return agent_response[-1]["content"]
     @staticmethod
     def extract_scenarios(text):
@@ -522,7 +473,7 @@ class Agents:
         temp = 0.0
         sample = False
         tokens = 1000
-        agent_response = Agents.model_x(messages, temp, sample,tokens,"microsoft/Phi-3-medium-128k-instruct")
+        agent_response = Agents.model_x(messages, temp, sample,tokens,"llama-3.3-70b-versatile")
         print(agent_response[-1]["content"])
         return agent_response[-1]["content"]
 
@@ -578,9 +529,8 @@ class Agents:
     @staticmethod
     def Analytics_two(file_path):
         text = Agents.Analytics_one(file_path)
-        torch.cuda.empty_cache()
         
-        df = pd.read_csv("/home/uav/Documents/AI_Hunter/LLMS/ulg_data/wind1_filtered.csv")
+        df = pd.read_csv(f"{root}/ulg_data/wind1_filtered.csv")
         non_empty_columns = [col for col in df.columns if df[col].notnull().any()]
         responses = []
         columns_l = []
@@ -608,7 +558,7 @@ class Agents:
             temp = 0.0
             sample = False
             tokens = 1000
-            agent_response = Agents.model_x(messages, temp, sample,tokens,"microsoft/Phi-3-medium-128k-instruct")
+            agent_response = Agents.model_x(messages, temp, sample,tokens,"llama-3.3-70b-versatile")
             responses.append(agent_response[-1]["content"])
             torch.cuda.empty_cache()
             # return agent_response[-1]["content"]
@@ -629,30 +579,15 @@ class Agents:
 
     @staticmethod
     def Analytics_three(file_path):#image_path):
-        # df = pd.read_csv("/home/uav/Documents/AI_Hunter/LLMS/ulg_data/wind1_filtered.csv")
+        # df = pd.read_csv(f"{root}/ulg_data/wind1_filtered.csv")
         
-        df = pd.read_csv("/home/uav/Documents/AI_Hunter/LLMS/ulg_data/06_40_19.csv")
+        df = pd.read_csv(f"{root}/ulg_data/06_40_19.csv")
         # non_empty_columns = [col for col in df.columns if df[col].notnull().any()]
         # Agents.create_and_save_plots(df,filtered_data,"plots_data")
         # text = Agents.Analytics_one(file_path)
         text,images = Agents.Analytics_two(file_path)
         # image_path = input("Enter the path to the plots folder")
         
-        model_id = "microsoft/Phi-3-vision-128k-instruct" 
-        # quantization_config = BitsAndBytesConfig(load_in_4bit=True)#,llm_int4_threshold=6.0,llm_int8_skip_modules=None,trust_remote_code=True)
-        
-        model, tokenizer, processor = Agents.model_manager.load_model(model_id, device_map="cuda", quantization_config=nf4_config)
-
-
-        # cls.model =  AutoModelForCausalLM.from_pretrained(model_id, device_map="cuda", trust_remote_code=True, torch_dtype="auto", _attn_implementation='flash_attention_2') # use _attn_implementation='eager' to disable flash attention
-
-        
-        # images = Agents.load_images_from_folder(file_path)
-        # s = ""
-        # for i in range(len(images)):
-        #     s+= f"<|image_{i+1}|>"
-
-
         responses_ll = []
         for i in range(0,len(images),5):
             image_tags = "".join([f"<|image_{j+1}|>" for j in range(len(images[i:i+5]))])
@@ -673,116 +608,24 @@ class Agents:
                 {"role": "user", "content":f"{image_tags}\ni would like a detailed analysis of the images I have provided, focusing on the metrics displayed and their impact on drone behavior"}, 
                 {"role": "assistant", "content": "understand what is present in images and give very insightfull responses as per user questions"}, 
                 {"role": "user", "content": f"{promt_a}"} 
-            ] 
+            ]
 
-            # image = Image.open(requests.get(url, stream=True).raw) 
-
-            batch_images = images[i:i+5]
-            prompt = processor.tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
-            for j, image in enumerate(batch_images):
-                image.id = j + 1
-            inputs = processor(prompt,batch_images, return_tensors="pt").to("cuda:0") 
-
-            generation_args = { 
-                "max_new_tokens": 1000, 
-                "temperature": 0.0, 
-                "do_sample": False, 
-            } 
-
-            generate_ids = model.generate(**inputs, eos_token_id=processor.tokenizer.eos_token_id, **generation_args) 
-
-            # remove input tokens 
-            generate_ids = generate_ids[:, inputs['input_ids'].shape[1]:]
-            response = processor.batch_decode(generate_ids, skip_special_tokens=True, clean_up_tokenization_spaces=False)[0] 
-            responses_ll.append(response)
+            temp = 0.0
+            sample = False
+            tokens = 1000
+            agent_response = Agents.model_x(messages, temp, sample, tokens, "llama-3.3-70b-versatile")
+            responses_ll.append(agent_response[-1]["content"])
             torch.cuda.empty_cache()
+
         Analysis = ""
         for res in responses_ll:
             Analysis += res
-        # Data_a = pd.read_csv(f"user_analytics/{file_path}.csv")
-
-        # Analysis = ""
-        # for res in Data_a["0"]:
-        #     Analysis += res
         
-        # torch.cuda.empty_cache()
         df_t = pd.DataFrame(responses_ll)
         df_t.to_csv(f"user_analytics/{file_path}.csv",index =False)
         print(Analysis)
         return text,images,Analysis
 
-
-        # print(f"Initial analysis is complete.\n{Analysis} You may now ask further questions.")
-        # while True:
-        #     user_query = input("Enter your question or type 'exit' to finish: ")
-        #     if user_query.lower() == 'exit':
-        #         break
-        #     prompt_Ab = f"""
-        #     Provide explanation and clarification based on the user's question regarding the provided analytics data.
-        #     ==========================
-        #     Analysis data:-{Analysis}
-        #     ==========================
-        #     instructions:-
-        #     user questions :-{user_query}"""
-        #     messages = [
-        #         {"role": "system", "content": "intelligent AI system cabale of Answering any question you have"},  # Passing previous responses as memory
-        #         {"role": "user", "content": f"{prompt_Ab}"}
-        #     ]
-
-        #     prompt = processor.tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
-        #     inputs = processor(prompt, return_tensors="pt").to("cuda:0")
-
-        #     generate_ids = model.generate(**inputs, eos_token_id=processor.tokenizer.eos_token_id, **generation_args)
-        #     generate_ids = generate_ids[:, inputs['input_ids'].shape[1]:]  # Remove input tokens
-        #     response = processor.batch_decode(generate_ids, skip_special_tokens=True, clean_up_tokenization_spaces=False)[0]
-        #     print("AI Response:", response)
-        # print("you need any questions further Apart from this Analytics??")
-        # while True:
-        #     user_query = input("Enter your question or type 'exit' to finish: ")
-        #     if user_query.lower() == 'exit':
-        #         break
-        #     cosine_similarity, indices = search_a(user_query, 5)
-        #     contextlist = Analytics_data.iloc[indices[0]]["parameter"]
-        #     # context = combine_context(contextlist)
-        #     Agents.create_and_save_plots(df,contextlist.to_list(),user_query)
-            
-        #     image_tags = "".join([f"<|image_{j+1}|>" for j in range(len(contextlist.to_list()))])
-        #     path_to_load = input("give the path to directory")
-        #     images_n = Agents.load_images_from_folder(path_to_load)
-        #     promt_a = """
-        #     Analytics Report Request for Drone ULG Data
-        #     I have a set of plots derived from my drone's ULG data. As an expert in drone analytics, I would like you to analyze these plots and provide a detailed report.
-        #     The report should include the following:
-        #     1)Understanding the Plots 2)Impact on Drone Behavior 3)Key Observations 4)Correlations Between Plots
-        #     Rules:
-        #     1)Understand the plots and provide your expert opinion.
-        #     2)Keep the response crisp and summarized, with key observations highlighted.
-        #     3)Highlight any correlations between plots.
-        #     Please ensure the report is comprehensive yet concise, offering actionable insights and a clear understanding of the drone's performance based on the ULG data.
-        #     """
-
-        #     messages = [ 
-        #         {"role": "user", "content":f"{image_tags}\ni would like a detailed analysis of the images I have provided, focusing on the metrics displayed and their impact on drone behavior"}, 
-        #         {"role": "assistant", "content": "understand what is present in images and give very insightfull responses as per user questions"}, 
-        #         {"role": "user", "content": f"{promt_a}"} 
-        #     ] 
-        #     generation_args = { 
-        #         "max_new_tokens": 1000, 
-        #         "temperature": 0.0, 
-        #         "do_sample": False, 
-        #     }
-        #     # messages = [
-        #     #     {"role": "system", "content": f"{Analysis}"},  # Passing previous responses as memory
-        #     #     {"role": "user", "content": f"{user_query}"}
-        #     # ]
-
-        #     prompt = processor.tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
-        #     inputs = processor(prompt,images_n, return_tensors="pt").to("cuda:0")
-
-        #     generate_ids = model.generate(**inputs, eos_token_id=processor.tokenizer.eos_token_id, **generation_args)
-        #     generate_ids = generate_ids[:, inputs['input_ids'].shape[1]:]  # Remove input tokens
-        #     response = processor.batch_decode(generate_ids, skip_special_tokens=True, clean_up_tokenization_spaces=False)[0]
-        #     print("AI Response:", response)
     @staticmethod
     def clarification(file_path,user_query):
         Data_a = pd.read_csv(f"user_analytics/{file_path}.csv")
@@ -790,10 +633,7 @@ class Agents:
         Analysis = ""
         for res in Data_a["0"]:
             Analysis += res
-        model_id = "microsoft/Phi-3-vision-128k-instruct"
-        model, tokenizer, processor = Agents.model_manager.load_model(model_id, device_map="cuda", quantization_config=nf4_config)
 
-        # user_query = user_query
         prompt_Ab = f"""
         Provide explanation and clarification based on the user's question regarding the provided analytics data.
         ==========================
@@ -802,39 +642,24 @@ class Agents:
         instructions:-
         user questions :-{user_query}"""
         messages = [
-            {"role": "system", "content": "intelligent AI system cabale of Answering any question you have"},  # Passing previous responses as memory
+            {"role": "system", "content": "intelligent AI system cabale of Answering any question you have"},
             {"role": "user", "content": f"{prompt_Ab}"}
         ]
-        generation_args = { 
-            "max_new_tokens": 1000, 
-            "temperature": 0.0, 
-            "do_sample": False, 
-        }
 
-        prompt = processor.tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
-        inputs = processor(prompt, return_tensors="pt").to("cuda:0")
-
-        generate_ids = model.generate(**inputs, eos_token_id=processor.tokenizer.eos_token_id, **generation_args)
-        generate_ids = generate_ids[:, inputs['input_ids'].shape[1]:]  # Remove input tokens
-        response = processor.batch_decode(generate_ids, skip_special_tokens=True, clean_up_tokenization_spaces=False)[0]
-        return response
-
-        
-            # return responses_ll
-        # print(response)
+        temp = 0.0
+        sample = False
+        tokens = 1000
+        agent_response = Agents.model_x(messages, temp, sample, tokens, "llama-3.3-70b-versatile")
+        return agent_response[-1]["content"]
 
     @staticmethod
     def new_analytics(user_query):
-        model_id = "microsoft/Phi-3-vision-128k-instruct"
-        model, tokenizer, processor = Agents.model_manager.load_model(model_id, device_map="cuda", quantization_config=nf4_config)
-        df = pd.read_csv("/home/uav/Documents/AI_Hunter/LLMS/ulg_data/06_40_19.csv")
+        df = pd.read_csv(f"{root}/ulg_data/06_40_19.csv")
         cosine_similarity, indices = search_a(user_query, 5)
         contextlist = Analytics_data.iloc[indices[0]]["parameter"]
-        # context = combine_context(contextlist)
         Agents.create_and_save_plots(df,contextlist.to_list(),user_query)
         
         image_tags = "".join([f"<|image_{j+1}|>" for j in range(len(contextlist.to_list()))])
-        # path_to_load = input("give the path to directory")
         path_to_load = user_query
         images_n = Agents.load_images_from_folder(path_to_load)
         promt_a = """
@@ -853,25 +678,13 @@ class Agents:
             {"role": "user", "content":f"{image_tags}\ni would like a detailed analysis of the images I have provided, focusing on the metrics displayed and their impact on drone behavior"}, 
             {"role": "assistant", "content": "understand what is present in images and give very insightfull responses as per user questions"}, 
             {"role": "user", "content": f"{promt_a}"} 
-        ] 
-        generation_args = { 
-            "max_new_tokens": 1000, 
-            "temperature": 0.0, 
-            "do_sample": False, 
-        }
-        # messages = [
-        #     {"role": "system", "content": f"{Analysis}"},  # Passing previous responses as memory
-        #     {"role": "user", "content": f"{user_query}"}
-        # ]
+        ]
 
-        prompt = processor.tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
-        inputs = processor(prompt,images_n, return_tensors="pt").to("cuda:0")
-
-        generate_ids = model.generate(**inputs, eos_token_id=processor.tokenizer.eos_token_id, **generation_args)
-        generate_ids = generate_ids[:, inputs['input_ids'].shape[1]:]  # Remove input tokens
-        response = processor.batch_decode(generate_ids, skip_special_tokens=True, clean_up_tokenization_spaces=False)[0]
-        return images_n,response
-        # print("AI Response:", response)
+        temp = 0.0
+        sample = False
+        tokens = 1000
+        agent_response = Agents.model_x(messages, temp, sample, tokens, "llama-3.3-70b-versatile")
+        return images_n, agent_response[-1]["content"]
 
 
 # if __name__ == "__main__":
